@@ -36,6 +36,8 @@ $signature_travel_1_caption             = get_post_meta(get_the_ID(), 'signature
 
 $signature_travel_section_2_title_link  = get_post_meta(get_the_ID(), 'signature-travel-section-2-title-link', true);
 $signature_travel_section_2_title       = get_post_meta(get_the_ID(), 'signature-travel-section-2-title', true);
+//$signature_travel_section_2_sub_title   = get_post_meta(get_the_ID(), 'signature-travel-section-2-sub-title', true);
+//$signature_travel_section_2_caption     = get_post_meta(get_the_ID(), 'signature-travel-section-2-caption', true);
 $signature_travel_2_image               = get_post_meta(get_the_ID(), 'signature-travel-2-image', true);
 $signature_travel_2_sub_title           = get_post_meta(get_the_ID(), 'signature-travel-2-sub-title', true);
 $signature_travel_2_caption             = get_post_meta(get_the_ID(), 'signature-travel-2-caption', true);
