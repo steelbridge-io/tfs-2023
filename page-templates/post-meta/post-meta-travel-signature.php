@@ -6,6 +6,10 @@ $signature_travel_description		= get_post_meta(get_the_ID(), 'signature-travel-d
 
 $basic_page_description					= get_post_meta(get_the_ID(), 'signature-description', true);
 
+$prime_travel_header_image      = get_post_meta(get_the_ID(), 'prime-travel-header-image', true);
+$prime_travel_logo              = get_post_meta(get_the_ID(), 'prime-travel-logo', true);
+$prime_travel_description       = get_post_meta(get_the_ID(), 'prime-travel-description', true);
+
 $signature_travel_csel_1_link		= get_post_meta(get_the_ID(), 'signature-travel-csel-1-link', true);
 $signature_travel_csel_1_img		= get_post_meta(get_the_ID(), 'signature-travel-csel-1-img', true);
 

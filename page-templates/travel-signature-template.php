@@ -72,20 +72,27 @@ get_header(); ?>
     </div>
   </header>
 
-	<?php endif; ?>
+	<?php endif;
+	
+	if($prime_travel_header_image !== '' || $prime_travel_logo !== '' || $prime_travel_description !== '' ) : ?>
  
-	<div id="prime-travel-travel-template">
+	<!-- Prime Travel -->
+	<div id="prime-travel-travel-template" data-aos="fade-up">
 		<div class="container-fluid">
 			<div class="panel panel-default">
-				<div class="panel-heading"><img src="" alt="Prime Travel Image"></div>
+				<div class="panel-heading">
+					<img class="img-reponsive center-block" src="<?php echo $prime_travel_header_image; ?>" alt="Prime Travel Image" title="Prime Travel Image">
+				</div>
 				<div class="panel-body">
-					<div class="container">
-						<div class="row">
-							<div class="col-4-md">
-								<img src="" alt="Prime Travel Logo" >
-							</div>
-							<div class="col-8-md">
-							
+					<div class="row">
+						<div class="col-md-4">
+							<img class="img-reponsive center-block" src="<?php echo $prime_travel_logo; ?>" alt="Prime Travel Logo" title="Prime Travel Logo" >
+						</div>
+						<div class="col-md-8">
+							<div class="card">
+								<div class="card-body">
+									<?php echo $prime_travel_description; ?>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -93,14 +100,16 @@ get_header(); ?>
 			</div>
 		</div>
 	</div>
+	
+	<?php endif; ?>
   
-  <div id="travel-signature-template" class="travel-signature-template container-fluid mb-1618">
+  <!-- <div id="travel-signature-template" class="travel-signature-template container-fluid mb-1618">
     <div class="row">
       <div class="newscta" id="news-cta">
         <div data-aos-duration="2000" data-aos="fade-up" class="news-section">
           <div class="mt-2618 mb-2618 desktop">
-            <h2>Latest Travel News</h2>
-            <?php
+            <h2>Latest Travel News</h2> -->
+            <?php /*
             $args = array(
               'post_type' => 'travel-blog',
               'post_status' => 'publish',
@@ -155,15 +164,15 @@ get_header(); ?>
                      </div>
                      </div>';
             endwhile;
-            wp_reset_postdata(); ?>
-          </div>
+            wp_reset_postdata(); */ ?>
+        <!--  </div>
         </div>
         <div class="mb-2618">
           <a href="/travelblog-category/travel-blog"><button type="button" class="blog-read-more btn btn-red">Read More News Here</button></a>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- body content -->
   <div class="container">
