@@ -1,0 +1,15 @@
+/* SCSS for content.php template part
+----------------------------------------- */
+#content-template-part-content {
+  .content-part {
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+h2.content-title {
+  font-size: 1.5rem;
+  line-height: 1em;
+  margin-bottom: .5em;
+}

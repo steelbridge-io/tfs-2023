@@ -1,0 +1,64 @@
+/** SCSS Global Properties
+=========================== */
+body {
+  overflow: hidden;
+}
+
+#scrollto {
+  color: $white;
+}
+
+.btn-dark {
+  background-color: $tfs_dark;
+  border: $tfs_dark;
+  color: $lightgrey;
+  &:hover {
+    color: $lightgrey;
+  }
+  &:focus {
+    color:$lightgrey;
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
+}
+
+.btn {
+  &:active {
+    outline: none !important;
+  }
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.post-nav {
+  display: flex;
+  align-content: center;
+}
+.nav-next a:hover,
+.nav-previous a:hover {
+  text-decoration: none;
+}
+/*@charset "UTF-8";
+
+@function unicode($str) {
+  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
+}
+
+.nav-next::after {
+  font-family: "FontAwesome";
+  font-weight: 900;
+  content: unicode($fa-var-right-chevron);
+  font-size: 2em;
+  margin-left: .2em;
+}
+
+.nav-previous::before {
+  font-family: "FontAwesome";
+  font-weight: 900;
+  content: unicode($fa-var-left-chevron);
+  font-size: 2em;
+  margin-right: .2em;
+} */

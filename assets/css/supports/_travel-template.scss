@@ -1,0 +1,22 @@
+/** SCSS Travel Template
+============================ */
+
+.travel-template-banner {
+  .inner {
+    h2 {
+      font-size: calc( 16px + (24 - 16)*(100vw - 400px)/(800 - 400));
+    }
+  }
+}
+
+
+@media screen and (max-width: 736px) {
+  #banner.travel-template-banner {
+    padding: 5em 3em 5em 3em ;
+    min-height: 35em;
+    }
+  #banner h2 {
+    font-size: 1.25em; }
+  #banner br {
+    display: none; }
+  }

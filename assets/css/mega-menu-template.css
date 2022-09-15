@@ -1,0 +1,142 @@
+/* CSS conditionally loaded when Mega Menu is active */
+@media (min-width: 1100.99px) {
+    #s3 .dd-2, #s3 .dd-4, #s3 .cycle.template.more {
+        width: 100% !important;
+    }
+    #s3 {
+        width: 100% !important;
+    }
+    .template-header-content {
+        margin-top: 4%;
+    }
+}
+
+@media (max-width: 1366.99px) and (min-width: 991.99px)  {
+    .template-header-content {
+        margin-top: 5%;
+        transition: 0.5s;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 825px) {
+    .signature-template #main #banner {
+        min-height: 30em;
+        transition: 0.5s;
+    }
+    .signature-template #main #banner .template-header .img-responsive-width-100 {
+        height: 31em;
+        transition: 0.5s;
+    }
+    .content-center-flex {
+        margin-top: 5%;
+        transition: 0.5s;
+    }
+    .dd-1 .img-responsive-logo {
+        max-width: 20vw;
+        transition: 0.5s;
+    }
+    .template-header-content {
+        margin-top: 5%;
+        transition: 0.5s;
+    }
+}
+
+@media ( max-width: 823.99px) and (min-width: 767.99px) {
+    .scrollto.animated.animatedFadeInUp.fadeInUp {
+        display: none;
+    }
+    .dd-1 .img-responsive-logo {
+        max-width: 20vw;
+        transition: 0.5s;
+    }
+    .template-header-content {
+        top: 18%;
+        bottom: 0;
+        transition: 0.5s;
+    }
+}
+
+@media ( max-width: 768px ) {
+    .center-content-flex {
+        height: 30%;
+        transition: 0.5s;
+    }
+    .dd-1 .img-responsive-logo {
+        max-width: 20vw;
+        transition: 0.5s;
+    }
+    .signature-template #main #banner .template-header .img-responsive-width-100 {
+        height: 31em;
+        transition: 0.5s;
+    }
+
+}
+
+@media (max-width: 667px) {
+    .signature-template #main #banner .template-header .img-responsive-width-100 {
+        height: 28em;
+        transition: 0.5s;
+    }
+    .dd-1 .img-responsive-logo {
+        max-width: 20vw;
+        transition: 0.5s;
+    }
+    .center-content-flex {
+        height: 35%;
+        transition: 0.5s;
+    }
+}
+
+@media (max-width: 640.99px) and (min-width: 640px) {
+    .center-content-flex {
+        height: 26%;
+        transition: 0.5s;
+    }
+    .dd-1 .img-responsive-logo {
+        max-width: 20vw;
+        transition: 0.5s;
+    }
+    .template-header-content {
+        top: 51%;
+        bottom: 22%;
+        transition: 0.5s;
+    }
+}
+
+@media (max-width: 568px) {
+    .signature-template #main #banner .template-header .img-responsive-width-100 {
+        height: 25em;
+        transition: 0.5s;
+    }
+    .dd-1 .img-responsive-logo {
+        max-width: 20vw;
+        transition: 0.5s;
+    }
+}
+
+@media (max-width: 414px) {
+    .center-content-flex {
+        height: 40%;
+        transition: 0.5s;
+    }
+    .signature-template #main #banner .template-header .img-responsive-width-100 {
+        height: 26em;
+        transition: 0.5s;
+    }
+    .signature-template #main #banner {
+        min-height: 20em !important;
+        transition: 0.5s;
+    }
+    .dd-1 .img-responsive-logo {
+        max-width: 20vw;
+        transition: 0.5s;
+    }
+}
+
+@media (max-width: 375px) {
+
+}
+
+@media (max-width: 320px) {
+
+}

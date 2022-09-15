@@ -1,0 +1,180 @@
+/** SCSS Signature Template
+============================== */
+#s3 {
+  .dd-2 {
+    h2.logo-tel {
+      font-size: calc( 16px + (24 - 16)*(100vw - 400px)/(800 - 400)); ;
+    }
+    h3.logo-tel {
+      margin: 1em 0 0 0;
+    }
+  }
+}
+
+.signature-template {
+  #main {
+    #banner {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      min-height: auto;
+
+    }
+  }
+}
+
+/** Signature Travel Template ******/
+#travel-sig-grid {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+#travel-signature-template {
+  background-color: $black;
+
+  h2 {
+    color: var(--white);
+    padding-top: $m1618;
+  }
+  h3 {
+    margin-bottom: 0;
+    color: $white;
+  }
+  p, .media-body {
+    color:var(--white);
+    font: inherit;
+    height: auto;
+    font-size: 100%;
+    line-height: initial;
+    letter-spacing: 0.075em;
+    margin-top: 1rem;
+  }
+  a, a:hover, h3:hover {
+    color: var(--red);
+    text-decoration: none;
+  }
+  .media-body {
+    color:var(--white);
+    text-align: left;
+  }
+  .media .media-left img {
+    width: 100%;
+    height: 250px;
+    display: block;
+    object-fit: cover;
+  }
+  .newscta {
+    text-align:center;
+    overflow: hidden;
+  }
+}
+
+.blog-read-more.btn.btn-red {
+  font-size: 1.2rem;
+  background-color: var(--red);
+  margin-top: $m3618;
+  color: $black;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .adventures-template-signature-template {
+    #primary {
+      .signature_bg_color {
+        .row {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  .signature-template {
+    #main {
+      #banner {
+
+      }
+    }
+  }
+}
+
+
+@media (min-width: 768px) {
+  .media:nth-child(n+1) {
+    padding-top: $p1;
+  }
+}
+
+@media (min-width: 992px) {
+  .desktop {
+    display: initial;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .blog-read-more.btn.btn-red {
+    margin-top: $m1618;
+  }
+  .media {
+    padding-top: $p1;
+  }
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: initial;
+  }
+  .signature-template {
+    #main {
+      #banner {
+        min-height: 24em;
+        .template-header {
+          .img-responsive-width-100 {
+            height: 24em;
+            object-fit: cover;
+          }
+          .template-header-content {
+            .signature-header {
+              .scrollto {
+                margin-top: 8em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {}
+
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {}
+

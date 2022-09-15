@@ -1,0 +1,41 @@
+/* SCSS For Taxonomy Archives
+-------------------------------------------- */
+#taxonomy {
+  margin-top: 5em;
+  .taxonomy {
+    margin-top: 5em;
+    margin-bottom: 3em;
+    .panel {
+      border: none;
+      background-color: transparent;
+      box-shadow: none;
+
+      .panel-body {
+        border: none;
+        background-color: transparent;
+        h1 {
+          font-size: 2rem;
+          line-height: 1.818em;
+        }
+      }
+    }
+  }
+}
+
+.taxonomy-body,
+.taxonomy-sidebar {
+  padding: $p1618;
+}
+
+@media (min-width: 768px) {
+  .article-content.row {
+      display: flex;
+      align-items: center;
+  }
+}
+
+
+@media (min-width: 992px) {}
+
+
+@media (min-width: 1200px) { }

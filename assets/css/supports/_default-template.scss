@@ -1,0 +1,56 @@
+/** SCSS Default Template
+============================== */
+body.default-template {
+  #header {
+    background-color: rgba(29, 36, 42, 0.9);
+  }
+  #primary {
+    #main {
+      article {
+        &.page {
+          margin-top: 2.7em !important;
+          header.entry-header {
+            min-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h1.entry-title {
+              padding: 0 0 0 0;
+              margin: 0;
+              font-size: 2vw;
+            }
+          }
+          .container-fluid {
+            .entry-content {
+              max-width: 1170px;
+              margin: 0 auto;
+              padding: 2.618em 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.default-template {
+  .default-single {
+    .site-main {
+
+      #default-blog-hero-image {
+        #outfitters-jumbotron:after {
+          content: "";
+          background: rgba(0, 0, 0, 0.2);
+          position: absolute;
+          z-index: 1;
+          display: block;
+          width: 100%;
+          top: 0;
+          bottom: 0;
+        }
+
+
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+//
+// Jumbotron
+// --------------------------------------------------
+
+#outfitters-jumbotron.outfitters.jumbotron {
+  padding: 0 !important;
+  img.outfitters {
+    position: relative;
+    z-index: 1;
+    padding: 0;
+    width: 100%;
+
+  }
+  .container {
+    position: absolute;
+    z-index: 2;
+    top: 30%;
+    left: 10%;
+    right: 10%;
+    transition: 0.5s;
+    .landing-hd {
+      .dd-2 {
+        .logo-tel {
+          font-size: calc(16px + (24 - 16) * (100vw - 400px)/(800 - 400));
+        }
+      }
+      .dd-4 {
+        .logo-tel {
+          font-size: calc(16px + (18 - 16) * (100vw - 300px)/(800 - 400));
+        }
+      }
+    }
+  }
+}
+
+.jumbotron {
+  padding-top:    $jumbotron-padding;
+  padding-bottom: $jumbotron-padding;
+  color: $jumbotron-color;
+  background-color: $jumbotron-bg;
+
+  /*h1,
+  .h1 {
+    color: $jumbotron-heading-color;
+  }*/
+
+  p {
+    margin-bottom: ($jumbotron-padding / 2);
+    font-size: $jumbotron-font-size;
+    font-weight: 200;
+  }
+
+  > hr {
+    border-top-color: darken($jumbotron-bg, 10%);
+  }
+
+  .container &,
+  .container-fluid & {
+    border-radius: $border-radius-large; // Only round corners at higher resolutions if contained in a container
+    padding-left:  ($grid-gutter-width / 2);
+    padding-right: ($grid-gutter-width / 2);
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: $screen-sm-min) {
+    padding-top:    ($jumbotron-padding * 1.6);
+    padding-bottom: ($jumbotron-padding * 1.6);
+
+    .container &,
+    .container-fluid & {
+      padding-left:  ($jumbotron-padding * 2);
+      padding-right: ($jumbotron-padding * 2);
+    }
+
+    /*h1,
+    .h1 {
+      font-size: $jumbotron-heading-font-size;
+    }*/
+  }
+}
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  #outfitters-jumbotron.outfitters.jumbotron {
+    .container {
+      top: 5%;
+      left: 10%;
+      right: 10%;
+      transition: 0.5s;
+    }
+  }
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {}

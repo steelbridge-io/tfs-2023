@@ -1,0 +1,52 @@
+/* SCSS Forms
+------------------------- */
+
+#pop-over-fp {
+  margin-top: 0.5em;
+  .glyphicon.glyphicon-question-sign.gi-2x {
+    color: $tfsred
+  }
+}
+
+.row.front-page-email-signup {
+  align-items: center;
+}
+
+.ctct-gdpr-text {
+  display: none;
+}
+
+.ctct-form-defaults {
+  display: inline-flex;
+  form.ctct-form-custom {
+    display: flex;
+    align-items: center;
+    #email_address_field_0 {
+      flex-basis: 48%;
+      margin-right: 0.5em !important;
+    }
+    button.ctct-form-button {
+      flex-basis: 48%;
+      height: 46px;
+    }
+  }
+}
+
+div.ctct-form-embed form.ctct-form-custom input.ctct-form-element {
+  border-radius: 0 !important;
+  border: 1px solid $white !important;
+  box-shadow: none !important;
+}
+
+div.ctct-form-embed form.ctct-form-custom button.ctct-form-button {
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+div.ctct-form-embed div.ctct-form-defaults {
+  padding: 0 !important;
+}
+
+div.ctct-form-embed form.ctct-form-custom label.ctct-form-label {
+  margin-bottom: 10px !important;
+}

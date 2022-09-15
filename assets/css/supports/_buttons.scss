@@ -1,0 +1,16 @@
+/* Buttons */
+
+.btn-center {
+  margin: 0 auto;
+  display: block;
+}
+
+.tfs-btn {
+  &.tfs-btn-grey {
+    color: $tfs_dark;
+  }
+  &.tfs-btn-dark {
+    background: $tfs_dark;
+    color: $smoke;
+  }
+}

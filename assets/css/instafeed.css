@@ -1,0 +1,70 @@
+/* line 3, ../sass/instafeed.scss */
+#instafeed {
+  width: 100%;
+  margin: 40px 0;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  -o-transition: .5s;
+  -ms-transition: .5s;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  transition: .5s; }
+
+/* line 17, ../sass/instafeed.scss */
+#instafeed.show {
+  visibility: visible;
+  opacity: 1; }
+
+/* line 22, ../sass/instafeed.scss */
+#instafeed a {
+  background-color: #fff;
+  width: 27%;
+  height: 14vw;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  margin: 1vw 1%;
+  -o-transition: .25s;
+  -ms-transition: .25s;
+  -moz-transition: .25s;
+  -webkit-transition: .25s;
+  transition: .25s; }
+
+/* line 38, ../sass/instafeed.scss */
+#instafeed a:hover {
+  background-color: #fff; }
+
+/* line 42, ../sass/instafeed.scss */
+#instafeed a img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  display: inline-block;
+  -o-transition: .25s;
+  -ms-transition: .25s;
+  -moz-transition: .25s;
+  -webkit-transition: .25s;
+  transition: .25s; }
+
+/* line 60, ../sass/instafeed.scss */
+#instafeed a:hover img {
+  width: 105%;
+  opacity: 0.75; }
+  
+.instagram-content h2 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/*** @media ***/
+@media all and (max-width: 768px) and (orientation: portrait) {
+  /* line 69, ../sass/instafeed.scss */
+  #instafeed a {
+    width: 44%;
+    height: 29vw;
+    margin: 2vw 2%; } }
