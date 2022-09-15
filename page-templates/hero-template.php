@@ -1,7 +1,7 @@
 <?php
   /**
    * Template Name: Hero Template
-   * Template Post Type: post, page, travel_cpt, schools_cpt, adventures, guide_service, fishcamp_cpt, travel_blog, lower48, lower48blog
+   * Template Post Type: post, page, travel_cpt, schools_cpt, adventures, guide_service, fishcamp_cpt, travel_blog, lower48, lower48blog, esb_lodge
    * Developed for The Fly Shop
    * @package The_Fly_Shop
    * Author: Chris Parsons
