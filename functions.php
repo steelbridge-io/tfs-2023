@@ -758,4 +758,16 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
   }
  }
  add_action( 'wp_head', 'add_og_image' );
+ 
+ /**
+  * Shows what template is being used
+  */
+	/*function meks_which_template_is_loaded() {
+		if ( is_super_admin() ) {
+			global $template;
+			print_r( $template );
+		}
+	}
+	
+	add_action( 'wp_footer', 'meks_which_template_is_loaded' );*/
 
