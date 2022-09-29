@@ -327,7 +327,7 @@ function the_fly_shop_scripts() {
     wp_enqueue_style( 'the-fly-shop-btstrp-template', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), '3.3.7', 'all' );
     }
   
-  if(is_page_template('page-templates/hero-template.php')) {
+  if(is_page_template('page-templates/hero-template.php' || 'page-templates/travel-signature-template.php')) {
       wp_enqueue_style('the-fly-shop-btstrp-template', get_template_directory_uri() . '/assets/css/bootstrap4/bootstrap.min.css', array(), '4.3.1', 'all');
     }
   
@@ -430,6 +430,9 @@ function the_fly_shop_scripts() {
   if(function_exists('load_primetravel_css')) {
     wp_add_inline_style('the-fly-shop-custom-style', load_primetravel_css());
   }
+	if(function_exists('load_primetravel_template_css')) {
+		wp_add_inline_style('the-fly-shop-custom-style', load_primetravel_template_css());
+	}
     
     wp_enqueue_style( 'the-fly-shop-style', get_stylesheet_uri() );
   

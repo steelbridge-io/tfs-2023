@@ -55,9 +55,7 @@ get_header(); ?>
     </div>
   </div>
   </section>
-
 	<?php else: ?>
-  
   <header class="parallax-window center-content-flex" data-parallax="scroll" data-image-src="<?php echo $the_post_default; ?>">
     
     <div class="basicpagelogo signature-header template-class text-center">
@@ -71,26 +69,24 @@ get_header(); ?>
       <h3>800 &bull; 669 &bull; 3474</h3>
     </div>
   </header>
-
 	<?php endif;
-	
 	if($prime_travel_header_image !== '' || $prime_travel_logo !== '' || $prime_travel_description !== '' ) : ?>
- 
-	<!-- Prime Travel -->
+	<section>
+		<!-- Prime Travel -->
 	<div id="prime-travel-travel-template" data-aos="fade-up">
 		<div class="container-fluid">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<img class="img-reponsive center-block" src="<?php echo $prime_travel_header_image; ?>" alt="Prime Travel Image" title="Prime Travel Image">
+					<!-- <img class="img-reponsive center-block" src="<?php //echo $prime_travel_header_image; ?>" alt="Prime Travel Image" title="Prime Travel Image"> -->
 				</div>
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-4">
-							<img class="img-reponsive center-block" src="<?php echo $prime_travel_logo; ?>" alt="Prime Travel Logo" title="Prime Travel Logo" >
+							<img class="img-reponsive center-block prime-travel-logo" src="<?php echo $prime_travel_logo; ?>" alt="Prime Travel Logo" title="Prime Travel Logo" >
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-5">
 							<div class="card">
-								<div class="card-body">
+								<div class="card-body prime-travel-content">
 									<?php echo $prime_travel_description; ?>
 								</div>
 							</div>
@@ -100,6 +96,7 @@ get_header(); ?>
 			</div>
 		</div>
 	</div>
+	</section>
 	
 	<?php endif; ?>
   

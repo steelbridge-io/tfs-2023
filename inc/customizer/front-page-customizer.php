@@ -140,7 +140,8 @@ $wp_customize -> add_section(
 			'tel_color', array(
 			'label'							=> __('Telephone Number Color', 'the-fly-shop' ),
 			'priority'					=>  30,
-			'section'						=> 'tfs_front_page'
+			'section'						=> 'tfs_front_page',
+			'settings'          => 'tel_color',
 			)
 		)
 	);
@@ -160,7 +161,8 @@ $wp_customize -> add_section(
 			'description_color', array(
 			'label'							=> __('Front Page Header Description', 'the-fly-shop' ),
 			'priority'					=>  30,
-			'section'						=> 'tfs_front_page'
+			'section'						=> 'tfs_front_page',
+			'settings'          => 'description_color'
 			)
 		)
 	);
@@ -181,6 +183,7 @@ $wp_customize -> add_section(
 			'label'							=> __('Front Page Description Border Top', 'the-fly-shop' ),
 			'priority'					=>  30,
 			'section'						=> 'tfs_front_page',
+			'settings'          => 'description_border'
 			)
 		)
 	);
@@ -201,6 +204,7 @@ $wp_customize -> add_section(
 			'label'							=> __('Front Page Title Section Background Color', 'the-fly-shop' ),
 			'priority'					=>  30,
 			'section'						=> 'tfs_front_page',
+			'settings'          => 'frontp_title_color',
 			'decription'				=> __('Updates background color for title area.')
 			)
 		)
@@ -222,6 +226,7 @@ $wp_customize -> add_section(
 			'label'							=> __('Flip Page Catalog Title Color', 'the-fly-shop' ),
 			'priority'					=>  30,
 			'section'						=> 'tfs_front_page',
+			'settings'          => 'flip_page_title_color',
 			'decription'				=> __('Flip page catalog title color.')
 			)
 		)
@@ -243,6 +248,7 @@ $wp_customize -> add_section(
 			'label'							=> __('Front Page Background Color', 'the-fly-shop' ),
 			'priority'					=>  30,
 			'section'						=> 'tfs_front_page',
+			'settings'          => 'frontp_bg_color',
 			'decription'				=> __('Updates grid background color only.')
 			)
 		)
@@ -264,6 +270,7 @@ $wp_customize -> add_section(
 			'label'							=> __('Front Page Text Color', 'the-fly-shop' ),
 			'priority'					=>  30,
 			'section'						=> 'tfs_front_page',
+			'settings'          => 'frontp_text_color',
 			'decription'				=> __('Updates text color.')
 			)
 		)
@@ -285,6 +292,7 @@ $wp_customize -> add_section(
 			'label'							=> __('Front page grid link color', 'the-fly-shop' ),
 			'priority'					=>  30,
 			'section'						=> 'tfs_front_page',
+			'settings'          => 'frontp_grid_link',
 			'decription'				=> __('Updates color of link within grid')
 			)
 		)
@@ -306,6 +314,7 @@ $wp_customize -> add_section(
 			'label'							=> __('Email CTA & Flip Page background color', 'the-fly-shop' ),
 			'priority'					=>  30,
 			'section'						=> 'tfs_front_page',
+			'settings'          => 'frontp_email_bg',
 			'decription'				=> __('Updates background color')
 			)
 		)

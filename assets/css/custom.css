@@ -3319,12 +3319,14 @@ a.page-numbers:hover {
   margin: -75px 0 0 -169px;
 }
 
-#prime-travel-travel-template .container-fluid {
-  margin-top: 1.618em;
+section {
+  margin: 0 !important;
 }
+
 #prime-travel-travel-template .img-reponsive.center-block {
   width: 100%;
-  max-height: 400px;
+  max-height: 100%;
+  height: auto;
   object-fit: cover;
 }
 #prime-travel-travel-template .panel.panel-default {
@@ -3339,8 +3341,23 @@ a.page-numbers:hover {
 #prime-travel-travel-template .panel.panel-default .panel-body .row {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
+/** max width */
+@media (max-width: 991.98px) {
+  #prime-travel-travel-template {
+    background-color: #ccc;
+  }
+  #prime-travel-travel-template .img-reponsive.center-block {
+    max-height: 100%;
+  }
+  #prime-travel-travel-template .panel.panel-default .panel-body .row {
+    display: initial;
+    align-items: center;
+  }
+}
+/** min width */
 /** Error 404
 ===================== */
 .error-404 .page-header {
