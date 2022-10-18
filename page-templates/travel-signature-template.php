@@ -19,7 +19,7 @@ get_header(); ?>
   </div> <!-- /.container-fluid. Opening tag found in header.php-->
   
   <div id="primary" class="content-area signature-template" style="position: relative;">
-  <div id="main" role="main">
+  <div id="main-main" role="main">
 
 <?php if ( has_post_thumbnail() ) : ?>
   
@@ -49,7 +49,8 @@ get_header(); ?>
           </dl>
         </div>
         <div class="scrollto animated animatedFadeInUp fadeInUp">
-          <a href="#scrollto" class="template more">Learn More</a>
+          <!--<a href="#scrollto" class="template more">Learn More</a>-->
+	        <a href="#main" class="more scrolly">Reports are here!</a>
         </div>
       </div>
     </div>
@@ -72,19 +73,21 @@ get_header(); ?>
 	<?php endif;
 	if($prime_travel_header_image !== '' || $prime_travel_logo !== '' || $prime_travel_description !== '' ) : ?>
 	<section>
-		<!-- Prime Travel -->
+	<div id="main"></div>
+	<!-- Prime Travel -->
 	<div id="prime-travel-travel-template" data-aos="fade-up">
 		<div class="container-fluid">
+			<div class="container">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<!-- <img class="img-reponsive center-block" src="<?php //echo $prime_travel_header_image; ?>" alt="Prime Travel Image" title="Prime Travel Image"> -->
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-md-4">
-							<img class="img-reponsive center-block prime-travel-logo" src="<?php echo $prime_travel_logo; ?>" alt="Prime Travel Logo" title="Prime Travel Logo" >
+						<div class="col-md-6">
+							<img class="img-reponsive center-block prime-travel-logo" src="<?php echo $prime_travel_logo; ?>" alt="Prime Travel Logo" >
 						</div>
-						<div class="col-md-5">
+						<div class="col-md-6">
 							<div class="card">
 								<div class="card-body prime-travel-content">
 									<?php echo $prime_travel_description; ?>
@@ -94,6 +97,7 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 	</section>
@@ -173,9 +177,9 @@ get_header(); ?>
 
   <!-- body content -->
   <div class="container">
-    <div id="scrollto"></div>
+    <!--<div id="scrollto"></div>-->
     <div id="primary" class="content-area row">
-      <main id="main" class="site-main col-md-12" role="main">
+      <main id="main-main" class="site-main col-md-12" role="main">
         
         <?php
         // WordPress Blog Content
@@ -862,5 +866,25 @@ if($signature_travel_section_1_title !== '') :?>
     <?php endif; ?>
   </div><!-- /.row -->
 <?php endif; ?>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="primeTravelTempmodal" tabindex="-1" aria-labelledby="primeTravelTempmodalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="modal-title" id="primeTravelTempmodalLabel"><img src="<?php echo get_theme_mod('pt_mdl_logo');  ?>" alt="The Fly Shop"></div>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><!--<i class="lni lni-close"></i>--></button>
+				</div>
+				<div class="modal-body">
+					<?php echo do_shortcode('[gravityform id="6" title="true" description="true"]'); ?>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
 <?php
 get_footer();
