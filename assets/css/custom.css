@@ -1147,6 +1147,11 @@ h2.logo-tel {
 
 .template-header {
   position: relative;
+  height: 100%;
+}
+.template-header img {
+  height: 100%;
+  object-fit: cover;
 }
 
 .template-header-content {
@@ -1567,7 +1572,7 @@ nav#nav {
 /* Modal
 -------------------------------- */
 button.close {
-  font-size: 3em;
+  font-size: 1em;
 }
 
 h4.modal-title {
@@ -2882,6 +2887,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+#travel-sig-grid img {
+  width: 100%;
+}
 
 #travel-signature-template {
   background-color: #000000;
@@ -3139,6 +3147,14 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   color: #eeeeee;
 }
 
+.btn.btn-danger {
+  color: #f5f5f5 !important;
+  background-color: #a01624 !important;
+}
+.btn.btn-danger:hover {
+  background-color: #771014 !important;
+}
+
 /* Pagination */
 #archive-nav .nav-links {
   font-size: 2em;
@@ -3267,8 +3283,17 @@ a.page-numbers:hover {
   width: 100%;
 }
 
+.modal-content {
+  margin-top: 5em;
+}
+
 /** Prime Travel
 ======================= */
+#primeTravelTempmodalLabel img {
+  width: 100%;
+  max-width: 200px;
+}
+
 #prime-travel {
   margin-top: 1.618em;
 }
@@ -3298,6 +3323,13 @@ a.page-numbers:hover {
   margin: 1em 0 0 0;
 }
 
+#gform_wrapper_6 .ginput_container label {
+  text-indent: 0px;
+  margin-left: 0.5em;
+}
+#gform_wrapper_6 .gchoice {
+  margin-bottom: 1em;
+}
 #gform_wrapper_6 .prime-travel-cat #gform_submit_button_6 {
   background-color: #213E91;
   color: #f5f5f5;
@@ -3323,6 +3355,10 @@ section {
   margin: 0 !important;
 }
 
+#prime-travel-travel-template {
+  padding-top: 1.618em;
+  padding-bottom: 1.618em;
+}
 #prime-travel-travel-template .img-reponsive.center-block {
   width: 100%;
   max-height: 100%;
@@ -3343,6 +3379,23 @@ section {
   align-items: center;
   justify-content: center;
 }
+#prime-travel-travel-template .card {
+  background: transparent;
+  border: none;
+}
+
+#gform_submit_button_6 {
+  background-color: #a01624 !important;
+  border-color: #a01624 !important;
+  color: #f5f5f5 !important;
+}
+#gform_submit_button_6:hover {
+  background-color: #771014;
+}
+
+#gform_submit_button_6:hover {
+  background-color: #771014 !important;
+}
 
 /** max width */
 @media (max-width: 991.98px) {
@@ -3353,10 +3406,10 @@ section {
     max-height: 100%;
   }
   #prime-travel-travel-template .panel.panel-default .panel-body .row {
-    display: initial;
     align-items: center;
   }
 }
+/** max width */
 /** min width */
 /** Error 404
 ===================== */

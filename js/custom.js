@@ -4,14 +4,6 @@
  * License: MIT
  */
 
-
-/*if( ! /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
-
-    $(document).ready(function () {
-        var s = skrollr.init();
-    })
-}*/
-
 AOS.init({
     animatedClassName: 'aos-animate', // class applied on animation
     useClassNames: true,
@@ -19,6 +11,14 @@ AOS.init({
     duration: 1500, // values from 0 to 3000, with step 50ms
     easing: 'ease', // default easing for AOS animations
 });
+
+
+/*if( ! /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+
+    $(document).ready(function () {
+        var s = skrollr.init();
+    })
+}*/
 
 // When the user scrolls down 50px from the top of the document, resize the header's font size
 
@@ -28,7 +28,7 @@ x.addListener(scrollFunction) // Attach listener function on state changes
 
 window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
+/*function scrollFunction() {
 
     if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
         document.getElementById("news-cta").style.maxHeight = "2800px";
@@ -50,7 +50,7 @@ function scrollFunction() {
             b.style.backgroundColor = "#000";
         }
     }
-}
+} */
 
 (function(d) {
     var g = -1,

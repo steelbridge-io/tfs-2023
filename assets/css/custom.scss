@@ -1032,6 +1032,11 @@ h2.logo-tel {
 }
 .template-header{
   position: relative;
+  height: 100%;
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
 }
 .template-header-content {
   z-index: 99;
@@ -1419,7 +1424,7 @@ nav#nav {
 /* Modal
 -------------------------------- */
 button.close {
-  font-size: 3em;
+  font-size: 1em;
 }
 h4.modal-title {
   margin: .6em;

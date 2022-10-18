@@ -51,9 +51,7 @@
     z-index: 1; }
 
 /* Banner */
-#banner {
-  padding: 14em 0 12em 0 ;
-  height: auto; }
+#banner {}
   #banner:after {
     display: none; }
 

@@ -12,7 +12,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  /*vertical-align: baseline;*/ }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
@@ -3591,7 +3591,7 @@ body.is-menu-visible #menu {
     opacity: 0; }
   @media screen and (max-width: 736px) {
     #banner {
-      padding: 7em 3em 5em 3em ;
+      /*padding: 7em 3em 5em 3em ;*/
       height: auto;
       min-height: 0; }
       #banner h2 {
