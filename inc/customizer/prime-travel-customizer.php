@@ -125,4 +125,23 @@ $wp_customize -> add_section(
 		)
 	);
 	
+	// Modal Logo
+	$wp_customize -> add_setting ( 'pt_mdl_logo', array(
+		'default'           => '',
+		'type'              => 'theme_mod',
+		'transport'         => 'refresh'
+	));
+	$wp_customize -> add_control (
+		new WP_Customize_Image_Control (
+			$wp_customize,
+			'pt_mdl_logo',
+			array (
+				'label'             => __('Modal Logo'),
+				'section'           => 'prime_travel',
+				'settings'          => 'pt_mdl_logo',
+				'priority'          => 10,
+				'sanitize_callback' => 'esc_url_raw'
+			)
+		)
+	);
 	
