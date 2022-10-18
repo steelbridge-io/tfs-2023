@@ -317,18 +317,22 @@ add_action( 'widgets_init', 'the_fly_shop_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
+
+include 'enqueue/inline-styles-customizer.php';
+
 add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
 function load_dashicons_front_end() {
     wp_enqueue_style( 'dashicons' );
 }
 
 function the_fly_shop_scripts() {
-  if(!is_page_template('page-templates/hero-template.php')) {
+  if(!is_page_template(array('page-templates/hero-template.php', 'page-templates/travel-signature-template.php'))) {
     wp_enqueue_style( 'the-fly-shop-btstrp-template', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), '3.3.7', 'all' );
     }
   
-  if(is_page_template('page-templates/hero-template.php' || 'page-templates/travel-signature-template.php')) {
-      wp_enqueue_style('the-fly-shop-btstrp-template', get_template_directory_uri() . '/assets/css/bootstrap4/bootstrap.min.css', array(), '4.3.1', 'all');
+  if(is_page_template(array('page-templates/hero-template.php', 'page-templates/travel-signature-template.php'))) {
+      //wp_enqueue_style('the-fly-shop-btstrp-template', get_template_directory_uri() . '/assets/css/bootstrap4/bootstrap.min.css', array(), '4.3.1', 'all');
+			wp_enqueue_style('bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css', array(), '5.2.2', 'all');
     }
   
    if(!function_exists('ubermenu')) {
@@ -336,8 +340,81 @@ function the_fly_shop_scripts() {
     wp_enqueue_style('slide-out-nav', get_template_directory_uri() . '/assets/css/slide-out-nav.css');
     
    }
- 
-   wp_enqueue_style( 'the-fly-shop-custom-style', get_template_directory_uri() . '/assets/css/custom.css', array(), '20161116', 'all' );
+	
+		wp_enqueue_style( 'the-fly-shop-custom-style', get_template_directory_uri() . '/assets/css/custom.css', array(), '20161116', 'all' );
+	
+	if ( function_exists( 'load_private_waters_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_private_waters_css() );
+	}
+	if ( function_exists( 'load_private_waters_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_private_waters_css() );
+	}
+	if ( function_exists( 'load_guideservice_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_guideservice_css() );
+	}
+	if ( function_exists( 'load_guide_service_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_guide_service_css() );
+	}
+	if ( function_exists( 'load_schools_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_schools_css() );
+	}
+	if ( function_exists( 'load_schools_hero_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_schools_hero_css() );
+	}
+	if ( function_exists( 'load_fish_camp_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_fish_camp_css() );
+	}
+	if ( function_exists( 'load_fish_camp_hero_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_fish_camp_hero_css() );
+	}
+	if ( function_exists( 'load_staff_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_staff_css() );
+	}
+	if ( function_exists( 'load_front_page_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_front_page_css() );
+	}
+	if ( function_exists( 'load_signature_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_signature_css() );
+	}
+	if ( function_exists( 'load_signature_events_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_signature_events_css() );
+	}
+	if ( function_exists( 'load_basic_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_basic_css() );
+	}
+	if ( function_exists( 'load_travel_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_travel_css() );
+	}
+	if ( function_exists( 'load_travel_destination_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_travel_destination_css() );
+	}
+	if ( function_exists( 'load_streamreport_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_streamreport_css() );
+	}
+	if ( function_exists( 'load_default_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_default_css() );
+	}
+	if ( function_exists( 'load_archive_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_archive_css() );
+	}
+	if ( function_exists( 'load_holiday_template_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_holiday_template_css() );
+	}
+	if ( function_exists( 'load_tfs_custom_fields_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_tfs_custom_fields_css() );
+	}
+	if ( function_exists( 'blog_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', blog_css() );
+	}
+	if ( function_exists( 'load_travelblog_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_travelblog_css() );
+	}
+	if ( function_exists( 'load_primetravel_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_primetravel_css() );
+	}
+	if ( function_exists( 'load_primetravel_template_css' ) ) {
+		wp_add_inline_style( 'the-fly-shop-custom-style', load_primetravel_template_css() );
+	}
    
    if(function_exists('ubermenu')) {
     wp_enqueue_style( 'uber-menu-nav', get_template_directory_uri() . '/assets/css/mega-menu-nav.css');
@@ -360,102 +437,33 @@ function the_fly_shop_scripts() {
     wp_enqueue_style( 'the-fly-shop-main-style', get_template_directory_uri() . '/assets/css/main.css', array(),  '20161116', 'all' );
     
     wp_enqueue_style( 'aos-animation-css', get_template_directory_uri() . '/aos-animations/aos/dist/aos.css', array(), '20200415', 'all');
-  
-  if(function_exists('load_private_waters_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_private_waters_css());
-  }
-  if(function_exists('load_private_waters_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_private_waters_css());
-  }
-  if(function_exists('load_guideservice_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_guideservice_css());
-  }
-  if(function_exists('load_guide_service_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_guide_service_css());
-  }
-  if(function_exists('load_schools_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_schools_css());
-  }
-  if(function_exists('load_schools_hero_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_schools_hero_css());
-  }
-  if(function_exists('load_fish_camp_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_fish_camp_css());
-  }
-  if(function_exists('load_fish_camp_hero_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_fish_camp_hero_css());
-  }
-  if(function_exists('load_staff_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_staff_css());
-  }
-  if(function_exists('load_front_page_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_front_page_css());
-  }
-  if(function_exists('load_signature_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_signature_css());
-  }
-  if(function_exists('load_signature_events_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_signature_events_css());
-  }
-  if(function_exists('load_basic_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_basic_css());
-  }
-  if(function_exists('load_travel_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_travel_css());
-  }
-  if(function_exists('load_travel_destination_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_travel_destination_css());
-  }
-  if(function_exists('load_streamreport_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_streamreport_css());
-  }
-  if(function_exists('load_default_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_default_css());
-  }
-  if(function_exists('load_archive_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_archive_css());
-  }
-  if(function_exists('load_holiday_template_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_holiday_template_css());
-  }
-  if(function_exists('load_tfs_custom_fields_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_tfs_custom_fields_css());
-  }
-  if(function_exists('blog_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', blog_css());
-  }
-  if(function_exists('load_travelblog_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_travelblog_css());
-  }
-  if(function_exists('load_primetravel_css')) {
-    wp_add_inline_style('the-fly-shop-custom-style', load_primetravel_css());
-  }
-	if(function_exists('load_primetravel_template_css')) {
-		wp_add_inline_style('the-fly-shop-custom-style', load_primetravel_template_css());
-	}
-    
-    wp_enqueue_style( 'the-fly-shop-style', get_stylesheet_uri() );
-  
-  
-  if (is_page_template('page-templates/hero-template.php')) {
+		
+		wp_enqueue_style('linicons', 'https://cdn.lineicons.com/3.0/lineicons.css', array(), 'all' );
+		
+		wp_enqueue_style( 'the-fly-shop-style', get_stylesheet_uri() );
+	
+	/*** SCRIPTS ***/
+	
+	wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array(), '1.0', true);
+	
+  if (is_page_template(array('page-templates/hero-template.php', 'page-templates/travel-signature-template.php'))) {
+		//wp_enqueue_script('bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js', array(), '', true);
     // Hero Template jQuery
-    wp_enqueue_script('hero-template-jquery', get_template_directory_uri() . '/assets/js/hero-template-js/jquery.slim.min.js', array('jquery'), '3.4.1', true);
+    wp_enqueue_script('hero-template-jquery', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), '', true);
     
     // Hero Template Bootstrap JS
-    wp_enqueue_script('hero-template-bootstrapjs', get_template_directory_uri() . '/assets/js/hero-template-js/bootstrap.bundle.min.js', array(), '4.3.1', true);
+    wp_enqueue_script('hero-template-bootstrapjs', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js', array(), '5.2.1', true);
   }
 
     wp_enqueue_script( 'the-fly-shop-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
    /* wp_enqueue_script('cycle-plugin', get_template_directory_uri() . '/js/cycle-content.js', array(), '20190720', true ); */
-
-    wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array(), '1.0', true);
-
+	
     // Javascript - JQuery is loaded here. min.js scripts are registered before loading.
     wp_register_script( 'new-font-awesome', 'https://use.fontawesome.com/releases/v5.0.9/js/all.js', array(), '2018', true );
     wp_enqueue_script( 'new-font-awesome');
-    
-    if(!is_page_template('page-templates/hero-template.php')) {
+		
+    if(!is_page_template(array('page-templates/hero-template.php', 'page-template/travel-signature-template.php'))) {
       wp_register_script('the-fly-shop-btstrpjs', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), '20161116', true);
       wp_enqueue_script('the-fly-shop-btstrpjs');
     }
@@ -499,6 +507,8 @@ function the_fly_shop_scripts() {
         wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", false, null);
         wp_enqueue_script('jquery');
     }
+	
+		wp_enqueue_script( 'the-fly-shop-mainjs', get_template_directory_uri() . '/assets/js/main.js', array(), '20161116', true );
     
 }
 add_action( 'wp_enqueue_scripts', 'the_fly_shop_scripts' );
