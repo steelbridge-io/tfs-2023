@@ -19,3 +19,19 @@ function tfs_search_shortcode() {
 // register shortcode
 add_shortcode('search-code', 'tfs_search_shortcode');
 
+/**
+ * Gravity Forns: Add First Name from form to redirect page
+ */
+
+function PrimeTravel_name( $atts ) {
+	if (isset($_GET['first_name'])) {
+		extract( shortcode_atts( array(
+			'param' => 'param',
+		), $atts ) );
+		return $_GET[$param];
+	} else {
+		//silence
+	}
+}
+add_shortcode('PrimeTravel_name', 'PrimeTravel_name');
+
