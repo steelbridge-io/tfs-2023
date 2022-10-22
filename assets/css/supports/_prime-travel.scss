@@ -1,6 +1,24 @@
 /** Prime Travel
 ======================= */
 
+.h2-small {
+  font-size: 1.2rem;
+}
+
+#prime-travel-tfs-logo {
+  img {
+    position: absolute;
+    max-width: 250px;
+    z-index: 999;
+  }
+}
+
+#prime-travel-template {
+  #header {
+    background-color: transparent !important;
+  }
+}
+
 #primeTravelTempmodalLabel {
   img {
     width: 100%;
@@ -9,7 +27,6 @@
 }
 
 #prime-travel {
-  margin-top: 1.618em;
   .row {
     display: flex;
     .prime-travel-left-col {
@@ -33,6 +50,7 @@
       text-align: center;
       font-size: 2.5rem;
       margin: 1em 0 0 0;
+      line-height: 1em;
     }
   }
 }
@@ -59,14 +77,6 @@
     letter-spacing: normal;
     text-transform: none;
     text-align: center;
-  }
-}
-
-#post-18694 {
-  margin-top: 6.618em;
-  margin-bottom: 6.618em;
-  .wp-image-17871 {
-    margin: -75px 0 0 -169px;
   }
 }
 section {
@@ -119,7 +129,14 @@ section {
 /** max width */
 @media (max-width: 1399.98px) { }
 
-@media (max-width: 1199.98px) { }
+@media (max-width: 1199.98px) {
+  .prime-masthead {
+    h2 {
+      text-align: left !important;
+      padding-left: 8.2em;
+    }
+  }
+}
 
 @media (max-width: 991.98px) {
   #prime-travel-travel-template {
@@ -143,15 +160,52 @@ section {
   }
 }
 
+#prime-travel-tfs-logo {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 /** max width */
 @media (max-width: 1399.98px) { }
 
-@media (max-width: 1199.98px) { }
-
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
+  .prime-travel-left-col {
+    background-image: none !important;
+    display: none;
+  }
+  #prime-travel-tfs-logo img {
+    margin-left: 1.6em;
+    margin-top: 2em;
+  }
 }
 
-@media (max-width: 767.98px) { }
+@media (max-width: 991.98px) {
+  #prime-travel-tfs-logo {
+    img {
+      position: relative;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  #prime-travel-tfs-logo img {
+    margin: 2em auto 0 auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #prime-travel-template-wrapper {
+    img.alignleft {
+      display: block;
+      float: none;
+    }
+  }
+  .prime-masthead {
+    h2 {
+      text-align: center !important;
+      padding-left: 0em;
+    }
+  }
+}
 
 @media (max-width: 575.98px) { }
 
@@ -161,11 +215,18 @@ section {
 @media (min-width: 768px) { }
 
 @media (min-width: 992px) {
+
 }
 
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) {
+}
 
-@media (min-width: 1400px) { }
-
-
-
+@media (min-width: 1400px) {
+  #post-18694 {
+    margin-top: 6.618em;
+    margin-bottom: 6.618em;
+    .wp-image-17871 {
+      margin: -75px 0 0 -169px;
+    }
+  }
+}
