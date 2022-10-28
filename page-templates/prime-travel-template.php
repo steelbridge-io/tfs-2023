@@ -8,9 +8,9 @@ echo  '<div id="prime-travel">' .
 			'<div  class="container-fluid">' .
 			'<div class="container prime-travel-container">' .
       
-      '<div id="prime-travel-tfs-logo" class="">
-				<a href="https://www.theflyshop.com" title="The Fly Shop Link"><img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2021/05/social_tfs_logo_og.png" alt="The Fly Shop" ></a>
-			 </div> ' .
+      '<a href="https://www.theflyshop.com" title="The Fly Shop Link"><div id="prime-travel-tfs-logo" class="">
+				<img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2021/05/social_tfs_logo_og.png" alt="The Fly Shop" >
+			 </div></a>' .
     
 			'<div class="row d-flex">' .
 			'<div class="col-lg-4 prime-travel-left-col">
