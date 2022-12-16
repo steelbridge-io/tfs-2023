@@ -1,11 +1,25 @@
 /** Hero Template
 ======================= */
 
+.fades {
+  transition: opacity 0.7s ease-in;
+}
+
+.fadeOut { opacity: 0; }
+.fadeIn { opacity: 1; }
+
+#hero-template-cont {
+  background-color: #f5f5f5;
+  padding-top: 3.618em;
+  position: relative;
+  z-index: 900;
+}
+
 /** Hero Video **/
 .hero-template-content {
-  margin: 1.618em auto;
+  margin: 2.618em auto 2.618em auto;
 }
-#hero-header {
+#heroheader {
   position: relative;
   background-color: black;
   height: 75vh;
@@ -18,14 +32,16 @@
   }
 }
 
-#hero-header video {
-  position: absolute;
+#heroheader video,
+#heroheader img.hero-temp-img {
+  position: fixed;
   top: 50%;
   left: 50%;
   min-width: 100%;
   min-height: 100%;
-  width: auto;
+  width: 100%;
   height: auto;
+  object-fit: cover;
   z-index: 0;
   -ms-transform: translateX(-50%) translateY(-50%);
   -moz-transform: translateX(-50%) translateY(-50%);
@@ -33,12 +49,12 @@
   transform: translateX(-50%) translateY(-50%);
 }
 
-#hero-header .container {
+#heroheader .container {
   position: relative;
   z-index: 2;
 }
 
-#hero-header .overlay {
+#heroheader .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -50,10 +66,10 @@
 }
 
 @media (pointer: coarse) and (hover: none) {
-  #hero-header {
+  #heroheader {
     background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
   }
-  #hero-header video {
+  #heroheader video {
     display: none;
   }
 }

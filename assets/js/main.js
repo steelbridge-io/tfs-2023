@@ -5,7 +5,7 @@
 */
 
 // Carousel Slider
-$(document).ready(function(){
+/* $(document).ready(function(){
 
 $('#itemslider').carousel({ interval: 3000 });
 
@@ -24,7 +24,7 @@ itemToClone.children(':first-child').clone()
 .appendTo($(this));
 }
 });
-});
+}); */
 
 (function($) {
 

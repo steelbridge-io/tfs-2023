@@ -482,7 +482,7 @@ function the_fly_shop_scripts() {
 
     wp_enqueue_script( 'the-fly-shop-util', get_template_directory_uri() . '/assets/js/util.js', array(), '20161116', true );
 
-    wp_enqueue_script( 'the-fly-shop-mainjs', get_template_directory_uri() . '/assets/js/main.js', array(), '20161116', true );
+    //wp_enqueue_script( 'the-fly-shop-mainjs', get_template_directory_uri() . '/assets/js/main.js', array(), '20161116', true );
 
     /*wp_enqueue_script( 'the-fly-shop-columns', get_template_directory_uri() . '/assets/js/jquery.columnizer.js', array(), '20161116', true );*/
 
@@ -509,7 +509,10 @@ function the_fly_shop_scripts() {
     }
 	
 		wp_enqueue_script( 'the-fly-shop-mainjs', get_template_directory_uri() . '/assets/js/main.js', array(), '20161116', true );
-    
+	
+		if(is_page_template('page-templates/hero-template.php')) {
+			wp_enqueue_script('parallax-dep', get_template_directory_uri() . '/js/hero-template.js', array('jquery'), '', true );
+		}
 }
 add_action( 'wp_enqueue_scripts', 'the_fly_shop_scripts' );
 

@@ -25,7 +25,7 @@ $wp_customize -> add_section(
 			'front-page-hero-video',
 			array (
 				'label'             => __('Front Page Hero Video'),
-				'description'       => __('Add video url. Google Cloud, s3 object storage url recommended. To test, use https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4'),
+				'description'       => __('Add video url. Google Cloud, s3 object storage url recommended. To test, use:<br>https://tfs-spaces.sfo2.cdn.digitaloceanspaces.com/video/cerro-torre.mp4'),
 				'type'              => 'url',
 				'section'           => 'tfs_front_page',
 				'settings'          => 'front-page-hero-video',

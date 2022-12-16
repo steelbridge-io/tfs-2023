@@ -842,7 +842,7 @@
             </div>
         
             <?php }
-            // Optional images 40, 41, 42
+					// Optional images 40, 41, 42
 	        if( $signature_image_40 !== '' ) { ?>
             
             <div class="row">
@@ -895,7 +895,165 @@
             </div>
          
             <?php }
-            // Optional centered left and right images
+					
+	        // Optional images 43, 44, 45
+	        if( $signature_image_43 !== '' ) { ?>
+		
+		        <div class="row">
+			        <div class="col-md-4">
+				        <div class="thumbnail signature-text-color">
+					        <h3 class="widget-title"><a class="thumbnail-h3" href="<?php echo $signature_image_43_title_link; ?>" target="_self" title="Signature Destination"><?php echo $signature_image_43_title; ?></a></h3>
+					        <a class="thumbnail-h3" href="<?php echo $signature_image_43_title_link; ?>" target="_self" title="Signature Destination"><img src="<?php echo $signature_image_43; ?>"></a>
+					        <section id="" class="widget-section">
+						        <div class="caption">
+							        <h4 class="widget-title"><?php echo $signature_image_43_sub_title; ?></h4>
+							        <p class="text-justify"><?php echo $signature_image_43_caption; ?></p>
+						        </div>
+					        </section>
+				        </div>
+			        </div>
+			
+			        <?php if( $signature_image_44 !== '' ) { ?>
+				
+				        <div class="col-md-4">
+					        <div class="thumbnail signature-text-color">
+						        <h3 class="widget-title"><a class="thumbnail-h3" href="<?php echo $signature_image_44_title_link; ?>" target="_self" title="Signature Destination"><?php echo $signature_image_44_title; ?></a></h3>
+						        <a class="thumbnail-h3" href="<?php echo $signature_image_44_title_link; ?>" target="_self" title="Signature Destination"><img src="<?php echo $signature_image_44; ?>"></a>
+						        <section id="" class="widget-section">
+							        <div class="caption">
+								        <h4 class="widget-title"><?php echo $signature_image_44_sub_title; ?></h4>
+								        <p class="text-justify"><?php echo $signature_image_44_caption; ?></p>
+							        </div>
+						        </section>
+					        </div>
+				        </div>
+			
+			        <?php }
+				        if( $signature_image_45 !== '' ) { ?>
+					
+					        <div class="col-md-4">
+						        <div class="thumbnail signature-text-color">
+							        <h3 class="widget-title"><a class="thumbnail-h3" href="<?php echo $signature_image_45_title_link; ?>" target="_self" title="Signature Destination"><?php echo $signature_image_45_title; ?></a></h3>
+							        <a class="thumbnail-h3" href="<?php echo $signature_image_45_title_link; ?>" target="_self" title="Signature Destination"><img src="<?php echo $signature_image_45; ?>"></a>
+							        <section id="" class="widget-section">
+								        <div class="caption">
+									        <h4 class="widget-title"><?php echo $signature_image_45_sub_title; ?></h4>
+									        <p class="text-justify"><?php echo $signature_image_45_caption; ?></p>
+								        </div>
+							        </section>
+						        </div>
+					        </div>
+				
+				        <?php }
+					// Optional images 46, 47, 48
+	        if( $signature_image_46 !== '' ) { ?>
+		
+		        <div class="row">
+			        <div class="col-md-4">
+				        <div class="thumbnail signature-text-color">
+					        <h3 class="widget-title"><a class="thumbnail-h3" href="<?php echo $signature_image_46_title_link; ?>" target="_self" title="Signature Destination"><?php echo $signature_image_46_title; ?></a></h3>
+					        <a class="thumbnail-h3" href="<?php echo $signature_image_46_title_link; ?>" target="_self" title="Signature Destination"><img src="<?php echo $signature_image_46; ?>"></a>
+					        <section id="" class="widget-section">
+						        <div class="caption">
+							        <h4 class="widget-title"><?php echo $signature_image_46_sub_title; ?></h4>
+							        <p class="text-justify"><?php echo $signature_image_46_caption; ?></p>
+						        </div>
+					        </section>
+				        </div>
+			        </div>
+			
+			        <?php if( $signature_image_47 !== '' ) { ?>
+				
+				        <div class="col-md-4">
+					        <div class="thumbnail signature-text-color">
+						        <h3 class="widget-title"><a class="thumbnail-h3" href="<?php echo $signature_image_47_title_link; ?>" target="_self" title="Signature Destination"><?php echo $signature_image_47_title; ?></a></h3>
+						        <a class="thumbnail-h3" href="<?php echo $signature_image_47_title_link; ?>" target="_self" title="Signature Destination"><img src="<?php echo $signature_image_47; ?>"></a>
+						        <section id="" class="widget-section">
+							        <div class="caption">
+								        <h4 class="widget-title"><?php echo $signature_image_47_sub_title; ?></h4>
+								        <p class="text-justify"><?php echo $signature_image_47_caption; ?></p>
+							        </div>
+						        </section>
+					        </div>
+				        </div>
+			
+			        <?php }
+				        if( $signature_image_48 !== '' ) { ?>
+					
+					        <div class="col-md-4">
+						        <div class="thumbnail signature-text-color">
+							        <h3 class="widget-title"><a class="thumbnail-h3" href="<?php echo $signature_image_48_title_link; ?>" target="_self" title="Signature Destination"><?php echo $signature_image_48_title; ?></a></h3>
+							        <a class="thumbnail-h3" href="<?php echo $signature_image_48_title_link; ?>" target="_self" title="Signature Destination"><img src="<?php echo $signature_image_48; ?>"></a>
+							        <section id="" class="widget-section">
+								        <div class="caption">
+									        <h4 class="widget-title"><?php echo $signature_image_48_sub_title; ?></h4>
+									        <p class="text-justify"><?php echo $signature_image_48_caption; ?></p>
+								        </div>
+							        </section>
+						        </div>
+					        </div>
+				
+				        <?php } ?>
+		
+		        </div>
+	
+	        <?php }
+				
+	        // Optional images 49, 50, 51
+	        if( $signature_image_49 !== '' ) { ?>
+		
+		        <div class="row">
+			        <div class="col-md-4">
+				        <div class="thumbnail signature-text-color">
+					        <h3 class="widget-title"><a class="thumbnail-h3" href="<?php echo $signature_image_49_title_link; ?>" target="_self" title="Signature Destination"><?php echo $signature_image_49_title; ?></a></h3>
+					        <a class="thumbnail-h3" href="<?php echo $signature_image_49_title_link; ?>" target="_self" title="Signature Destination"><img src="<?php echo $signature_image_49; ?>"></a>
+					        <section id="" class="widget-section">
+						        <div class="caption">
+							        <h4 class="widget-title"><?php echo $signature_image_49_sub_title; ?></h4>
+							        <p class="text-justify"><?php echo $signature_image_49_caption; ?></p>
+						        </div>
+					        </section>
+				        </div>
+			        </div>
+			
+			        <?php if( $signature_image_50 !== '' ) { ?>
+				
+				        <div class="col-md-4">
+					        <div class="thumbnail signature-text-color">
+						        <h3 class="widget-title"><a class="thumbnail-h3" href="<?php echo $signature_image_50_title_link; ?>" target="_self" title="Signature Destination"><?php echo $signature_image_50_title; ?></a></h3>
+						        <a class="thumbnail-h3" href="<?php echo $signature_image_50_title_link; ?>" target="_self" title="Signature Destination"><img src="<?php echo $signature_image_50; ?>"></a>
+						        <section id="" class="widget-section">
+							        <div class="caption">
+								        <h4 class="widget-title"><?php echo $signature_image_50_sub_title; ?></h4>
+								        <p class="text-justify"><?php echo $signature_image_50_caption; ?></p>
+							        </div>
+						        </section>
+					        </div>
+				        </div>
+			
+			        <?php }
+				        if( $signature_image_51 !== '' ) { ?>
+					
+					        <div class="col-md-4">
+						        <div class="thumbnail signature-text-color">
+							        <h3 class="widget-title"><a class="thumbnail-h3" href="<?php echo $signature_image_51_title_link; ?>" target="_self" title="Signature Destination"><?php echo $signature_image_51_title; ?></a></h3>
+							        <a class="thumbnail-h3" href="<?php echo $signature_image_51_title_link; ?>" target="_self" title="Signature Destination"><img src="<?php echo $signature_image_51; ?>"></a>
+							        <section id="" class="widget-section">
+								        <div class="caption">
+									        <h4 class="widget-title"><?php echo $signature_image_51_sub_title; ?></h4>
+									        <p class="text-justify"><?php echo $signature_image_51_caption; ?></p>
+								        </div>
+							        </section>
+						        </div>
+					        </div>
+				
+				        <?php } ?>
+		
+		        </div>
+	
+	        <?php }
+					
+					// Optional centered left and right images
 	        if( $signature_centered_l !== '' ) { ?>
             
             <div class="row">
@@ -912,7 +1070,7 @@
                 </div>
               </div>
               
-              <?php if( $signature_centered_r !== '' ) { ?>
+              <?php } if( $signature_centered_r !== '' ) { ?>
               
               <div class="col-md-4">
                 <div class="thumbnail signature-text-color">

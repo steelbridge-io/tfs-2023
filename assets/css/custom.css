@@ -2840,6 +2840,10 @@ body {
   text-decoration: none;
 }
 
+.tfs-content-video .container .row video {
+  margin-bottom: 1.618em;
+}
+
 /*@charset "UTF-8";
 
 @function unicode($str) {
@@ -3042,12 +3046,31 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
 }
 /** Hero Template
 ======================= */
-/** Hero Video **/
-.hero-template-content {
-  margin: 1.618em auto;
+.fades {
+  transition: opacity 0.7s ease-in;
 }
 
-#hero-header {
+.fadeOut {
+  opacity: 0;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+
+#hero-template-cont {
+  background-color: #f5f5f5;
+  padding-top: 3.618em;
+  position: relative;
+  z-index: 900;
+}
+
+/** Hero Video **/
+.hero-template-content {
+  margin: 2.618em auto 2.618em auto;
+}
+
+#heroheader {
   position: relative;
   background-color: black;
   height: 75vh;
@@ -3055,19 +3078,21 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   width: 100%;
   overflow: hidden;
 }
-#hero-header h1 {
+#heroheader h1 {
   color: #f5f5f5;
   margin-bottom: 0.4em;
 }
 
-#hero-header video {
-  position: absolute;
+#heroheader video,
+#heroheader img.hero-temp-img {
+  position: fixed;
   top: 50%;
   left: 50%;
   min-width: 100%;
   min-height: 100%;
-  width: auto;
+  width: 100%;
   height: auto;
+  object-fit: cover;
   z-index: 0;
   -ms-transform: translateX(-50%) translateY(-50%);
   -moz-transform: translateX(-50%) translateY(-50%);
@@ -3075,12 +3100,12 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   transform: translateX(-50%) translateY(-50%);
 }
 
-#hero-header .container {
+#heroheader .container {
   position: relative;
   z-index: 2;
 }
 
-#hero-header .overlay {
+#heroheader .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -3092,10 +3117,10 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
 }
 
 @media (pointer: coarse) and (hover: none) {
-  #hero-header {
+  #heroheader {
     background: url("https://source.unsplash.com/XT5OInaElMw/1600x900") black no-repeat center center scroll;
   }
-  #hero-header video {
+  #heroheader video {
     display: none;
   }
 }
@@ -3228,7 +3253,8 @@ a.page-numbers:hover {
   left: 50%;
   min-width: 100%;
   min-height: 100%;
-  width: auto;
+  object-fit: cover;
+  width: 100%;
   height: auto;
   z-index: 0;
   -ms-transform: translateX(-50%) translateY(-50%);
@@ -3287,6 +3313,14 @@ a.page-numbers:hover {
   margin-top: 5em;
 }
 
+.justify-content-center {
+  justify-content: center;
+}
+
+.flex-wrap-wrap {
+  flex-wrap: wrap;
+}
+
 /** Prime Travel
 ======================= */
 .h2-small {
@@ -3295,7 +3329,7 @@ a.page-numbers:hover {
 
 #prime-travel-tfs-logo img {
   position: absolute;
-  max-width: 100px;
+  max-width: 150px;
   z-index: 999;
 }
 
@@ -3432,8 +3466,8 @@ section {
     display: none;
   }
   #prime-travel-tfs-logo img {
-    margin-left: 6.5em;
-    margin-top: 3.3em;
+    margin-left: 5em;
+    margin-top: 2em;
   }
 }
 @media (max-width: 991.98px) {

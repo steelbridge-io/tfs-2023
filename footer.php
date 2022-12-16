@@ -16,15 +16,15 @@
 <div class="container-fluid">
   <?php
   //global $post;
-  $template = is_page_template('page-templates/survey-template.php');
-  if(!$template) { ?>
-  <section class="instagram-wrap">
+  // $template = is_page_template('page-templates/survey-template.php');
+  //if(!$template) { ?>
+  <!--<section class="instagram-wrap">
     
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12">
 
-      <!--  #### Instagram Feed Removed 1/16/21
+      #### Instagram Feed Removed 1/16/21
       
       <div class="instagram-content">
         <h2>Latest Photos <a href="https://www.instagram.com/esblodge/" target="_blank" class="icon icons fa-instagram"><span class="label">Instagram</span></a> on Instagram</h2>
@@ -36,13 +36,13 @@
           </div>
           
         </div>
-        </div>  -->
+        </div>
         
         </div>
       </div>
     </div>
-   </section>
-  <?php } ?>
+   </section> -->
+  <?php // } ?>
 
  <!-- ========== END INSTAGRAM FEED =========== -->
 

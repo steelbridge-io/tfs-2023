@@ -41,6 +41,17 @@ body {
 .nav-previous a:hover {
   text-decoration: none;
 }
+
+.tfs-content-video {
+  .container {
+    .row {
+      video {
+        margin-bottom: 1.618em;
+      }
+    }
+  }
+}
+
 /*@charset "UTF-8";
 
 @function unicode($str) {

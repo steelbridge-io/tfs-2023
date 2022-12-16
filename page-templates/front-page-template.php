@@ -31,11 +31,10 @@ get_header(); ?>
   
     <div class="video">
      <div class="overlay"></div>
-     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+     <video id="vid" preload="none" playsinline autoplay loop muted>
       <!-- <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4"> -->
-      <source src="<?php echo $front_page_hero_video ?>" type="video/mp4">
+	     <source src="<?php echo $front_page_hero_video ?>" type="video/mp4" />
      </video>
-     
      <div class="container h-100">
       <div class="d-flex h-100 text-center align-items-center">
        <div class="w-100 text-white">

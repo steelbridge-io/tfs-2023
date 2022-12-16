@@ -12,7 +12,6 @@ AOS.init({
     easing: 'ease', // default easing for AOS animations
 });
 
-
 /*if( ! /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
 
     $(document).ready(function () {

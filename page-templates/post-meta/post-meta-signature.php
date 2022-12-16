@@ -275,6 +275,66 @@ $signature_image_42							= get_post_meta(get_the_ID(), 'signature-image-42', tr
 $signature_image_42_sub_title		= get_post_meta(get_the_ID(), 'signature-image-42-sub-title', true);
 $signature_image_42_caption			= get_post_meta(get_the_ID(), 'signature-image-42-caption', true);
 
+$signature_image_43_title				= get_post_meta(get_the_ID(), 'signature-image-43-title', true);
+$signature_image_43_title_link	= get_post_meta(get_the_ID(), 'signature-image-43-title-link', true);
+$signature_image_43							= get_post_meta(get_the_ID(), 'signature-image-43', true);
+$signature_image_43_sub_title		= get_post_meta(get_the_ID(), 'signature-image-43-sub-title', true);
+$signature_image_43_caption			= get_post_meta(get_the_ID(), 'signature-image-43-caption', true);
+
+$signature_image_44_title				= get_post_meta(get_the_ID(), 'signature-image-44-title', true);
+$signature_image_44_title_link	= get_post_meta(get_the_ID(), 'signature-image-44-title-link', true);
+$signature_image_44							= get_post_meta(get_the_ID(), 'signature-image-44', true);
+$signature_image_44_sub_title		= get_post_meta(get_the_ID(), 'signature-image-44-sub-title', true);
+$signature_image_44_caption			= get_post_meta(get_the_ID(), 'signature-image-44-caption', true);
+
+$signature_image_45_title				= get_post_meta(get_the_ID(), 'signature-image-45-title', true);
+$signature_image_45_title_link	= get_post_meta(get_the_ID(), 'signature-image-45-title-link', true);
+$signature_image_45							= get_post_meta(get_the_ID(), 'signature-image-45', true);
+$signature_image_45_sub_title		= get_post_meta(get_the_ID(), 'signature-image-45-sub-title', true);
+$signature_image_45_caption			= get_post_meta(get_the_ID(), 'signature-image-45-caption', true);
+
+$signature_image_46_title				= get_post_meta(get_the_ID(), 'signature-image-46-title', true);
+$signature_image_46_title_link	= get_post_meta(get_the_ID(), 'signature-image-46-title-link', true);
+$signature_image_46							= get_post_meta(get_the_ID(), 'signature-image-46', true);
+$signature_image_46_sub_title		= get_post_meta(get_the_ID(), 'signature-image-46-sub-title', true);
+$signature_image_46_caption			= get_post_meta(get_the_ID(), 'signature-image-46-caption', true);
+
+$signature_image_47_title				= get_post_meta(get_the_ID(), 'signature-image-47-title', true);
+$signature_image_47_title_link	= get_post_meta(get_the_ID(), 'signature-image-47-title-link', true);
+$signature_image_47							= get_post_meta(get_the_ID(), 'signature-image-47', true);
+$signature_image_47_sub_title		= get_post_meta(get_the_ID(), 'signature-image-47-sub-title', true);
+$signature_image_47_caption			= get_post_meta(get_the_ID(), 'signature-image-47-caption', true);
+
+$signature_image_48_title				= get_post_meta(get_the_ID(), 'signature-image-48-title', true);
+$signature_image_48_title_link	= get_post_meta(get_the_ID(), 'signature-image-48-title-link', true);
+$signature_image_48							= get_post_meta(get_the_ID(), 'signature-image-48', true);
+$signature_image_48_sub_title		= get_post_meta(get_the_ID(), 'signature-image-48-sub-title', true);
+$signature_image_48_caption			= get_post_meta(get_the_ID(), 'signature-image-48-caption', true);
+
+$signature_image_49_title				= get_post_meta(get_the_ID(), 'signature-image-49-title', true);
+$signature_image_49_title_link	= get_post_meta(get_the_ID(), 'signature-image-49-title-link', true);
+$signature_image_49							= get_post_meta(get_the_ID(), 'signature-image-49', true);
+$signature_image_49_sub_title		= get_post_meta(get_the_ID(), 'signature-image-49-sub-title', true);
+$signature_image_49_caption			= get_post_meta(get_the_ID(), 'signature-image-49-caption', true);
+
+$signature_image_50_title				= get_post_meta(get_the_ID(), 'signature-image-50-title', true);
+$signature_image_50_title_link	= get_post_meta(get_the_ID(), 'signature-image-50-title-link', true);
+$signature_image_50							= get_post_meta(get_the_ID(), 'signature-image-50', true);
+$signature_image_50_sub_title		= get_post_meta(get_the_ID(), 'signature-image-50-sub-title', true);
+$signature_image_50_caption			= get_post_meta(get_the_ID(), 'signature-image-50-caption', true);
+
+$signature_image_51_title				= get_post_meta(get_the_ID(), 'signature-image-51-title', true);
+$signature_image_51_title_link	= get_post_meta(get_the_ID(), 'signature-image-51-title-link', true);
+$signature_image_51							= get_post_meta(get_the_ID(), 'signature-image-51', true);
+$signature_image_51_sub_title		= get_post_meta(get_the_ID(), 'signature-image-51-sub-title', true);
+$signature_image_51_caption			= get_post_meta(get_the_ID(), 'signature-image-51-caption', true);
+
+$signature_image_52_title				= get_post_meta(get_the_ID(), 'signature-image-52-title', true);
+$signature_image_52_title_link	= get_post_meta(get_the_ID(), 'signature-image-52-title-link', true);
+$signature_image_52							= get_post_meta(get_the_ID(), 'signature-image-52', true);
+$signature_image_52_sub_title		= get_post_meta(get_the_ID(), 'signature-image-52-sub-title', true);
+$signature_image_52_caption			= get_post_meta(get_the_ID(), 'signature-image-52-caption', true);
+
 $signature_centered_image_title				= get_post_meta(get_the_ID(), 'signature-centered-image-title', true);
 $signature_centered_image_title_link	= get_post_meta(get_the_ID(), 'signature-centered-image-title-link', true);
 $signature_centered_image							= get_post_meta(get_the_ID(), 'signature-centered-image', true);

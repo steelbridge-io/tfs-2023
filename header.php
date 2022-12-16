@@ -75,13 +75,15 @@ $tfs_metatags    = get_post_meta(get_the_ID(), 'seotfs-meta-tags', true);
        (document, 'script', 'facebook-jssdk')
     );
   </script>
-  
-  <script>
+	
+ <?php if(is_page('17')) : ?>
+ <script>
     // Handles the pop-over feature found on stream report.
     $(function () {
       $('[data-toggle="popover"]').popover()
     })
   </script>
+	<?php endif; ?>
  
   <!-- Hero image for home page -->
   
