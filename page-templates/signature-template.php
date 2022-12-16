@@ -163,7 +163,7 @@
         if ($signature_image_1 !== '' ) { ?>
         
       <!-- ==== GRID SECTION ==== -->
-      <div class="pt-1618 container-fluid signature_bg_color">
+      <div id="signature-image-container" class="pt-1618 container-fluid signature_bg_color">
         <div class="row">
           <div class="col-md-4">
             <div class="thumbnail signature-text-color">
@@ -1042,6 +1042,22 @@
 								        <div class="caption">
 									        <h4 class="widget-title"><?php echo $signature_image_51_sub_title; ?></h4>
 									        <p class="text-justify"><?php echo $signature_image_51_caption; ?></p>
+								        </div>
+							        </section>
+						        </div>
+					        </div>
+				
+				        <?php }
+				        if( $signature_image_52 !== '' ) { ?>
+					
+					        <div class="col-md-4">
+						        <div class="thumbnail signature-text-color">
+							        <h3 class="widget-title"><a class="thumbnail-h3" href="<?php echo $signature_image_52_title_link; ?>" target="_self" title="Signature Destination"><?php echo $signature_image_52_title; ?></a></h3>
+							        <a class="thumbnail-h3" href="<?php echo $signature_image_52_title_link; ?>" target="_self" title="Signature Destination"><img src="<?php echo $signature_image_52; ?>"></a>
+							        <section id="" class="widget-section">
+								        <div class="caption">
+									        <h4 class="widget-title"><?php echo $signature_image_52_sub_title; ?></h4>
+									        <p class="text-justify"><?php echo $signature_image_52_caption; ?></p>
 								        </div>
 							        </section>
 						        </div>

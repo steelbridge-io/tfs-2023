@@ -2867,6 +2867,12 @@ body {
 } */
 /** SCSS Signature Template
 ============================== */
+#signature-image-container .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 #s3 .dd-2 h2.logo-tel {
   font-size: calc(16px + 8 * (100vw - 400px) / 400);
 }
