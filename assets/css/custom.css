@@ -2728,6 +2728,13 @@ h2.content-title {
 
 /** SCSS Search Results
 ------------------------------------------- */
+.archivetemplate #search-container-row {
+  margin-top: 5.618em;
+}
+.archivetemplate #main > header:before {
+  background: none;
+}
+
 .content-area.search-results {
   padding: 1.618em;
 }
@@ -2743,6 +2750,35 @@ h2.content-title {
   background-color: #f5f5f5;
   padding: 1.618em;
   margin-bottom: 2.618em;
+}
+
+#custom-pagination ul {
+  display: flex;
+  justify-content: center;
+}
+#custom-pagination .navigation li a,
+#custom-pagination .navigation li a:hover,
+#custom-pagination .navigation li.active a,
+#custom-pagination .navigation li.disabled {
+  color: #fff;
+  text-decoration: none;
+}
+#custom-pagination .navigation li {
+  display: inline;
+}
+#custom-pagination .navigation li a,
+#custom-pagination .navigation li a:hover,
+#custom-pagination .navigation li.active a,
+#custom-pagination .navigation li.disabled {
+  background-color: #a01624;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 12px;
+  padding: 0.75rem;
+}
+#custom-pagination .navigation li a:hover,
+#custom-pagination .navigation li.active a {
+  background-color: #771014;
 }
 
 /* SCSS Forms

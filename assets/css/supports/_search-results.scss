@@ -1,5 +1,13 @@
 /** SCSS Search Results
 ------------------------------------------- */
+.archivetemplate {
+  #search-container-row {
+    margin-top: 5.618em;
+  }
+  #main > header:before {
+    background: none;
+  }
+}
 .content-area.search-results {
   padding: $m1618;
 }
@@ -13,4 +21,38 @@
   background-color: $lightgrey;
   padding: $m1618;
   margin-bottom: $m2618;
+}
+
+#custom-pagination {
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+  .navigation li a,
+  .navigation li a:hover,
+  .navigation li.active a,
+  .navigation li.disabled {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .navigation li {
+    display: inline;
+  }
+
+  .navigation li a,
+  .navigation li a:hover,
+  .navigation li.active a,
+  .navigation li.disabled {
+    background-color: $tfsred;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 12px;
+    padding: 0.75rem;
+  }
+
+  .navigation li a:hover,
+  .navigation li.active a {
+    background-color: $tfsredhover;
+  }
 }
