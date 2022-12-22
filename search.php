@@ -10,11 +10,11 @@
 get_header(); ?>
 
 	<section id="primary" class="content-area search-results">
-      <div class="col-12 search-logo-wrap">
+     <!-- <div class="col-12 search-logo-wrap">
       <img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2018/01/TFSLogo-red.png" class="img-responsive" alt="The Fly Shop Logo">
-      </div>
+      </div> -->
       
-      <div class="row">
+      <div id="search-container-row" class="row">
         <div class="col-md-8">
 		<main id="main" class="site-main" role="main">
 
@@ -38,8 +38,9 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
-
+			//the_posts_navigation();
+			wpbeginner_numeric_posts_nav();
+		
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
