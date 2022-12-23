@@ -2728,6 +2728,10 @@ h2.content-title {
 
 /** SCSS Search Results
 ------------------------------------------- */
+.ubermenu-search input[type=text]:focus {
+  box-shadow: 0 0 0 2px #a01624;
+}
+
 .archivetemplate #search-container-row {
   margin-top: 5.618em;
 }
@@ -2781,6 +2785,32 @@ h2.content-title {
   background-color: #771014;
 }
 
+#search-bar-search-page {
+  width: 100%;
+}
+#search-bar-search-page form {
+  display: flex;
+  justify-content: space-evenly;
+}
+#search-bar-search-page form .search-submit {
+  border-radius: 0;
+  height: 2.4em;
+  line-height: initial;
+}
+#search-bar-search-page form label {
+  width: 74%;
+}
+#search-bar-search-page form label input {
+  width: 100%;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+#search-bar-search-page form label .search-field {
+  border: 1px solid #ccc;
+}
+
+/** max width */
+/** min width */
 /* SCSS Forms
 ------------------------- */
 #pop-over-fp {
@@ -3321,14 +3351,14 @@ a.page-numbers:hover {
   z-index: 1;
 }
 
-@media (pointer: coarse) and (hover: none) {
+/* @media (pointer: coarse) and (hover: none) {
   .video {
-    background: url("https://source.unsplash.com/XT5OInaElMw/1600x900") black no-repeat center center scroll;
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
   }
   .video video {
     display: none;
   }
-}
+} */
 /** Bootstrap Mods
 ========================== */
 .d-flex {

@@ -1,5 +1,10 @@
 /** SCSS Search Results
 ------------------------------------------- */
+.ubermenu-search {
+  input[type="text"]:focus {
+    box-shadow: 0 0 0 2px $tfsred;
+  }
+}
 .archivetemplate {
   #search-container-row {
     margin-top: 5.618em;
@@ -56,3 +61,53 @@
     background-color: $tfsredhover;
   }
 }
+
+#search-bar-search-page {
+ width: 100%;
+  form {
+    display: flex;
+    justify-content: space-evenly;
+    .search-submit {
+      border-radius: 0;
+      height: 2.4em;
+      line-height: initial;
+    }
+    label {
+      width: 74%;
+      input {
+        width: 100%;
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+      .search-field {
+        border: 1px solid $grey;
+      }
+    }
+  }
+}
+
+/** max width */
+@media (max-width: 1399.98px) { }
+
+@media (max-width: 1199.98px) { }
+
+@media (max-width: 991.98px) { }
+
+@media (max-width: 767.98px) { }
+
+@media (max-width: 575.98px) { }
+
+
+/** min width */
+@media (min-width: 576px) { }
+
+@media (min-width: 768px) { }
+
+@media (min-width: 992px) { }
+
+@media (min-width: 1200px) { }
+
+@media (min-width: 1400px) { }
+
+
+
