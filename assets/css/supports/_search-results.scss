@@ -72,6 +72,10 @@
       height: 2.4em;
       line-height: initial;
     }
+    .search-submit:active,
+    .search-submit:hover {
+      background-color: $tfsredhover;
+    }
     label {
       width: 74%;
       input {
@@ -81,6 +85,9 @@
       }
       .search-field {
         border: 1px solid $grey;
+      }
+      .search-field:focus-visible {
+        outline: none;
       }
     }
   }

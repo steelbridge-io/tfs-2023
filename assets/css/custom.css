@@ -2797,6 +2797,10 @@ h2.content-title {
   height: 2.4em;
   line-height: initial;
 }
+#search-bar-search-page form .search-submit:active,
+#search-bar-search-page form .search-submit:hover {
+  background-color: #771014;
+}
 #search-bar-search-page form label {
   width: 74%;
 }
@@ -2807,6 +2811,9 @@ h2.content-title {
 }
 #search-bar-search-page form label .search-field {
   border: 1px solid #ccc;
+}
+#search-bar-search-page form label .search-field:focus-visible {
+  outline: none;
 }
 
 /** max width */
