@@ -10,23 +10,25 @@
 get_header(); ?>
 	
 	<div id="search-results-header" class="page-header">
-		<header class="page-header search-results">
+		<div class="container">
+		<header class="page-header search-results-cont">
 			<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'the-fly-shop' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 		</header><!-- .page-header -->
 		
 		<div id="search-bar-search-page">
 			<?php get_search_form(); ?>
 		</div>
+		</div>
 	</div>
 
-	<section id="primary" class="content-area search-results">
+	<section id="primary" class="content-area search-results-cont">
      <!-- <div class="col-12 search-logo-wrap">
       <img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2018/01/TFSLogo-red.png" class="img-responsive" alt="The Fly Shop Logo">
       </div> -->
       
       <div id="search-container-row" class="row">
         <div class="col-md-8">
-				<main id="main" class="site-main" role="main">
+				<main id="main" class="search-results-target site-main" role="main">
 				
 				<?php
 				if ( have_posts() ) : ?>

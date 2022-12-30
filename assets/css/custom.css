@@ -509,16 +509,16 @@ p.template-description {
 
 @media all and (min-width: 768px) {
   .carousel-showallmove1 .carousel-inner > .active.left,
-.carousel-showallmove1 .carousel-inner > .prev {
+  .carousel-showallmove1 .carousel-inner > .prev {
     left: -50%;
   }
   .carousel-showallmove1 .carousel-inner > .active.right,
-.carousel-showallmove1 .carousel-inner > .next {
+  .carousel-showallmove1 .carousel-inner > .next {
     left: 50%;
   }
   .carousel-showallmove1 .carousel-inner > .left,
-.carousel-showallmove1 .carousel-inner > .prev.right,
-.carousel-showallmove1 .carousel-inner > .active {
+  .carousel-showallmove1 .carousel-inner > .prev.right,
+  .carousel-showallmove1 .carousel-inner > .active {
     left: 0;
   }
   .carousel-showallmove1 .carousel-inner .cloneditem-1 {
@@ -527,20 +527,20 @@ p.template-description {
 }
 @media all and (min-width: 768px) and (transform-3d), all and (min-width: 768px) and (-webkit-transform-3d) {
   .carousel-showallmove1 .carousel-inner > .item.active.right,
-.carousel-showallmove1 .carousel-inner > .item.next {
+  .carousel-showallmove1 .carousel-inner > .item.next {
     -webkit-transform: translate3d(50%, 0, 0);
     transform: translate3d(50%, 0, 0);
     left: 0;
   }
   .carousel-showallmove1 .carousel-inner > .item.active.left,
-.carousel-showallmove1 .carousel-inner > .item.prev {
+  .carousel-showallmove1 .carousel-inner > .item.prev {
     -webkit-transform: translate3d(-50%, 0, 0);
     transform: translate3d(-50%, 0, 0);
     left: 0;
   }
   .carousel-showallmove1 .carousel-inner > .item.left,
-.carousel-showallmove1 .carousel-inner > .item.prev.right,
-.carousel-showallmove1 .carousel-inner > .item.active {
+  .carousel-showallmove1 .carousel-inner > .item.prev.right,
+  .carousel-showallmove1 .carousel-inner > .item.active {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     left: 0;
@@ -548,42 +548,42 @@ p.template-description {
 }
 @media all and (min-width: 992px) {
   .carousel-showallmove1 .carousel-inner > .active.left,
-.carousel-showallmove1 .carousel-inner > .prev {
+  .carousel-showallmove1 .carousel-inner > .prev {
     left: -16.666%;
   }
   .carousel-showallmove1 .carousel-inner > .active.right,
-.carousel-showallmove1 .carousel-inner > .next {
+  .carousel-showallmove1 .carousel-inner > .next {
     left: 16.666%;
   }
   .carousel-showallmove1 .carousel-inner > .left,
-.carousel-showallmove1 .carousel-inner > .prev.right,
-.carousel-showallmove1 .carousel-inner > .active {
+  .carousel-showallmove1 .carousel-inner > .prev.right,
+  .carousel-showallmove1 .carousel-inner > .active {
     left: 0;
   }
   .carousel-showallmove1 .carousel-inner .cloneditem-2,
-.carousel-showallmove1 .carousel-inner .cloneditem-3,
-.carousel-showallmove1 .carousel-inner .cloneditem-4,
-.carousel-showallmove1 .carousel-inner .cloneditem-5,
-.carousel-showallmove1 .carousel-inner .cloneditem-6 {
+  .carousel-showallmove1 .carousel-inner .cloneditem-3,
+  .carousel-showallmove1 .carousel-inner .cloneditem-4,
+  .carousel-showallmove1 .carousel-inner .cloneditem-5,
+  .carousel-showallmove1 .carousel-inner .cloneditem-6 {
     display: block;
   }
 }
 @media all and (min-width: 992px) and (transform-3d), all and (min-width: 992px) and (-webkit-transform-3d) {
   .carousel-showallmove1 .carousel-inner > .item.active.right,
-.carousel-showallmove1 .carousel-inner > .item.next {
+  .carousel-showallmove1 .carousel-inner > .item.next {
     -webkit-transform: translate3d(16.666%, 0, 0);
     transform: translate3d(16.666%, 0, 0);
     left: 0;
   }
   .carousel-showallmove1 .carousel-inner > .item.active.left,
-.carousel-showallmove1 .carousel-inner > .item.prev {
+  .carousel-showallmove1 .carousel-inner > .item.prev {
     -webkit-transform: translate3d(-16.666%, 0, 0);
     transform: translate3d(-16.666%, 0, 0);
     left: 0;
   }
   .carousel-showallmove1 .carousel-inner > .item.left,
-.carousel-showallmove1 .carousel-inner > .item.prev.right,
-.carousel-showallmove1 .carousel-inner > .item.active {
+  .carousel-showallmove1 .carousel-inner > .item.prev.right,
+  .carousel-showallmove1 .carousel-inner > .item.active {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     left: 0;
@@ -2041,11 +2041,11 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
 }
 @media (max-width: 991px) {
   .setthehook1.spotlight,
-.setthehook2.spotlight,
-.setthehook3.spotlight,
-.setthehook4.spotlight,
-.setthehook5.spotlight,
-.setthehook6.spotlight {
+  .setthehook2.spotlight,
+  .setthehook3.spotlight,
+  .setthehook4.spotlight,
+  .setthehook5.spotlight,
+  .setthehook6.spotlight {
     padding: 0 1.618em;
   }
   .row-flex-sth-title {
@@ -2728,18 +2728,43 @@ h2.content-title {
 
 /** SCSS Search Results
 ------------------------------------------- */
+.search-results-target {
+  /*article::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: auto;
+    border-bottom: 1px solid #000000;
+    z-index: 999;
+  }*/
+}
+.search-results-target article:nth-of-type(odd) {
+  background-color: #eee;
+}
+.search-results-target article {
+  margin-bottom: 3em;
+}
+.search-results-target article .entry-header {
+  padding: 1em 1em 0 1em;
+}
+.search-results-target article .entry-summary,
+.search-results-target article .entry-footer {
+  padding: 0 1em 1em 1em;
+}
+
 #search-results-header {
   background-image: url("https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2022/04/MothersDay2022_Main.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   margin: auto -15px;
-  min-height: 325px;
+  min-height: 360px;
 }
 #search-results-header:before {
   background-color: rgba(0, 0, 0, 0.3);
   content: "";
-  height: 325px;
+  height: 360px;
   position: absolute;
   width: 100%;
   z-index: 0;
@@ -2751,8 +2776,6 @@ h2.content-title {
 }
 #search-results-header .page-header {
   padding-top: 7em;
-  padding-bottom: 1em;
-  margin: 0 0 1.618em;
   position: relative;
   z-index: 2;
 }
@@ -2768,11 +2791,11 @@ h2.content-title {
   background: none;
 }
 
-.content-area.search-results {
+.content-area.search-results-cont {
   padding: 1.618em;
 }
 
-.page-header.search-results h1 {
+.page-header.search-results-cont h1 {
   font-size: 2rem;
 }
 
@@ -2824,7 +2847,7 @@ h2.content-title {
 }
 #search-bar-search-page form .search-submit {
   border-radius: 0;
-  height: 2.4em;
+  height: 50px;
   line-height: initial;
 }
 #search-bar-search-page form .search-submit:active,
@@ -2841,6 +2864,7 @@ h2.content-title {
 }
 #search-bar-search-page form label .search-field {
   border: 1px solid #ccc;
+  height: 50px;
 }
 #search-bar-search-page form label .search-field:focus-visible {
   outline: none;

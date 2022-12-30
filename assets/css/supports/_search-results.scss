@@ -1,17 +1,42 @@
 /** SCSS Search Results
 ------------------------------------------- */
+.search-results-target {
+  article:nth-of-type(odd) {
+    background-color: #eee;
+  }
+  /*article::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: auto;
+    border-bottom: 1px solid #000000;
+    z-index: 999;
+  }*/
+  article {
+    margin-bottom: 3em;
+    .entry-header {
+      padding: 1em 1em 0 1em;
+    }
+    .entry-summary,
+    .entry-footer {
+      padding: 0 1em 1em 1em;
+    }
+  }
+}
+
 #search-results-header {
   background-image: url('https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2022/04/MothersDay2022_Main.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   margin: auto -15px;
-  min-height: 325px;;
+  min-height: 360px;
 
   &:before {
     background-color: rgba(0,0,0,0.3);
     content: '';
-    height: 325px;
+    height: 360px;
     position: absolute;
     width: 100%;
     z-index: 0;
@@ -25,8 +50,6 @@
 
   .page-header {
     padding-top: 7em;
-    padding-bottom: 1em;
-    margin: 0 0 1.618em;
     position: relative;
     z-index: 2;
   }
@@ -44,10 +67,10 @@
     background: none;
   }
 }
-.content-area.search-results {
+.content-area.search-results-cont {
   padding: $m1618;
 }
-.page-header.search-results {
+.page-header.search-results-cont {
   h1 {
     font-size: 2rem;
   }
@@ -103,7 +126,7 @@
     justify-content: space-evenly;
     .search-submit {
       border-radius: 0;
-      height: 2.4em;
+      height: 50px;
       line-height: initial;
     }
     .search-submit:active,
@@ -119,6 +142,7 @@
       }
       .search-field {
         border: 1px solid $grey;
+        height: 50px;
       }
       .search-field:focus-visible {
         outline: none;
