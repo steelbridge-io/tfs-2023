@@ -8,6 +8,16 @@
  */
 
 get_header(); ?>
+	
+	<div id="search-results-header" class="page-header">
+		<header class="page-header search-results">
+			<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'the-fly-shop' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+		</header><!-- .page-header -->
+		
+		<div id="search-bar-search-page">
+			<?php get_search_form(); ?>
+		</div>
+	</div>
 
 	<section id="primary" class="content-area search-results">
      <!-- <div class="col-12 search-logo-wrap">
@@ -20,14 +30,6 @@ get_header(); ?>
 				
 				<?php
 				if ( have_posts() ) : ?>
-		
-					<header class="page-header search-results">
-						<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'the-fly-shop' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-					</header><!-- .page-header -->
-					
-					<div id="search-bar-search-page">
-					<?php get_search_form(); ?>
-					</div>
 		
 					<?php
 					/* Start the Loop */

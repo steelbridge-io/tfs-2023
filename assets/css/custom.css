@@ -2728,6 +2728,35 @@ h2.content-title {
 
 /** SCSS Search Results
 ------------------------------------------- */
+#search-results-header {
+  background-image: url("https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2022/04/MothersDay2022_Main.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto -15px;
+  min-height: 325px;
+}
+#search-results-header:before {
+  background-color: rgba(0, 0, 0, 0.3);
+  content: "";
+  height: 325px;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+#search-results-header h1 {
+  text-align: center;
+  color: #f5f5f5;
+  font-size: clamp(27px, 4vw, 48px);
+}
+#search-results-header .page-header {
+  padding-top: 7em;
+  padding-bottom: 1em;
+  margin: 0 0 1.618em;
+  position: relative;
+  z-index: 2;
+}
+
 .ubermenu-search input[type=text]:focus {
   box-shadow: 0 0 0 2px #a01624;
 }
@@ -2743,9 +2772,6 @@ h2.content-title {
   padding: 1.618em;
 }
 
-.page-header.search-results {
-  margin-top: 2.618em;
-}
 .page-header.search-results h1 {
   font-size: 2rem;
 }
@@ -2786,7 +2812,11 @@ h2.content-title {
 }
 
 #search-bar-search-page {
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
   width: 100%;
+  z-index: 2;
 }
 #search-bar-search-page form {
   display: flex;
@@ -2817,6 +2847,20 @@ h2.content-title {
 }
 
 /** max width */
+@media (max-width: 991.98px) {
+  #search-bar-search-page form {
+    display: initial;
+    justify-content: initial;
+  }
+  #search-bar-search-page form label {
+    margin: 0 auto 1em auto;
+  }
+  #search-bar-search-page form .search-submit {
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+  }
+}
 /** min width */
 /* SCSS Forms
 ------------------------- */
