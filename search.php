@@ -28,6 +28,7 @@ get_header(); ?>
       
       <div id="search-container-row" class="row">
         <div class="col-md-8">
+	        <h2 class="results">Here's what we found:</h2>
 				<main id="main" class="search-results-target site-main" role="main">
 				
 				<?php

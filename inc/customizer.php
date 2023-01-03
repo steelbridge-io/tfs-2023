@@ -25,6 +25,7 @@
 	include 'customizer-css/travelblog-css.php';
 	include 'customizer-css/primetravel-css.php';
 	include 'customizer-css/primetravel-template-css.php';
+	include 'customizer-css/search-results-css.php';
 
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
@@ -59,6 +60,7 @@ function the_fly_shop_customize_register( $wp_customize ) {
 	include 'customizer/taxonomy-template-customizer.php';
 	include 'customizer/prime-travel-customizer.php';
 	include 'customizer/prime-travel-template-customizer.php';
+	include 'customizer/search-results-customizer.php';
 	
 	
 /**
