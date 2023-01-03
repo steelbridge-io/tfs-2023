@@ -2728,6 +2728,15 @@ h2.content-title {
 
 /** SCSS Search Results
 ------------------------------------------- */
+.results {
+  color: #a01624;
+}
+
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-search_header_img {
+  top: 73px;
+  left: 49px;
+}
+
 .search-results-target {
   /*article::after {
     content: "";
@@ -2754,7 +2763,7 @@ h2.content-title {
 }
 
 #search-results-header {
-  background-image: url("https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2022/04/MothersDay2022_Main.jpg");
+  /* Added in customizer background-image: url('https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2022/04/MothersDay2022_Main.jpg');*/
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
