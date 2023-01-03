@@ -12,6 +12,17 @@ AOS.init({
     easing: 'ease', // default easing for AOS animations
 });
 
+var $ = jQuery.noConflict(); // Add this to resolve $ undefined issue.
+
+$(document).ready(function() {
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+});
+
 /*if( ! /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
 
     $(document).ready(function () {
@@ -21,11 +32,11 @@ AOS.init({
 
 // When the user scrolls down 50px from the top of the document, resize the header's font size
 
-var x = window.matchMedia("(min-width: 991.98px)")
+/*var x = window.matchMedia("(min-width: 991.98px)")
 scrollFunction(x) // Call listener function at run time
 x.addListener(scrollFunction) // Attach listener function on state changes
 
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {scrollFunction()}; */
 
 /*function scrollFunction() {
 
