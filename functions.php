@@ -832,6 +832,24 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
 		
 		<?php endif;
 	}
+	
+	
+	// Orders ESB Lodge Post Type in Dashboard as DESC
+	function tfs_post_types_admin_order( $wp_query ) {
+		if (is_admin()) {
+			
+			// Get the post type from the query
+			$post_type = $wp_query->query['post_type'];
+			
+			if ( $post_type == 'esb_lodge') {
+				
+				$wp_query->set('orderby', 'date');
+				
+				$wp_query->set('order', 'DESC');
+			}
+		}
+	}
+	add_filter('pre_get_posts', 'tfs_post_types_admin_order');
 
 
 /**
