@@ -3,7 +3,7 @@
 	 * Changes the post navigation labels
 	 */
 	
-	function wpbeginner_numeric_posts_nav() {
+	function tfs_numeric_posts_nav() {
 		
 		if( is_singular() )
 			return;

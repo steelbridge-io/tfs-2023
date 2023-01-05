@@ -1,5 +1,6 @@
 /* SCSS For Taxonomy Archives
 -------------------------------------------- */
+
 #taxonomy {
   margin-top: 5em;
   .taxonomy {
@@ -25,6 +26,19 @@
 .taxonomy-body,
 .taxonomy-sidebar {
   padding: $p1618;
+}
+
+.taxonomy-body {
+  .card:nth-of-type(odd) {
+    background-color: #fff !important;
+    .archive-template {
+      background: transparent !important;
+    }
+  }
+  .card {
+    margin-left: 1em;
+  }
+
 }
 
 @media (min-width: 768px) {

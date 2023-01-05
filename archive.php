@@ -121,18 +121,9 @@
        endwhile;
       
       echo '<div id="archive-nav">';
-      
-      the_posts_pagination(array(
-        
-        'mid_size' => 2,
-        
-        'prev_text' => __('<i class="fas fa-chevron-left"></i>', 'the-fly-shop'),
-        
-        'next_text' => __('<i class="fas fa-chevron-right"></i>', 'the-fly-shop'),
-      
-      ));
-      
-      
+			
+	      tfs_numeric_posts_nav();
+				
       echo '</div>';
 
       else :

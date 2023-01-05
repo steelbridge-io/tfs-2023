@@ -48,7 +48,7 @@ get_header(); ?>
 					endwhile;
 		
 					//the_posts_navigation();
-					wpbeginner_numeric_posts_nav();
+					tfs_numeric_posts_nav();
 				
 				else :
 		

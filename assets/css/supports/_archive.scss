@@ -1,4 +1,18 @@
 /* Archive styles **/
+
+#archive-container {
+  .archive {
+    .col-md-9 {
+      .card:nth-of-type(odd) {
+        background-color: #eee;
+        article.archive-template {
+          background: transparent !important;
+        }
+      }
+    }
+  }
+}
+
 .template-header {
   #basic-scrolly{
     img {

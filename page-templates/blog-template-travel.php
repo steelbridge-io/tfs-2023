@@ -112,6 +112,14 @@ get_header();
                         </div>
 
                         <?php endif; ?>
+	
+	                      <?php echo '<div id="archive-nav">';
+		
+		                      //previous_post_link();     next_post_link();
+		                      //the_post_navigation();
+		                      wpb_posts_nav();
+		
+		                      echo '</div>'; ?>
 
                         <?php
                         // If comments are open or we have at least one comment, load up the comment template.
