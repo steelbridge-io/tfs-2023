@@ -850,8 +850,7 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
 		}
 	}
 	add_filter('pre_get_posts', 'tfs_post_types_admin_order');
-
-
+	
 /**
   * Shows what template is being used
   */
@@ -863,4 +862,3 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
 	}
 	
 	add_action( 'wp_footer', 'meks_which_template_is_loaded' );*/
-
