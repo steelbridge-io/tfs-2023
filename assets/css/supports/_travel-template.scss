@@ -1,5 +1,32 @@
 /** SCSS Travel Template
 ============================ */
+#constant-contact-container {
+  &.constant-contact-sign-up-container {
+    max-width: 610px;
+    margin: 0 auto;
+  }
+
+  .help-hover {
+    a {
+      margin: 0 auto;
+      padding-top: 4px;
+    }
+  }
+
+  .gform-button {
+    height: 41px;
+    border-radius: 0;
+  }
+
+  input {
+    border-radius: 0;
+    color: $white;
+  }
+
+  .gform_confirmation_message {
+    color: $white;
+  }
+}
 
 .travel-template-banner {
   .inner {
