@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Blog Template Travel
- * Template Post Type: travel-blog, esb_lodge
+ * Template Post Type: travel-blog, esb_lodge, fish_report
  * Developed for The Fly Shop
  * @package The_Fly_Shop
  * Author: Chris Parsons
