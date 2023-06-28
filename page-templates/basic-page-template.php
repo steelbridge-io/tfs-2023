@@ -16,13 +16,13 @@ include_once('post-meta/post-meta-basic.php');
 get_header(); ?>
 
 </div> <!-- /.container-fluid. Opening tag found in header.php-->
-<div id="primary" class="content-area" style="position: relative;">
+<div id="primary" class="content-area basic-template-wrap" style="position: relative;">
   <div id="main" role="main">
     
     <?php if ( has_post_thumbnail() ) : ?>
       
-      <div class="template-header">
-        <img src="<?php echo $basic_the_post_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
+      <div class="template-header bascic-template-header">
+        <img src="<?php echo $basic_the_post_img['0']; ?>" class="paralaxed center-block">
         <div class="center-content-flex template-header-content">
           <div class="basicpagelogo signature-header template-class text-center">
             <div class="inner">
@@ -37,7 +37,7 @@ get_header(); ?>
                 <!-- <a href="#main" class="more scrolly">Learn More</a> -->
               </dl>
             </div>
-            <div class="scrollto animated animatedFadeInUp fadeInUp">
+            <div id="scrollto-icon-basic-template" class="scrollto animated animatedFadeInUp fadeInUp">
               <a href="#scrollto" class="template more">Learn More</a>
             </div>
           </div>
@@ -65,7 +65,8 @@ get_header(); ?>
 </div>
 
 <div class="container-fluid basic-page-template">
-  <div id="scrollto" class="container">
+	<div id="scrollto"></div>
+  <div class="container">
     <div id="primary" class="content-area row">
       <main id="main" class="site-main col-md-12" role="main">
         <?php
