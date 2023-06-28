@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Blog Template New
- * Template Post Type: post, page, lower48blog
+ * Template Post Type: post, page, lower48blog, fish_report
  * Developed for The Fly Shop
  * @package The_Fly_Shop
  * Author: Chris Parsons
