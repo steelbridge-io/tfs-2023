@@ -31,7 +31,7 @@ get_header(); ?>
   
     <div class="video">
      <div class="overlay"></div>
-     <video id="vid" preload="none" playsinline autoplay loop muted>
+     <video id="vid" autoplay playsInline loop muted controls preload="auto">
       <!-- <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4"> -->
 	     <source src="<?php echo $front_page_hero_video ?>" type="video/mp4" />
      </video>
