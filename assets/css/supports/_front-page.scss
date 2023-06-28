@@ -5,3 +5,11 @@
   display: flex;
   justify-content: center;
 }
+
+@media (max-width: 767.98px) {
+  #banner {
+    .inner {
+      padding: 5em 1em 3em;
+    }
+  }
+}
