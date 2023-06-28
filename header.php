@@ -29,6 +29,7 @@ $tfs_metatags    = get_post_meta(get_the_ID(), 'seotfs-meta-tags', true);
   <meta property="og:image:width" content="200" />
   <meta property="og:image:height" content="200" />
   <meta property = "og:type" content = "article" />
+	<meta http-equiv="Cache-control" content="public">
  
   <meta property="og:description" content="America's #1 fly fishing outfitter, travel agent, and shop.  Carrying the best in fly fishing for 40 years." />
   <meta property="og:url"content="https://tfs-spaces.sfo2.digitaloceanspaces.com/" />

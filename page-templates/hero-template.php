@@ -21,7 +21,7 @@
   <section id="heroheader">
     <div class="overlay"></div>
 	  <?php if ($hero_video_url !== $default) { ?>
-    <video playsinline autoplay muted loop >
+    <video class="h-video" playsinline autoplay muted loop >
 	    <source src="<?php  echo $hero_video_url; ?>" type="video/mp4">
     </video>
 	  <?php  } else { ?>
