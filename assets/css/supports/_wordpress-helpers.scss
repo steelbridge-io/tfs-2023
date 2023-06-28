@@ -1,0 +1,25 @@
+/** WordPress Helpers */
+
+.alignright {
+  margin-top: 1em;
+}
+
+@media (min-width: 768px) {
+  img.alignright {
+    margin-bottom: 1em;
+  }
+  img.alignleft {
+    margin-bottom: 1em;
+  }
+}
+
+@media (max-width: 767.99px) {
+  .alignright {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  .alignleft {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
