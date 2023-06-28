@@ -26,6 +26,11 @@ itemToClone.children(':first-child').clone()
 });
 }); */
 
+// Contain the popover within the body NOT the element it was called in.
+$('[data-toggle="popover"]').popover({
+	container: 'body'
+});
+
 (function($) {
 
 	skel
