@@ -32,7 +32,7 @@
         transition: 0.5s;
     }
     .dd-1 .img-responsive-logo {
-        max-width: 20vw;
+        max-width: 100%;
         transition: 0.5s;
     }
     .template-header-content {
@@ -46,7 +46,7 @@
         display: none;
     }
     .dd-1 .img-responsive-logo {
-        max-width: 20vw;
+        max-width: 100%;
         transition: 0.5s;
     }
     .template-header-content {
@@ -58,11 +58,11 @@
 
 @media ( max-width: 768px ) {
     .center-content-flex {
-        height: 30%;
+        height: auto;
         transition: 0.5s;
     }
     .dd-1 .img-responsive-logo {
-        max-width: 20vw;
+        max-width: 100%;
         transition: 0.5s;
     }
     .signature-template #main #banner .template-header .img-responsive-width-100 {
@@ -78,22 +78,22 @@
         transition: 0.5s;
     }
     .dd-1 .img-responsive-logo {
-        max-width: 20vw;
+        max-width: 100%;
         transition: 0.5s;
     }
     .center-content-flex {
-        height: 35%;
+        height: auto;
         transition: 0.5s;
     }
 }
 
 @media (max-width: 640.99px) and (min-width: 640px) {
     .center-content-flex {
-        height: 26%;
+        height: auto;
         transition: 0.5s;
     }
     .dd-1 .img-responsive-logo {
-        max-width: 20vw;
+        max-width: 100%;
         transition: 0.5s;
     }
     .template-header-content {
@@ -109,14 +109,14 @@
         transition: 0.5s;
     }
     .dd-1 .img-responsive-logo {
-        max-width: 20vw;
+        max-width: 100%;
         transition: 0.5s;
     }
 }
 
 @media (max-width: 414px) {
     .center-content-flex {
-        height: 40%;
+        height: auto;
         transition: 0.5s;
     }
     .signature-template #main #banner .template-header .img-responsive-width-100 {
@@ -128,7 +128,7 @@
         transition: 0.5s;
     }
     .dd-1 .img-responsive-logo {
-        max-width: 20vw;
+        max-width: 100%;
         transition: 0.5s;
     }
 }
