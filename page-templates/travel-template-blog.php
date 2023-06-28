@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Travel Template With Blog
- * Template Post Type: travel_cpt
+ * Template Post Type: travel_cpt, fish_report
  * Developed for The Fly Shop
  * @package The_Fly_Shop
  * Author: Chris Parsons
