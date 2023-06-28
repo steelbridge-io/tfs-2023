@@ -22,3 +22,16 @@
     background-color: $tfsredhover !important;
   }
 }
+
+.btn.btn-flies {
+  color: $tfs_dark;
+  background-color: #ccc;
+  &:hover {
+    background-color: $tfsredhover;
+    color: $white;
+  }
+  &[aria-expanded="true"] {
+    background-color: $tfsredhover;
+    color: $white;
+  }
+}
