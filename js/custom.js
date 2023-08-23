@@ -4,6 +4,8 @@
  * License: MIT
  */
 
+
+
 AOS.init({
     animatedClassName: 'aos-animate', // class applied on animation
     useClassNames: true,
@@ -22,6 +24,7 @@ $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip()
     })
 });
+
 
 /*if( ! /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
 
@@ -61,6 +64,8 @@ window.onscroll = function() {scrollFunction()}; */
         }
     }
 } */
+
+
 
 (function(d) {
     var g = -1,
@@ -193,7 +198,7 @@ window.onscroll = function() {scrollFunction()}; */
 
 
     // Smooth Scroll to ID
-    $(document).on('click', 'a[href^="#"]', function(e) {
+    $(document).on('click', 'a[href^="#scrollto"]', function(e) {
         // target element id
         var id = $(this).attr('href');
 
@@ -276,3 +281,4 @@ if (addtoIcal4 !== null) {
     addtoIcal4.appendChild(addText4);
 
 }
+

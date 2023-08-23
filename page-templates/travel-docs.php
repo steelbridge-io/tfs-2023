@@ -24,10 +24,10 @@
 			<div id="travel-questions-pdf" class="template-header">
 				<img src="<?php echo $basic_the_post_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
 				<div class="center-content-flex template-header-content">
-					<div class="basicpagelogo signature-header template-class text-center">
+					<div class="basicpagelogo travel-docs-template template-class text-center">
 						<div class="inner">
 							<dl class="landing-hd">
-								<dd class="dd-1"><img src="<?php echo $basic_logo_upload; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title="Basic Logo"></dd>
+								<dd class="dd-1"><img src="<?php echo $basic_logo_upload; ?>" class="travel-docs-logo" alt="The Fly Shop Logo" title="Basic Logo"></dd>
 								<dd class="dd-2"><h2 class="logo-tel"><?php echo get_the_title(); ?></h2></dd>
 								
 								<?php if ( get_post_meta($post->ID, 'basic-page-description', true) )
@@ -242,6 +242,7 @@
 				
 				<?php if (!empty($pdf_file_1)) : ?>
 				<div id="questionaire-travel-section" class="container" style="margin-bottom: 5em;">
+					<h3 class="text-center">Optional Travel &amp; Tackle PDF Downloads</h3>
 					<div class="row">
 						<?php if(!empty($travel_sidebar_img_upload_6)) : ?>
 						<div class="col-lg-5">

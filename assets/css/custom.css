@@ -1152,6 +1152,7 @@ h2.logo-tel {
 .template-header img {
   height: 100%;
   object-fit: cover;
+  width: 100%;
 }
 
 .template-header-content {
@@ -1172,7 +1173,7 @@ h2.logo-tel {
 }
 
 .dd-1 .img-responsive-logo {
-  max-width: 40vw;
+  max-width: 20vw;
 }
 
 /* Parallax Window
@@ -3812,6 +3813,21 @@ section {
 }
 
 /** Travel Questionaire and PDF template */
+.template-header-content .travel-docs-logo {
+  width: clamp(270px, 30vh, 270px);
+}
+
+#travel-questions-pdf .template-header-content .travel-docs-template .scrollto {
+  margin-top: 3em;
+}
+
+#primary.travel-questionaire-wrap {
+  height: clamp(600px, 20vh, 600px);
+}
+#primary.travel-questionaire-wrap #main {
+  height: 100%;
+}
+
 #monthly-fly-list.container {
   padding: 0;
 }
@@ -3871,6 +3887,9 @@ section {
 
 #travelListitems {
   background-color: #eee;
+}
+#travelListitems h2 {
+  margin-top: 1.618em;
 }
 #travelListitems h3 {
   font-weight: 600;
@@ -4032,12 +4051,6 @@ section {
     top: 20%;
     /*margin-top: 1em;*/
   }
-  #primary.travel-questionaire-wrap {
-    height: 400px;
-  }
-  #primary.travel-questionaire-wrap #main {
-    height: 100%;
-  }
   #travel-questions-pdf .center-content-flex.template-header-content {
     height: auto;
   }
@@ -4050,15 +4063,26 @@ section {
   }
 }
 /** Basic Template CSS */
-#scrollto-icon-basic-template {
+#basic-content {
+  margin: 3.5em auto;
+}
+
+#primary.basic-template-wrap #scrollto-icon-basic-template {
   top: 20%;
   margin-top: 1em;
 }
-
-/*.bascic-template-header {
+#primary.basic-template-wrap .bascic-template-header {
   height: 600px;
-  max-height: 600px;
-}*/
+  height: clamp(600px, 50vh, 600px);
+}
+#primary.basic-template-wrap .template-header-content {
+  margin-top: clamp(15px, 5%, 0px);
+}
+
+.basic-template-inner .landing-hd .dd-1 img {
+  width: clamp(200px, 40vh, 270px);
+}
+
 /** WordPress Helpers */
 .alignright {
   margin-top: 1em;

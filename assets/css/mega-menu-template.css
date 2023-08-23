@@ -42,18 +42,18 @@
 }
 
 @media ( max-width: 823.99px) and (min-width: 767.99px) {
-    .scrollto.animated.animatedFadeInUp.fadeInUp {
+    /*.scrollto.animated.animatedFadeInUp.fadeInUp {
         display: none;
-    }
+    }*/
     .dd-1 .img-responsive-logo {
-        max-width: 100%;
+        max-width: 30vw;
         transition: 0.5s;
     }
-    .template-header-content {
+   /* .template-header-content {
         top: 18%;
         bottom: 0;
         transition: 0.5s;
-    }
+    } */
 }
 
 @media ( max-width: 768px ) {

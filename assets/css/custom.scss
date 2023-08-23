@@ -1036,6 +1036,7 @@ h2.logo-tel {
   img {
     height: 100%;
     object-fit: cover;
+    width: 100%;
   }
 }
 .template-header-content {
@@ -1055,7 +1056,7 @@ h2.logo-tel {
 }
 
 .dd-1 .img-responsive-logo {
-  max-width: 40vw;
+  max-width: 20vw;
 }
 
 
@@ -2092,7 +2093,7 @@ nav.navigation.post-navigation {
 @import "supports/bootstrap-mods";
 @import "supports/prime-travel";
 @import "supports/error404";
-@import "supports/travel-question-pdf";
+@import "supports/travel-docs-template";
 @import "supports/basic_template";
 @import "supports/wordpress-helpers";
 /*@import "supports/side-nav";*/

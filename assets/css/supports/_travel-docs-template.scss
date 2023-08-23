@@ -1,4 +1,26 @@
 /** Travel Questionaire and PDF template */
+.template-header-content {
+  .travel-docs-logo {
+    width: clamp(270px, 30vh, 270px);
+  }
+}
+
+#travel-questions-pdf {
+  .template-header-content {
+    .travel-docs-template {
+      .scrollto {
+        margin-top: 3em;
+      }
+    }
+  }
+}
+
+#primary.travel-questionaire-wrap {
+  height: clamp(600px, 20vh, 600px);
+  #main {
+    height: 100%;
+  }
+}
 
 #monthly-fly-list {
   &.container {
@@ -69,14 +91,6 @@
   }
 }
 
-
-
-
-
-
-
-
-
 .travel-questionaire {
   td {
     color: $tfs_dark;
@@ -84,6 +98,9 @@
 }
 
 #travelListitems {
+  h2 {
+    margin-top: 1.618em;
+  }
   h3 {
     font-weight: 600;
     margin-top: 1.618em;
@@ -285,12 +302,7 @@
     top: 20%;
     /*margin-top: 1em;*/
   }
-  #primary.travel-questionaire-wrap {
-    height: 400px;
-    #main {
-      height: 100%;
-    }
-  }
+
   #travel-questions-pdf {
     .center-content-flex.template-header-content {
       height: auto;
