@@ -1,10 +1,15 @@
 /** Travel Questionaire and PDF template */
+
+$font-size-rem: 16px; // Your root font size in rem
+$min-font-size-rem: 1rem;
+$max-font-size-rem: 1.2rem;
+$font-size-increase-vw: 8.333; // Adjust this value as needed
+
 .template-header-content {
   .travel-docs-logo {
     width: clamp(270px, 30vh, 270px);
   }
 }
-
 #travel-questions-pdf {
   .template-header-content {
     .travel-docs-template {
@@ -14,14 +19,12 @@
     }
   }
 }
-
 #primary.travel-questionaire-wrap {
   height: clamp(600px, 20vh, 600px);
   #main {
     height: 100%;
   }
 }
-
 #monthly-fly-list {
   &.container {
     padding: 0;
@@ -29,7 +32,12 @@
   .btn {
     width: 100%;
     border-radius: 0;
-    font-size: clamp(1rem, -0.875rem + 8.333vw, 1.2rem);
+   /* font-size: clamp(1rem, -0.875rem + 8.333vw, 1.2rem);  Does not compile on my 2018 MBP */
+    font-size: clamp(
+      $min-font-size-rem,
+      calc(#{$font-size-rem} - 0.875rem + #{$font-size-increase-vw}vw),
+      $max-font-size-rem
+    );
   }
   table {
     margin-top: 5px;
