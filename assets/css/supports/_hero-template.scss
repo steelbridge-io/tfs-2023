@@ -2,7 +2,7 @@
 ======================= */
 
 .fades {
-  transition: opacity 0.7s ease-in;
+  transition: opacity 1.2s ease-in;
 }
 
 .fadeOut { opacity: 0; }
@@ -61,15 +61,15 @@
   height: 100%;
   width: 100%;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.123;
   z-index: 1;
 }
 
-@media (pointer: coarse) and (hover: none) {
+/*@media (pointer: coarse) and (hover: none) {
   #heroheader {
     background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
   }
   #heroheader video {
     display: none;
   }
-}
+}*/

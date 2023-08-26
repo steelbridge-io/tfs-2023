@@ -12,7 +12,7 @@
   $basic_logo_upload = get_theme_mod ('basic_page_logo');
   $hero_description = get_post_meta(get_the_ID(), 'hero-video-image-description', true );
   $hero_video_url = get_post_meta(get_the_ID(), 'hero-video-url', true );
-	$hero_temp_image  = get_post_meta(get_the_ID(), 'hero-temp-image', true );
+	 $hero_temp_image  = get_post_meta(get_the_ID(), 'hero-temp-image', true );
   $default  = '';
   ?>
  </div>

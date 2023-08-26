@@ -4,8 +4,6 @@
  * License: MIT
  */
 
-
-
 AOS.init({
     animatedClassName: 'aos-animate', // class applied on animation
     useClassNames: true,
@@ -16,14 +14,14 @@ AOS.init({
 
 var $ = jQuery.noConflict(); // Add this to resolve $ undefined issue.
 
-$(document).ready(function() {
+/*$(document).ready(function() {
     $(function () {
         $('[data-toggle="popover"]').popover()
     })
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
-});
+});*/
 
 
 /*if( ! /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
@@ -198,7 +196,7 @@ window.onscroll = function() {scrollFunction()}; */
 
 
     // Smooth Scroll to ID
-    $(document).on('click', 'a[href^="#scrollto"]', function(e) {
+   $(document).on('click', 'a[href^="#scrollto"]', function(e) {
         // target element id
         var id = $(this).attr('href');
 
@@ -212,12 +210,12 @@ window.onscroll = function() {scrollFunction()}; */
         e.preventDefault();
 
         // top position relative to the document
-        var pos = $id.offset().top - 50; // Distance from the top in pixels. So, 50px
+        var pos = $id.offset().top - 150; // Distance from the top in pixels. So, 50px
 
         // animated top scrolling
         $('body, html').animate({scrollTop: pos }, 2000 );
     });
-
+    
 })(jQuery);
 
 

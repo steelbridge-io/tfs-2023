@@ -11,6 +11,8 @@
 $the_basic_blog_tmp_img = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
 $the_basic_temp_default = get_bloginfo('template_directory') . '/images/default/default-page-header.png';
 $blog_logo_basic_temp_upload   = get_theme_mod('blog_logo');
+$hero_video_url = get_post_meta(get_the_ID(), 'hero-video-url', true );
+$default = '';
 
 include_once('post-meta/post-meta-blog.php');
 
@@ -18,10 +20,37 @@ get_header();
 ?>
   
   </div> <!-- /.container-fluid. Opening tag found in header.php-->
-  <div id="primary" class="content-area" style="position: relative;">
+  </div>
+ 
+  <div id="primary" class="hero-video-wrap basic-template-wrap content-area" style="position: relative;">
     <div id="main" role="main">
+
+    <?php if ($hero_video_url !== $default) : ?>
+       <div class="fades fadeOut" id="narf">
+        <section id="heroheader">
+         <div class="overlay"></div>
+         <video class="h-video" playsinline autoplay muted loop >
+          <source src="<?php  echo $hero_video_url; ?>" type="video/mp4">
+         </video>
+         <div class="container h-100">
+          <div class="d-flex flex-direction-column h-100 text-center align-items-center justify-content-center">
+           <div class="w-100 text-white">
+            <img src="<?php  echo $blog_logo_basic_temp_upload; ?>" alt="The Fly Shop Logo">
+            <h1 class="display-3"><?php the_title(); ?></h1>
+         <?php  if($blog_description !== $default ) { ?>
+                <span class="lead mb-0"><?php  echo $blog_description; ?></span>
+         <?php  } ?>
+            <h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3>
+           </div>
+           <div id="scrollto-icon-basic-template" class="scrollto animated animatedFadeInUp fadeInUp">
+            <a href="#scrollto" class="template more">Learn More</a>
+           </div>
+          </div>
+         </div>
+        </section>
+       </div>
       
-      <?php if ( has_post_thumbnail() ) : ?>
+      <?php elseif ( has_post_thumbnail() ) : ?>
         
         <!-- <header class="parallax-window center-content-flex" data-parallax="scroll" data-image-src="< //echo $the_basic_blog_tmp_img['0']; ?>"> -->
         <div class="template-header">
@@ -62,7 +91,8 @@ get_header();
     
     </div>
   </div>
-  
+ 
+  <span id="scrollto"></span>
   <div class="wrapper">
     <div class="container">
       <div id="primary" class="content-area row">

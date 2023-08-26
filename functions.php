@@ -327,12 +327,12 @@ function load_dashicons_front_end() {
 }
 
 function the_fly_shop_scripts() {
-  if(!is_page_template(array('page-templates/hero-template.php', 'page-templates/travel-signature-template.php'))) {
+ 
+  if(!is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-templates/travel-signature-template.php', 'page-templates/blog-template-basic.php'))) {
     wp_enqueue_style( 'the-fly-shop-btstrp-template', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), '3.3.7', 'all' );
     }
   
-  if(is_page_template(array('page-templates/hero-template.php', 'page-templates/travel-signature-template.php'))) {
-      //wp_enqueue_style('the-fly-shop-btstrp-template', get_template_directory_uri() . '/assets/css/bootstrap4/bootstrap.min.css', array(), '4.3.1', 'all');
+  if(is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-templates/travel-signature-template.php', 'page-templates/blog-template-basic.php'))) {
 			wp_enqueue_style('bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css', array(), '5.2.2', 'all');
     }
   
@@ -446,28 +446,26 @@ function the_fly_shop_scripts() {
 		
 		wp_enqueue_style( 'the-fly-shop-style', get_stylesheet_uri() );
 	
-	/*** SCRIPTS ***/
+	/**
+  * SCRIPTS
+  */
 	
-	wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array(), '1.0', true);
+	 wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array(), '1.0', true);
 	
-	if(!is_page_template(array('page-templates/hero-template.php', 'page-template/travel-signature-template.php'))) {
-		//wp_register_script('the-fly-shop-btstrpjs', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), '20161116', true);
-		wp_register_script('the-fly-shop-btstrpjs', 'https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js', array(), '3.3.7', true );
-		wp_enqueue_script('the-fly-shop-btstrpjs');
-	}
-	
-  if (is_page_template(array('page-templates/hero-template.php', 'page-templates/travel-signature-template.php'))) {
-		//wp_enqueue_script('bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js', array(), '', true);
-    // Hero Template jQuery
-    wp_enqueue_script('hero-template-jquery', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), '', true);
-    
-    // Hero Template Bootstrap JS
-    wp_enqueue_script('hero-template-bootstrapjs', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js', array(), '5.2.1', true);
+  if(!is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-template/travel-signature-template.php', 'page-templates/blog-template-basic.php'))) {
+   wp_register_script('the-fly-shop-btstrpjs', 'https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js', array(), '3.3.7', true );
+   wp_enqueue_script('the-fly-shop-btstrpjs');
   }
 	
-		wp_enqueue_script( 'the-fly-shop-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-    /* wp_enqueue_script('cycle-plugin', get_template_directory_uri() . '/js/cycle-content.js', array(), '20190720', true ); */
+   if (is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-templates/travel-signature-template.php', 'page-templates/blog-template-basic.php'))) {
+     // Hero Template jQuery
+     wp_enqueue_script('hero-template-jquery', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), '', true);
+     
+     // Hero Template Bootstrap JS
+     wp_enqueue_script('hero-template-bootstrapjs', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js', array(), '5.2.1', true);
+   }
+	
+		  wp_enqueue_script( 'the-fly-shop-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	
     // Javascript - JQuery is loaded here. min.js scripts are registered before loading.
     wp_register_script( 'new-font-awesome', 'https://use.fontawesome.com/releases/v5.0.9/js/all.js', array(), '2018', true );
@@ -489,8 +487,6 @@ function the_fly_shop_scripts() {
 
     wp_enqueue_script( 'the-fly-shop-mainjs', get_template_directory_uri() . '/assets/js/main.js', array(), '20161116', true );
 
-    /*wp_enqueue_script( 'the-fly-shop-columns', get_template_directory_uri() . '/assets/js/jquery.columnizer.js', array(), '20161116', true );*/
-
     wp_enqueue_script( 'the-fly-shop-btstrp-submenu', get_template_directory_uri() . '/assets/js/bootstrap-submenu.js', array(), '20161116', true );
 
     wp_enqueue_script( 'the-fly-shop-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -509,13 +505,13 @@ function the_fly_shop_scripts() {
 
     if (!is_admin()) {
         wp_deregister_script('jquery');
-        wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", false, null);
+        wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", true, null);
         wp_enqueue_script('jquery');
     }
 	
 		wp_enqueue_script( 'the-fly-shop-mainjs', get_template_directory_uri() . '/assets/js/main.js', array(), '20161116', true );
 	
-		if(is_page_template('page-templates/hero-template.php')) {
+		if(is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-templates/basic-page-template.php', 'page-templates/blog-template-basic.php'))) {
 			wp_enqueue_script('parallax-dep', get_template_directory_uri() . '/js/hero-template.js', array('jquery'), '', true );
 		}
 }
