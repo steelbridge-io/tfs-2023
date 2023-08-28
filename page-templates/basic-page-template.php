@@ -24,30 +24,30 @@ get_header(); ?>
 <div id="primary" class="content-area hero-video-wrap basic-template-wrap" style="position: relative;">
  <div id="main" role="main">
    
-	  <?php if ($hero_video_url !== $default) : ?>
-   <div class="fades fadeOut" id="narf">
-    <section id="heroheader">
-     <div class="overlay"></div>
-     <video class="h-video" playsinline autoplay muted loop >
-      <source src="<?php  echo $hero_video_url; ?>" type="video/mp4">
-     </video>
-     <div class="container h-100">
-      <div class="d-flex flex-direction-column h-100 text-center align-items-center justify-content-center">
-       <div class="w-100 text-white">
-        <img src="<?php  echo $basic_logo_upload; ?>" alt="The Fly Shop Logo">
-        <h1 class="display-3"><?php the_title(); ?></h1>
-     <?php  if($basic_page_description !== $default ) { ?>
-            <span class="lead mb-0"><?php  echo $basic_page_description; ?></span>
-     <?php  } ?>
-        <h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3>
-       </div>
-       <div id="scrollto-icon-basic-template" class="scrollto animated animatedFadeInUp fadeInUp">
-        <a href="#scrollto" class="template more">Learn More</a>
-       </div>
-      </div>
-     </div>
-    </section>
-   </div>
+    <?php if ($hero_video_url !== $default) : ?>
+    <div class="fades fadeOut" id="narf">
+        <section id="heroheader">
+         <div class="overlay"></div>
+         <video class="h-video" playsinline autoplay muted loop >
+          <source src="<?php  echo $hero_video_url; ?>" type="video/mp4">
+         </video>
+         <div class="container h-100">
+          <div class="d-flex flex-direction-column h-100 text-center align-items-center justify-content-center">
+           <div class="w-100 text-white">
+            <img src="<?php  echo $basic_logo_upload; ?>" alt="The Fly Shop Logo">
+            <h1 class="display-3"><?php the_title(); ?></h1>
+         <?php  if($basic_page_description !== $default ) { ?>
+                <span class="lead mb-0"><?php  echo $basic_page_description; ?></span>
+         <?php  } ?>
+            <h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3>
+           </div>
+           <div id="scrollto-icon-basic-template" class="scrollto animated animatedFadeInUp fadeInUp">
+            <a href="#scrollto" class="template more">Learn More</a>
+           </div>
+          </div>
+         </div>
+        </section>
+    </div>
    
    <?php elseif(has_post_thumbnail() ) : ?>
    

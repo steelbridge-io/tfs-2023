@@ -37,9 +37,9 @@ get_header();
            <div class="w-100 text-white">
             <img src="<?php  echo $blog_logo_basic_temp_upload; ?>" alt="The Fly Shop Logo">
             <h1 class="display-3"><?php the_title(); ?></h1>
-         <?php  if($blog_description !== $default ) { ?>
-                <span class="lead mb-0"><?php  echo $blog_description; ?></span>
-         <?php  } ?>
+             <?php  if($blog_description !== $default ) { ?>
+                    <span class="lead mb-0"><?php  echo $blog_description; ?></span>
+             <?php  } ?>
             <h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3>
            </div>
            <div id="scrollto-icon-basic-template" class="scrollto animated animatedFadeInUp fadeInUp">
