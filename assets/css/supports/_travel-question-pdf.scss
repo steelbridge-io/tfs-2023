@@ -1,0 +1,309 @@
+/** Travel Questionaire and PDF template */
+
+#monthly-fly-list {
+  &.container {
+    padding: 0;
+  }
+  .btn {
+    width: 100%;
+    border-radius: 0;
+    font-size: clamp(1rem, -0.875rem + 8.333vw, 1.2rem);
+  }
+  table {
+    margin-top: 5px;
+    th {
+      padding: 0.5em;
+      color: $smoke;
+      width: 33.333%;
+    }
+    tr:first-child {
+      background-color: $tfs_dark;
+    }
+    tr {
+      border: none;
+      td {
+        padding: 0.5em;
+        border: none;
+        color: $tfs_dark;
+      }
+    }
+  }
+}
+
+
+.btn.btn-flies {
+  &[aria-expanded="false"] {
+    .fa-times {
+      display: none;
+    }
+
+    .open-fly-list {
+      display: initial;
+    }
+
+    .close-fly-list {
+      display: none;
+    }
+
+    .fa-chevron-right {
+      display: initial;
+    }
+  }
+
+  &[aria-expanded="true"] {
+    .fa-times {
+      display: initial;
+    }
+
+    .open-fly-list {
+      display: none;
+    }
+
+    .close-fly-list {
+      display: initial;
+    }
+
+    .fa-chevron-right {
+      display: none;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+.travel-questionaire {
+  td {
+    color: $tfs_dark;
+  }
+}
+
+#travelListitems {
+  h3 {
+    font-weight: 600;
+    margin-top: 1.618em;
+    margin-bottom: 1.618em;
+  }
+  background-color: #eee;
+  .row {
+    .col-md-6 {
+      p {
+        padding-left: 3.5em;
+      }
+      h3 {
+        padding-left: 3.5em;
+      }
+    }
+  }
+}
+.travel-docs-wrap,
+.fly-list-wrap {
+
+  a {
+    color: $tfsred;
+      &:hover {
+      color: $tfsredhover;
+      text-decoration: none;
+    }
+  }
+
+
+  ul {
+    li {
+      color: $tfs_dark;
+    }
+  }
+
+  #custom-table {
+    tr {
+      color: $tfs_dark;
+
+      td {
+        color: $tfs_dark;
+      }
+    }
+  }
+
+  .fly-list-cont {
+    width: 100%;
+
+    .btn {
+      width: 100%;
+      font-size: clamp(0.7rem, 3vw, 1.2rem);
+      border-radius: 0;
+    }
+
+    #flylistCollapse,
+    #flylistMeta {
+      background-color: #eee;
+      padding-top: 20px;
+    }
+
+    table {
+      tbody {
+        tr {
+          border: none;
+        }
+      }
+    }
+  }
+
+  .fly-list-cont {
+    a[aria-expanded="false"] {
+      .fa-times {
+        display: none;
+      }
+
+      .open-fly-list {
+        display: initial;
+      }
+
+      .close-fly-list {
+        display: none;
+      }
+
+      .fa-chevron-right {
+        display: initial;
+      }
+    }
+
+    a[aria-expanded="true"] {
+      .fa-times {
+        display: initial;
+      }
+
+      .open-fly-list {
+        display: none;
+      }
+
+      .close-fly-list {
+        display: initial;
+      }
+
+      .fa-chevron-right {
+        display: none;
+      }
+    }
+  }
+}
+
+@media(min-width: 1199px) {
+  #questionaire-travel-section {
+    .row {
+      display: flex;
+    }
+    .col-lg-5 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+.feature-image-uploads {
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+#questionaire-travel-section {
+
+  .card {
+    padding: 1em;
+  }
+
+  .card:nth-child(odd) {
+    background-color: #ccc;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h4 {
+    font-size: 1.2em;
+    margin-bottom: 0em;
+  }
+
+  p {
+    font-color: $tfs_dark
+  }
+
+  .card {
+    margin-top: 1em;
+  }
+
+  .col-sm-11 {
+    p.pdf-title {
+      margin: 0;
+      font-size: 1.2em;
+    }
+  }
+
+  .desc-bite {
+    color: $tfs_dark;
+    line-height: 1.2;
+    font-size: 1rem;
+  }
+
+}
+
+#questionaire-container {
+  background-color: #F0EFE9;
+  padding: 1.2em;
+  p {
+    padding: 0;
+    margin: 0;
+  }
+  .gfield_description {
+    color: #000;
+  }
+  textarea, input {
+    color: #000000;
+  }
+  .ginput_container_phone {
+    input {
+      background-color: #D8D7D3;
+    }
+  }
+  .gform_button.button {
+    color: #fff;
+  }
+}
+
+@media(max-width: 1198.99px) {
+  .feature-image-uploads {
+    margin-top: 1.618em;
+  }
+  .scrollto {
+    top: 20%;
+    /*margin-top: 1em;*/
+  }
+  #primary.travel-questionaire-wrap {
+    height: 400px;
+    #main {
+      height: 100%;
+    }
+  }
+  #travel-questions-pdf {
+    .center-content-flex.template-header-content {
+      height: auto;
+    }
+  }
+}
+
+@media(max-width: 767.99px) {
+  .fly-list-cont {
+    a {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}
