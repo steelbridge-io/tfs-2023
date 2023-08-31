@@ -4,6 +4,11 @@
 .fades {
   transition: opacity 1.2s ease-in;
 }
+@media (max-height: 321px) {
+  .fades {
+    opacity: 1 !important;
+  }
+}
 
 .fadeOut { opacity: 0; }
 .fadeIn { opacity: 1; }
@@ -65,8 +70,7 @@
   z-index: 1;
 }
 
-//@media (pointer: coarse) and (hover: none) {
-@media(max-height: 320px) {
+/* @media (pointer: coarse) and (hover: none) {
 
   #heroheader {
     background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
@@ -74,4 +78,4 @@
   #heroheader video {
     display: none;
   }
-}
+} */
