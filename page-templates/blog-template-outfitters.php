@@ -15,7 +15,7 @@ $default_logo = get_theme_mod('default_page_logo');
 $jumbotronImage_Outfitters = get_the_post_thumbnail_url($post->ID, 'full');
 $default = '';
 
-include_once('post-meta/post-meta-blog.php');
+include('post-meta/post-meta-blog.php');
 
 get_header();
 ?>
@@ -37,8 +37,8 @@ get_header();
                             <div class="w-100 text-white">
                                 <img src="<?php  echo $default_logo; ?>" alt="The Fly Shop Logo">
                                 <h1 class="display-3"><?php the_title(); ?></h1>
-																														<?php  if($basic_page_description !== $default ) { ?>
-                                  <span class="lead mb-0"><?php  echo $basic_page_description; ?></span>
+																														<?php  if($blog_page_description !== $default ) { ?>
+                                  <span class="lead mb-0"><?php  echo $blog_page_description; ?></span>
 																														<?php  } ?>
                                 <h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3>
                             </div>
@@ -66,7 +66,7 @@ get_header();
           <?php } ?>
           <dd class="dd-2"><h2 class="logo-tel text-center outfitters"><?php echo get_the_title(); ?></h2></dd>
           <?php if ( get_post_meta($post->ID, 'signature-description', true) )
-            echo '<dd class="dd-3"><p class="template-description text-center outfitters">' . $basic_page_description . '</p></dd>' ?>
+            echo '<dd class="dd-3"><p class="template-description text-center outfitters">' . $blog_page_description . '</p></dd>' ?>
           <dd class="dd-4"><h3 class="logo-tel text-center outfitters"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3></dd>
         </dl>
        
