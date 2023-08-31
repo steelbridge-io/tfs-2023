@@ -8,9 +8,12 @@
  * Author URL: https://steelbridge.io
  */
 
+$hero_video_url = get_post_meta(get_the_ID(), 'hero-video-url', true );
 $outfitter_blogpost_img = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
 $outfitter_blog_logo = get_post_meta(get_the_ID(), 'outfitters-logo', true );
 $default_logo = get_theme_mod('default_page_logo');
+$jumbotronImage_Outfitters = get_the_post_thumbnail_url($post->ID, 'full');
+$default = '';
 
 include_once('post-meta/post-meta-blog.php');
 
@@ -19,13 +22,38 @@ get_header();
   
   
   </div> <!-- /.container-fluid. Opening tag found in header.php-->
-  
+
+<?php if ($hero_video_url !== $default) : ?>
+    <div id="primary" class="content-area hero-video-wrap basic-template-wrap" style="position: relative;">
+        <div id="main" role="main">
+            <div class="fades fadeOut" id="narf">
+                <section id="heroheader">
+                    <div class="overlay"></div>
+                    <video class="h-video" playsinline autoplay muted loop >
+                        <source src="<?php  echo $hero_video_url; ?>" type="video/mp4">
+                    </video>
+                    <div class="container h-100">
+                        <div class="d-flex flex-direction-column h-100 text-center align-items-center justify-content-center">
+                            <div class="w-100 text-white">
+                                <img src="<?php  echo $default_logo; ?>" alt="The Fly Shop Logo">
+                                <h1 class="display-3"><?php the_title(); ?></h1>
+																														<?php  if($basic_page_description !== $default ) { ?>
+                                  <span class="lead mb-0"><?php  echo $basic_page_description; ?></span>
+																														<?php  } ?>
+                                <h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3>
+                            </div>
+                            <div id="scrollto-icon-basic-template" class="scrollto animated animatedFadeInUp fadeInUp">
+                                <a href="#scrollto" class="template more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+<?php else : ?>
   <div class="outer">
   <div class="inner">
-    <?php
-      $jumbotronImage_Outfitters = get_the_post_thumbnail_url($post->ID, 'full');
-      
-    ?>
     <div id="outfitters-jumbotron" class="outfitters jumbotron">
       <img class="img-responsive outfitters" src="<?php echo $jumbotronImage_Outfitters ?>" alt="">
       <div class="container">
@@ -51,7 +79,8 @@ get_header();
       var s = skrollr.init();
     })
   </script>
-  
+    <?php endif; ?>
+    <span id="scrollto"></span>
   <div class="wrapper-blog">
     <div class="container">
       <div id="primary" class="content-area row">

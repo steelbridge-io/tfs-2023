@@ -1,4 +1,5 @@
 var $ = jQuery.noConflict();
+
 $(document).ready(function() {
     const observerOptions = {
         root: null,
@@ -23,3 +24,4 @@ $(document).ready(function() {
     const fadeElms = document.querySelectorAll('.fades');
     fadeElms.forEach(el => observer.observe(el));
 });
+

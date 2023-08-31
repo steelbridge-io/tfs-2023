@@ -4247,21 +4247,21 @@ a.badge:hover, a.badge:focus {
 #outfitters-jumbotron.outfitters.jumbotron {
   padding: 0 !important; }
   #outfitters-jumbotron.outfitters.jumbotron img.outfitters {
-    position: relative;
-    z-index: 1;
-    padding: 0;
-    width: 100%; }
+    position: relative !important;
+    z-index: 1 !important;
+    padding: 0 !important;
+    width: 100% !important; }
   #outfitters-jumbotron.outfitters.jumbotron .container {
-    position: absolute;
-    z-index: 2;
-    top: 30%;
-    left: 10%;
-    right: 10%;
-    transition: 0.5s; }
+    position: absolute !important;
+    z-index: 2 !important;
+    top: 30% !important;
+    left: 10% !important;
+    right: 10% !important;
+    transition: 0.5s !important; }
     #outfitters-jumbotron.outfitters.jumbotron .container .landing-hd .dd-2 .logo-tel {
-      font-size: calc(16px + (24 - 16) * (100vw - 400px)/(800 - 400)); }
+      font-size: calc(16px + (24 - 16) * (100vw - 400px)/(800 - 400)) !important; }
     #outfitters-jumbotron.outfitters.jumbotron .container .landing-hd .dd-4 .logo-tel {
-      font-size: calc(16px + (18 - 16) * (100vw - 300px)/(800 - 400)); }
+      font-size: calc(16px + (18 - 16) * (100vw - 300px)/(800 - 400)) !important; }
 
 .jumbotron {
   padding-top: 30px;

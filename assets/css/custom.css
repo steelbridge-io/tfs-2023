@@ -3350,14 +3350,14 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   z-index: 1;
 }
 
-/*@media (pointer: coarse) and (hover: none) {
+@media (max-height: 320px) {
   #heroheader {
-    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+    background: url("https://source.unsplash.com/XT5OInaElMw/1600x900") black no-repeat center center scroll;
   }
   #heroheader video {
     display: none;
   }
-}*/
+}
 /* Archive styles **/
 #archive-container .archive .col-md-9 .card:nth-of-type(odd) {
   background-color: #eee;
