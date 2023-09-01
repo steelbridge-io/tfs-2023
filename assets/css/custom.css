@@ -2260,6 +2260,56 @@ h2.content-title {
     border-radius: 0;
     box-shadow: none; }
 
+#header {
+  -moz-transition: background-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease;
+  -ms-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+  background: #2e3842;
+  height: 3em;
+  left: 0;
+  line-height: 3em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000; }
+
+#header h1 {
+  -moz-transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.2s ease;
+  -ms-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+  height: inherit;
+  right: 1rem;
+  /*line-height: inherit;*/
+  position: absolute;
+  top: 19px; }
+
+#header h1 a {
+  border: 0;
+  display: block;
+  height: inherit;
+  line-height: inherit;
+  float: left;
+  font-size: 1em;
+  color: #555; }
+
+@media screen and (max-width: 736px) {
+  #header h1 a {
+    font-size: .6em; }
+
+  #header h1 {
+    top: 20px; } }
+#header.alt {
+  background: transparent; }
+
+#header.alt h1 {
+  -moz-pointer-events: none;
+  -webkit-pointer-events: none;
+  -ms-pointer-events: none;
+  pointer-events: none;
+  opacity: 1; }
+
 /** SCSS Search Results
 ------------------------------------------- */
 .results {
