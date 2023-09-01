@@ -29,8 +29,9 @@ get_header();
             <div class="fades fadeOut" id="narf">
                 <section id="heroheader">
                     <div class="overlay"></div>
-                    <video class="h-video" playsinline autoplay muted loop >
+                    <video class="h-video" muted playsinline autoplaylay loop preload >
                         <source src="<?php  echo $hero_video_url; ?>" type="video/mp4">
+                        Your browser does not support the video.
                     </video>
                     <div class="container h-100">
                         <div class="d-flex flex-direction-column h-100 text-center align-items-center justify-content-center">

@@ -29,7 +29,7 @@ get_header();
        <div class="fades fadeOut" id="narf">
         <section id="heroheader">
          <div class="overlay"></div>
-         <video class="h-video" playsinline autoplay muted loop >
+         <video class="h-video" playsinline autoplay muted loop preload >
           <source src="<?php  echo $hero_video_url; ?>" type="video/mp4">
          </video>
          <div class="container h-100">
