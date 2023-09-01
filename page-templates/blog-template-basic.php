@@ -34,9 +34,9 @@ get_header();
          </video>
          <div class="container h-100">
           <div class="d-flex flex-direction-column h-100 text-center align-items-center justify-content-center">
-           <div class="w-100 text-white">
+           <div class="w-100 text-white tfs-logo-tel-video">
             <img src="<?php  echo $blog_logo_basic_temp_upload; ?>" alt="The Fly Shop Logo">
-            <h1 class="display-3"><?php the_title(); ?></h1>
+            <h1 class="display-6"><?php the_title(); ?></h1>
              <?php  if($blog_description !== $default ) { ?>
                     <span class="lead mb-0"><?php  echo $blog_description; ?></span>
              <?php  } ?>
