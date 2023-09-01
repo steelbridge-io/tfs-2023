@@ -54,9 +54,9 @@ get_header();
 <?php else : ?>
   <div class="outer">
   <div class="inner">
-    <div id="outfitters-jumbotron" class="outfitters jumbotron">
-      <img class="img-responsive outfitters" src="<?php echo $jumbotronImage_Outfitters ?>" alt="">
-      <div class="container">
+    <div id="outfitters-jumbotron" class="outfitters jumbotron jumbotron-fluid">
+      <img class="img-responsive outfitters jumbotron__background" src="<?php echo $jumbotronImage_Outfitters ?>" alt="">
+      <div class="container template-outfitters">
   
         <dl class="landing-hd">
           <?php if($outfitter_blog_logo !== '') { ?>

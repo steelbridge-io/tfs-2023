@@ -1863,6 +1863,18 @@ nav.navigation.post-navigation .polls.nav-previous {
 .wrapper-blog {
   margin-top: 3.618em; }
 
+#outfitters-jumbotron {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center; }
+  #outfitters-jumbotron .container.template-outfitters {
+    position: absolute;
+    top: 30%;
+    width: 100%; }
+
 /* New Blog Template
 ----------------------------------------- */
 .wrapper-new {

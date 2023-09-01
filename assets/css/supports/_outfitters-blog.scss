@@ -3,3 +3,17 @@
 .wrapper-blog {
   margin-top: 3.618em;
 }
+
+#outfitters-jumbotron {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  .container.template-outfitters {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+  }
+}
