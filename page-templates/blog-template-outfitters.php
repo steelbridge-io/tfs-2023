@@ -29,15 +29,14 @@ get_header();
             <div class="fades fadeOut" id="narf">
                 <section id="heroheader">
                     <div class="overlay"></div>
-                    <video class="h-video" muted playsinline autoplaylay loop preload >
+                    <video class="h-video" muted playsinline autoplay loop >
                         <source src="<?php  echo $hero_video_url; ?>" type="video/mp4">
-                        Your browser does not support the video.
                     </video>
                     <div class="container h-100">
                         <div class="d-flex flex-direction-column h-100 text-center align-items-center justify-content-center">
-                            <div class="w-100 text-white">
+                            <div class="w-100 text-white tfs-logo-tel-video">
                                 <img src="<?php  echo $default_logo; ?>" alt="The Fly Shop Logo">
-                                <h1 class="display-3"><?php the_title(); ?></h1>
+                                <h1 class="display-6"><?php the_title(); ?></h1>
 																														<?php  if($blog_page_description !== $default ) { ?>
                                   <span class="lead mb-0"><?php  echo $blog_page_description; ?></span>
 																														<?php  } ?>
