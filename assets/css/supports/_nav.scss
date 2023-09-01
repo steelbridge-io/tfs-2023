@@ -5,14 +5,12 @@
     .navbar-form {
       padding: 10px 0;
       width: 100%;
-
       .btn-default {
         border: 1px solid $white;
         background-color: $tfsred;
         border-radius: 0;
         color: $grey;
       }
-
       .form-group {
         .form-control {
           border: 1px solid $white;
@@ -23,7 +21,6 @@
     }
   }
 }
-
 #header {
   -moz-transition: background-color 0.2s ease;
   -webkit-transition: background-color 0.2s ease;
@@ -36,7 +33,8 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10000; }
+  z-index: 10000;
+}
 #header h1 {
   -moz-transition: opacity 0.2s ease;
   -webkit-transition: opacity 0.2s ease;
@@ -46,7 +44,8 @@
   right: 1rem;
   /*line-height: inherit;*/
   position: absolute;
-  top: 19px; }
+  top: 19px;
+}
 #header h1 a {
   border: 0;
   display: block;
@@ -54,7 +53,8 @@
   line-height: inherit;
   float: left;
   font-size: 1em;
-  color: #555; }
+  color: #555;
+}
 @media screen and (max-width: 736px) {
   #header h1 a {
     font-size: .6em;
@@ -63,14 +63,18 @@
     top: 20px;
   }
 }
-
+@media screen and (max-width: 959.99px) {
+  #header h1 a {
+    font-size: .7em;
+  }
+}
 #header.alt {
-  background: transparent; }
-
-
+  background: transparent;
+}
 #header.alt h1 {
   -moz-pointer-events: none;
   -webkit-pointer-events: none;
   -ms-pointer-events: none;
   pointer-events: none;
-  opacity: 1; }
+  opacity: 1;
+}
