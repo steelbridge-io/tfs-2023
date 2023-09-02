@@ -7,7 +7,6 @@ Custom styles for The Fly Shop Theme
   - Author
     Travel Blog
   - Archive Template
-	- Hero Section
 	- Body Elements
 	- Carousel
   - Comments
@@ -410,12 +409,6 @@ h1.archive-title {
 .tckt-slctr-tkt-details-sctn h4,
 .tckt-slctr-tkt-details-sctn h5 {
   color: var(--black);
-}
-
-/* Hero Section
--------------------------------- */
-.inner img {
-  padding-bottom: 1em;
 }
 
 /* Body Elements
@@ -2273,8 +2266,9 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
 }
 #outfitters-jumbotron .container.template-outfitters {
   position: absolute;
-  top: 30%;
+  top: 35%;
   width: 100%;
+  z-index: 1;
 }
 
 /* New Blog Template
@@ -3420,14 +3414,15 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   z-index: 2;
 }
 
-#heroheader .overlay {
+#heroheader .overlay,
+#outfitters-jumbotron .overlay {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   background-color: black;
-  opacity: 0.123;
+  /*opacity: 0.123;*/
   z-index: 1;
 }
 

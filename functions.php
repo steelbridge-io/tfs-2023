@@ -419,6 +419,9 @@ function the_fly_shop_scripts() {
 	if ( function_exists('load_search_css') ) {
 		wp_add_inline_style('the-fly-shop-custom-style', load_search_css() );
 	}
+    if ( function_exists('load_opacity_range_css')) {
+        wp_add_inline_style( 'the-fly-shop-custom-style', load_opacity_range_css() );
+    }
    
    if(function_exists('ubermenu')) {
     wp_enqueue_style( 'uber-menu-nav', get_template_directory_uri() . '/assets/css/mega-menu-nav.css');

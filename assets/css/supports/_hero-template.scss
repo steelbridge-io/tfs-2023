@@ -59,14 +59,15 @@
   z-index: 2;
 }
 
-#heroheader .overlay {
+#heroheader .overlay,
+#outfitters-jumbotron .overlay {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   background-color: black;
-  opacity: 0.123;
+  /*opacity: 0.123;*/
   z-index: 1;
 }
 
