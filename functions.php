@@ -868,18 +868,23 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
     function custom_css() {
         $custom_range_value = get_post_meta(get_the_ID(), 'opacity-range', true);
         $basic_page_range_value = get_post_meta(get_the_ID(), 'basic-opacity-range', true);
+        $blog_basic_page_range_value = get_post_meta(get_the_ID(), 'blog-basic-opacity-range', true);
 
         // Check if a value exists, and if not, use the default (0.5)
         if (!$custom_range_value) {
-                $custom_range_value = 0.1;
+            $custom_range_value = 0.1;
         }
         if (!$basic_page_range_value) {
             $basic_page_range_value = 0.1;
+        }
+        if (!$blog_basic_page_range_value) {
+            $blog_basic_page_range_value = 0.1;
         }
 
         echo '<style>';
         echo '#outfitters-jumbotron .overlay { opacity: ' . esc_attr($custom_range_value) . '; }';
         echo '#basic-template-hero-image .overlay { opacity: ' . esc_attr($basic_page_range_value) . '; }';
+        echo '#blog-template-basic-hero-image .overlay { opacity: ' . esc_attr($blog_basic_page_range_value) . '; }';
         echo '</style>';
     }
     add_action('wp_head', 'custom_css');
