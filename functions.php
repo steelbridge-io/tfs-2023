@@ -861,3 +861,26 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
 	}
 	
 	add_action( 'wp_footer', 'meks_which_template_is_loaded' );*/
+
+    /**
+     * Produces a default value for all instances of the range selector in any template where it is included. This function prevents the newly added custom meta from returning a blank value. A blank value yields a black background.
+     */
+    function custom_css() {
+        $custom_range_value = get_post_meta(get_the_ID(), 'opacity-range', true);
+        $basic_page_range_value = get_post_meta(get_the_ID(), 'basic-opacity-range', true);
+
+        // Check if a value exists, and if not, use the default (0.5)
+        if (!$custom_range_value) {
+                $custom_range_value = 0.1;
+        }
+        if (!$basic_page_range_value) {
+            $basic_page_range_value = 0.1;
+        }
+
+        echo '<style>';
+        echo '#outfitters-jumbotron .overlay { opacity: ' . esc_attr($custom_range_value) . '; }';
+        echo '#basic-template-hero-image .overlay { opacity: ' . esc_attr($basic_page_range_value) . '; }';
+        echo '</style>';
+    }
+    add_action('wp_head', 'custom_css');
+
