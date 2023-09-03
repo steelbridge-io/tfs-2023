@@ -53,7 +53,8 @@ get_header();
       <?php elseif ( has_post_thumbnail() ) : ?>
         
         <!-- <header class="parallax-window center-content-flex" data-parallax="scroll" data-image-src="< //echo $the_basic_blog_tmp_img['0']; ?>"> -->
-        <div class="template-header">
+        <div id="blog-template-basic-hero-image" class="template-header">
+          <div class="overlay"></div>
           <img src="<?php echo $the_basic_blog_tmp_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
           <div class="center-content-flex template-header-content">
             <div class="basicpagelogo signature-header template-class text-center">
