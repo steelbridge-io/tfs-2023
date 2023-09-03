@@ -3415,7 +3415,8 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
 }
 
 #heroheader .overlay,
-#outfitters-jumbotron .overlay {
+#outfitters-jumbotron .overlay,
+#basic-template-hero-image .overlay {
   position: absolute;
   top: 0;
   left: 0;
