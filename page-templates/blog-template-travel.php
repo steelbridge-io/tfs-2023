@@ -62,7 +62,7 @@ get_header();
     <?php elseif($blog_template_logo !== $default) : ?>
 
     <div class="outer">
-        <div class="inner">
+        <div id="blog-travel-template-hero" class="inner">
             <div class="overlay"></div>
             <div id="image" data-0="background-size: 150% auto; opacity:1;" data-380="background-size: 170% auto;"
             data-581="opacity:0;">

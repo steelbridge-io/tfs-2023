@@ -319,7 +319,7 @@ add_action( 'widgets_init', 'the_fly_shop_widgets_init' );
  * Enqueue scripts and styles.
  */
 
-include 'enqueue/inline-styles-customizer.php';
+//include 'enqueue/inline-styles-customizer.php';
 
 add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
 function load_dashicons_front_end() {
@@ -344,9 +344,6 @@ function the_fly_shop_scripts() {
 	
 		wp_enqueue_style( 'the-fly-shop-custom-style', get_template_directory_uri() . '/assets/css/custom.css', array(), '20161116', 'all' );
 	
-	if ( function_exists( 'load_private_waters_css' ) ) {
-		wp_add_inline_style( 'the-fly-shop-custom-style', load_private_waters_css() );
-	}
 	if ( function_exists( 'load_private_waters_css' ) ) {
 		wp_add_inline_style( 'the-fly-shop-custom-style', load_private_waters_css() );
 	}
