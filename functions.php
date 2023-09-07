@@ -419,9 +419,9 @@ function the_fly_shop_scripts() {
 	if ( function_exists('load_search_css') ) {
 		wp_add_inline_style('the-fly-shop-custom-style', load_search_css() );
 	}
-    if ( function_exists('load_opacity_range_css')) {
-        wp_add_inline_style( 'the-fly-shop-custom-style', load_opacity_range_css() );
-    }
+ if ( function_exists('load_opacity_range_css')) {
+     wp_add_inline_style( 'the-fly-shop-custom-style', load_opacity_range_css() );
+ }
    
    if(function_exists('ubermenu')) {
     wp_enqueue_style( 'uber-menu-nav', get_template_directory_uri() . '/assets/css/mega-menu-nav.css');
@@ -869,6 +869,7 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
         $custom_range_value = get_post_meta(get_the_ID(), 'opacity-range', true);
         $basic_page_range_value = get_post_meta(get_the_ID(), 'basic-opacity-range', true);
         $blog_basic_page_range_value = get_post_meta(get_the_ID(), 'blog-basic-opacity-range', true);
+	       $blog_temp_travel_range_value = get_post_meta($post->ID, 'opacity-range-new-travel', true);
 
         // Check if a value exists, and if not, use the default (0.5)
         if (!$custom_range_value) {
@@ -880,11 +881,15 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
         if (!$blog_basic_page_range_value) {
             $blog_basic_page_range_value = 0.1;
         }
+        if (!$blog_temp_travel_range_value) {
+             $blog_temp_travel_range_value = 0.1;
+        }
 
         echo '<style>';
         echo '#outfitters-jumbotron .overlay { opacity: ' . esc_attr($custom_range_value) . '; }';
         echo '#basic-template-hero-image .overlay { opacity: ' . esc_attr($basic_page_range_value) . '; }';
         echo '#blog-template-basic-hero-image .overlay { opacity: ' . esc_attr($blog_basic_page_range_value) . '; }';
+        echo '.inner .overlay { opacity: ' . esc_attr($blog_temp_travel_range_value) . '}';
         echo '</style>';
     }
     add_action('wp_head', 'custom_css');

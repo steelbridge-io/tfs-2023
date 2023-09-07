@@ -63,6 +63,7 @@ get_header();
 
     <div class="outer">
         <div class="inner">
+            <div class="overlay"></div>
             <div id="image" data-0="background-size: 150% auto; opacity:1;" data-380="background-size: 170% auto;"
             data-581="opacity:0;">
                 <div class="center-content-flex template-header-content">
