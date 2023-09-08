@@ -41,7 +41,11 @@ get_header();
                 <div class="d-flex flex-direction-column h-100 text-center align-items-center justify-content-center">
 
                     <div class="w-100 text-white">
+                     <?php if($blog_template_logo !== $default) : ?>
                     <img src="<?php  echo $blog_template_logo; ?>" alt="The Fly Shop Logo">
+                    <?php  else : ?>
+                    <img src="/img/tfs-logo-white.png" alt="The Fly Shop Logo">
+                    <?php endif; ?>
                     <h1 class="display-3"><?php the_title(); ?></h1>
                     <?php  if($basic_page_description !== $default ) { ?>
                       <span class="lead mb-0"><?php  echo $basic_page_description; ?></span>
@@ -59,7 +63,7 @@ get_header();
     </div>
     </div>
 
-    <?php elseif($blog_template_logo !== $default) : ?>
+    <?php else : ?>
 
     <div class="outer">
         <div id="blog-travel-template-hero" class="inner">
@@ -70,13 +74,17 @@ get_header();
                 <div class="basicpagelogo signature-header template-class text-center">
                 <dl class="landing-hd">
 
-                <dd id="travel-blog-logo" class="dd-1"><img src="<?php echo $blog_template_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title=""></dd>
+                <dd id="travel-blog-logo" class="dd-1">
+                 <?php if( $blog_template_logo !== $default ) : ?>
+                 <img src="<?php echo $blog_template_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" >
+                 <?php else : ?>
+                  <img src="/img/tfs-logo-white.png" class="img-responsive-logo" alt="The Fly Shop Logo" >
+                 <?php endif; ?>
+                </dd>
+ 
+                <!-- <dd id="travel-blog-logo" class="dd-1"><img src="<?php //echo $new_blog_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title=""></dd> -->
 
-                <?php else : ?>
-
-                <dd id="travel-blog-logo" class="dd-1"><img src="<?php echo $new_blog_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title=""></dd>
-
-                <?php endif; ?>
+     <?php endif; ?>
 
                 <dd class="dd-2 travel-blog"><h2 class="logo-tel"><?php echo get_the_title(); ?></h2></dd>
 
