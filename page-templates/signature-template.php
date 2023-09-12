@@ -11,6 +11,7 @@
   $the_post_img = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
   $the_post_default = get_bloginfo('template_directory') . '/images/default/default-page-header.png';
   $basic_logo_upload = get_theme_mod ('basic_page_logo');
+	 $hero_video_url = get_post_meta(get_the_ID(), 'hero-video-url', true );
   
   include_once('post-meta/post-meta-signature.php');
   $default = '';
@@ -20,63 +21,79 @@
   
   <div id="primary" class="content-area signature-template" style="position: relative;">
   <div id="main" role="main">
-    
-    <?php if ( has_post_thumbnail() ) : ?>
-    
-    <!--<header class="parallax-window center-content-flex" data-parallax="scroll" data-image-src="< //echo $the_post_img['0']; ?>">-->
-    <!--<header class="parallax-window center-content-flex" style="background-image: url(' echo $the_post_img['0']; ?>'); background-size:cover;">-->
-  
-  
+    <?php if ( $hero_video_url !== $default ) : ?>
     <section id="banner">
-    <div class="template-header">
-      <img src="<?php echo $the_post_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
-      
-      <div class="center-content-flex template-header-content">
-        <div class="basicpagelogo signature-header template-class text-center">
-          <div class="inner">
+      <div class="template-header">
+      <div class="overlay"></div>
+      <!-- Hero Video -->
+      <video class="h-video" playsinline autoplay muted loop >
+      <source src="<?php echo $hero_video_urlo; ?>" type="video/mp4">
+      </video>
+        <div class="center-content-flex template-header-content">
+          <div class="basicpagelogo signature-header template-class text-center">
+            <div class="inner">
             <dl class="landing-hd">
-              <dd class="dd-1"><img src="<?php echo $sig_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title="Basic Logo"></dd>
-
-              <div id="s3">
-                <dd class="dd-2">
-                  <h2 class="logo-tel"><?php echo get_the_title(); ?></h2>
-                  <h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3>
-                </dd>
-              
-                <?php if ( get_post_meta($post->ID, 'signature-description', true) ) echo '<dd class="dd-3"><p class="template-description">' . $signature_description . '</p></dd>'; ?>
-
-              </div>
+            <dd class="dd-1"><img src="<?php echo $sig_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title="Basic Logo"></dd>
+            <div id="s3">
+            <dd class="dd-2">
+            <h2 class="logo-tel"><?php echo get_the_title(); ?></h2>
+            <h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3>
+            </dd>
+            <?php if ( get_post_meta($post->ID, 'signature-description', true) ) echo '<dd class="dd-3"><p class="template-description">' . $signature_description . '</p></dd>'; ?>
+            </div>
             </dl>
-          </div>
-          
-          <div class="scrollto animated animatedFadeInUp fadeInUp">
+            </div>
+            <div class="scrollto animated animatedFadeInUp fadeInUp">
             <a href="#scrollto" class="template more">Learn More</a>
+            </div>
           </div>
-
         </div>
       </div>
-    </div>
-   </section>
-   
+    </section>
+     <?php elseif( has_post_thumbnail() ) : ?>
+     <section id="banner">
+      <div class="template-header">
+      <div class="overlay"></div>
+      <!-- Hero Image -->
+      <img src="<?php echo $the_post_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
+      <div class="center-content-flex template-header-content">
+       <div class="basicpagelogo signature-header template-class text-center">
+        <div class="inner">
+         <dl class="landing-hd">
+         <dd class="dd-1"><img src="<?php echo $sig_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title="Basic Logo"></dd>
+         <div id="s3">
+         <dd class="dd-2">
+         <h2 class="logo-tel"><?php echo get_the_title(); ?></h2>
+         <h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3>
+         </dd>
+         <?php if ( get_post_meta($post->ID, 'signature-description', true) ) echo '<dd class="dd-3"><p class="template-description">' . $signature_description . '</p></dd>'; ?>
+         </div>
+         </dl>
+        </div>
+        <div class="scrollto animated animatedFadeInUp fadeInUp">
+        <a href="#scrollto" class="template more">Learn More</a>
+        </div>
+       </div>
+      </div>
+      </div>
+     </section>
+    <?php else: ?>
+    <header class="parallax-window center-content-flex" data-parallax="scroll" data-image-src="<?php echo $the_post_default; ?>">
       
-      <?php else: ?>
+      <div class="basicpagelogo signature-header template-class text-center">
         
-        <header class="parallax-window center-content-flex" data-parallax="scroll" data-image-src="<?php echo $the_post_default; ?>">
-          
-          <div class="basicpagelogo signature-header template-class text-center">
-            
-            <img src="<?php echo $sig_logo; ?>" class="img-responsive center-block" alt="The Fly Shop Logo" title="Basic Logo">
-            
-            <h2><?php echo get_the_title(); ?></h2>
-            
-            <?php if ( get_post_meta($post->ID, 'signature-description', true) )
-              echo '<p class="template-description">' . $signature_description . '</p>' ?>
-            
-            <h3>800 &bull; 669 &bull; 3474</h3>
-          
-          </div>
+        <img src="<?php echo $sig_logo; ?>" class="img-responsive center-block" alt="The Fly Shop Logo" title="Basic Logo">
         
-        </header>
+        <h2><?php echo get_the_title(); ?></h2>
+        
+        <?php if ( get_post_meta($post->ID, 'signature-description', true) )
+          echo '<p class="template-description">' . $signature_description . '</p>' ?>
+        
+        <h3>800 &bull; 669 &bull; 3474</h3>
+      
+      </div>
+    
+    </header>
       
       <?php endif; ?>
       
