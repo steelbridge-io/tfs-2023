@@ -2500,6 +2500,9 @@ div.ctct-form-embed form.ctct-form-custom label.ctct-form-label {
 body {
   overflow: hidden; }
 
+.max-width-lg {
+  max-width: 1700px; }
+
 #scrollto {
   color: #f5f5f5; }
 
@@ -2719,6 +2722,14 @@ body.default-template #primary #main article.page {
 .travel-template-banner .inner h2 {
   font-size: calc( 16px + (24 - 16)*(100vw - 400px)/(800 - 400)); }
 
+.news-section .col-md-6 .media {
+  display: flex;
+  justify-content: center; }
+
+@media screen and (max-width: 1199.99px) {
+  .news-section .col-md-6 .media {
+    display: initial;
+    justify-content: initial; } }
 @media screen and (max-width: 736px) {
   #banner.travel-template-banner {
     padding: 5em 3em 5em 3em;

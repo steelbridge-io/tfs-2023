@@ -36,7 +36,25 @@
   }
 }
 
+.news-section {
+  .col-md-6 {
+    .media {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
 
+@media screen and (max-width: 1199.99px) {
+  .news-section {
+    .col-md-6 {
+      .media {
+        display: initial;
+        justify-content: initial;
+      }
+    }
+  }
+}
 @media screen and (max-width: 736px) {
   #banner.travel-template-banner {
     padding: 5em 3em 5em 3em ;
