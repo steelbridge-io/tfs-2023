@@ -27,6 +27,7 @@ get_header();?>
   <a href="#main" class="more scrolly">Learn More</a>
 
 </section>
+<div id="main"></div>
 
 <?php
 	/**
@@ -39,7 +40,7 @@ get_header();?>
 	
 	?>
 
-<article id="main">
+<article>
   <!-- One -->
   <section id="one" class="wrapper style5 special">
     <div class="inner">
@@ -315,7 +316,7 @@ get_header();?>
         <?php // Checkbox to activate video or image
         $video_feature_five = get_post_meta(get_the_ID(), 'feature-5-video', true);
         if(!empty($video_feature_five)) :?>
-          
+        
         <div class="embed-responsive embed-responsive-16by9">
           <video id="vid" playsInline muted controls preload="auto" poster="<?php echo $feature_5_angling_image ?>">
 	          <source src="<?php echo $video_feature_five; ?>" type="video/mp4">
