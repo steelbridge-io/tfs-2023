@@ -14,14 +14,14 @@ AOS.init({
 
 var $ = jQuery.noConflict(); // Add this to resolve $ undefined issue.
 
-/*$(document).ready(function() {
+$(document).ready(function() {
     $(function () {
         $('[data-toggle="popover"]').popover()
     })
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
-});*/
+});
 
 
 /*if( ! /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
