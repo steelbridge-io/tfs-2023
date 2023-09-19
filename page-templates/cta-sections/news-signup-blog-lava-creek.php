@@ -12,18 +12,17 @@
 			     <div class="col-md-11">
 						<?php echo do_shortcode('[gravityform id="9" title="false"]') ?>
 			     </div>
-					<div class="help-hover d-flex align-items-center col-md-1">
-						<a tabindex="0" role="button" aria-hidden="true" data-trigger="hover" data-toggle="popover" data-placement="top" title="Safe Subscribe" data-content="We respect your privacy and do not tolerate spam and will never sell, rent, lease or give away your email address to any third party. Nor will we send you unsolicited email. You will have the option to safely unsubscribe upon receiving fishing reports related to Lava Creek Lodge. We just want to deleiver great photos, fantastic fly fishing ideas, reports and motivation!"><span class="glyphicon glyphicon-question-sign gi-2x"></span></a>
+					<div class="help-hover d-flex align-items-center">
+						<a tabindex="0" role="button" aria-hidden="true" data-trigger="hover" data-toggle="popover" data-placement="top" title="Safe Subscribe!" data-content="We respect your privacy and do not tolerate spam and will never sell, rent, lease or give away your email address to any third party. Nor will we send you unsolicited email. You will have the option to safely unsubscribe upon receiving fishing reports related to Lava Creek Lodge. We just want to deleiver great photos, fantastic fly fishing ideas, reports and motivation!"><span class="glyphicon glyphicon-question-sign gi-2x"></span></a>
 					</div>
 					</div>
 				</div>
-				
 			</div>
 		
 		<!-- Beginning -->
 		<?php
 			global $post;
-			
+			$selected_term = get_post_meta($post->ID, 'selected_term', true);
 			
 			if( $post->ID == 3945 ) :
 				
@@ -33,8 +32,8 @@
 					'tax_query'      => array(
 						array(
 							'taxonomy' => 'report-category',
-							'field'    => 'slug',
-              'terms'    => 'lcl' // End user provided term/cat name.
+							'field'    => 'id',
+              'terms'    => $selected_term, // End user provided term/cat name.
 							//'terms'    => 'lava-creek-lodge', End user renamed category.
 						),
 					),
