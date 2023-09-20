@@ -60,16 +60,20 @@ a {
   }
 }
 
-.link-color-tfs-red a {
-	
-	color: #a01624;
-	text-decoration: none;
-	
-	&:hover,
-	&:focus {
-		opacity: 0.7;
-		text-decoration: none;	
-	}
+.link-color-tfs-red {
+  color: #a01624;
+
+  a {
+
+    color: #a01624;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+      text-decoration: none;
+    }
+  }
 }
 
 
