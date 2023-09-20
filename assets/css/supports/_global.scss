@@ -63,6 +63,28 @@ body {
   object-fit: cover;
 }
 
+.link-color-tfs-red {
+  color: #a01624;
+  &:hover {
+    text-decoration: none;
+  }
+  a {
+
+    color: #a01624;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+      text-decoration: none;
+    }
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 /*@charset "UTF-8";
 
 @function unicode($str) {
