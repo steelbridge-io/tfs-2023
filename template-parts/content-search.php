@@ -21,7 +21,14 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-summary">
-		<?php the_excerpt(); ?>
+		<?php //the_excerpt();
+			if (has_excerpt()) {
+				the_excerpt();
+				echo '<a class="link-color-tfs-red" href="' . get_permalink() . '" class="read-more">Read More Here...</a>';
+			} else {
+				the_content();
+			}
+    ?>
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">

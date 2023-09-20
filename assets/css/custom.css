@@ -2540,6 +2540,20 @@ body {
   height: 100%;
   object-fit: cover; }
 
+.link-color-tfs-red {
+  color: #a01624; }
+  .link-color-tfs-red:hover {
+    text-decoration: none; }
+  .link-color-tfs-red a {
+    color: #a01624;
+    text-decoration: none; }
+    .link-color-tfs-red a:hover, .link-color-tfs-red a:focus {
+      opacity: 0.7;
+      text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
 /*@charset "UTF-8";
 
 @function unicode($str) {
