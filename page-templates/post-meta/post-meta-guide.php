@@ -7,9 +7,9 @@
  * @package The_Fly_Shop
  */
 
-$guide_logo																		= get_post_meta(get_the_ID(), 'guideservice-logo', true);
+$guide_logo																		= get_post_meta(get_the_ID(), 'guideservice-logo', true); // added
 $guide_hero																		= get_post_meta(get_the_ID(), 'guideservice-image', true);
-$guideservice_description											= get_post_meta(get_the_ID(), 'guideservice-description', true);
+$guideservice_description											= get_post_meta(get_the_ID(), 'guideservice-description', true); //added
 
 $video_gsfeature_one 													= get_post_meta(get_the_ID(), 'guideservice-gs1-video', true);
 $feature_gs1_image														= get_post_meta(get_the_ID(), 'guideservice-gs1-image', true);
