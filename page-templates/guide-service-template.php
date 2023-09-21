@@ -8,22 +8,26 @@
 */
 
 include_once('post-meta/post-meta-guide.php'); // Includes all the custom meta-data
+$default = '';
 
 get_header();?>
+  
   <!-- Banner -->
   <section id="banner">
     <div class="inner">
-      <img src="<?php echo $guide_logo;?>" class="img-responsive center-block" alt="The Fly Shop Signature Travel Destination">
-      <h2><?php the_title();?></h2>
-      
-      <?php if ( get_post_meta($post->ID, 'guideservice-description', true) )
-        echo '<p class="template-description">' . $guideservice_description . '</p>' ?>
-      
-      <h3>800 &bull; 669 &bull; 3474</h3>
+        <?php $guide_logo	= get_post_meta(get_the_ID(), 'guideservice-logo', true);
+            if(!empty($guide_logo)) { ?>
+            <img src="<?php echo $guide_logo;?>" class="img-responsive center-block" alt="The Fly Shop Signature Travel Destination">
+        <?php } ?>
+        <h2><?php the_title();?></h2>
+        <?php $guideservice_description = get_post_meta(get_the_ID(), 'guideservice-description', true);
+            if( !empty($guideservice_description)) { ?>
+            <p class="template-description"><?php echo $guideservice_description ?></p>
+        <?php } ?>
+        <h3>800 &bull; 669 &bull; 3474</h3>
     </div>
     <a href="#main" class="more scrolly">Read more here!</a>
   </section>
-  
   
   <!-- GUIDE SERVICE TEMPLATE CONTENT -->
   <!-- One -->
@@ -47,16 +51,18 @@ get_header();?>
       <div class="image">
         <!-- Feature #2 Video/Text/Image Option -->
         <?php
-        if(!empty($video_gsfeature_one)) :?>
+        if(!empty($video_gsfeature_one)) { ?>
           
           <!-- start with above get the check box -->
           
           <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="<?php echo $video_gsfeature_one; ?>" allowfullscreen></iframe>
           </div>
-        <?php else: ?>
+        <?php } else {
+         if(!empty($feature_gs1_image)) { ?>
           <img src="<?php echo $feature_gs1_image;?>" alt="The Fly Shop Guide Service Image" />
-        <?php endif; ?>
+        <?php }
+        } ?>
       </div>
       
       <div class="content">
@@ -397,6 +403,7 @@ get_header();?>
   
   </section>
   
+  <?php if(!empty($guideservice_additional_info_image1)) { ?>
   <section id="three" class="wrapper style7 special">
     <div class="inner">
       
@@ -530,6 +537,7 @@ get_header();?>
     </div>
     </header>
   </section>
+  <?php } ?>
   
   <!-- ====== MODAL SLIDER ====== -->
   
