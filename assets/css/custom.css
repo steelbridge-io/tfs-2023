@@ -922,7 +922,7 @@ h2.logo-tel {
 .additional-listing {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center; }
+  justify-content: space-around; }
 
 /* Universal Template Styles
 -------------------------------- */

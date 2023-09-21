@@ -866,7 +866,7 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
         $custom_range_value = get_post_meta(get_the_ID(), 'opacity-range', true);
         $basic_page_range_value = get_post_meta(get_the_ID(), 'basic-opacity-range', true);
         $blog_basic_page_range_value = get_post_meta(get_the_ID(), 'blog-basic-opacity-range', true);
-	       $blog_temp_travel_range_value = get_post_meta($post->ID, 'opacity-range-new-travel', true);
+        $blog_temp_travel_range_value = get_post_meta(get_the_ID(), 'opacity-range-new-travel', true);
 
         // Check if a value exists, and if not, use the default (0.5)
         if (!$custom_range_value) {
