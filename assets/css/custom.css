@@ -1,7 +1,6 @@
 /* CSS Document
 
 Custom styles for The Fly Shop Theme
-
   - Blog
     - News Template
   - Author
@@ -922,7 +921,7 @@ h2.logo-tel {
 .additional-listing {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around; }
+  justify-content: center; }
 
 /* Universal Template Styles
 -------------------------------- */
