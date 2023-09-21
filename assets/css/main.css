@@ -1464,7 +1464,7 @@ input[type="button"],
       border-radius: 0;
       width: 100%; }
   .spotlight .content {
-    padding: 2em 4em 0.1em 4em ;
+    padding: 1.5em 4em 0.1em 4em;
     -moz-order: 2;
     -webkit-order: 2;
     -ms-order: 2;
