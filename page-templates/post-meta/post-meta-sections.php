@@ -25,7 +25,7 @@ $sections_csel_4_img          = get_post_meta(get_the_ID(), 'sections-csel-4-img
 
 $sections_csel_5_link         = get_post_meta(get_the_ID(), 'sections-csel-5-link', true);
 $sections_csel_5_img          = get_post_meta(get_the_ID(), 'sections-csel-5-img', true);
-  
+
 $sections_csel_6_link         = get_post_meta(get_the_ID(), 'sections-csel-6-link', true);
 $sections_csel_6_img          = get_post_meta(get_the_ID(), 'sections-csel-6-img', true);
 
@@ -98,5 +98,15 @@ $sections_10_readmore         = get_post_meta(get_the_ID(), 'sections-10-readmor
 
 $sections_10_image            = get_post_meta(get_the_ID(), 'sections-10-image', true);
 $sections_10_video            = get_post_meta(get_the_ID(), 'sections-10-video', true);
+
+
+$galleryphoto_1_image         = get_post_meta(get_the_ID(), 'galleryphoto-1-image', true);
+$galleryphoto_2_image         = get_post_meta(get_the_ID(), 'galleryphoto-2-image', true);
+$galleryphoto_3_image         = get_post_meta(get_the_ID(), 'galleryphoto-3-image', true);
+$galleryphoto_4_image         = get_post_meta(get_the_ID(), 'galleryphoto-4-image', true);
+$galleryphoto_5_image         = get_post_meta(get_the_ID(), 'galleryphoto-5-image', true);
+$galleryphoto_6_image         = get_post_meta(get_the_ID(), 'galleryphoto-6-image', true);
+$galleryphoto_7_image         = get_post_meta(get_the_ID(), 'galleryphoto-7-image', true);
+$galleryphoto_8_image         = get_post_meta(get_the_ID(), 'galleryphoto-8-image', true);
 
 // end
