@@ -57,7 +57,7 @@ $tfs_metatags    = get_post_meta(get_the_ID(), 'seotfs-meta-tags', true);
 
 <?php echo '<body class="scroll landing archivetemplate sections-template stream-report travel-destination outfitters-dept private-waters schools-template fish-camp-template default-template non-banner-loading&nbsp;'.implode('&nbsp;', get_body_class()).'">'.PHP_EOL; ?>
 
-<div class="container-fluid">
+<div class="container-fluid x-wide">
   
   <!-- Facebook Feed -->
   <div id="fb-root"></div>

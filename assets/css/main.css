@@ -3015,6 +3015,25 @@ input[type="button"],
     width: 100%;
     z-index: 10001; }
 
+#page-wrapper-sections-template {
+  -moz-transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.5s ease;
+  -ms-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+  padding-top: 3em; }
+#page-wrapper-sections-template:before {
+  background: rgba(0, 0, 0, 0);
+  content: '';
+  display: block;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10001; }
+
 #page-wrapper-private-waters {
   -moz-transition: opacity 0.5s ease;
   -webkit-transition: opacity 0.5s ease;
@@ -3151,11 +3170,15 @@ body.is-menu-visible #page-wrapper-travel {
     display: block; }
 body.is-menu-visible #page-wrapper-guide-service {
   opacity: 0.35; }
-  body.is-menu-visible #page-wrapper-guide-service:before {
+body.is-menu-visible #page-wrapper-guide-service:before {
     display: block; }
+body.is-menu-visible #page-wrapper-sections-template {
+  opacity: 0.35; }
+body.is-menu-visible #page-wrapper-sections-template:before {
+  display: block; }
 body.is-menu-visible #page-wrapper-private-waters {
   opacity: 0.35; }
-  body.is-menu-visible #page-wrapper-private-waters:before {
+body.is-menu-visible #page-wrapper-private-waters:before {
     display: block; }
 body.is-menu-visible #page-wrapper-schools {
   opacity: 0.35; }
@@ -3163,7 +3186,7 @@ body.is-menu-visible #page-wrapper-schools {
     display: block; }
 body.is-menu-visible #page-wrapper-fish-camp {
   opacity: 0.35; }
-  body.is-menu-visible #page-wrapper-fish-camp:before {
+body.is-menu-visible #page-wrapper-fish-camp:before {
     display: block; }
 body.is-menu-visible #menu {
   -moz-transform: translateX(0);
@@ -3900,6 +3923,16 @@ body.outfitters-dept #page-wrapper-guide-service {
 body.outfitters-dept #footer {
   background-color: rgba(29, 36, 42, 0.9); }
 
+body.sections-template #page-wrapper-sections-template {
+  /*@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("images/outfitters/banner-outfitters.jpg")'));*/
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 0; }
+body.sections-template #footer {
+  background-color: rgba(29, 36, 42, 0.9); }
+
 body.private-waters #page-wrapper-private-waters {
   /*@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("images/outfitters/banner-outfitters.jpg")'));*/
   background-attachment: fixed;
@@ -3909,7 +3942,6 @@ body.private-waters #page-wrapper-private-waters {
   padding-top: 0; }
 body.private-waters #footer {
   background-color: rgba(29, 36, 42, 0.9); }
-
 body.travel-destination #page-wrapper-travel {
   /*@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0.3))', 'url("../../images/travel/travel.jpg")'));*/
   background-attachment: fixed;
@@ -3993,6 +4025,10 @@ body.is-mobile.landing #footer {
 
 body.is-mobile.landing #page-wrapper-guide-service {
   background: none; }
+
+body.is-mobile.landing #page-wrapper-sections-template {
+  background: none; }
+
 body.is-mobile.landing #banner,
 body.is-mobile.landing .wrapper.style4 {
   background-position: center center;
@@ -4000,7 +4036,6 @@ body.is-mobile.landing .wrapper.style4 {
   background-size: cover; }
 body.is-mobile.landing #footer {
   background-color: #1d242a; }
-
 body.is-mobile.landing #page-wrapper-private-waters {
   background: none; }
 body.is-mobile.landing #banner,
@@ -4020,7 +4055,6 @@ body.is-mobile.landing .wrapper.style4 {
   background-size: cover; }
 body.is-mobile.landing #footer {
   background-color: #1d242a; }
-
 body.is-mobile.landing #page-wrapper-fish-camp {
   background: none; }
 body.is-mobile.landing #banner,

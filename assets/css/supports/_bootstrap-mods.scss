@@ -1,6 +1,10 @@
 /** Bootstrap Mods
 ========================== */
-
+.container-fluid {
+  &.x-wide {
+    padding: 0 !important;
+  }
+}
 .d-flex {
   display: flex;
 }

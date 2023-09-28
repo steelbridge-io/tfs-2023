@@ -419,7 +419,10 @@ function the_fly_shop_scripts() {
  if ( function_exists('load_opacity_range_css')) {
      wp_add_inline_style( 'the-fly-shop-custom-style', load_opacity_range_css() );
  }
-   
+ if ( function_exists('load_section_hero_css')) {
+    wp_add_inline_style( 'the-fly-shop-custom-style', load_section_hero_css() );
+ }
+ 
    if(function_exists('ubermenu')) {
     wp_enqueue_style( 'uber-menu-nav', get_template_directory_uri() . '/assets/css/mega-menu-nav.css');
     wp_enqueue_style( 'mega-menu-css', get_template_directory_uri() . '/assets/css/mega-menu-template.css');
@@ -437,7 +440,7 @@ function the_fly_shop_scripts() {
     wp_enqueue_style( 'the-fly-shop-ie9', get_template_directory_uri() . '/assets/css/ie9.css', array(), '20161116', 'all' );
 
     wp_enqueue_style( 'the-fly-shop-ie8', get_template_directory_uri() . '/assets/css/ie8.css', array(), '20161116', 'all' );
-
+    
     wp_enqueue_style( 'the-fly-shop-main-style', get_template_directory_uri() . '/assets/css/main.css', array(),  '20161116', 'all' );
     
     wp_enqueue_style( 'aos-animation-css', get_template_directory_uri() . '/aos-animations/aos/dist/aos.css', array(), '20200415', 'all');

@@ -11,6 +11,8 @@
 $sections_logo								= get_post_meta(get_the_ID(), 'sections-logo', true);
 $sections_description					= get_post_meta(get_the_ID(), 'sections-description', true);
 
+$sections_hero_image          = get_post_meta(get_the_ID(), 'sections-hero-image', true);
+
 $sections_csel_1_link         = get_post_meta(get_the_ID(), 'sections-csel-1-link', true);
 $sections_csel_1_img          = get_post_meta(get_the_ID(), 'sections-csel-1-img', true);
 

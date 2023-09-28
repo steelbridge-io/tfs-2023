@@ -10,145 +10,161 @@
 	$the_sections_img     = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'full');
 	$the_sections_default = get_bloginfo ('template_directory') . '/images/default/default-page-header.png';
 	$sections_page_logo   = get_theme_mod ('sections_page_logo');
+	$sections_hero_image  = get_post_meta(get_the_ID(), 'sections-hero-image', true);
 	
 	include_once ('post-meta/post-meta-sections.php');
-	get_header(); ?>
+	get_header('sections'); ?>
   
-  </div> <!-- /.container-fluid. Opening tag found in header.php-->
+  <!-- </div>    .container-fluid. Opening tag found in header.php -->
+  <?php if(!empty($sections_hero_image)) : ?>
+  <!-- Banner -->
+  <section id="banner">
+    <div class="inner">
+			<?php $guide_logo	= get_post_meta(get_the_ID(), 'guideservice-logo', true);
+				if(!empty($sections_logo)) { ?>
+          <img src="<?php echo $sections_logo;?>" class="img-responsive center-block" alt="The Fly Shop Signature Travel Destination">
+				<?php } ?>
+      <h2><?php the_title();?></h2>
+			<?php $guideservice_description = get_post_meta(get_the_ID(), 'guideservice-description', true);
+				if( !empty($sections_description)) { ?>
+          <p class="template-description"><?php echo $sections_description; ?></p>
+				<?php } ?>
+      <h3>800 &bull; 669 &bull; 3474</h3>
+    </div>
+    <a href="#main" class="more scrolly">Read more here!</a>
+  </section>
+  
+  <?php endif; ?>
   
   <div id="primary" class="content-area" style="position: relative;">
   <div id="main" role="main">
   
   <!-- === Featured Image For Header === -->
-	<?php if ( has_post_thumbnail() ) : ?>
-    
-    <div class="template-header">
-      <!-- Featured Imgae -->
-      <img src="<?php echo $the_sections_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
-      <div class="center-content-flex template-header-content">
-        <div class="basicpagelogo signature-header template-class text-center">
-          <div class="inner">
-            <dl class="landing-hd">
-              <dd class="dd-1"><img src="<?php echo $sections_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title="Sections Logo"></dd>
-              
-              <dd class="dd-2"><h2 class="logo-tel"><?php echo get_the_title(); ?></h2></dd>
-							
-							<?php if ( get_post_meta($post->ID, 'sections-description', true) )
-								echo '<dd class="dd-3"><p class="template-description">' . $sections_description . '</p></dd>' ?>
-              
-              <dd class="dd-4"><h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3></dd>
-            </dl>
-          </div>
-          <div class="scrollto animated animatedFadeInUp fadeInUp">
-            <a href="#scrollto" class="template more">Learn More</a>
-          </div>
+  <?php if ( has_post_thumbnail() && (empty($sections_hero_image))) : ?>
+  
+   <div class="template-header">
+    <!-- Featured Imgae -->
+   <img src="<?php echo $the_sections_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
+    <div class="center-content-flex template-header-content">
+      <div class="basicpagelogo signature-header template-class text-center">
+        <div class="inner">
+          <dl class="landing-hd">
+            <dd class="dd-1"><img src="<?php echo $sections_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title="Sections Logo"></dd>
+            <dd class="dd-2"><h2 class="logo-tel"><?php echo get_the_title(); ?></h2></dd>
+						<?php if ( get_post_meta($post->ID, 'sections-description', true) )
+							echo '<dd class="dd-3"><p class="template-description">' . $sections_description . '</p></dd>' ?>
+            <dd class="dd-4"><h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3></dd>
+          </dl>
+        </div>
+        <div class="scrollto animated animatedFadeInUp fadeInUp">
+          <a href="#scrollto" class="template more">Learn More</a>
         </div>
       </div>
     </div>
-    
-    <!-- === If there isn't a Featured Image, use default === -->
-	<?php else: ?>
-    
-    <header class="parallax-window center-content-flex" data-parallax="scroll" data-image-src="<?php echo $the_sections_default; ?>">
-      
-      <div class="basicpagelogo signature-header template-class text-center">
-        
-        <img src="<?php echo $sections_logo; ?>" class="img-responsive center-block" alt="The Fly Shop Logo" title="Sections Logo">
-        
-        <h2><?php echo get_the_title(); ?></h2>
-				
-				<?php if ( get_post_meta($post->ID, 'sections-description', true) )
-					echo '<p class="template-description">' . $sections_description . '</p>' ?>
-        
-        <h3>800 &bull; 669 &bull; 3474</h3>
-      
-      </div>
-    
-    </header>
-	
-	<?php endif; ?>
+  </div>
   
+  <?php endif; ?>
+  
+    <!-- === If there isn't a Featured Image, use default === -->
+  <?php if( ! has_post_thumbnail() && (empty($sections_hero_image))) : ?>
+  
+  <header class="parallax-window center-content-flex" data-parallax="scroll" data-image-src="<?php echo $the_sections_default; ?>">
+    <div class="basicpagelogo signature-header template-class text-center">
+      <img src="<?php echo $sections_logo; ?>" class="img-responsive center-block" alt="The Fly Shop Logo" title="Sections Logo">
+      <h2><?php echo get_the_title(); ?></h2>
+			<?php  if ( get_post_meta($post->ID, 'sections-description', true) )
+				echo '<p class="template-description">' . $sections_description . '</p>' ?>
+      <h3>800 &bull; 669 &bull; 3474</h3>
+    </div>
+  </header>
+
+  <?php endif; ?>
+  
+  <?php if(!empty($sections_hero_image)) : ?>
+  <section id="one" class="wrapper style5 special">
+  <div class="inner">
+  <?php endif; ?>
   <!-- === Introduction Section === -->
   <div class="container">
     <div id="scrollto"></div>
     <div id="primary" class="content-area row">
       <main id="main" class="site-main col-md-12" role="main">
-				
 				<?php
 					// WordPress Blog Content
 					while ( have_posts() ) : the_post();
-						
 						get_template_part( 'template-parts/content', 'page-basic' );
-					
 					endwhile; // End of the loop.
 				?>
-      
       </main>
     </div>
   </div>
+  <?php if(!empty($sections_hero_image)) : ?>
+  </div>
+  </section>
+  <?php endif; ?>
   
   <!-- ==== CAROUSEL ==== -->
   <!-- Item slider-->
   <!-- Javascript is in main.js -->
-	<?php
-		// Carousel Images activated by check-box
-		if(get_post_meta(get_the_ID(), 'sections-csel-checkbox', true) == 'yes') :?>
+  <?php
+	// Carousel Images activated by check-box
+	if(get_post_meta(get_the_ID(), 'sections-csel-checkbox', true) == 'yes') :?>
+    
+    <div class="container-fluid">
       
-      <div class="container-fluid">
-        
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="carousel carousel-showallmove1 slide" id="itemslider">
-              <div class="carousel-inner">
-                
-                <div class="item active">
-                  <div class="col-xs-12 col-sm-6 col-md-2">
-                    <a href="<?php echo $sections_csel_1_link; ?>"><img src="<?php echo esc_url($sections_csel_1_img); ?>" class="img-responsive center-block"></a>
-                  </div>
-                </div>
-                
-                <div class="item">
-                  <div class="col-xs-12 col-sm-6 col-md-2">
-                    <a href="<?php echo $sections_csel_2_link; ?>"><img src="<?php echo esc_url($sections_csel_2_img); ?>" class="img-responsive center-block"></a>
-                  </div>
-                </div>
-                
-                <div class="item">
-                  <div class="col-xs-12 col-sm-6 col-md-2">
-                    <a href="<?php echo $sections_csel_3_link; ?>"><img src="<?php echo esc_url($sections_csel_3_img); ?>" class="img-responsive center-block"></a>
-                  </div>
-                </div>
-                
-                <div class="item">
-                  <div class="col-xs-12 col-sm-6 col-md-2">
-                    <a href="<?php echo $sections_csel_4_link; ?>"><img src="<?php echo esc_url($sections_csel_4_img); ?>" class="img-responsive center-block"></a>
-                  </div>
-                </div>
-                
-                <div class="item">
-                  <div class="col-xs-12 col-sm-6 col-md-2">
-                    <a href="<?php echo $sections_csel_5_link; ?>"><img src="<?php echo esc_url($sections_csel_5_img); ?>" class="img-responsive center-block"></a>
-                  </div>
-                </div>
-                
-                <div class="item">
-                  <div class="col-xs-12 col-sm-6 col-md-2">
-                    <a href="<?php echo $sections_csel_6_link; ?>"><img src="<?php echo esc_url($sections_csel_6_img); ?>" class="img-responsive center-block"></a>
-                  </div>
-                </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="carousel carousel-showallmove1 slide" id="itemslider">
+            <div class="carousel-inner">
               
+              <div class="item active">
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                  <a href="<?php echo $sections_csel_1_link; ?>"><img src="<?php echo esc_url($sections_csel_1_img); ?>" class="img-responsive center-block"></a>
+                </div>
               </div>
               
-              <div id="slider-control">
-                <a class="left carousel-control" href="#itemslider" data-slide="prev"><i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i></a>
-                <a class="right carousel-control" href="#itemslider" data-slide="next"><i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i></a>
+              <div class="item">
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                  <a href="<?php echo $sections_csel_2_link; ?>"><img src="<?php echo esc_url($sections_csel_2_img); ?>" class="img-responsive center-block"></a>
+                </div>
+              </div>
+              
+              <div class="item">
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                  <a href="<?php echo $sections_csel_3_link; ?>"><img src="<?php echo esc_url($sections_csel_3_img); ?>" class="img-responsive center-block"></a>
+                </div>
+              </div>
+              
+              <div class="item">
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                  <a href="<?php echo $sections_csel_4_link; ?>"><img src="<?php echo esc_url($sections_csel_4_img); ?>" class="img-responsive center-block"></a>
+                </div>
+              </div>
+              
+              <div class="item">
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                  <a href="<?php echo $sections_csel_5_link; ?>"><img src="<?php echo esc_url($sections_csel_5_img); ?>" class="img-responsive center-block"></a>
+                </div>
+              </div>
+              
+              <div class="item">
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                  <a href="<?php echo $sections_csel_6_link; ?>"><img src="<?php echo esc_url($sections_csel_6_img); ?>" class="img-responsive center-block"></a>
+                </div>
               </div>
             
             </div>
+            
+            <div id="slider-control">
+              <a class="left carousel-control" href="#itemslider" data-slide="prev"><i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i></a>
+              <a class="right carousel-control" href="#itemslider" data-slide="next"><i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i></a>
+            </div>
+          
           </div>
         </div>
-      </div><!-- Item slider end-->
-		<?php endif; ?>
+      </div>
+    </div><!-- Item slider end-->
+	<?php endif; ?>
   
   <section id="two" class="wrapper alt style2">
     
@@ -783,41 +799,216 @@
 			<?php endif; ?> <!-- sections-10-option-checkbox -->
   
   </section>
-  
-  <?php
-  $default = '';
-  if($galleryphoto_1_image !== $default) : ?>
-  <section id="three" class="wrapper style7 special">
-    <div class="inner">
-      <header class="major">
-        <h2>Additional Photos!</h2>
-        <hr class="fancy1">
-        <div class="row">
-          <div class="additional-listing">
+
+<?php
+	$default = '';
+	if($galleryphoto_1_image !== $default) : ?>
+    <section id="three" class="wrapper style7 special">
+      <div class="inner">
+        <header class="major">
+          <h2>Additional Photos!</h2>
+          <hr class="fancy1">
+          <div class="row">
+            <div class="additional-listing">
+							
+							<?php if(get_post_meta(get_the_ID(), 'galleryphoto-1-image', true)) {
+								
+								echo	'<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="0"><img src="' . $galleryphoto_1_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if(get_post_meta(get_the_ID(), 'galleryphoto-2-image', true)) {
+								
+								echo	'<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="1"><img src="' . $galleryphoto_2_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if(get_post_meta(get_the_ID(), 'galleryphoto-3-image', true)) {
+								
+								echo	'<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="2"><img src="' . $galleryphoto_3_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if(get_post_meta(get_the_ID(), 'galleryphoto-4-image', true)) {
+								
+								echo	'<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="3"><img src="' . $galleryphoto_4_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+            
+            </div>
+          </div>
+          
+          <!-- Second Row Travel Images -->
+          
+          <div class="row">
+            <div class="additional-listing">
+							
+							<?php if(get_post_meta(get_the_ID(), 'galleryphoto-5-image', true)) {
+								
+								echo	'<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="4"><img src="' . $galleryphoto_5_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if(get_post_meta(get_the_ID(), 'galleryphoto-6-image', true)) {
+								
+								echo	'<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="5"><img src="' . $galleryphoto_6_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if(get_post_meta(get_the_ID(), 'galleryphoto-7-image', true)) {
+								
+								echo	'<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="6"><img src="' . $galleryphoto_7_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if(get_post_meta(get_the_ID(), 'galleryphoto-8-image', true)) {
+								
+								echo	'<div class="col-xs-6 col-md-3">',
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="7"><img src="' . $galleryphoto_8_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images">',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+            
+            </div>
+          </div>
+      </div>
+      </header>
+    </section>
+    
+    <div class="additional-img modal fade guide-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="additional-img modal-dialog" role="document">
+        
+        <div id="guide-carousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
 						
 						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-1-image', true)) {
 							
-							echo	'<div class="col-xs-6 col-md-3">',
-							
-							'<div class="thumbnail">',
-							 
-							 '<a href="#guide-carousel" data-slide-to="0"><img src="' . $galleryphoto_1_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
-							'</div>',
-							
-							'</div>';
+							echo '<li data-target="#guide-carousel" data-slide-to="0" class="active"></li>';
 							
 						} ?>
 						
 						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-2-image', true)) {
 							
-							echo	'<div class="col-xs-6 col-md-3">',
+							echo '<li data-target="#guide-carousel" data-slide-to="1"></li>';
 							
-							'<div class="thumbnail">',
+						} ?>
+						
+						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-3-image', true)) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="2"></li>';
+							
+						} ?>
+						
+						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-4-image', true)) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="3"></li>';
+							
+						} ?>
+						
+						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-5-image', true)) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="4"></li>';
+							
+						} ?>
+						
+						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-6-image', true)) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="5"></li>';
+							
+						} ?>
+						
+						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-7-image', true)) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="6"></li>';
+							
+						} ?>
+						
+						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-8-image', true)) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="7"></li>';
+							
+						} ?>
+          
+          </ol>
+          
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-1-image', true)) {
+							
+							echo	'<div class="item active">',
 							 
-							 '<a href="#guide-carousel" data-slide-to="1"><img src="' . $galleryphoto_2_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+							 '<img src="' . $galleryphoto_1_image . '" alt="The Fly Shop Guided Fly Fishing">',
 							
-							'</div>',
+							'</div>';
+						} ?>
+						
+						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-2-image', true)) {
+							
+							echo	'<div class="item">',
+							 
+							 '<img src="' . $galleryphoto_2_image . '" alt="The Fly Shop Guided Fly Fishing">',
 							
 							'</div>';
 							
@@ -825,13 +1016,9 @@
 						
 						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-3-image', true)) {
 							
-							echo	'<div class="col-xs-6 col-md-3">',
-							
-							'<div class="thumbnail">',
+							echo	'<div class="item">',
 							 
-							 '<a href="#guide-carousel" data-slide-to="2"><img src="' . $galleryphoto_3_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
-							'</div>',
+							 '<img src="' . $galleryphoto_3_image . '" alt="The Fly Shop Guided Fly Fishing">',
 							
 							'</div>';
 							
@@ -839,35 +1026,19 @@
 						
 						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-4-image', true)) {
 							
-							echo	'<div class="col-xs-6 col-md-3">',
-							
-							'<div class="thumbnail">',
+							echo	'<div class="item">',
 							 
-							 '<a href="#guide-carousel" data-slide-to="3"><img src="' . $galleryphoto_4_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
-							'</div>',
+							 '<img src="' . $galleryphoto_4_image . '" alt="The Fly Shop Guided Fly Fishing">',
 							
 							'</div>';
 							
 						} ?>
-          
-          </div>
-        </div>
-        
-        <!-- Second Row Travel Images -->
-        
-        <div class="row">
-          <div class="additional-listing">
 						
 						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-5-image', true)) {
 							
-							echo	'<div class="col-xs-6 col-md-3">',
-							
-							'<div class="thumbnail">',
+							echo	'<div class="item">',
 							 
-							 '<a href="#guide-carousel" data-slide-to="4"><img src="' . $galleryphoto_5_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
-							'</div>',
+							 '<img src="' . $galleryphoto_5_image . '" alt="The Fly Shop Guided Fly Fishing">',
 							
 							'</div>';
 							
@@ -875,13 +1046,9 @@
 						
 						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-6-image', true)) {
 							
-							echo	'<div class="col-xs-6 col-md-3">',
-							
-							'<div class="thumbnail">',
+							echo	'<div class="item">',
 							 
-							 '<a href="#guide-carousel" data-slide-to="5"><img src="' . $galleryphoto_6_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
-							'</div>',
+							 '<img src="' . $galleryphoto_6_image . '" alt="The Fly Shop Guided Fly Fishing">',
 							
 							'</div>';
 							
@@ -889,13 +1056,9 @@
 						
 						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-7-image', true)) {
 							
-							echo	'<div class="col-xs-6 col-md-3">',
-							
-							'<div class="thumbnail">',
+							echo  '<div class="item">',
 							 
-							 '<a href="#guide-carousel" data-slide-to="6"><img src="' . $galleryphoto_7_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
-							'</div>',
+							 '<img src="' . $galleryphoto_7_image . '" alt="The Fly Shop Guided Fly Fishing">',
 							
 							'</div>';
 							
@@ -903,176 +1066,29 @@
 						
 						<?php if(get_post_meta(get_the_ID(), 'galleryphoto-8-image', true)) {
 							
-							echo	'<div class="col-xs-6 col-md-3">',
-							'<div class="thumbnail">',
+							echo	'<div class="item">',
 							 
-							 '<a href="#guide-carousel" data-slide-to="7"><img src="' . $galleryphoto_8_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images">',
-							
-							'</div>',
+							 '<img src="' . $galleryphoto_8_image . '" alt="The Fly Shop Guided Fly Fishing">',
 							
 							'</div>';
 							
 						} ?>
           
           </div>
+          
+          <!-- Controls -->
+          <a class="left carousel-control" href="#guide-carousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#guide-carousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-    </div>
-    </header>
-  </section>
-  
-  <div class="additional-img modal fade guide-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-    <div class="additional-img modal-dialog" role="document">
-      
-      <div id="guide-carousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-1-image', true)) {
-						
-						echo '<li data-target="#guide-carousel" data-slide-to="0" class="active"></li>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-2-image', true)) {
-						
-						echo '<li data-target="#guide-carousel" data-slide-to="1"></li>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-3-image', true)) {
-						
-						echo '<li data-target="#guide-carousel" data-slide-to="2"></li>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-4-image', true)) {
-						
-						echo '<li data-target="#guide-carousel" data-slide-to="3"></li>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-5-image', true)) {
-						
-						echo '<li data-target="#guide-carousel" data-slide-to="4"></li>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-6-image', true)) {
-						
-						echo '<li data-target="#guide-carousel" data-slide-to="5"></li>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-7-image', true)) {
-						
-						echo '<li data-target="#guide-carousel" data-slide-to="6"></li>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-8-image', true)) {
-						
-						echo '<li data-target="#guide-carousel" data-slide-to="7"></li>';
-						
-					} ?>
-        
-        </ol>
-        
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-1-image', true)) {
-						
-						echo	'<div class="item active">',
-						 
-						 '<img src="' . $galleryphoto_1_image . '" alt="The Fly Shop Guided Fly Fishing">',
-						
-						'</div>';
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-2-image', true)) {
-						
-						echo	'<div class="item">',
-						 
-						 '<img src="' . $galleryphoto_2_image . '" alt="The Fly Shop Guided Fly Fishing">',
-						
-						'</div>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-3-image', true)) {
-						
-						echo	'<div class="item">',
-						 
-						 '<img src="' . $galleryphoto_3_image . '" alt="The Fly Shop Guided Fly Fishing">',
-						
-						'</div>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-4-image', true)) {
-						
-						echo	'<div class="item">',
-						 
-						 '<img src="' . $galleryphoto_4_image . '" alt="The Fly Shop Guided Fly Fishing">',
-						
-						'</div>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-5-image', true)) {
-						
-						echo	'<div class="item">',
-						 
-						 '<img src="' . $galleryphoto_5_image . '" alt="The Fly Shop Guided Fly Fishing">',
-						
-						'</div>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-6-image', true)) {
-						
-						echo	'<div class="item">',
-						 
-						 '<img src="' . $galleryphoto_6_image . '" alt="The Fly Shop Guided Fly Fishing">',
-						
-						'</div>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-7-image', true)) {
-						
-						echo  '<div class="item">',
-						 
-						 '<img src="' . $galleryphoto_7_image . '" alt="The Fly Shop Guided Fly Fishing">',
-						
-						'</div>';
-						
-					} ?>
-					
-					<?php if(get_post_meta(get_the_ID(), 'galleryphoto-8-image', true)) {
-						
-						echo	'<div class="item">',
-						 
-						 '<img src="' . $galleryphoto_8_image . '" alt="The Fly Shop Guided Fly Fishing">',
-						
-						'</div>';
-						
-					} ?>
-        
-        </div>
-        
-        <!-- Controls -->
-        <a class="left carousel-control" href="#guide-carousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#guide-carousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
     </div>
-  </div>
-  <?php endif; ?>
+	<?php endif; ?>
 
 <?php
 	get_footer();
