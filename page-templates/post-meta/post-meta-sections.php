@@ -8,8 +8,8 @@
  * @package The_Fly_Shop
  */
 
-$sections_logo								= get_post_meta(get_the_ID(), 'sections-logo', true);
-$sections_description					= get_post_meta(get_the_ID(), 'sections-description', true);
+$sections_logo								        = get_post_meta(get_the_ID(), 'sections-logo', true);
+$sections_description					    = get_post_meta(get_the_ID(), 'sections-description', true);
 
 $sections_hero_image          = get_post_meta(get_the_ID(), 'sections-hero-image', true);
 
