@@ -7,11 +7,12 @@
 		* Author URL: https://steelbridge.io
 	*/
 	
-	$sections_featured_img     = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'full');
-	$the_sections_default = get_bloginfo ('template_directory') . '/images/default/default-page-header.png';
-	$sections_page_logo   = get_theme_mod ('sections_page_logo');
-	$sections_hero_image  = get_post_meta(get_the_ID(), 'sections-hero-image', true);
-    $sections_video       = get_post_meta(get_the_ID(), 'sections-video', true);
+    $sections_featured_img = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'full');
+	$the_sections_default  = get_bloginfo ('template_directory') . '/images/default/default-page-header.png';
+	$sections_page_logo    = get_theme_mod ('sections_page_logo');
+	$sections_hero_image   = get_post_meta(get_the_ID(), 'sections-hero-image', true);
+    $sections_video        = get_post_meta(get_the_ID(), 'sections-video', true);
+    $sections_video_poster = get_post_meta(get_the_ID(), 'sections-video-poster', true);
 	
 	include_once ('post-meta/post-meta-sections.php');
 	get_header('sections'); ?>
@@ -23,7 +24,7 @@
     <?php if(!empty($sections_hero_image) || (!empty($sections_video)) && ! has_post_thumbnail()) : ?>
     <!-- Banner -->
     <section id="banner">
-    <video id="sections-background-video" autoplay loop muted poster="<?php echo $sections_hero_image; ?>">
+    <video id="sections-background-video" autoplay loop muted poster="<?php echo $sections_video_poster; ?>">
       <source src="<?php echo $sections_video; ?>" type="video/mp4">
     </video>
     <div class="inner">
