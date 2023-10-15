@@ -6,14 +6,10 @@
     #s3 {
         width: 100% !important;
     }
-    .template-header-content {
-        margin-top: 4%;
-    }
 }
 
 @media (max-width: 1366.99px) and (min-width: 991.99px)  {
     .template-header-content {
-        margin-top: 5%;
         transition: 0.5s;
     }
 }
@@ -36,7 +32,6 @@
         transition: 0.5s;
     }
     .template-header-content {
-        margin-top: 5%;
         transition: 0.5s;
     }
 }
@@ -58,7 +53,7 @@
 
 @media ( max-width: 768px ) {
     .center-content-flex {
-        height: auto;
+        height: 100%;
         transition: 0.5s;
     }
     .dd-1 .img-responsive-logo {
@@ -82,14 +77,14 @@
         transition: 0.5s;
     }
     .center-content-flex {
-        height: auto;
+        height: 100%;
         transition: 0.5s;
     }
 }
 
 @media (max-width: 640.99px) and (min-width: 640px) {
     .center-content-flex {
-        height: auto;
+        height: 100%;
         transition: 0.5s;
     }
     .dd-1 .img-responsive-logo {

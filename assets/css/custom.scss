@@ -1029,15 +1029,13 @@ h2.logo-tel {
   img {
     height: 100%;
     object-fit: cover;
-    width: 100%;
   }
 }
 .template-header-content {
   z-index: 99;
   position: absolute;
   width:100%;
-  top: 50%;
-  bottom: 50%;
+  top: 0;
   transition: 0.5s;
 }
 .img-responsive-logo {
@@ -1047,11 +1045,6 @@ h2.logo-tel {
   margin-left: auto;
   margin-right: auto;
 }
-
-.dd-1 .img-responsive-logo {
-  max-width: 20vw;
-}
-
 
 /* Parallax Window
 -------------------------------- */
@@ -1077,6 +1070,7 @@ h2.logo-tel {
   justify-content: center;
   align-items: center;
   transition: 0.5s;
+  height: 100%;
 }
 /* Content
 -------------------------------- */
@@ -1328,7 +1322,7 @@ nav#nav {
   top: 60%;
   text-align: center;
   width: 100%;
-  margin-top: 10em;
+  margin-top: 0;
 }
 .template.more:after {
   background-image: url("images/arrow.svg");
