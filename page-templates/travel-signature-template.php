@@ -23,12 +23,12 @@ get_header(); ?>
 
 <?php if ( has_post_thumbnail() ) : ?>
   
-  <section id="banner">
+  <section id="banner" class="signature-hero-cont">
   <div class="template-header">
     
     <img src="<?php echo $the_post_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
     
-    <div class="center-content-flex template-header-content">
+    <div id="signature-featured-img-logo" class="center-content-flex template-header-content">
       <div class="basicpagelogo signature-header template-class mega-menu text-center">
         
         <div class="inner">

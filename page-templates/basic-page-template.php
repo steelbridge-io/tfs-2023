@@ -52,7 +52,7 @@ get_header(); ?>
    
    <div id="basic-template-hero-image" class="template-header bascic-template-header">
      <div class="overlay"></div>
-     <img src="<?php echo $basic_the_post_img['0']; ?>" class="paralaxed center-block">
+     <img src="<?php echo $basic_the_post_img['0']; ?>" class="paralaxed center-block basic-temp-hero">
      <div class="center-content-flex template-header-content">
        <div class="basicpagelogo basic-signature-header template-class text-center">
          <div class="inner basic-template-inner">

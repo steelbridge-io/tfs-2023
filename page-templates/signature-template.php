@@ -51,12 +51,12 @@
       </div>
     </section>
      <?php elseif( has_post_thumbnail() ) : ?>
-     <section id="banner">
+     <section id="banner" class="signature-temp-hero">
       <div class="template-header">
       <div class="overlay"></div>
       <!-- Hero Image -->
       <img src="<?php echo $the_post_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
-      <div class="center-content-flex template-header-content">
+      <div id="signature-temp-logo-img" class="center-content-flex template-header-content">
        <div class="basicpagelogo signature-header template-class text-center">
         <div class="inner">
          <dl class="landing-hd">
@@ -70,9 +70,10 @@
          </div>
          </dl>
         </div>
-        <div class="scrollto animated animatedFadeInUp fadeInUp">
-        <a href="#scrollto" class="template more">Learn More</a>
-        </div>
+           <a href="#scrollto" class="more scrolly">Learn More</a>
+       <!-- <div class="scrollto animated animatedFadeInUp fadeInUp">
+        <a href="#scrollto" class="template more scrolly">Learn More</a>
+        </div> -->
        </div>
       </div>
       </div>
