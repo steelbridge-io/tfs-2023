@@ -3193,6 +3193,9 @@ a:hover {
   left: 0;
   margin: 0 auto !important;
 }
+#signature-temp-logo-img .more.scrolly {
+  bottom: 80px;
+}
 
 #signature-image-container .row {
   display: flex;
@@ -3280,7 +3283,7 @@ a:hover {
 
 #banner.signature-temp-hero .template-header #signature-temp-logo-img .signature-header .inner {
   height: 100% !important;
-  padding: 2.618em 0 0 0 !important;
+  padding: 0 0 0 0 !important;
 }
 
 @media (min-width: 992px) {
@@ -3402,6 +3405,11 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
 
 /** SCSS Travel Template
 ============================ */
+.travel-temp-article {
+  background-color: #eeeeee;
+  position: relative;
+}
+
 #constant-contact-container.constant-contact-sign-up-container {
   max-width: 610px;
   margin: 0 auto;
@@ -3435,6 +3443,11 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   .news-section .col-md-6 .media {
     display: initial;
     justify-content: initial;
+  }
+}
+@media (max-width: 767.98px) {
+  #banner.travel-temp-hero-overlay .inner {
+    padding: 5em 1em 1em !important;
   }
 }
 @media screen and (max-width: 736px) {

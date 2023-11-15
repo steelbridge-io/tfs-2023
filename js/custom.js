@@ -196,7 +196,7 @@ window.onscroll = function() {scrollFunction()}; */
 
 
     // Smooth Scroll to ID
-   $(document).on('click', 'a[href^="#scrollto"]', function(e) {
+  /* $(document).on('click', 'a[href^="#scrollto"]', function(e) {
         // target element id
         var id = $(this).attr('href');
 
@@ -214,7 +214,7 @@ window.onscroll = function() {scrollFunction()}; */
 
         // animated top scrolling
         $('body, html').animate({scrollTop: pos }, 2000 );
-    });
+    }); */
     
 })(jQuery);
 

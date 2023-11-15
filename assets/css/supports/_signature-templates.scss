@@ -16,6 +16,9 @@
     left: 0;
     margin: 0 auto !important;
   }
+  .more.scrolly {
+    bottom: 80px;
+  }
 }
 
 #signature-image-container {
@@ -29,7 +32,7 @@
 #s3 {
   .dd-2 {
     h2.logo-tel {
-      font-size: calc( 16px + (24 - 16)*(100vw - 400px)/(800 - 400)); ;
+      font-size: calc( 16px + (24 - 16)*(100vw - 400px)/(800 - 400));
     }
     h3.logo-tel {
       margin: 1em 0 0 0;
@@ -125,7 +128,7 @@
       .signature-header {
         .inner {
           height: 100% !important;
-          padding: 2.618em 0 0 0 !important;
+          padding: 0 0 0 0 !important;
         }
       }
     }

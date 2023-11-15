@@ -111,7 +111,7 @@
 
 @media (max-width: 414px) {
     .center-content-flex {
-        height: auto;
+        height: 100%;
         transition: 0.5s;
     }
     .signature-template #main #banner .template-header .img-responsive-width-100 {

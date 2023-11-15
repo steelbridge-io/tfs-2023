@@ -27,7 +27,7 @@
       <div class="overlay"></div>
       <!-- Hero Video -->
       <video class="h-video" playsinline autoplay muted loop >
-      <source src="<?php echo $hero_video_urlo; ?>" type="video/mp4">
+      <source src="<?php echo $hero_video_url; ?>" type="video/mp4">
       </video>
         <div class="center-content-flex template-header-content">
           <div class="basicpagelogo signature-header template-class text-center">
