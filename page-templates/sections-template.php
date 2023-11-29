@@ -7,52 +7,52 @@
 		* Author URL: https://steelbridge.io
 	*/
 	
-    $sections_featured_img = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'full');
-	$the_sections_default  = get_bloginfo ('template_directory') . '/images/default/default-page-header.png';
-	$sections_page_logo    = get_theme_mod ('sections_page_logo');
-	$sections_hero_image   = get_post_meta(get_the_ID(), 'sections-hero-image', true);
-    $sections_video        = get_post_meta(get_the_ID(), 'sections-video', true);
-    $sections_video_poster = get_post_meta(get_the_ID(), 'sections-video-poster', true);
+	$sections_featured_img = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+	$the_sections_default  = get_bloginfo( 'template_directory' ) . '/images/default/default-page-header.png';
+	$sections_page_logo    = get_theme_mod( 'sections_page_logo' );
+	$sections_hero_image   = get_post_meta( get_the_ID(), 'sections-hero-image', true );
+	$sections_video        = get_post_meta( get_the_ID(), 'sections-video', true );
+	$sections_video_poster = get_post_meta( get_the_ID(), 'sections-video-poster', true );
 	
-	include_once ('post-meta/post-meta-sections.php');
-	get_header('sections'); ?>
-  
-    <?php if(empty($sections_hero_image)) : ?>
-      </div>    <!-- .container-fluid. Opening tag found in header.php-->
-    <?php endif; ?>
-  
-    <?php if(!empty($sections_hero_image) || (!empty($sections_video)) && ! has_post_thumbnail()) : ?>
-    <!-- Banner -->
-    <section id="banner">
+	include_once( 'post-meta/post-meta-sections.php' );
+	get_header( 'sections' ); ?>
+
+<?php if ( empty( $sections_hero_image ) ) : ?>
+  </div>    <!-- .container-fluid. Opening tag found in header.php-->
+<?php endif; ?>
+
+<?php if ( ! empty( $sections_hero_image ) || ( ! empty( $sections_video ) ) && ! has_post_thumbnail() ) : ?>
+  <!-- Banner -->
+  <section id="banner">
     <video id="sections-background-video" autoplay loop muted poster="<?php echo $sections_video_poster; ?>">
       <source src="<?php echo $sections_video; ?>" type="video/mp4">
     </video>
     <div class="inner">
-        <?php
-         $guide_logo	= get_post_meta(get_the_ID(), 'guideservice-logo', true);
-            if(!empty($sections_logo)) { ?>
-            <img src="<?php echo $sections_logo;?>" class="img-responsive center-block" alt="The Fly Shop Signature Travel Destination">
-        <?php } ?>
-      <h2><?php the_title();?></h2>
-        <?php
-         $guideservice_description = get_post_meta(get_the_ID(), 'guideservice-description', true);
-            if( !empty($sections_description)) { ?>
-            <p class="template-description"><?php echo $sections_description; ?></p>
-        <?php } ?>
+			<?php
+				$guide_logo = get_post_meta( get_the_ID(), 'guideservice-logo', true );
+				if ( ! empty( $sections_logo ) ) { ?>
+          <img src="<?php echo $sections_logo; ?>" class="img-responsive center-block" alt="The Fly Shop Signature Travel Destination">
+				<?php } ?>
+      <h2><?php the_title(); ?></h2>
+			<?php
+				$guideservice_description = get_post_meta( get_the_ID(), 'guideservice-description', true );
+				if ( ! empty( $sections_description ) ) { ?>
+          <p class="template-description"><?php echo $sections_description; ?></p>
+				<?php } ?>
       <h3>800 &bull; 669 &bull; 3474</h3>
     </div>
     <a href="#main" class="more scrolly">Read more here!</a>
-    </section>
-    
-    <?php endif; ?>
+  </section>
+
+<?php endif; ?>
   
-    <div id="primary" class="content-area section-template-content" style="position: relative;">
-    <div id="main" role="main">
-    
-    <!-- === Featured Image For Header === -->
-    <?php if ( has_post_thumbnail() && (empty($sections_hero_image)) && (empty($sections_video))) : ?>
-    
-    <div class="template-header">
+  <div id="primary" class="content-area section-template-content" style="position: relative;">
+  <div id="main" role="main">
+  
+  <!-- === Featured Image For Header === -->
+<?php if ( has_post_thumbnail() && ( empty( $sections_hero_image ) ) && ( empty( $sections_video ) ) ) : ?>
+  
+  <div class="template-header">
     <!-- Featured Imgae -->
     <img src="<?php echo $sections_featured_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
     <div class="center-content-flex template-header-content">
@@ -63,10 +63,10 @@
           <dl class="landing-hd">
             <dd class="dd-1"><img src="<?php echo $sections_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title="Sections Logo"></dd>
             <dd class="dd-2"><h2 class="logo-tel"><?php echo get_the_title(); ?></h2></dd>
-            <?php
-             if ( get_post_meta($post->ID, 'sections-description', true) )
-                echo '<dd class="dd-3"><p class="template-description">' . $sections_description . '</p></dd>'
-            ?>
+						<?php
+							if ( get_post_meta( $post->ID, 'sections-description', true ) )
+								echo '<dd class="dd-3"><p class="template-description">' . $sections_description . '</p></dd>'
+						?>
             <dd class="dd-4"><h3 class="logo-tel"><a href="tel:18006693474">800 &bull; 669 &bull; 3474</a></h3></dd>
           </dl>
         </div>
@@ -75,54 +75,54 @@
         </div>
       </div>
     </div>
-    </div>
-    
-    <?php endif; ?>
-    
-    <!-- === If there isn't a Featured Image, use default === -->
-    <?php if( ! has_post_thumbnail() && (empty($sections_hero_image)) && (empty($sections_video))) : ?>
-    
-    <header class="parallax-window center-content-flex" data-parallax="scroll" data-image-src="<?php echo $the_sections_default; ?>">
+  </div>
+
+<?php endif; ?>
+  
+  <!-- === If there isn't a Featured Image, use default === -->
+<?php if ( ! has_post_thumbnail() && ( empty( $sections_hero_image ) ) && ( empty( $sections_video ) ) ) : ?>
+  
+  <header class="parallax-window center-content-flex" data-parallax="scroll" data-image-src="<?php echo $the_sections_default; ?>">
     <div class="basicpagelogo signature-header sections-header template-class text-center">
       <img src="<?php echo $sections_logo; ?>" class="img-responsive center-block" alt="The Fly Shop Logo" title="Sections Logo">
       <h2><?php echo get_the_title(); ?></h2>
-            <?php  if ( get_post_meta($post->ID, 'sections-description', true) )
-                echo '<p class="template-description">' . $sections_description . '</p>' ?>
+			<?php if ( get_post_meta( $post->ID, 'sections-description', true ) )
+				echo '<p class="template-description">' . $sections_description . '</p>' ?>
       <h3>800 &bull; 669 &bull; 3474</h3>
     </div>
-    </header>
-    
-    <?php endif; ?>
-    
-    <?php if(!empty($sections_hero_image)) : ?>
-    <section id="one" class="sections-wrap wrapper style5 special">
-    <div class="inner">
-    <?php endif; ?>
-    <!-- === Introduction Section === -->
-    <div class="container">
+  </header>
+
+<?php endif; ?>
+
+<?php if ( ! empty( $sections_hero_image ) ) : ?>
+  <section id="one" class="sections-wrap wrapper style5 special">
+  <div class="inner">
+<?php endif; ?>
+  <!-- === Introduction Section === -->
+  <div class="container">
     <div id="scrollto"></div>
     <div id="primary" class="content-area row">
       <main id="main" class="site-main col-md-12" role="main">
-        <?php
-            // WordPress Blog Content
-            while ( have_posts() ) : the_post();
-                get_template_part( 'template-parts/content', 'page-basic' );
-            endwhile; // End of the loop.
-        ?>
+				<?php
+					// WordPress Blog Content
+					while ( have_posts() ) : the_post();
+						get_template_part( 'template-parts/content', 'page-basic' );
+					endwhile; // End of the loop.
+				?>
       </main>
     </div>
-    </div>
-    <?php if(!empty($sections_hero_image)) : ?>
-    </div>
-    </section>
-    <?php endif; ?>
-    
-    <!-- ==== CAROUSEL ==== -->
-    <!-- Item slider-->
-    <!-- Javascript is in main.js -->
-    <?php
-    // Carousel Images activated by check-box
-    if(get_post_meta(get_the_ID(), 'sections-csel-checkbox', true) == 'yes') :?>
+  </div>
+<?php if ( ! empty( $sections_hero_image ) ) : ?>
+  </div>
+  </section>
+<?php endif; ?>
+  
+  <!-- ==== CAROUSEL ==== -->
+  <!-- Item slider-->
+  <!-- Javascript is in main.js -->
+<?php
+	// Carousel Images activated by check-box
+	if ( get_post_meta( get_the_ID(), 'sections-csel-checkbox', true ) == 'yes' ) :?>
     
     <div class="container-fluid">
       
@@ -133,37 +133,37 @@
               
               <div class="item active">
                 <div class="col-xs-12 col-sm-6 col-md-2">
-                  <a href="<?php echo $sections_csel_1_link; ?>"><img src="<?php echo esc_url($sections_csel_1_img); ?>" class="img-responsive center-block"></a>
+                  <a href="<?php echo $sections_csel_1_link; ?>"><img src="<?php echo esc_url( $sections_csel_1_img ); ?>" class="img-responsive center-block"></a>
                 </div>
               </div>
               
               <div class="item">
                 <div class="col-xs-12 col-sm-6 col-md-2">
-                  <a href="<?php echo $sections_csel_2_link; ?>"><img src="<?php echo esc_url($sections_csel_2_img); ?>" class="img-responsive center-block"></a>
+                  <a href="<?php echo $sections_csel_2_link; ?>"><img src="<?php echo esc_url( $sections_csel_2_img ); ?>" class="img-responsive center-block"></a>
                 </div>
               </div>
               
               <div class="item">
                 <div class="col-xs-12 col-sm-6 col-md-2">
-                  <a href="<?php echo $sections_csel_3_link; ?>"><img src="<?php echo esc_url($sections_csel_3_img); ?>" class="img-responsive center-block"></a>
+                  <a href="<?php echo $sections_csel_3_link; ?>"><img src="<?php echo esc_url( $sections_csel_3_img ); ?>" class="img-responsive center-block"></a>
                 </div>
               </div>
               
               <div class="item">
                 <div class="col-xs-12 col-sm-6 col-md-2">
-                  <a href="<?php echo $sections_csel_4_link; ?>"><img src="<?php echo esc_url($sections_csel_4_img); ?>" class="img-responsive center-block"></a>
+                  <a href="<?php echo $sections_csel_4_link; ?>"><img src="<?php echo esc_url( $sections_csel_4_img ); ?>" class="img-responsive center-block"></a>
                 </div>
               </div>
               
               <div class="item">
                 <div class="col-xs-12 col-sm-6 col-md-2">
-                  <a href="<?php echo $sections_csel_5_link; ?>"><img src="<?php echo esc_url($sections_csel_5_img); ?>" class="img-responsive center-block"></a>
+                  <a href="<?php echo $sections_csel_5_link; ?>"><img src="<?php echo esc_url( $sections_csel_5_img ); ?>" class="img-responsive center-block"></a>
                 </div>
               </div>
               
               <div class="item">
                 <div class="col-xs-12 col-sm-6 col-md-2">
-                  <a href="<?php echo $sections_csel_6_link; ?>"><img src="<?php echo esc_url($sections_csel_6_img); ?>" class="img-responsive center-block"></a>
+                  <a href="<?php echo $sections_csel_6_link; ?>"><img src="<?php echo esc_url( $sections_csel_6_img ); ?>" class="img-responsive center-block"></a>
                 </div>
               </div>
             
@@ -178,44 +178,44 @@
         </div>
       </div>
     </div><!-- Item slider end-->
-    <?php endif; ?>
-    
-    <section id="two" class="wrapper alt style2">
+	<?php endif; ?>
+  
+  <section id="two" class="wrapper alt style2">
     
     <!-- ==== Section #1 ==== -->
-        
-        <?php
-            if(get_post_meta(get_the_ID(), 'sections-1-option-checkbox', true) == 'yes') : ?>
+		
+		<?php
+			if ( get_post_meta( get_the_ID(), 'sections-1-option-checkbox', true ) == 'yes' ) : ?>
         <section class="spotlight">
           
           <div class="image">
             <!-- Costs Video/Text/Image Option -->
-                        <?php
-                            if(get_post_meta(get_the_ID(), 'sections-1-video-image-checkbox', true) == 'yes') :?>
+						<?php
+							if ( get_post_meta( get_the_ID(), 'sections-1-video-image-checkbox', true ) == 'yes' ) :?>
                 
                 <div class="embed-responsive embed-responsive-16by9">
                   
                   <iframe class="embed-responsive-item" src="<?php echo $sections_1_video; ?>" allowfullscreen></iframe>
                 
                 </div>
-                            
-                            <?php else: ?>
+							
+							<?php else: ?>
                 
-                <img src="<?php echo $sections_1_image;?>" alt="The Fly Shop Travel Image" />
-                            
-                            <?php endif; ?>
+                <img src="<?php echo $sections_1_image; ?>" alt="The Fly Shop Travel Image"/>
+							
+							<?php endif; ?>
           
           </div>
           
           <div class="content">
             <div id="travel-style">
               
-              <h2><?php echo $sections_1_title;?></h2>
+              <h2><?php echo $sections_1_title; ?></h2>
               
-              <p class="travel"><?php echo $sections_1_textarea;?></p>
-                            
-                            <?php // Displays read more section if needed
-                                if(get_post_meta(get_the_ID(), 'sections-1-readmore-checkbox', true) == 'yes') :?>
+              <p class="travel"><?php echo $sections_1_textarea; ?></p>
+							
+							<?php // Displays read more section if needed
+								if ( get_post_meta( get_the_ID(), 'sections-1-readmore-checkbox', true ) == 'yes' ) :?>
                   
                   <div class="panel-group" id="accordion1">
                     <div class="panel-travel">
@@ -229,56 +229,56 @@
                       <div id="collapseTwo1" class="panel-collapse collapse">
                         <div class="panel-body">
                           
-                          <p class="travel"><?php echo $sections_1_readmore;?></p>
+                          <p class="travel"><?php echo $sections_1_readmore; ?></p>
                         
                         </div>
                       </div>
                     
                     </div>
                   </div> <!-- /.panel-group -->
-                                
-                                <?php endif; ?>
+								
+								<?php endif; ?>
             
             </div> <!-- /#travel-style -->
           </div> <!-- /.content -->
         
         </section>
-            <?php endif; ?> <!-- sections-1-option-checkbox -->
+			<?php endif; ?> <!-- sections-1-option-checkbox -->
     
     <!-- ==== Section #2 ==== -->
-        
-        <?php
-            if(get_post_meta(get_the_ID(), 'sections-2-option-checkbox', true) == 'yes') : ?>
+		
+		<?php
+			if ( get_post_meta( get_the_ID(), 'sections-2-option-checkbox', true ) == 'yes' ) : ?>
         <section class="spotlight">
           
           <div class="image">
             <!-- Costs Video/Text/Image Option -->
-                        <?php
-                            if(get_post_meta(get_the_ID(), 'sections-2-video-image-checkbox', true) == 'yes') :?>
+						<?php
+							if ( get_post_meta( get_the_ID(), 'sections-2-video-image-checkbox', true ) == 'yes' ) :?>
                 
                 <div class="embed-responsive embed-responsive-16by9">
                   
                   <iframe class="embed-responsive-item" src="<?php echo $sections_2_video; ?>" allowfullscreen></iframe>
                 
                 </div>
-                            
-                            <?php else: ?>
+							
+							<?php else: ?>
                 
-                <img src="<?php echo $sections_2_image;?>" alt="The Fly Shop Travel Image" />
-                            
-                            <?php endif; ?>
+                <img src="<?php echo $sections_2_image; ?>" alt="The Fly Shop Travel Image"/>
+							
+							<?php endif; ?>
           
           </div>
           
           <div class="content">
             <div id="travel-style">
               
-              <h2><?php echo $sections_2_title;?></h2>
+              <h2><?php echo $sections_2_title; ?></h2>
               
-              <p class="travel"><?php echo $sections_2_textarea;?></p>
-                            
-                            <?php // Displays read more section if needed
-                                if(get_post_meta(get_the_ID(), 'sections-2-readmore-checkbox', true) == 'yes') :?>
+              <p class="travel"><?php echo $sections_2_textarea; ?></p>
+							
+							<?php // Displays read more section if needed
+								if ( get_post_meta( get_the_ID(), 'sections-2-readmore-checkbox', true ) == 'yes' ) :?>
                   
                   <div class="panel-group" id="accordion2">
                     <div class="panel-travel">
@@ -292,56 +292,56 @@
                       <div id="collapseTwo2" class="panel-collapse collapse">
                         <div class="panel-body">
                           
-                          <p class="travel"><?php echo $sections_2_readmore;?></p>
+                          <p class="travel"><?php echo $sections_2_readmore; ?></p>
                         
                         </div>
                       </div>
                     
                     </div>
                   </div> <!-- /.panel-group -->
-                                
-                                <?php endif; ?> <!-- sections-2-readmore-checkbox -->
+								
+								<?php endif; ?> <!-- sections-2-readmore-checkbox -->
             
             </div> <!-- /#travel-style -->
           </div> <!-- /.content -->
         
         </section>
-            <?php endif; ?> <!-- sections-2-option-checkbox -->
+			<?php endif; ?> <!-- sections-2-option-checkbox -->
     
     <!-- ==== Section #3 ==== -->
-        
-        <?php
-            if(get_post_meta(get_the_ID(), 'sections-3-option-checkbox', true) == 'yes') : ?>
+		
+		<?php
+			if ( get_post_meta( get_the_ID(), 'sections-3-option-checkbox', true ) == 'yes' ) : ?>
         <section class="spotlight">
           
           <div class="image">
             <!-- Costs Video/Text/Image Option -->
-                        <?php
-                            if(get_post_meta(get_the_ID(), 'sections-3-video-image-checkbox', true) == 'yes') :?>
+						<?php
+							if ( get_post_meta( get_the_ID(), 'sections-3-video-image-checkbox', true ) == 'yes' ) :?>
                 
                 <div class="embed-responsive embed-responsive-16by9">
                   
                   <iframe class="embed-responsive-item" src="<?php echo $sections_3_video; ?>" allowfullscreen></iframe>
                 
                 </div>
-                            
-                            <?php else: ?>
+							
+							<?php else: ?>
                 
-                <img src="<?php echo $sections_3_image;?>" alt="The Fly Shop Travel Image" />
-                            
-                            <?php endif; ?>
+                <img src="<?php echo $sections_3_image; ?>" alt="The Fly Shop Travel Image"/>
+							
+							<?php endif; ?>
           
           </div>
           
           <div class="content">
             <div id="travel-style">
               
-              <h2><?php echo $sections_3_title;?></h2>
+              <h2><?php echo $sections_3_title; ?></h2>
               
-              <p class="travel"><?php echo $sections_3_textarea;?></p>
-                            
-                            <?php // Displays read more section if needed
-                                if(get_post_meta(get_the_ID(), 'sections-3-readmore-checkbox', true) == 'yes') :?>
+              <p class="travel"><?php echo $sections_3_textarea; ?></p>
+							
+							<?php // Displays read more section if needed
+								if ( get_post_meta( get_the_ID(), 'sections-3-readmore-checkbox', true ) == 'yes' ) :?>
                   
                   <div class="panel-group" id="accordion3">
                     <div class="panel-travel">
@@ -355,56 +355,56 @@
                       <div id="collapseTwo3" class="panel-collapse collapse">
                         <div class="panel-body">
                           
-                          <p class="travel"><?php echo $sections_3_readmore;?></p>
+                          <p class="travel"><?php echo $sections_3_readmore; ?></p>
                         
                         </div>
                       </div>
                     
                     </div>
                   </div> <!-- /.panel-group -->
-                                
-                                <?php endif; ?> <!-- sections-3-readmore-checkbox -->
+								
+								<?php endif; ?> <!-- sections-3-readmore-checkbox -->
             
             </div> <!-- /#travel-style -->
           </div> <!-- /.content -->
         
         </section>
-            <?php endif; ?> <!-- sections-3-option-checkbox -->
+			<?php endif; ?> <!-- sections-3-option-checkbox -->
     
     <!-- ==== Section #4 ==== -->
-        
-        <?php
-            if(get_post_meta(get_the_ID(), 'sections-4-option-checkbox', true) == 'yes') : ?>
+		
+		<?php
+			if ( get_post_meta( get_the_ID(), 'sections-4-option-checkbox', true ) == 'yes' ) : ?>
         <section class="spotlight">
           
           <div class="image">
             <!-- Costs Video/Text/Image Option -->
-                        <?php
-                            if(get_post_meta(get_the_ID(), 'sections-4-video-image-checkbox', true) == 'yes') :?>
+						<?php
+							if ( get_post_meta( get_the_ID(), 'sections-4-video-image-checkbox', true ) == 'yes' ) :?>
                 
                 <div class="embed-responsive embed-responsive-16by9">
                   
                   <iframe class="embed-responsive-item" src="<?php echo $sections_4_video; ?>" allowfullscreen></iframe>
                 
                 </div>
-                            
-                            <?php else: ?>
+							
+							<?php else: ?>
                 
-                <img src="<?php echo $sections_4_image;?>" alt="The Fly Shop Travel Image" />
-                            
-                            <?php endif; ?>
+                <img src="<?php echo $sections_4_image; ?>" alt="The Fly Shop Travel Image"/>
+							
+							<?php endif; ?>
           
           </div>
           
           <div class="content">
             <div id="travel-style">
               
-              <h2><?php echo $sections_4_title;?></h2>
+              <h2><?php echo $sections_4_title; ?></h2>
               
-              <p class="travel"><?php echo $sections_4_textarea;?></p>
-                            
-                            <?php // Displays read more section if needed
-                                if(get_post_meta(get_the_ID(), 'sections-4-readmore-checkbox', true) == 'yes') :?>
+              <p class="travel"><?php echo $sections_4_textarea; ?></p>
+							
+							<?php // Displays read more section if needed
+								if ( get_post_meta( get_the_ID(), 'sections-4-readmore-checkbox', true ) == 'yes' ) :?>
                   
                   <div class="panel-group" id="accordion4">
                     <div class="panel-travel">
@@ -418,56 +418,56 @@
                       <div id="collapseTwo4" class="panel-collapse collapse">
                         <div class="panel-body">
                           
-                          <p class="travel"><?php echo $sections_4_readmore;?></p>
+                          <p class="travel"><?php echo $sections_4_readmore; ?></p>
                         
                         </div>
                       </div>
                     
                     </div>
                   </div> <!-- /.panel-group -->
-                                
-                                <?php endif; ?> <!-- sections-4-readmore-checkbox -->
+								
+								<?php endif; ?> <!-- sections-4-readmore-checkbox -->
             
             </div> <!-- /#travel-style -->
           </div> <!-- /.content -->
         
         </section>
-            <?php endif; ?> <!-- sections-4-option-checkbox -->
+			<?php endif; ?> <!-- sections-4-option-checkbox -->
     
     <!-- ==== Section #5 ==== -->
-        
-        <?php
-            if(get_post_meta(get_the_ID(), 'sections-5-option-checkbox', true) == 'yes') : ?>
+		
+		<?php
+			if ( get_post_meta( get_the_ID(), 'sections-5-option-checkbox', true ) == 'yes' ) : ?>
         <section class="spotlight">
           
           <div class="image">
             <!-- Costs Video/Text/Image Option -->
-                        <?php
-                            if(get_post_meta(get_the_ID(), 'sections-5-video-image-checkbox', true) == 'yes') :?>
+						<?php
+							if ( get_post_meta( get_the_ID(), 'sections-5-video-image-checkbox', true ) == 'yes' ) :?>
                 
                 <div class="embed-responsive embed-responsive-16by9">
                   
                   <iframe class="embed-responsive-item" src="<?php echo $sections_5_video; ?>" allowfullscreen></iframe>
                 
                 </div>
-                            
-                            <?php else: ?>
+							
+							<?php else: ?>
                 
-                <img src="<?php echo $sections_5_image;?>" alt="The Fly Shop Travel Image" />
-                            
-                            <?php endif; ?>
+                <img src="<?php echo $sections_5_image; ?>" alt="The Fly Shop Travel Image"/>
+							
+							<?php endif; ?>
           
           </div>
           
           <div class="content">
             <div id="travel-style">
               
-              <h2><?php echo $sections_5_title;?></h2>
+              <h2><?php echo $sections_5_title; ?></h2>
               
-              <p class="travel"><?php echo $sections_5_textarea;?></p>
-                            
-                            <?php // Displays read more section if needed
-                                if(get_post_meta(get_the_ID(), 'sections-5-readmore-checkbox', true) == 'yes') :?>
+              <p class="travel"><?php echo $sections_5_textarea; ?></p>
+							
+							<?php // Displays read more section if needed
+								if ( get_post_meta( get_the_ID(), 'sections-5-readmore-checkbox', true ) == 'yes' ) :?>
                   
                   <div class="panel-group" id="accordion5">
                     <div class="panel-travel">
@@ -481,56 +481,56 @@
                       <div id="collapseTwo5" class="panel-collapse collapse">
                         <div class="panel-body">
                           
-                          <p class="travel"><?php echo $sections_5_readmore;?></p>
+                          <p class="travel"><?php echo $sections_5_readmore; ?></p>
                         
                         </div>
                       </div>
                     
                     </div>
                   </div> <!-- /.panel-group -->
-                                
-                                <?php endif; ?> <!-- sections-5-readmore-checkbox -->
+								
+								<?php endif; ?> <!-- sections-5-readmore-checkbox -->
             
             </div> <!-- /#travel-style -->
           </div> <!-- /.content -->
         
         </section>
-            <?php endif; ?> <!-- sections-5-option-checkbox -->
+			<?php endif; ?> <!-- sections-5-option-checkbox -->
     
     <!-- ==== Section #6 ==== -->
-        
-        <?php
-            if(get_post_meta(get_the_ID(), 'sections-6-option-checkbox', true) == 'yes') : ?>
+		
+		<?php
+			if ( get_post_meta( get_the_ID(), 'sections-6-option-checkbox', true ) == 'yes' ) : ?>
         <section class="spotlight">
           
           <div class="image">
             <!-- Costs Video/Text/Image Option -->
-                        <?php
-                            if(get_post_meta(get_the_ID(), 'sections-6-video-image-checkbox', true) == 'yes') :?>
+						<?php
+							if ( get_post_meta( get_the_ID(), 'sections-6-video-image-checkbox', true ) == 'yes' ) :?>
                 
                 <div class="embed-responsive embed-responsive-16by9">
                   
                   <iframe class="embed-responsive-item" src="<?php echo $sections_6_video; ?>" allowfullscreen></iframe>
                 
                 </div>
-                            
-                            <?php else: ?>
+							
+							<?php else: ?>
                 
-                <img src="<?php echo $sections_6_image;?>" alt="The Fly Shop Travel Image" />
-                            
-                            <?php endif; ?>
+                <img src="<?php echo $sections_6_image; ?>" alt="The Fly Shop Travel Image"/>
+							
+							<?php endif; ?>
           
           </div>
           
           <div class="content">
             <div id="travel-style">
               
-              <h2><?php echo $sections_6_title;?></h2>
+              <h2><?php echo $sections_6_title; ?></h2>
               
-              <p class="travel"><?php echo $sections_6_textarea;?></p>
-                            
-                            <?php // Displays read more section if needed
-                                if(get_post_meta(get_the_ID(), 'sections-6-readmore-checkbox', true) == 'yes') :?>
+              <p class="travel"><?php echo $sections_6_textarea; ?></p>
+							
+							<?php // Displays read more section if needed
+								if ( get_post_meta( get_the_ID(), 'sections-6-readmore-checkbox', true ) == 'yes' ) :?>
                   
                   <div class="panel-group" id="accordion6">
                     <div class="panel-travel">
@@ -544,56 +544,56 @@
                       <div id="collapseTwo6" class="panel-collapse collapse">
                         <div class="panel-body">
                           
-                          <p class="travel"><?php echo $sections_6_readmore;?></p>
+                          <p class="travel"><?php echo $sections_6_readmore; ?></p>
                         
                         </div>
                       </div>
                     
                     </div>
                   </div> <!-- /.panel-group -->
-                                
-                                <?php endif; ?> <!-- sections-6-readmore-checkbox -->
+								
+								<?php endif; ?> <!-- sections-6-readmore-checkbox -->
             
             </div> <!-- /#travel-style -->
           </div> <!-- /.content -->
         
         </section>
-            <?php endif; ?> <!-- sections-6-option-checkbox -->
+			<?php endif; ?> <!-- sections-6-option-checkbox -->
     
     <!-- ==== Section #7 ==== -->
-        
-        <?php
-            if(get_post_meta(get_the_ID(), 'sections-7-option-checkbox', true) == 'yes') : ?>
+		
+		<?php
+			if ( get_post_meta( get_the_ID(), 'sections-7-option-checkbox', true ) == 'yes' ) : ?>
         <section class="spotlight">
           
           <div class="image">
             <!-- Costs Video/Text/Image Option -->
-                        <?php
-                            if(get_post_meta(get_the_ID(), 'sections-7-video-image-checkbox', true) == 'yes') :?>
+						<?php
+							if ( get_post_meta( get_the_ID(), 'sections-7-video-image-checkbox', true ) == 'yes' ) :?>
                 
                 <div class="embed-responsive embed-responsive-16by9">
                   
                   <iframe class="embed-responsive-item" src="<?php echo $sections_7_video; ?>" allowfullscreen></iframe>
                 
                 </div>
-                            
-                            <?php else: ?>
+							
+							<?php else: ?>
                 
-                <img src="<?php echo $sections_7_image;?>" alt="The Fly Shop Travel Image" />
-                            
-                            <?php endif; ?>
+                <img src="<?php echo $sections_7_image; ?>" alt="The Fly Shop Travel Image"/>
+							
+							<?php endif; ?>
           
           </div>
           
           <div class="content">
             <div id="travel-style">
               
-              <h2><?php echo $sections_7_title;?></h2>
+              <h2><?php echo $sections_7_title; ?></h2>
               
-              <p class="travel"><?php echo $sections_7_textarea;?></p>
-                            
-                            <?php // Displays read more section if needed
-                                if(get_post_meta(get_the_ID(), 'sections-7-readmore-checkbox', true) == 'yes') :?>
+              <p class="travel"><?php echo $sections_7_textarea; ?></p>
+							
+							<?php // Displays read more section if needed
+								if ( get_post_meta( get_the_ID(), 'sections-7-readmore-checkbox', true ) == 'yes' ) :?>
                   
                   <div class="panel-group" id="accordion7">
                     <div class="panel-travel">
@@ -607,56 +607,56 @@
                       <div id="collapseTwo7" class="panel-collapse collapse">
                         <div class="panel-body">
                           
-                          <p class="travel"><?php echo $sections_7_readmore;?></p>
+                          <p class="travel"><?php echo $sections_7_readmore; ?></p>
                         
                         </div>
                       </div>
                     
                     </div>
                   </div> <!-- /.panel-group -->
-                                
-                                <?php endif; ?> <!-- sections-7-readmore-checkbox -->
+								
+								<?php endif; ?> <!-- sections-7-readmore-checkbox -->
             
             </div> <!-- /#travel-style -->
           </div> <!-- /.content -->
         
         </section>
-            <?php endif; ?> <!-- sections-7-option-checkbox -->
+			<?php endif; ?> <!-- sections-7-option-checkbox -->
     
     <!-- ==== Section #8 ==== -->
-        
-        <?php
-            if(get_post_meta(get_the_ID(), 'sections-8-option-checkbox', true) == 'yes') : ?>
+		
+		<?php
+			if ( get_post_meta( get_the_ID(), 'sections-8-option-checkbox', true ) == 'yes' ) : ?>
         <section class="spotlight">
           
           <div class="image">
             <!-- Costs Video/Text/Image Option -->
-                        <?php
-                            if(get_post_meta(get_the_ID(), 'sections-8-video-image-checkbox', true) == 'yes') :?>
+						<?php
+							if ( get_post_meta( get_the_ID(), 'sections-8-video-image-checkbox', true ) == 'yes' ) :?>
                 
                 <div class="embed-responsive embed-responsive-16by9">
                   
                   <iframe class="embed-responsive-item" src="<?php echo $sections_8_video; ?>" allowfullscreen></iframe>
                 
                 </div>
-                            
-                            <?php else: ?>
+							
+							<?php else: ?>
                 
-                <img src="<?php echo $sections_8_image;?>" alt="The Fly Shop Travel Image" />
-                            
-                            <?php endif; ?>
+                <img src="<?php echo $sections_8_image; ?>" alt="The Fly Shop Travel Image"/>
+							
+							<?php endif; ?>
           
           </div>
           
           <div class="content">
             <div id="travel-style">
               
-              <h2><?php echo $sections_8_title;?></h2>
+              <h2><?php echo $sections_8_title; ?></h2>
               
-              <p class="travel"><?php echo $sections_8_textarea;?></p>
-                            
-                            <?php // Displays read more section if needed
-                                if(get_post_meta(get_the_ID(), 'sections-8-readmore-checkbox', true) == 'yes') :?>
+              <p class="travel"><?php echo $sections_8_textarea; ?></p>
+							
+							<?php // Displays read more section if needed
+								if ( get_post_meta( get_the_ID(), 'sections-8-readmore-checkbox', true ) == 'yes' ) :?>
                   
                   <div class="panel-group" id="accordion8">
                     <div class="panel-travel">
@@ -670,56 +670,56 @@
                       <div id="collapseTwo8" class="panel-collapse collapse">
                         <div class="panel-body">
                           
-                          <p class="travel"><?php echo $sections_8_readmore;?></p>
+                          <p class="travel"><?php echo $sections_8_readmore; ?></p>
                         
                         </div>
                       </div>
                     
                     </div>
                   </div> <!-- /.panel-group -->
-                                
-                                <?php endif; ?> <!-- sections-8-readmore-checkbox -->
+								
+								<?php endif; ?> <!-- sections-8-readmore-checkbox -->
             
             </div> <!-- /#travel-style -->
           </div> <!-- /.content -->
         
         </section>
-            <?php endif; ?> <!-- sections-8-option-checkbox -->
+			<?php endif; ?> <!-- sections-8-option-checkbox -->
     
     <!-- ==== Section #9 ==== -->
-        
-        <?php
-            if(get_post_meta(get_the_ID(), 'sections-9-option-checkbox', true) == 'yes') : ?>
+		
+		<?php
+			if ( get_post_meta( get_the_ID(), 'sections-9-option-checkbox', true ) == 'yes' ) : ?>
         <section class="spotlight">
           
           <div class="image">
             <!-- Costs Video/Text/Image Option -->
-                        <?php
-                            if(get_post_meta(get_the_ID(), 'sections-9-video-image-checkbox', true) == 'yes') :?>
+						<?php
+							if ( get_post_meta( get_the_ID(), 'sections-9-video-image-checkbox', true ) == 'yes' ) :?>
                 
                 <div class="embed-responsive embed-responsive-16by9">
                   
                   <iframe class="embed-responsive-item" src="<?php echo $sections_9_video; ?>" allowfullscreen></iframe>
                 
                 </div>
-                            
-                            <?php else: ?>
+							
+							<?php else: ?>
                 
-                <img src="<?php echo $sections_9_image;?>" alt="The Fly Shop Travel Image" />
-                            
-                            <?php endif; ?>
+                <img src="<?php echo $sections_9_image; ?>" alt="The Fly Shop Travel Image"/>
+							
+							<?php endif; ?>
           
           </div>
           
           <div class="content">
             <div id="travel-style">
               
-              <h2><?php echo $sections_9_title;?></h2>
+              <h2><?php echo $sections_9_title; ?></h2>
               
-              <p class="travel"><?php echo $sections_9_textarea;?></p>
-                            
-                            <?php // Displays read more section if needed
-                                if(get_post_meta(get_the_ID(), 'sections-9-readmore-checkbox', true) == 'yes') :?>
+              <p class="travel"><?php echo $sections_9_textarea; ?></p>
+							
+							<?php // Displays read more section if needed
+								if ( get_post_meta( get_the_ID(), 'sections-9-readmore-checkbox', true ) == 'yes' ) :?>
                   
                   <div class="panel-group" id="accordion9">
                     <div class="panel-travel">
@@ -733,56 +733,56 @@
                       <div id="collapseTwo9" class="panel-collapse collapse">
                         <div class="panel-body">
                           
-                          <p class="travel"><?php echo $sections_9_readmore;?></p>
+                          <p class="travel"><?php echo $sections_9_readmore; ?></p>
                         
                         </div>
                       </div>
                     
                     </div>
                   </div> <!-- /.panel-group -->
-                                
-                                <?php endif; ?> <!-- sections-9-readmore-checkbox -->
+								
+								<?php endif; ?> <!-- sections-9-readmore-checkbox -->
             
             </div> <!-- /#travel-style -->
           </div> <!-- /.content -->
         
         </section>
-            <?php endif; ?> <!-- sections-9-option-checkbox -->
+			<?php endif; ?> <!-- sections-9-option-checkbox -->
     
     <!-- ==== Section #10 ==== -->
-        
-        <?php
-            if(get_post_meta(get_the_ID(), 'sections-10-option-checkbox', true) == 'yes') : ?>
+		
+		<?php
+			if ( get_post_meta( get_the_ID(), 'sections-10-option-checkbox', true ) == 'yes' ) : ?>
         <section class="spotlight">
           
           <div class="image">
             <!-- Costs Video/Text/Image Option -->
-                        <?php
-                            if(get_post_meta(get_the_ID(), 'sections-10-video-image-checkbox', true) == 'yes') :?>
+						<?php
+							if ( get_post_meta( get_the_ID(), 'sections-10-video-image-checkbox', true ) == 'yes' ) :?>
                 
                 <div class="embed-responsive embed-responsive-16by9">
                   
                   <iframe class="embed-responsive-item" src="<?php echo $sections_10_video; ?>" allowfullscreen></iframe>
                 
                 </div>
-                            
-                            <?php else: ?>
+							
+							<?php else: ?>
                 
-                <img src="<?php echo $sections_10_image;?>" alt="The Fly Shop Travel Image" />
-                            
-                            <?php endif; ?>
+                <img src="<?php echo $sections_10_image; ?>" alt="The Fly Shop Travel Image"/>
+							
+							<?php endif; ?>
           
           </div>
           
           <div class="content">
             <div id="travel-style">
               
-              <h2><?php echo $sections_10_title;?></h2>
+              <h2><?php echo $sections_10_title; ?></h2>
               
-              <p class="travel"><?php echo $sections_10_textarea;?></p>
-                            
-                            <?php // Displays read more section if needed
-                                if(get_post_meta(get_the_ID(), 'sections-10-readmore-checkbox', true) == 'yes') :?>
+              <p class="travel"><?php echo $sections_10_textarea; ?></p>
+							
+							<?php // Displays read more section if needed
+								if ( get_post_meta( get_the_ID(), 'sections-10-readmore-checkbox', true ) == 'yes' ) :?>
                   
                   <div class="panel-group" id="accordion10">
                     <div class="panel-travel">
@@ -796,27 +796,27 @@
                       <div id="collapseTwo10" class="panel-collapse collapse">
                         <div class="panel-body">
                           
-                          <p class="travel"><?php echo $sections_10_readmore;?></p>
+                          <p class="travel"><?php echo $sections_10_readmore; ?></p>
                         
                         </div>
                       </div>
                     
                     </div>
                   </div> <!-- /.panel-group -->
-                                
-                                <?php endif; ?> <!-- sections-10-readmore-checkbox -->
+								
+								<?php endif; ?> <!-- sections-10-readmore-checkbox -->
             
             </div> <!-- /#travel-style -->
           </div> <!-- /.content -->
         
         </section>
-            <?php endif; ?> <!-- sections-10-option-checkbox -->
-    
-    </section>
-    
-    <?php
-    $default = '';
-    if($galleryphoto_1_image !== $default) : ?>
+			<?php endif; ?> <!-- sections-10-option-checkbox -->
+  
+  </section>
+
+<?php
+	$default = '';
+	if ( $galleryphoto_1_image !== $default ) : ?>
     <section id="three" class="wrapper style7 special">
       <div class="inner">
         <header class="major">
@@ -824,62 +824,62 @@
           <hr class="fancy1">
           <div class="row">
             <div class="additional-listing">
-                            
-                            <?php if(get_post_meta(get_the_ID(), 'galleryphoto-1-image', true)) {
-                                
-                                echo	'<div class="col-xs-6 col-md-3">',
-                                
-                                '<div class="thumbnail">',
-                                 
-                                 '<a href="#guide-carousel" data-slide-to="0"><img src="' . $galleryphoto_1_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-                                
-                                '</div>',
-                                
-                                '</div>';
-                                
-                            } ?>
-                            
-                            <?php if(get_post_meta(get_the_ID(), 'galleryphoto-2-image', true)) {
-                                
-                                echo	'<div class="col-xs-6 col-md-3">',
-                                
-                                '<div class="thumbnail">',
-                                 
-                                 '<a href="#guide-carousel" data-slide-to="1"><img src="' . $galleryphoto_2_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-                                
-                                '</div>',
-                                
-                                '</div>';
-                                
-                            } ?>
-                            
-                            <?php if(get_post_meta(get_the_ID(), 'galleryphoto-3-image', true)) {
-                                
-                                echo	'<div class="col-xs-6 col-md-3">',
-                                
-                                '<div class="thumbnail">',
-                                 
-                                 '<a href="#guide-carousel" data-slide-to="2"><img src="' . $galleryphoto_3_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-                                
-                                '</div>',
-                                
-                                '</div>';
-                                
-                            } ?>
-                            
-                            <?php if(get_post_meta(get_the_ID(), 'galleryphoto-4-image', true)) {
-                                
-                                echo	'<div class="col-xs-6 col-md-3">',
-                                
-                                '<div class="thumbnail">',
-                                 
-                                 '<a href="#guide-carousel" data-slide-to="3"><img src="' . $galleryphoto_4_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-                                
-                                '</div>',
-                                
-                                '</div>';
-                                
-                            } ?>
+							
+							<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-1-image', true ) ) {
+								
+								echo '<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="0"><img src="' . $galleryphoto_1_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-2-image', true ) ) {
+								
+								echo '<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="1"><img src="' . $galleryphoto_2_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-3-image', true ) ) {
+								
+								echo '<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="2"><img src="' . $galleryphoto_3_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-4-image', true ) ) {
+								
+								echo '<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="3"><img src="' . $galleryphoto_4_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
             
             </div>
           </div>
@@ -888,61 +888,61 @@
           
           <div class="row">
             <div class="additional-listing">
-                            
-                            <?php if(get_post_meta(get_the_ID(), 'galleryphoto-5-image', true)) {
-                                
-                                echo	'<div class="col-xs-6 col-md-3">',
-                                
-                                '<div class="thumbnail">',
-                                 
-                                 '<a href="#guide-carousel" data-slide-to="4"><img src="' . $galleryphoto_5_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-                                
-                                '</div>',
-                                
-                                '</div>';
-                                
-                            } ?>
-                            
-                            <?php if(get_post_meta(get_the_ID(), 'galleryphoto-6-image', true)) {
-                                
-                                echo	'<div class="col-xs-6 col-md-3">',
-                                
-                                '<div class="thumbnail">',
-                                 
-                                 '<a href="#guide-carousel" data-slide-to="5"><img src="' . $galleryphoto_6_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-                                
-                                '</div>',
-                                
-                                '</div>';
-                                
-                            } ?>
-                            
-                            <?php if(get_post_meta(get_the_ID(), 'galleryphoto-7-image', true)) {
-                                
-                                echo	'<div class="col-xs-6 col-md-3">',
-                                
-                                '<div class="thumbnail">',
-                                 
-                                 '<a href="#guide-carousel" data-slide-to="6"><img src="' . $galleryphoto_7_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-                                
-                                '</div>',
-                                
-                                '</div>';
-                                
-                            } ?>
-                            
-                            <?php if(get_post_meta(get_the_ID(), 'galleryphoto-8-image', true)) {
-                                
-                                echo	'<div class="col-xs-6 col-md-3">',
-                                '<div class="thumbnail">',
-                                 
-                                 '<a href="#guide-carousel" data-slide-to="7"><img src="' . $galleryphoto_8_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images">',
-                                
-                                '</div>',
-                                
-                                '</div>';
-                                
-                            } ?>
+							
+							<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-5-image', true ) ) {
+								
+								echo '<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="4"><img src="' . $galleryphoto_5_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-6-image', true ) ) {
+								
+								echo '<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="5"><img src="' . $galleryphoto_6_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-7-image', true ) ) {
+								
+								echo '<div class="col-xs-6 col-md-3">',
+								
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="6"><img src="' . $galleryphoto_7_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
+							
+							<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-8-image', true ) ) {
+								
+								echo '<div class="col-xs-6 col-md-3">',
+								'<div class="thumbnail">',
+								 
+								 '<a href="#guide-carousel" data-slide-to="7"><img src="' . $galleryphoto_8_image . '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images">',
+								
+								'</div>',
+								
+								'</div>';
+								
+							} ?>
             
             </div>
           </div>
@@ -956,137 +956,137 @@
         <div id="guide-carousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-1-image', true)) {
-                            
-                            echo '<li data-target="#guide-carousel" data-slide-to="0" class="active"></li>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-2-image', true)) {
-                            
-                            echo '<li data-target="#guide-carousel" data-slide-to="1"></li>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-3-image', true)) {
-                            
-                            echo '<li data-target="#guide-carousel" data-slide-to="2"></li>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-4-image', true)) {
-                            
-                            echo '<li data-target="#guide-carousel" data-slide-to="3"></li>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-5-image', true)) {
-                            
-                            echo '<li data-target="#guide-carousel" data-slide-to="4"></li>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-6-image', true)) {
-                            
-                            echo '<li data-target="#guide-carousel" data-slide-to="5"></li>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-7-image', true)) {
-                            
-                            echo '<li data-target="#guide-carousel" data-slide-to="6"></li>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-8-image', true)) {
-                            
-                            echo '<li data-target="#guide-carousel" data-slide-to="7"></li>';
-                            
-                        } ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-1-image', true ) ) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="0" class="active"></li>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-2-image', true ) ) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="1"></li>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-3-image', true ) ) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="2"></li>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-4-image', true ) ) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="3"></li>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-5-image', true ) ) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="4"></li>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-6-image', true ) ) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="5"></li>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-7-image', true ) ) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="6"></li>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-8-image', true ) ) {
+							
+							echo '<li data-target="#guide-carousel" data-slide-to="7"></li>';
+							
+						} ?>
           
           </ol>
           
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-1-image', true)) {
-                            
-                            echo	'<div class="item active">',
-                             
-                             '<img src="' . $galleryphoto_1_image . '" alt="The Fly Shop Guided Fly Fishing">',
-                            
-                            '</div>';
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-2-image', true)) {
-                            
-                            echo	'<div class="item">',
-                             
-                             '<img src="' . $galleryphoto_2_image . '" alt="The Fly Shop Guided Fly Fishing">',
-                            
-                            '</div>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-3-image', true)) {
-                            
-                            echo	'<div class="item">',
-                             
-                             '<img src="' . $galleryphoto_3_image . '" alt="The Fly Shop Guided Fly Fishing">',
-                            
-                            '</div>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-4-image', true)) {
-                            
-                            echo	'<div class="item">',
-                             
-                             '<img src="' . $galleryphoto_4_image . '" alt="The Fly Shop Guided Fly Fishing">',
-                            
-                            '</div>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-5-image', true)) {
-                            
-                            echo	'<div class="item">',
-                             
-                             '<img src="' . $galleryphoto_5_image . '" alt="The Fly Shop Guided Fly Fishing">',
-                            
-                            '</div>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-6-image', true)) {
-                            
-                            echo	'<div class="item">',
-                             
-                             '<img src="' . $galleryphoto_6_image . '" alt="The Fly Shop Guided Fly Fishing">',
-                            
-                            '</div>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-7-image', true)) {
-                            
-                            echo  '<div class="item">',
-                             
-                             '<img src="' . $galleryphoto_7_image . '" alt="The Fly Shop Guided Fly Fishing">',
-                            
-                            '</div>';
-                            
-                        } ?>
-                        
-                        <?php if(get_post_meta(get_the_ID(), 'galleryphoto-8-image', true)) {
-                            
-                            echo	'<div class="item">',
-                             
-                             '<img src="' . $galleryphoto_8_image . '" alt="The Fly Shop Guided Fly Fishing">',
-                            
-                            '</div>';
-                            
-                        } ?>
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-1-image', true ) ) {
+							
+							echo '<div class="item active">',
+							 
+							 '<img src="' . $galleryphoto_1_image . '" alt="The Fly Shop Guided Fly Fishing">',
+							
+							'</div>';
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-2-image', true ) ) {
+							
+							echo '<div class="item">',
+							 
+							 '<img src="' . $galleryphoto_2_image . '" alt="The Fly Shop Guided Fly Fishing">',
+							
+							'</div>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-3-image', true ) ) {
+							
+							echo '<div class="item">',
+							 
+							 '<img src="' . $galleryphoto_3_image . '" alt="The Fly Shop Guided Fly Fishing">',
+							
+							'</div>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-4-image', true ) ) {
+							
+							echo '<div class="item">',
+							 
+							 '<img src="' . $galleryphoto_4_image . '" alt="The Fly Shop Guided Fly Fishing">',
+							
+							'</div>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-5-image', true ) ) {
+							
+							echo '<div class="item">',
+							 
+							 '<img src="' . $galleryphoto_5_image . '" alt="The Fly Shop Guided Fly Fishing">',
+							
+							'</div>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-6-image', true ) ) {
+							
+							echo '<div class="item">',
+							 
+							 '<img src="' . $galleryphoto_6_image . '" alt="The Fly Shop Guided Fly Fishing">',
+							
+							'</div>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-7-image', true ) ) {
+							
+							echo '<div class="item">',
+							 
+							 '<img src="' . $galleryphoto_7_image . '" alt="The Fly Shop Guided Fly Fishing">',
+							
+							'</div>';
+							
+						} ?>
+						
+						<?php if ( get_post_meta( get_the_ID(), 'galleryphoto-8-image', true ) ) {
+							
+							echo '<div class="item">',
+							 
+							 '<img src="' . $galleryphoto_8_image . '" alt="The Fly Shop Guided Fly Fishing">',
+							
+							'</div>';
+							
+						} ?>
           
           </div>
           
@@ -1102,7 +1102,7 @@
         </div>
       </div>
     </div>
-    <?php endif; ?>
-    
+	<?php endif; ?>
+
 <?php
 	get_footer();
