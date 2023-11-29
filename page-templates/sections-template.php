@@ -56,7 +56,9 @@
     <!-- Featured Imgae -->
     <img src="<?php echo $sections_featured_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
     <div class="center-content-flex template-header-content">
-      <div class="basicpagelogo signature-header template-class text-center">
+      <div id="sections-temp-hero-content" class="basicpagelogo
+      signature-header template-class
+           text-center">
         <div class="inner">
           <dl class="landing-hd">
             <dd class="dd-1"><img src="<?php echo $sections_logo; ?>" class="img-responsive-logo" alt="The Fly Shop Logo" title="Sections Logo"></dd>

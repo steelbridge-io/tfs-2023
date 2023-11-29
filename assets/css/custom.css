@@ -2149,6 +2149,10 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
   }
 }
 /** Sections Template CSS */
+#sections-temp-hero-content.signature-header .scrollto {
+  position: initial;
+}
+
 #one.sections-wrap .inner {
   width: auto;
 }
