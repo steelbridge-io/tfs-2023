@@ -3281,7 +3281,6 @@ section {
 .error-404 .page-header {
   margin-top: 6.618em; }
 
-/** Travel Questionaire and PDF template */
 .template-header-content .travel-docs-logo {
   width: clamp(270px, 30vh, 270px); }
 
@@ -3298,7 +3297,6 @@ section {
 #monthly-fly-list .btn {
   width: 100%;
   border-radius: 0;
-  /* font-size: clamp(1rem, -0.875rem + 8.333vw, 1.2rem);  Does not compile on my 2018 MBP */
   font-size: clamp(1rem, calc(16px - 0.875rem + 8.333vw), 1.2rem); }
 #monthly-fly-list table {
   margin-top: 5px; }
@@ -3408,7 +3406,8 @@ section {
 
 @media (min-width: 1199px) {
   #questionaire-travel-section .row {
-    display: flex; }
+    display: flex;
+    justify-content: center; }
   #questionaire-travel-section .col-lg-5 {
     display: flex;
     flex-direction: column;
