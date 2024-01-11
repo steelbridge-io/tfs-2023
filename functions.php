@@ -661,6 +661,12 @@ function tfs_login_logo_one() {
         body.login.login-action-login.wp-core-ui.locale-en-us {
             background-color: #ccc;
         }
+        .admin-email__details {
+            color: #f5f5f5 !important;
+        }
+        .login h1.admin-email__heading {
+            color: #f5f5f5 !important;
+        }
     </style>
     <?php
 } add_action( 'login_enqueue_scripts', 'tfs_login_logo_one' );
