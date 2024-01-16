@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Outfitters Blog Template
- * Post Type: flyfishing-news
+ * Template Post Type: flyfishing-news
  * Developed for The Fly Shop
  * @package The_Fly_Shop
  * Author: Chris Parsons
