@@ -2291,8 +2291,8 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
   width: 100%;
   z-index: 1;
 }
-#outfitters-jumbotron img {
-  /*width: 100%;*/
+#outfitters-jumbotron img.outfitters {
+  width: 100%;
 }
 
 /* New Blog Template
