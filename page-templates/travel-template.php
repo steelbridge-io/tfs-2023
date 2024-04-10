@@ -14,11 +14,18 @@ get_header(); ?>
 <?php if ( !empty( $travel_temp_video ) || !empty($travel_temp_video_poster) ) : ?>
     <section id="banner" class="travel-temp-hero-overlay">
         <div class="overlay"></div>
-        <video id="sections-background-video" autoplay playsinline loop muted
+        <video id="sections-travel-background-video" class="travel-temp-video"
+               autoplay
+               playsinline loop
+               muted
                poster="<?php echo $travel_temp_video_poster; ?>">
             <source src="<?php echo $travel_temp_video; ?>" type="video/mp4">
         </video>
-        <div class="inner">
+       <!-- <div id="customControls" style="display:none;">
+            <button id="playButton">Play</button>
+        </div> -->
+        <div class="inner-background"></div>
+        <div id="travel-temp-hero-video" class="inner">
 			<?php
 			if ( ! empty( $travel_logo ) ) { ?>
                 <img src="<?php echo $travel_logo; ?>"
