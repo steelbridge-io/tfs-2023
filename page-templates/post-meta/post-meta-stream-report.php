@@ -1,6 +1,6 @@
 <?php
 //Custom fields for each individual stream report
-$circle7_report = get_post_meta(get_the_ID(), 'circle7-report', true);
+
 $stream_report_title = get_post_meta(get_the_ID(), 'stream-report-title', true);
 $stream_report_description = get_post_meta(get_the_ID(), 'stream-report-description', true);
 $fallriver_report_date = get_post_meta(get_the_ID(), 'fallriver-report-date', true);

@@ -1844,7 +1844,7 @@ get_header();
 
                                     <!-- === BEGIN EDIT SECTION: DATE === -->
 
-                                    <?php echo $circle7_report; ?>
+                                    <?php echo $circle7_updated;  ?>
 
                                     <!-- === END EDIT SECTION: DATE === -->
 
@@ -1858,7 +1858,7 @@ get_header();
 
                                     <!-- === BEGIN EDIT SECTION: REPORT === -->
 
-                                    <?php echo $bollibokka_report; ?>
+                                    <?php echo $circle7_report; ?>
 
                                     <!-- === END EDIT SECTION: REPORT === -->
 
@@ -1869,7 +1869,7 @@ get_header();
 
                                     <!-- === BEGIN EDIT SECTION: HOT FLIES === -->
 
-                                    <?php echo $bollibokka_hot_flies; ?>
+                                    <?php echo $circle7_hot_flies; ?>
 
                                     <!-- === END EDIT SECTION: HOT FLIES === -->
 
