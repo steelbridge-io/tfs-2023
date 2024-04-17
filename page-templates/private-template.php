@@ -10,6 +10,40 @@
 include_once('post-meta/post-meta-private.php');
 
 get_header(); ?>
+
+<?php if ( !empty( $private_temp_video ) || !empty($private_temp_video_poster) ) : ?>
+    <section id="banner" class="travel-temp-hero-overlay">
+        <div class="overlay"></div>
+        <video id="sections-travel-background-video" class="travel-temp-video"
+               autoplay
+               playsinline loop
+               muted
+               poster="<?php echo $private_temp_video_poster; ?>">
+            <source src="<?php echo $private_temp_video; ?>" type="video/mp4">
+        </video>
+        <!-- <div id="customControls" style="display:none;">
+			 <button id="playButton">Play</button>
+		 </div> -->
+        <div class="inner-background"></div>
+        <div id="travel-temp-hero-video" class="inner">
+			<?php
+			if ( ! empty( $private_logo ) ) { ?>
+                <img src="<?php echo $private_logo; ?>"
+                     class="img-responsive center-block"
+                     alt="The Fly Shop Signature Travel Destination">
+			<?php } ?>
+            <h2><?php the_title(); ?></h2>
+			<?php
+			if ( ! empty( $private_description ) ) { ?>
+                <p class="template-description"><?php echo $private_description; ?></p>
+			<?php } ?>
+            <h3>800 &bull; 669 &bull; 3474</h3>
+        </div>
+        <a href="#main" class="more scrolly">Read more here!</a>
+    </section>
+<?php endif;
+
+if ( empty( $private_temp_video ) && empty($private_temp_video_poster) ) : ?>
   <!-- Banner -->
   <section id="banner">
     <div class="inner">
@@ -27,6 +61,8 @@ get_header(); ?>
     <a href="#main" class="more scrolly">Read more here!</a>
   
   </section>
+
+<?php endif; ?>
   
   <!-- One -->
   <section id="one" class="wrapper style5 special">
