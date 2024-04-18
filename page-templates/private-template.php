@@ -12,9 +12,9 @@ include_once('post-meta/post-meta-private.php');
 get_header(); ?>
 
 <?php if ( !empty( $private_temp_video ) || !empty($private_temp_video_poster) ) : ?>
-    <section id="banner" class="travel-temp-hero-overlay">
+    <section id="banner" class="private-temp-hero-overlay">
         <div class="overlay"></div>
-        <video id="sections-travel-background-video" class="travel-temp-video"
+        <video id="sections-private-background-video" class="private-temp-video"
                autoplay
                playsinline loop
                muted
@@ -25,17 +25,17 @@ get_header(); ?>
 			 <button id="playButton">Play</button>
 		 </div> -->
         <div class="inner-background"></div>
-        <div id="travel-temp-hero-video" class="inner">
+        <div id="private-temp-hero-video" class="inner">
 			<?php
-			if ( ! empty( $private_logo ) ) { ?>
-                <img src="<?php echo $private_logo; ?>"
+			if ( ! empty( $private_waters_logo ) ) { ?>
+                <img src="<?php echo $private_waters_logo; ?>"
                      class="img-responsive center-block"
                      alt="The Fly Shop Signature Travel Destination">
 			<?php } ?>
             <h2><?php the_title(); ?></h2>
 			<?php
-			if ( ! empty( $private_description ) ) { ?>
-                <p class="template-description"><?php echo $private_description; ?></p>
+			if ( ! empty( $private_waters_description ) ) { ?>
+                <p class="template-description"><?php echo $private_waters_description; ?></p>
 			<?php } ?>
             <h3>800 &bull; 669 &bull; 3474</h3>
         </div>

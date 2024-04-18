@@ -3427,39 +3427,6 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   z-index: 1000;
 }
 
-#banner {
-  height: auto;
-}
-#banner.travel-temp-hero-overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  height: 100vh;
-}
-#banner.travel-temp-hero-overlay video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-#banner.travel-temp-hero-overlay #sections-travel-background-video {
-  width: 100%;
-}
-#banner.travel-temp-hero-overlay #travel-temp-hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .travel-temp-article {
   background-color: #eeeeee;
   position: relative;
@@ -3498,11 +3465,6 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   .news-section .col-md-6 .media {
     display: initial;
     justify-content: initial;
-  }
-}
-@media (max-width: 767.98px) {
-  #banner.travel-temp-hero-overlay .inner {
-    padding: 5em 1em 1em !important;
   }
 }
 @media screen and (max-width: 736px) {
@@ -3844,6 +3806,51 @@ a.page-numbers:hover {
   margin-bottom: 0;
 }
 
+#banner {
+  height: auto;
+}
+#banner.travel-temp-hero-overlay, #banner.private-temp-hero-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+}
+#banner.travel-temp-hero-overlay video, #banner.private-temp-hero-overlay video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#banner.travel-temp-hero-overlay #sections-travel-background-video,
+#banner.travel-temp-hero-overlay #sections-private-background-video, #banner.private-temp-hero-overlay #sections-travel-background-video,
+#banner.private-temp-hero-overlay #sections-private-background-video {
+  width: 100%;
+}
+#banner.travel-temp-hero-overlay #travel-temp-hero-video,
+#banner.travel-temp-hero-overlay #private-temp-hero-video, #banner.private-temp-hero-overlay #travel-temp-hero-video,
+#banner.private-temp-hero-overlay #private-temp-hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 767.98px) {
+  #banner.travel-temp-hero-overlay .inner {
+    padding: 5em 1em 1em !important;
+  }
+  #banner.private-temp-hero-overlay .inner {
+    padding: 5em 1em 1em !important;
+  }
+}
 /* @media (pointer: coarse) and (hover: none) {
   .video {
     background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;

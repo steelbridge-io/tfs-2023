@@ -7,45 +7,48 @@
  * @package The_Fly_Shop
  */
 
-$private_waters_logo										= get_post_meta(get_the_ID(), 'private-logo', true);
-$private_waters_description 						= get_post_meta(get_the_ID(), 'private-description', true);
+$private_temp_video                     = get_post_meta( get_the_ID(), 'private-temp-video', true );
+$private_temp_video_poster              = get_post_meta( get_the_ID(), 'private-temp-video-poster', true );
 
-$video_pwfeature_one 										= get_post_meta(get_the_ID(), 'feature-pw1-video', true);
-$feature_pw1_image											= get_post_meta(get_the_ID(), 'feature-pw1-image', true);
-$feature_pw1_title											=	get_post_meta(get_the_ID(), 'feature-pw1-title', true);
-$feature_pw1_cost_textarea							= get_post_meta(get_the_ID(), 'feature-pw1-cost-textarea', true);
-$feature_pw1_inclusions_textarea				= get_post_meta(get_the_ID(), 'feature-pw1-inclusions-textarea', true);
-$feature_pw1_noninclusions_textarea			= get_post_meta(get_the_ID(), 'feature-pw1-noninclusions-textarea', true);
-$feature_pw1_travelins_textarea					= get_post_meta(get_the_ID(), 'feature-pw1-travelins-textarea', true);
-$feature_pw1_nonangler_textarea					= get_post_meta(get_the_ID(), 'feature-pw1-nonangler-textarea', true);
+$private_waters_logo					= get_post_meta(get_the_ID(), 'private-logo', true);
+$private_waters_description 			= get_post_meta(get_the_ID(), 'private-description', true);
 
-$video_pwfeature_two 										= get_post_meta(get_the_ID(), 'feature-pw2-video', true);
-$feature_pw2_image											= get_post_meta(get_the_ID(), 'feature-pw2-image', true);
-$feature_pw2_title                  		= get_post_meta(get_the_ID(), 'feature-pw2-title', true);
-$feature_pw2_seasons_textarea       		= get_post_meta(get_the_ID(), 'feature-pw2-seasons-textarea', true);
-$feature_pw2_autumn_textarea        		= get_post_meta(get_the_ID(), 'feature-pw2-autumn-textarea', true);
-$feature_pw2_winter_textarea        		= get_post_meta(get_the_ID(), 'feature-pw2-winter-textarea', true);
-$feature_pw2_spring_textarea        		= get_post_meta(get_the_ID(), 'feature-pw2-spring-textarea', true);
-$feature_pw2_summer_textarea        		= get_post_meta(get_the_ID(), 'feature-pw2-summer-textarea', true);
+$video_pwfeature_one 					= get_post_meta(get_the_ID(), 'feature-pw1-video', true);
+$feature_pw1_image						= get_post_meta(get_the_ID(), 'feature-pw1-image', true);
+$feature_pw1_title						= get_post_meta(get_the_ID(), 'feature-pw1-title', true);
+$feature_pw1_cost_textarea	            = get_post_meta(get_the_ID(), 'feature-pw1-cost-textarea', true);
+$feature_pw1_inclusions_textarea	    = get_post_meta(get_the_ID(), 'feature-pw1-inclusions-textarea', true);
+$feature_pw1_noninclusions_textarea		= get_post_meta(get_the_ID(), 'feature-pw1-noninclusions-textarea', true);
+$feature_pw1_travelins_textarea			= get_post_meta(get_the_ID(), 'feature-pw1-travelins-textarea', true);
+$feature_pw1_nonangler_textarea			= get_post_meta(get_the_ID(), 'feature-pw1-nonangler-textarea', true);
 
-$video_feature_three 										= get_post_meta(get_the_ID(), 'feature-pw3-video', true);
-$feature_pw3_fishing_image							= get_post_meta(get_the_ID(), 'feature-pw3-image', true);
-$feature_pw3_fishing_title							= get_post_meta(get_the_ID(), 'feature-pw3-fishing-title', true);
-$feature_pw3_fishing_content						= get_post_meta(get_the_ID(), 'feature-pw3-fishing-textarea', true);
+$video_pwfeature_two 					= get_post_meta(get_the_ID(), 'feature-pw2-video', true);
+$feature_pw2_image						= get_post_meta(get_the_ID(), 'feature-pw2-image', true);
+$feature_pw2_title                  	= get_post_meta(get_the_ID(), 'feature-pw2-title', true);
+$feature_pw2_seasons_textarea       	= get_post_meta(get_the_ID(), 'feature-pw2-seasons-textarea', true);
+$feature_pw2_autumn_textarea       		= get_post_meta(get_the_ID(), 'feature-pw2-autumn-textarea', true);
+$feature_pw2_winter_textarea       		= get_post_meta(get_the_ID(), 'feature-pw2-winter-textarea', true);
+$feature_pw2_spring_textarea        	= get_post_meta(get_the_ID(), 'feature-pw2-spring-textarea', true);
+$feature_pw2_summer_textarea        	= get_post_meta(get_the_ID(), 'feature-pw2-summer-textarea', true);
 
-$fishing_beat1_label										= get_post_meta(get_the_ID(), 'fishing-beat1-label', true );
-$fishing_beat2_label										= get_post_meta(get_the_ID(), 'fishing-beat2-label', true );
-$fishing_beat3_label										= get_post_meta(get_the_ID(), 'fishing-beat3-label', true );
-$fishing_beat4_label										= get_post_meta(get_the_ID(), 'fishing-beat4-label', true );
-$fishing_beat5_label										= get_post_meta(get_the_ID(), 'fishing-beat5-label', true );
-$fishing_beat6_label										= get_post_meta(get_the_ID(), 'fishing-beat6-label', true );
+$video_feature_three 					= get_post_meta(get_the_ID(), 'feature-pw3-video', true);
+$feature_pw3_fishing_image				= get_post_meta(get_the_ID(), 'feature-pw3-image', true);
+$feature_pw3_fishing_title				= get_post_meta(get_the_ID(), 'feature-pw3-fishing-title', true);
+$feature_pw3_fishing_content			= get_post_meta(get_the_ID(), 'feature-pw3-fishing-textarea', true);
 
-$feature_pw3_fishing_beat1							= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat1', true);
-$feature_pw3_fishing_beat2							= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat2', true);
-$feature_pw3_fishing_beat3							= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat3', true);
-$feature_pw3_fishing_beat4							= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat4', true);
-$feature_pw3_fishing_beat5							= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat5', true);
-$feature_pw3_fishing_beat6							= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat6', true);
+$fishing_beat1_label					= get_post_meta(get_the_ID(), 'fishing-beat1-label', true );
+$fishing_beat2_label					= get_post_meta(get_the_ID(), 'fishing-beat2-label', true );
+$fishing_beat3_label					= get_post_meta(get_the_ID(), 'fishing-beat3-label', true );
+$fishing_beat4_label					= get_post_meta(get_the_ID(), 'fishing-beat4-label', true );
+$fishing_beat5_label					= get_post_meta(get_the_ID(), 'fishing-beat5-label', true );
+$fishing_beat6_label					= get_post_meta(get_the_ID(), 'fishing-beat6-label', true );
+
+$feature_pw3_fishing_beat1				= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat1', true);
+$feature_pw3_fishing_beat2				= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat2', true);
+$feature_pw3_fishing_beat3				= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat3', true);
+$feature_pw3_fishing_beat4				= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat4', true);
+$feature_pw3_fishing_beat5				= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat5', true);
+$feature_pw3_fishing_beat6				= get_post_meta(get_the_ID(), 'feature-pw3-fishing-beat6', true);
 
 
 $beat_1																	= ( '' == get_theme_mod( 'beat-1') ) ? 'hide-beat1' : '1';
