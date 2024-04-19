@@ -63,7 +63,8 @@
 #banner {
   height: auto; // or 100vh for full viewport height
   &.travel-temp-hero-overlay,
-  &.private-temp-hero-overlay {
+  &.private-temp-hero-overlay,
+  &.guidesvc-temp-hero-overlay {
     display: flex; // turns flex on
     align-items: center; // centers children vertically
     justify-content: center; // centers children horizontally
@@ -80,12 +81,14 @@
     }
 
     #sections-travel-background-video,
-    #sections-private-background-video {
+    #sections-private-background-video,
+    #sections-guidesvc-background-video {
       width: 100%;
     }
 
     #travel-temp-hero-video,
-    #private-temp-hero-video {
+    #private-temp-hero-video,
+    #guidesvc-temp-hero-video {
       position: absolute; // take the video out of the document flow
       top: 0;
       left: 0;
@@ -106,6 +109,11 @@
     }
   }
   #banner.private-temp-hero-overlay {
+    .inner {
+      padding: 5em 1em 1em !important;
+    }
+  }
+  #banner.guidesvc-temp-hero-overlay {
     .inner {
       padding: 5em 1em 1em !important;
     }

@@ -3809,14 +3809,14 @@ a.page-numbers:hover {
 #banner {
   height: auto;
 }
-#banner.travel-temp-hero-overlay, #banner.private-temp-hero-overlay {
+#banner.travel-temp-hero-overlay, #banner.private-temp-hero-overlay, #banner.guidesvc-temp-hero-overlay {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   height: 100vh;
 }
-#banner.travel-temp-hero-overlay video, #banner.private-temp-hero-overlay video {
+#banner.travel-temp-hero-overlay video, #banner.private-temp-hero-overlay video, #banner.guidesvc-temp-hero-overlay video {
   position: absolute;
   top: 0;
   left: 0;
@@ -3825,13 +3825,21 @@ a.page-numbers:hover {
   object-fit: cover;
 }
 #banner.travel-temp-hero-overlay #sections-travel-background-video,
-#banner.travel-temp-hero-overlay #sections-private-background-video, #banner.private-temp-hero-overlay #sections-travel-background-video,
-#banner.private-temp-hero-overlay #sections-private-background-video {
+#banner.travel-temp-hero-overlay #sections-private-background-video,
+#banner.travel-temp-hero-overlay #sections-guidesvc-background-video, #banner.private-temp-hero-overlay #sections-travel-background-video,
+#banner.private-temp-hero-overlay #sections-private-background-video,
+#banner.private-temp-hero-overlay #sections-guidesvc-background-video, #banner.guidesvc-temp-hero-overlay #sections-travel-background-video,
+#banner.guidesvc-temp-hero-overlay #sections-private-background-video,
+#banner.guidesvc-temp-hero-overlay #sections-guidesvc-background-video {
   width: 100%;
 }
 #banner.travel-temp-hero-overlay #travel-temp-hero-video,
-#banner.travel-temp-hero-overlay #private-temp-hero-video, #banner.private-temp-hero-overlay #travel-temp-hero-video,
-#banner.private-temp-hero-overlay #private-temp-hero-video {
+#banner.travel-temp-hero-overlay #private-temp-hero-video,
+#banner.travel-temp-hero-overlay #guidesvc-temp-hero-video, #banner.private-temp-hero-overlay #travel-temp-hero-video,
+#banner.private-temp-hero-overlay #private-temp-hero-video,
+#banner.private-temp-hero-overlay #guidesvc-temp-hero-video, #banner.guidesvc-temp-hero-overlay #travel-temp-hero-video,
+#banner.guidesvc-temp-hero-overlay #private-temp-hero-video,
+#banner.guidesvc-temp-hero-overlay #guidesvc-temp-hero-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -3848,6 +3856,9 @@ a.page-numbers:hover {
     padding: 5em 1em 1em !important;
   }
   #banner.private-temp-hero-overlay .inner {
+    padding: 5em 1em 1em !important;
+  }
+  #banner.guidesvc-temp-hero-overlay .inner {
     padding: 5em 1em 1em !important;
   }
 }
