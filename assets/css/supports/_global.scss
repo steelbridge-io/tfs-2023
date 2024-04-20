@@ -85,24 +85,13 @@ a:hover {
   text-decoration: none;
 }
 
-/*@charset "UTF-8";
-
-@function unicode($str) {
-  @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
+@media (max-width: 575.99px) {
+  #travel-style h1,
+  #travel-style h2,
+  #travel-style h3,
+  #travel-style h4,
+  #travel-style h5,
+  #travel-style h6 {
+    line-height: 2.8rem !important;
+    }
 }
-
-.nav-next::after {
-  font-family: "FontAwesome";
-  font-weight: 900;
-  content: unicode($fa-var-right-chevron);
-  font-size: 2em;
-  margin-left: .2em;
-}
-
-.nav-previous::before {
-  font-family: "FontAwesome";
-  font-weight: 900;
-  content: unicode($fa-var-left-chevron);
-  font-size: 2em;
-  margin-right: .2em;
-} */
