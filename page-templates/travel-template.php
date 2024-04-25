@@ -11,7 +11,7 @@ include_once( 'post-meta/post-meta-travel.php' ); // Includes all the custom met
 
 get_header(); ?>
 
-<?php if ( !empty( $travel_temp_video ) || !empty($travel_temp_video_poster) ) : ?>
+<?php if ( !empty( $travel_temp_video ) && !empty($travel_temp_video_poster) ) : ?>
     <section id="banner" class="travel-temp-hero-overlay">
         <div class="overlay"></div>
         <video id="sections-travel-background-video" class="travel-temp-video"
@@ -43,7 +43,7 @@ get_header(); ?>
     </section>
 <?php endif;
 
-if ( empty( $travel_temp_video ) && empty($travel_temp_video_poster) ) : ?>
+if ( empty( $travel_temp_video ) || empty($travel_temp_video_poster) ) : ?>
 
     <!-- Banner -->
     <section id="banner" class="travel-template-banner">
@@ -54,7 +54,7 @@ if ( empty( $travel_temp_video ) && empty($travel_temp_video_poster) ) : ?>
                  alt="The Fly Shop Signature Travel Destination">
 
             <h2><?php the_title(); ?></h2>
-			
+
 			<?php if ( get_post_meta( $post->ID, 'travel-description', TRUE ) )
 				echo '<p class="template-description">' . $travel_description
 				     . '</p>' ?>
@@ -107,7 +107,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
 					'feature-1-video',
 					TRUE );
 				if ( ! empty( $video_feature_one ) ) :?>
-                    <div class="embed-responsive embed-responsive-16by9">
+                    <div class="embed-responsive embed-responsive-16by9 video-poster">
                         <video id="vid" playsInline muted controls
                                preload="auto"
                                poster="<?php echo $feature_1_image ?>">
@@ -125,7 +125,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
 
             <div id="travel-style-one" class="content travel-template">
                 <h2><?php echo $feature_1_title; ?></h2>
-				
+
 				<?php
 				if ( ! empty( $rr_table_title ) ) :?>
                     <button type="button" class="table-btn btn btn-transparent"
@@ -198,7 +198,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
 					'feature-2-video',
 					TRUE );
 				if ( ! empty( $video_feature_two ) ) :?>
-                    <div class="embed-responsive embed-responsive-16by9">
+                    <div class="embed-responsive embed-responsive-16by9 video-poster">
                         <video id="vid" playsInline muted controls
                                preload="auto"
                                poster="<?php echo $feature_2_image ?>">
@@ -217,7 +217,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
 			  Visibility is set by checkbox seeting/control in customizer.php.
 			  Travel Template Customizer setting section shows only when template is selected.
 			 -->
-			
+
 			<?php
 			$visibility_basic_season = ( '' == get_theme_mod( 'add_basic' ) )
 				? 'hidebasic' : '1';
@@ -263,7 +263,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
                             </div>
                         </div>
                     </div>
-				
+
 				<?php endif; ?>
 
                 <!-- Option: Hi / Low Season -->
@@ -315,7 +315,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
                             </div>
                         </div>
                     </div>
-				
+
 				<?php endif; ?>
 
             </div>
@@ -328,9 +328,9 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
 				$video_feature_three = get_post_meta( get_the_ID(),
 					'feature-3-video',
 					TRUE );
-				
+
 				if ( ! empty( $video_feature_three ) ) :?>
-                    <div class="embed-responsive embed-responsive-16by9">
+                    <div class="embed-responsive embed-responsive-16by9 video-poster">
                         <video id="vid" playsInline muted controls
                                preload="auto"
                                poster="<?php echo $feature_3_gettingto_image; ?>">
@@ -385,7 +385,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
 					'feature-4-video',
 					TRUE );
 				if ( ! empty( $video_feature_four ) ) :?>
-                    <div class="embed-responsive embed-responsive-16by9">
+                    <div class="embed-responsive embed-responsive-16by9 video-poster">
                         <video id="vid" playsInline muted controls
                                preload="auto"
                                poster="<?php echo $feature_4_lodging_image; ?>">
@@ -404,7 +404,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
                 <p class="travel"><?php echo $feature_4_lodging_content; ?></p>
                 <div class="panel-group" id="accordion4">
                     <div class="panel-travel">
-						
+
 						<?php if ( ! empty( $feature_4_lodging_readmore ) ) : ?>
 
                             <div class="panel-heading accordion-toggle collapsed"
@@ -427,7 +427,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
                                     <p class="travel"><?php echo $feature_4_lodging_readmore; ?></p>
                                 </div>
                             </div>
-						
+
 						<?php endif; ?>
 
                     </div>
@@ -441,14 +441,14 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
             <div class="image">
 
                 <!-- Fishing Video/Text/Image Option -->
-				
+
 				<?php // Checkbox to activate video or image
 				$video_feature_five = get_post_meta( get_the_ID(),
 					'feature-5-video',
 					TRUE );
 				if ( ! empty( $video_feature_five ) ) :?>
 
-                    <div class="embed-responsive embed-responsive-16by9">
+                    <div class="embed-responsive embed-responsive-16by9 video-poster">
                         <video id="vid" playsInline muted controls
                                preload="auto"
                                poster="<?php echo $feature_5_angling_image ?>">
@@ -470,7 +470,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
                 <p class="travel"><?php echo $feature_5_angling_content; ?></p>
                 <div class="panel-group" id="accordion5">
                     <div class="panel-travel">
-						
+
 						<?php if ( ! empty( $feature_5_angling_readmore ) ) : ?>
 
                             <div class="panel-heading accordion-toggle collapsed"
@@ -493,7 +493,7 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
                                     <p class="travel"><?php echo $feature_5_angling_readmore; ?></p>
                                 </div>
                             </div>
-						
+
 						<?php endif; ?>
 
                     </div>
@@ -538,81 +538,81 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
                 <hr class="fancy1">
                 <div class="row">
                     <div class="additional-listing">
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'additional-info-image1',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#travel-carousel" data-slide-to="0"><img src="'
 								. $additional_info_image1
 								. '" data-toggle="modal" data-target=".travel-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'additional-info-image2',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#travel-carousel" data-slide-to="1"><img src="'
 								. $additional_info_image2
 								. '" data-toggle="modal" data-target=".travel-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'additional-info-image3',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#travel-carousel" data-slide-to="2"><img src="'
 								. $additional_info_image3
 								. '" data-toggle="modal" data-target=".travel-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'additional-info-image4',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-								
+
 								'<div class="thumbnail">' .
-								
+
 								'<a href="#travel-carousel" data-slide-to="3"><img src="'
 								. $additional_info_image4
 								. '" data-toggle="modal" data-target=".travel-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
 
                     </div>
@@ -620,81 +620,81 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
                 <!-- Second Row Travel Images -->
                 <div class="row">
                     <div class="additional-listing">
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'additional-info-image5',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#travel-carousel" data-slide-to="4"><img src="'
 								. $additional_info_image5
 								. '" data-toggle="modal" data-target=".travel-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'additional-info-image6',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#travel-carousel" data-slide-to="5"><img src="'
 								. $additional_info_image6
 								. '" data-toggle="modal" data-target=".travel-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'additional-info-image7',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#travel-carousel" data-slide-to="6"><img src="'
 								. $additional_info_image7
 								. '" data-toggle="modal" data-target=".travel-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'additional-info-image8',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#travel-carousel" data-slide-to="7"><img src="'
 								. $additional_info_image8
 								. '" data-toggle="modal" data-target=".travel-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
 
                     </div>
@@ -712,77 +712,77 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
                  data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image1',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#travel-carousel" data-slide-to="0" class="active"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image2',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#travel-carousel" data-slide-to="1"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image3',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#travel-carousel" data-slide-to="2"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image4',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#travel-carousel" data-slide-to="3"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image5',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#travel-carousel" data-slide-to="4"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image6',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#travel-carousel" data-slide-to="5"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image7',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#travel-carousel" data-slide-to="6"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image8',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#travel-carousel" data-slide-to="7"></li>';
-						
+
 					} ?>
 
                 </ol>
@@ -793,111 +793,111 @@ include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
 						'additional-info-image1',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item active">',
-							
+
 							'<img src="' . $additional_info_image1
 							. '" alt="The Fly Shop World Fly Fishing Travel">',
-						
+
 						'</div>';
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image2',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $additional_info_image2
 							. '" alt="The Fly Shop World Fly Fishing Travel">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image3',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $additional_info_image3
 							. '" alt="The Fly Shop World Fly Fishing Travel">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image4',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $additional_info_image4
 							. '" alt="The Fly Shop World Fly Fishing Travel">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image5',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $additional_info_image5
 							. '" alt="The Fly Shop World Fly Fishing Travel">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image6',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $additional_info_image6
 							. '" alt="The Fly Shop World Fly Fishing Travel">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image7',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $additional_info_image7
 							. '" alt="The Fly Shop World Fly Fishing Travel">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'additional-info-image8',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $additional_info_image8
 							. '" alt="The Fly Shop World Fly Fishing Travel">',
-						
+
 						'</div>';
-						
+
 					} ?>
 
                 </div>

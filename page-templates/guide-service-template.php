@@ -12,7 +12,7 @@ $default = '';
 
 get_header(); ?>
 
-<?php if ( ! empty( $guidesvc_temp_video ) || ! empty( $guidesvc_temp_video_poster ) ) : ?>
+<?php if ( ! empty( $guidesvc_temp_video ) && ! empty( $guidesvc_temp_video_poster ) ) : ?>
 
     <section id="banner" class="guidesvc-temp-hero-overlay">
         <div class="overlay"></div>
@@ -75,7 +75,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
     <span id="main"></span>
     <section id="one" class="wrapper style5 special">
         <div class="inner">
-			
+
 			<?php
 			// Page content from editor
 			while ( have_posts() ) : the_post(); ?>
@@ -90,16 +90,17 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
     <section id="two" class="wrapper alt style2">
         <section class="spotlight">
             <div class="image">
-                <!-- Feature #2 Video/Text/Image Option -->
+                <!-- Feature #1 Video/Text/Image Option -->
 				<?php
 				if ( ! empty( $video_gsfeature_one ) ) { ?>
 
                     <!-- start with above get the check box -->
-
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item"
-                                src="<?php echo $video_gsfeature_one; ?>"
-                                allowfullscreen></iframe>
+                    <div class="embed-responsive embed-responsive-16by9 video-poster">
+                        <video id="videoPlayer" class="embed-responsive-item"
+                               src="<?php echo $video_gsfeature_one; ?>"
+                               poster="<?php echo $feature_gs1_image; ?>"
+                               controls allowfullscreen>
+                        </video>
                     </div>
 				<?php } else {
 					if ( ! empty( $feature_gs1_image ) ) { ?>
@@ -114,7 +115,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                     <h2><?php echo $feature_gs1_title; ?></h2>
                     <p class="travel"><?php echo $feature_gs1_cost_textarea; ?></p>
                     <div class="panel-group" id="accordion1">
-						
+
 						<?php if ( ! empty( $feature_gs1_inclusions_textarea ) ) : ?>
                             <div class="panel-travel privatewaters1">
                                 <div class="panel-heading accordion-toggle collapsed"
@@ -132,7 +133,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                 </div>
                             </div>
 						<?php endif; ?>
-						
+
 						<?php if ( ! empty( $feature_gs1_noninclusions_textarea ) ) : ?>
                             <div class="panel-travel privatewaters1">
                                 <div class="panel-heading accordion-toggle collapsed"
@@ -151,7 +152,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                 </div>
                             </div>
 						<?php endif; ?>
-						
+
 						<?php if ( ! empty( $feature_gs1_packagedeal_textarea ) ) : ?>
                             <div class="panel-travel privatewaters1">
                                 <div class="panel-heading accordion-toggle collapsed"
@@ -182,10 +183,12 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                 <!-- Seasons Video/Text/Image Option -->
 				<?php
 				if ( ! empty( $video_gsfeature_two ) ) :?>
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item"
-                                src="<?php echo $video_gsfeature_two; ?>"
-                                allowfullscreen></iframe>
+                    <div class="embed-responsive embed-responsive-16by9 video-poster">
+                        <video id="videoPlayer" class="embed-responsive-item"
+                               src="<?php echo $video_gsfeature_two; ?>"
+                               poster="<?php echo $feature_gs2_image; ?>"
+                               controls allowfullscreen>
+                        </video>
                     </div>
 				<?php else: ?>
                     <img src="<?php echo $feature_gs2_image; ?>"
@@ -200,7 +203,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                     <p class="travel"><?php echo $feature_gs2_seasons_textarea; ?></p>
                     <div class="panel-group" id="accordion-seasons-readmore">
                         <div class="panel-travel guidewaters_fishing4">
-							
+
 							<?php
 							// Read more
 							if ( ! empty( $feature_gs2_seasons_readmore ) ) :?>
@@ -211,7 +214,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                      data-target="#collapseSeasonsmore">
                                     <h4 class="panel-title travel">Read More&nbsp;<span
                                                 class="arrow-down"></span>
-										
+
 										<?php if ( ! empty( $feature_gs2_seasons_readmore_info ) ) {
 											echo '<span class="readmore-info">'
 											     . $feature_gs2_seasons_readmore_info
@@ -227,15 +230,14 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                         <p class="travel"><?php echo $feature_gs2_seasons_readmore; ?></p>
                                     </div>
                                 </div>
-							
+
 							<?php endif; ?>
 
                         </div>
                     </div>
 
-
                     <div class="panel-group" id="accordion1">
-						
+
 						<?php
 						// Spring Option
 						if ( ! empty( $feature_gs2_spring_textarea ) ) :?>
@@ -258,9 +260,9 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                 </div>
 
                             </div>
-						
+
 						<?php endif; ?>
-						
+
 						<?php
 						// Summer Option
 						if ( ! empty( $feature_gs2_summer_textarea ) ) :?>
@@ -283,9 +285,9 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                 </div>
 
                             </div>
-						
+
 						<?php endif; ?>
-						
+
 						<?php
 						// Autumn option
 						if ( ! empty( $feature_gs2_autumn_textarea ) ) :?>
@@ -308,9 +310,9 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                 </div>
 
                             </div>
-						
+
 						<?php endif; ?>
-						
+
 						<?php
 						// WinterOption
 						if ( ! empty( $feature_gs2_winter_textarea ) ) :?>
@@ -333,7 +335,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                 </div>
 
                             </div>
-						
+
 						<?php endif; ?>
 
                     </div>
@@ -349,10 +351,12 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                 <!-- Feature #3 Video/Text/Image Option -->
 				<?php
 				if ( ! empty( $video_gsfeature_three ) ) :?>
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item"
-                                src="<?php echo $video_gsfeature_three; ?>"
-                                allowfullscreen></iframe>
+                    <div class="embed-responsive embed-responsive-16by9 video-poster">
+                        <video id="videoPlayer" class="embed-responsive-item"
+                               src="<?php echo $video_gsfeature_three; ?>"
+                               poster="<?php echo $feature_gs3_fishing_image; ?>"
+                               controls allowfullscreen>
+                        </video>
                     </div>
 				<?php else: ?>
                     <img src="<?php echo $feature_gs3_fishing_image; ?>"
@@ -361,7 +365,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
 
             </div>
 
-            <!-- Feature #2 Seasons. Includes two options that are selectable within the Customizer. -->
+            <!-- Feature #3 Seasons. Includes two options that are selectable within the Customizer. -->
             <div class="content">
                 <div id="travel-style" class="privatewaters3">
                     <h2><?php echo $feature_gs3_fishing_title; ?></h2>
@@ -369,7 +373,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                     <div class="panel-group"
                          id="accordion-fishing-guide-readmore">
                         <div class="panel-travel guidewaters_fishing4">
-							
+
 							<?php
 							// Read more
 							if ( ! empty( $feature_gs3_fishing_readmore ) ) :?>
@@ -380,7 +384,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                      data-target="#collapseFishing4">
                                     <h4 class="panel-title travel">Read More&nbsp;<span
                                                 class="arrow-down"></span>
-										
+
 										<?php if ( ! empty( $feature_gs3_fishing_readmore_info ) ) {
 											echo '<span class="readmore-info">'
 											     . $feature_gs3_fishing_readmore_info
@@ -396,7 +400,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                         <p class="travel"><?php echo $feature_gs3_fishing_readmore; ?></p>
                                     </div>
                                 </div>
-							
+
 							<?php endif; ?>
 
                         </div>
@@ -411,13 +415,15 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
             <div class="image">
                 <!-- Guide Service Video/Text/Image Option -->
 				<?php
-				
+
 				if ( ! empty( $video_gsfeature_four ) ) : ?>
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item"
-                                src="<?php echo $video_gsfeature_four; ?>"
-                                allowfullscreen></iframe>
-                    </div>
+                <div class="embed-responsive embed-responsive-16by9 video-poster">
+                    <video id="videoPlayer" class="embed-responsive-item"
+                           src="<?php echo $video_gsfeature_four; ?>"
+                           poster="<?php echo $feature_4_gslodging_image; ?>"
+                           controls allowfullscreen>
+                    </video>
+                </div>
 				<?php else: ?>
                     <img src="<?php echo $feature_4_gslodging_image; ?>"
                          alt="The Fly Shop Guide Service Waters Image"/>
@@ -433,7 +439,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
 
                     <div class="panel-group" id="accordion4">
                         <div class="panel-travel privatewaters4">
-							
+
 							<?php
 							// Readmore
 							if ( ! empty( $feature_4_gslodging_readmore ) ) : ?>
@@ -452,7 +458,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                         <p class="travel"><?php echo $feature_4_gslodging_readmore; ?></p>
                                     </div>
                                 </div>
-							
+
 							<?php endif; ?>
 
                         </div>
@@ -468,10 +474,12 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                 <!-- Video/Text/Image Option -->
 				<?php
 				if ( ! empty( $video_gsfeature_five ) ) : ?>
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item"
-                                src="<?php echo $video_gsfeature_five; ?>"
-                                allowfullscreen></iframe>
+                    <div class="embed-responsive embed-responsive-16by9 video-poster">
+                        <video id="videoPlayer" class="embed-responsive-item"
+                               src="<?php echo $video_gsfeature_five; ?>"
+                               poster="<?php echo  $feature_gs5_gettingto_image; ?>"
+                               controls allowfullscreen>
+                        </video>
                     </div>
 				<?php else: ?>
                     <img src="<?php echo $feature_gs5_gettingto_image; ?>"
@@ -489,7 +497,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
 
                     <div class="panel-group" id="accordion5">
                         <div class="panel-travel privatewaters5">
-							
+
 							<?php
 							// Readmore
 							if ( ! empty( $feature_gs5_get_to_readmore ) ) : ?>
@@ -500,7 +508,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                      data-target="#collapseOne5">
                                     <h4 class="panel-title travel">Read More&nbsp;<span
                                                 class="arrow-down"></span>
-										
+
 										<?php if ( ! empty( $feature_gs5_readmore_info ) ) {
 											echo '<span class="readmore-info">'
 											     . $feature_gs5_readmore_info
@@ -515,7 +523,7 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                                         <p class="travel"><?php echo $feature_gs5_get_to_readmore; ?></p>
                                     </div>
                                 </div>
-							
+
 							<?php endif; ?>
 
                         </div>
@@ -535,81 +543,81 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                 <hr class="fancy1">
                 <div class="row">
                     <div class="additional-listing">
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'guideservice-additional-info-image1',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#guide-carousel" data-slide-to="0"><img src="'
 								. $guideservice_additional_info_image1
 								. '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'guideservice-additional-info-image2',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#guide-carousel" data-slide-to="1"><img src="'
 								. $guideservice_additional_info_image2
 								. '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'guideservice-additional-info-image3',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#guide-carousel" data-slide-to="2"><img src="'
 								. $guideservice_additional_info_image3
 								. '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'guideservice-additional-info-image4',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#guide-carousel" data-slide-to="3"><img src="'
 								. $guideservice_additional_info_image4
 								. '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
 
                     </div>
@@ -619,80 +627,80 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
 
                 <div class="row">
                     <div class="additional-listing">
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'guideservice-additional-info-image5',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#guide-carousel" data-slide-to="4"><img src="'
 								. $guideservice_additional_info_image5
 								. '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'guideservice-additional-info-image6',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#guide-carousel" data-slide-to="5"><img src="'
 								. $guideservice_additional_info_image6
 								. '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'guideservice-additional-info-image7',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
-							
+
 							'<div class="thumbnail">',
-								
+
 								'<a href="#guide-carousel" data-slide-to="6"><img src="'
 								. $guideservice_additional_info_image7
 								. '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images"></a>',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
-						
+
 						<?php if ( get_post_meta( get_the_ID(),
 							'guideservice-additional-info-image8',
 							TRUE )
 						) {
-							
+
 							echo '<div class="col-xs-6 col-md-3">',
 							'<div class="thumbnail">',
-								
+
 								'<a href="#guide-carousel" data-slide-to="7"><img src="'
 								. $guideservice_additional_info_image8
 								. '" class="img-responsive" data-toggle="modal" data-target=".guide-modal" alt="The Fly Shop Images">',
-							
+
 							'</div>',
-							
+
 							'</div>';
-							
+
 						} ?>
 
                     </div>
@@ -712,77 +720,77 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
                  data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image1',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#guide-carousel" data-slide-to="0" class="active"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image2',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#guide-carousel" data-slide-to="1"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image3',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#guide-carousel" data-slide-to="2"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image4',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#guide-carousel" data-slide-to="3"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image5',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#guide-carousel" data-slide-to="4"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image6',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#guide-carousel" data-slide-to="5"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image7',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#guide-carousel" data-slide-to="6"></li>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image8',
 						TRUE )
 					) {
-						
+
 						echo '<li data-target="#guide-carousel" data-slide-to="7"></li>';
-						
+
 					} ?>
 
                 </ol>
@@ -793,111 +801,111 @@ if ( empty( $guidesvc_temp_video ) || empty( $guidesvc_temp_video_poster ) ) : ?
 						'guideservice-additional-info-image1',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item active">',
-							
+
 							'<img src="' . $guideservice_additional_info_image1
 							. '" alt="The Fly Shop Guided Fly Fishing">',
-						
+
 						'</div>';
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image2',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $guideservice_additional_info_image2
 							. '" alt="The Fly Shop Guided Fly Fishing">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image3',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $guideservice_additional_info_image3
 							. '" alt="The Fly Shop Guided Fly Fishing">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image4',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $guideservice_additional_info_image4
 							. '" alt="The Fly Shop Guided Fly Fishing">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image5',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $guideservice_additional_info_image5
 							. '" alt="The Fly Shop Guided Fly Fishing">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image6',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $guideservice_additional_info_image6
 							. '" alt="The Fly Shop Guided Fly Fishing">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image7',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $guideservice_additional_info_image7
 							. '" alt="The Fly Shop Guided Fly Fishing">',
-						
+
 						'</div>';
-						
+
 					} ?>
-					
+
 					<?php if ( get_post_meta( get_the_ID(),
 						'guideservice-additional-info-image8',
 						TRUE )
 					) {
-						
+
 						echo '<div class="item">',
-							
+
 							'<img src="' . $guideservice_additional_info_image8
 							. '" alt="The Fly Shop Guided Fly Fishing">',
-						
+
 						'</div>';
-						
+
 					} ?>
 
                 </div>

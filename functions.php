@@ -29,7 +29,7 @@ add_editor_style( 'style-editor.css' );
 // Admin Notice Message
 /*function pippin_admin_notices() {
   ob_start(); ?>
-  
+
   <div class="error">
     <h4><strong>Attention</strong>: Website updates are about to be applied, which means Save Your Work And Log Out. You have 30 minutes.</h4>
   </div>
@@ -46,13 +46,13 @@ if ( ! function_exists( 'the_fly_shop_setup' ) ) :
      * as indicating support for post thumbnails.
      */
     function the_fly_shop_setup() {
-  
+
       add_theme_support('editor-styles');
       add_theme_support( 'wp-block-styles' );
       add_theme_support( 'align-wide' );
       add_theme_support( 'editor-styles' );
       add_theme_support( 'dark-editor-style' );
-  
+
       add_theme_support( 'editor-font-sizes', array(
         array(
           'name' => __( 'Small', 'themeLangDomain' ),
@@ -75,7 +75,7 @@ if ( ! function_exists( 'the_fly_shop_setup' ) ) :
           'slug' => 'huge'
         )
       ) );
-  
+
       add_theme_support( 'editor-color-palette', array(
         array(
           'name' => __( 'strong magenta', 'themeLangDomain' ),
@@ -97,7 +97,7 @@ if ( ! function_exists( 'the_fly_shop_setup' ) ) :
           'slug' => 'very-dark-gray',
           'color' => '#444',
         ),
-        
+
         'editor-gradient-presets',
         array(
           array(
@@ -127,7 +127,7 @@ if ( ! function_exists( 'the_fly_shop_setup' ) ) :
           ),
         )
       ) );
-      
+
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
@@ -222,7 +222,7 @@ function the_fly_shop_widgets_init() {
         'before_title'  => '<h2 class="widget-title">',
         'after_title'   => '</h2>',
     ) );
-  
+
     register_sidebar( array(
       'name'          => esc_html__( 'Sidebar Travel', 'the-fly-shop' ),
       'id'            => 'sidebar-2',
@@ -232,7 +232,7 @@ function the_fly_shop_widgets_init() {
       'before_title'  => '<h2 class="widget-title">',
       'after_title'   => '</h2>',
     ) );
-  
+
     register_sidebar( array(
       'name'          => esc_html__( 'Sidebar Outfitters', 'the-fly-shop' ),
       'id'            => 'sidebar-3',
@@ -242,7 +242,7 @@ function the_fly_shop_widgets_init() {
       'before_title'  => '<h2 class="widget-title">',
       'after_title'   => '</h2>',
     ) );
-  
+
   register_sidebar( array(
     'name'          => esc_html__( 'Sidebar Lower48', 'the-fly-shop' ),
     'id'            => 'sidebar-4',
@@ -252,7 +252,7 @@ function the_fly_shop_widgets_init() {
     'before_title'  => '<h2 class="widget-title">',
     'after_title'   => '</h2>',
   ) );
-	
+
   register_sidebar( array(
   'name'          => esc_html__( 'Sidebar ESB Lodge', 'the-fly-shop' ),
   'id'            => 'sidebar-5',
@@ -262,7 +262,7 @@ function the_fly_shop_widgets_init() {
   'before_title'  => '<h2 class="widget-title">',
   'after_title'   => '</h2>',
   ) );
-	
+
 	register_sidebar( array(
 	'name'          => esc_html__( 'Sidebar Retail', 'the-fly-shop' ),
 	'id'            => 'sidebar-6',
@@ -272,7 +272,7 @@ function the_fly_shop_widgets_init() {
 	'before_title'  => '<h2 class="widget-title">',
 	'after_title'   => '</h2>',
 	) );
-	
+
 	register_sidebar( array(
 	'name'          => esc_html__( 'Sidebar News', 'the-fly-shop' ),
 	'id'            => 'sidebar-7',
@@ -282,7 +282,7 @@ function the_fly_shop_widgets_init() {
 	'before_title'  => '<h2 class="widget-title">',
 	'after_title'   => '</h2>',
 	) );
-	
+
 	register_sidebar( array(
 	'name'          => esc_html__( 'Sidebar Lavacreek Lodge', 'the-fly-shop' ),
 	'id'            => 'sidebar-8',
@@ -292,7 +292,7 @@ function the_fly_shop_widgets_init() {
 	'before_title'  => '<h2 class="widget-title">',
 	'after_title'   => '</h2>',
 	) );
-	
+
 	register_sidebar( array(
 	'name'          => esc_html__( 'Sidebar Survey', 'the-fly-shop' ),
 	'id'            => 'sidebar-9',
@@ -302,7 +302,7 @@ function the_fly_shop_widgets_init() {
 	'before_title'  => '<h2 class="widget-title">',
 	'after_title'   => '</h2>',
 	) );
-	
+
 	register_sidebar( array(
 	'name'          => esc_html__( 'Sidebar Blog Archive', 'the-fly-shop' ),
 	'id'            => 'sidebar-10',
@@ -327,23 +327,23 @@ function load_dashicons_front_end() {
 }
 
 function the_fly_shop_scripts() {
- 
+
   if(!is_page_template(array( 'page-templates/basic-page-template.php', 'page-templates/travel-signature-template.php', 'page-templates/blog-template-basic.php', 'page-templates/blog-template-travel.php', 'page-templates/blog-template-new.php', 'page-templates/blog-template-outfitters.php'))) {
     wp_enqueue_style( 'the-fly-shop-btstrp-template', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), '3.3.7', 'all' );
     }
-  
+
   if(is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-templates/travel-signature-template.php', 'page-templates/blog-template-basic.php', 'page-templates/blog-template-travel.php', 'page-templates/blog-template-new.php', 'page-templates/blog-template-outfitters.php'))) {
 			wp_enqueue_style('bootstrap5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css', array(), '5.2.2', 'all');
     }
-  
+
    if(!function_exists('ubermenu')) {
-    
+
     wp_enqueue_style('slide-out-nav', get_template_directory_uri() . '/assets/css/slide-out-nav.css');
-    
+
    }
-	
+
 		wp_enqueue_style( 'the-fly-shop-custom-style', get_template_directory_uri() . '/assets/css/custom.css', array(), '20161116', 'all' );
-	
+
 	if ( function_exists( 'load_private_waters_css' ) ) {
 		wp_add_inline_style( 'the-fly-shop-custom-style', load_private_waters_css() );
 	}
@@ -428,15 +428,15 @@ function the_fly_shop_scripts() {
     if (function_exists('load_opacity_range_css_private_waters')) {
         wp_add_inline_style('the-fly-shop-custom-style', load_opacity_range_css_private_waters() );
     }
- 
+
    if(function_exists('ubermenu')) {
     wp_enqueue_style( 'uber-menu-nav', get_template_directory_uri() . '/assets/css/mega-menu-nav.css');
     wp_enqueue_style( 'mega-menu-css', get_template_directory_uri() . '/assets/css/mega-menu-template.css');
    }
-    
+
     wp_register_style( 'dashicons-tfs', get_template_directory_uri(). '/assets/css/dashicons.min.css');
     wp_enqueue_style( 'dashicons-tfs' );
-   
+
     wp_register_style( 'the-fly-shop-fontawesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.4.0', 'all' );
     wp_enqueue_style( 'the-fly-shop-fontawesome' );
 
@@ -446,36 +446,36 @@ function the_fly_shop_scripts() {
     wp_enqueue_style( 'the-fly-shop-ie9', get_template_directory_uri() . '/assets/css/ie9.css', array(), '20161116', 'all' );
 
     wp_enqueue_style( 'the-fly-shop-ie8', get_template_directory_uri() . '/assets/css/ie8.css', array(), '20161116', 'all' );
-    
+
     wp_enqueue_style( 'the-fly-shop-main-style', get_template_directory_uri() . '/assets/css/main.css', array(),  '20161116', 'all' );
-    
+
     wp_enqueue_style( 'aos-animation-css', get_template_directory_uri() . '/aos-animations/aos/dist/aos.css', array(), '20200415', 'all');
-		
+
     wp_enqueue_style('linicons', 'https://cdn.lineicons.com/3.0/lineicons.css', array(), 'all' );
-		
+
     wp_enqueue_style( 'the-fly-shop-style', get_stylesheet_uri() );
-	
+
 	/**
     * SCRIPTS
     */
-	
+
     wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array(), '1.0', true);
-	
+
     if(!is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-template/travel-signature-template.php', 'page-templates/blog-template-basic.php', 'page-templates/blog-template-travel.php', 'page-templates/blog-template-new.php', 'page-templates/blog-template-outfitters.php'))) {
     wp_register_script('the-fly-shop-btstrpjs', 'https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js', array(), '3.3.7', true );
     wp_enqueue_script('the-fly-shop-btstrpjs');
     }
-	
+
    if (is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-templates/travel-signature-template.php', 'page-templates/blog-template-basic.php', 'page-templates/blog-template-travel.php', 'page-templates/blog-template-new.php', 'page-templates/blog-template-outfitters.php'))) {
      // Hero Template jQuery
      wp_enqueue_script('hero-template-jquery', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), '', true);
-     
+
      // Hero Template Bootstrap JS
      wp_enqueue_script('hero-template-bootstrapjs', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js', array(), '5.2.1', true);
    }
-	
+
     wp_enqueue_script( 'the-fly-shop-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-	
+
     // Javascript - JQuery is loaded here. min.js scripts are registered before loading.
     wp_register_script( 'new-font-awesome', 'https://use.fontawesome.com/releases/v5.0.9/js/all.js', array(), '2018', true );
     wp_enqueue_script( 'new-font-awesome');
@@ -499,15 +499,15 @@ function the_fly_shop_scripts() {
     wp_enqueue_script( 'the-fly-shop-btstrp-submenu', get_template_directory_uri() . '/assets/js/bootstrap-submenu.js', array(), '20161116', true );
 
     wp_enqueue_script( 'the-fly-shop-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-    
+
     wp_enqueue_script( 'aos-js', get_template_directory_uri() . '/aos-animations/aos/dist/aos.js', array(), '', true );
 
     wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', array(), '', true);
-    
+
     if ( is_page_template() == 'signature-events-template.php' ) {
         wp_enqueue_script( 'modal-next-prvious', get_template_directory_uri() . '/js/modal-next-prvious.js', array(), '20180615', true );
     }
-    
+
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
@@ -517,9 +517,9 @@ function the_fly_shop_scripts() {
         wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", true, null);
         wp_enqueue_script('jquery');
     }
-	
+
     wp_enqueue_script( 'the-fly-shop-mainjs', get_template_directory_uri() . '/assets/js/main.js', array(), '20161116', true );
-	
+
     if(is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-templates/basic-page-template.php', 'page-templates/blog-template-basic.php', 'page-templates/blog-template-travel.php', 'page-templates/blog-template-new.php', 'page-templates/blog-template-outfitters.php', 'page-templates/travel-template.php'))) {
         wp_enqueue_script('parallax-dep', get_template_directory_uri() . '/js/hero-template.js', array('jquery'), '', true );
     }
@@ -694,7 +694,7 @@ function new_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
-	
+
 	function wpdocs_custom_excerpt_length( $length ) {
 		if ( is_page_template( 'page-templates/news-blog-template.php' ) ) {
 			return 30;
@@ -704,54 +704,54 @@ add_filter('excerpt_more', 'new_excerpt_more');
 			return $length;
 		}
 	}
-	
+
 	add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
-	
+
 // Adds .html to pages
 add_action('init', 'html_page_permalink', -1);
 register_activation_hook(__FILE__, 'cvf_active');
 register_deactivation_hook(__FILE__, 'cvf_deactive');
 
 function html_page_permalink() {
-  
+
   global $wp_rewrite;
-  
+
   if ( !strpos($wp_rewrite->get_page_permastruct(), '.html')){
     $wp_rewrite->page_structure = $wp_rewrite->page_structure . '.html';
   }
-  
+
 }
 add_filter('user_trailingslashit', 'no_page_slash',66,2);
 function no_page_slash($string, $type){
-  
+
   global $wp_rewrite;
-  
+
   if ($wp_rewrite->using_permalinks() && $wp_rewrite->use_trailing_slashes==true && $type == 'page'){
     return untrailingslashit($string);
   } else {
     return $string;
   }
-  
+
 }
 
 function cvf_active() {
-  
+
   global $wp_rewrite;
-  
+
   if ( !strpos($wp_rewrite->get_page_permastruct(), '.html')){
     $wp_rewrite->page_structure = $wp_rewrite->page_structure . '.html';
   }
   $wp_rewrite->flush_rules();
-  
+
 }
 
 function cvf_deactive() {
-  
+
   global $wp_rewrite;
-  
+
   $wp_rewrite->page_structure = str_replace(".html","",$wp_rewrite->page_structure);
   $wp_rewrite->flush_rules();
-  
+
 }
 
 // Redirects visitors from other countries except the US and Canada.
@@ -768,40 +768,40 @@ function country_redirect()
 function prefix_conditional_body_class( $classes ) {
   if( is_page_template('page-templates/blog-template-basic.php') )
     $classes[] = 'blog-template-class';
-  
+
   return $classes;
 }
 add_filter( 'body_class', 'prefix_conditional_body_class' );
- 
+
  function add_og_image() {
   global $post;
   $default = '';
   $og_img_url = get_the_post_thumbnail_url($post->ID, 'full');
- 
+
   if ($og_img_url == $default ) {
- 
+
    echo '<meta property="og:image" content="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2021/05/social_tfs_logo_og.png"/>';
-   
- 
+
+
   } else {
- 
+
    echo '<meta property="og:image" content="'.$og_img_url.'"/>';
-   
+
   }
  }
  add_action( 'wp_head', 'add_og_image' );
-	
-	
+
+
 	/**
 	 * Post Navigation
 	 */
-	
+
 	function wpb_posts_nav(){
 		$next_post = get_next_post();
 		$prev_post = get_previous_post();
-		
+
 		if ( $next_post || $prev_post ) : ?>
-			
+
 			<div class="wpb-posts-nav">
 				<div>
 					<?php if ( ! empty( $prev_post ) ) : ?>
@@ -840,28 +840,28 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
 					<?php endif; ?>
 				</div>
 			</div> <!-- .wpb-posts-nav -->
-		
+
 		<?php endif;
 	}
-	
-	
+
+
 	// Orders ESB Lodge Post Type in Dashboard as DESC
 	function tfs_post_types_admin_order( $wp_query ) {
 		if (is_admin()) {
-			
+
 			// Get the post type from the query
 			$post_type = $wp_query->query['post_type'];
-			
+
 			if ( $post_type == 'esb_lodge') {
-				
+
 				$wp_query->set('orderby', 'date');
-				
+
 				$wp_query->set('order', 'DESC');
 			}
 		}
 	}
 	add_filter('pre_get_posts', 'tfs_post_types_admin_order');
-	
+
 /**
   * Shows what template is being used
   */
@@ -871,7 +871,7 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
 			print_r( $template );
 		}
 	}
-	
+
 	add_action( 'wp_footer', 'meks_which_template_is_loaded' );*/
 
     /**
