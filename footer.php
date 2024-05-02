@@ -14,37 +14,7 @@
 <footer id="footer">
 <!-- ========= INSTAGRAM FEED ========== -->
 <div class="container-fluid">
-  <?php
-  //global $post;
-  // $template = is_page_template('page-templates/survey-template.php');
-  //if(!$template) { ?>
-  <!--<section class="instagram-wrap">
-    
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12">
-
-      #### Instagram Feed Removed 1/16/21
-      
-      <div class="instagram-content">
-        <h2>Latest Photos <a href="https://www.instagram.com/esblodge/" target="_blank" class="icon icons fa-instagram"><span class="label">Instagram</span></a> on Instagram</h2>
-        <div class="row photos-wrap">
-          
-         
-          <div id="instafeed">
-            do_shortcode('[elfsight_instagram_feed id="1"]'); ?>
-          </div>
-          
-        </div>
-        </div>
-        
-        </div>
-      </div>
-    </div>
-   </section> -->
-  <?php // } ?>
-
- <!-- ========== END INSTAGRAM FEED =========== -->
+<!-- ========== END INSTAGRAM FEED =========== -->
 
  <div class="row">
   <div class="col-md-4">
@@ -115,16 +85,15 @@
 		</div>
   <div class="col-md-4">
     <!-- ==== FACEBOOK FEED === -->
-    <h2 class="mt-1618">FACEBOOK FEED</h2>
-     <div class="mt-05">
-     <div class="fb-page" data-href="https://www.facebook.com/The-Fly-Shop-111446768893973/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
-      <blockquote cite="https://www.facebook.com/The-Fly-Shop-111446768893973/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/The-Fly-Shop-111446768893973/">The Fly Shop</a></blockquote>
-     </div>
-   </div>
+    <h2 class="mt-1618"></h2>
+    
  </div>
-</div>
-</div>
+ 
+</div> <!-- /row -->
+</div> <!-- /Container Fluid -->
+
 <hr class="fancy">
+
 <ul id="social-footer" class="icons">
   <li class="twitter"><a href="<?php echo get_theme_mod('twitter_link_footer'); ?>" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
   <li class="facebook"><a href="<?php echo get_theme_mod('facebook_link_footer'); ?>" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>

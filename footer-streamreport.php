@@ -130,27 +130,6 @@
 <!-- Footer -->
 
 <footer id="footer">
-  <!-- ========= INSTAGRAM FEED ========== -->
-  <!-- <div class="container-fluid">
-    <section class="instagram-wrap">
-      <div class="container-fluid">
-        <div class="row">
-
-          <div class="col-xs-12">
-            <div class="instagram-content">
-              <h2 class="mb-1618">Latest Photos <a href="https://www.instagram.com/esblodge/" target="_blank" class="icon icons fa-instagram"><span class="label">Instagram</span></a> on Instagram</h2>
-              <div class="row photos-wrap">
-                
-                <div id="instafeed"></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  </div> -->
-
   <!-- ==== FOOTER CONTENT ==== -->
 
   <div class="container-fluid">
@@ -212,17 +191,11 @@
       </div>
       <div class="col-md-4">
         <!-- ==== FACEBOOK FEED === -->
-        <h2 class="mt-1618">FACEBOOK FEED</h2>
+        <h2 class="mt-1618"></h2>
 
-        <div class="mt-05">
-          <div class="fb-page" data-href="https://www.facebook.com/The-Fly-Shop-111446768893973/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
-            <blockquote cite="https://www.facebook.com/The-Fly-Shop-111446768893973/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/The-Fly-Shop-111446768893973/">The Fly Shop</a></blockquote>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
+      </div> <!-- /col-md-4 -->
+    </div> <!-- /row -->
+  </div> <!-- /Container Fluid -->
 
   <hr class="fancy">
 
