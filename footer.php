@@ -20,28 +20,28 @@
   <div class="col-md-4">
     <h2 class="mt-1618">PAGES</h2>
       <ul class="mt-05">
-      
+
 				<a class="page1" href="<?php echo get_theme_mod('page_1'); ?>" target="_self" title="TFS page"><li><span class="page1label"><?php echo get_theme_mod('page_1_label'); ?></span></li></a>
-				
+
 				<a class="page2" href="<?php echo get_theme_mod('page_2'); ?>" target="_self" title="TFS page"><li><span class="page2label"><?php echo get_theme_mod('page_2_label'); ?></span></li></a>
-				
+
 				<a class="page3" href="<?php echo get_theme_mod('page_3'); ?>" target="_self" title="TFS page"><li><span class="page3label"><?php echo get_theme_mod('page_3_label'); ?></span></li></a>
-				
+
 				<a class="page4" href="<?php echo get_theme_mod('page_4'); ?>" target="_self" title="TFS page"><li><span class="page4label"><?php echo get_theme_mod('page_4_label'); ?></span></li></a>
-				
+
 				<a class="page5" href="<?php echo get_theme_mod('page_5'); ?>" target="_self" title="TFS page"><li><span class="page5label"><?php echo get_theme_mod('page_5_label'); ?></span></li></a>
 
 				<a class="page6" href="<?php echo get_theme_mod('page_6'); ?>" target="_self" title="TFS page"><li><span class="page6label"><?php echo get_theme_mod('page_6_label'); ?></span></li></a>
-     
+
       </ul>
-      
+
 			<h2 class="mt-1618">CONTACT US</h2>
       <ul class="mt-05 link-color-tfs-red">
         <li>
           <a class="tfs-tel" href="tel:18006693474" title="Telephone Number">(800) 669-3474</a>
         </li>
       </ul>
-     
+
       <ul class="mt-05">
         <li class="addressfield">
         <address>
@@ -49,7 +49,7 @@
         </address>
         </li>
       </ul>
-      
+
       <ul class="mt-05 link-color-tfs-red">
         <li>
         <strong>Email</strong> <br>
@@ -57,38 +57,39 @@
         </li>
       </ul>
 		</div>
-		
+
 		<div class="col-md-4">
 			<h2 class="mt-1618">LINKS</h2>
 				<ul class="mt-05">
-				
+
 				<a class="link1" href="<?php echo get_theme_mod('link_1'); ?>"><li><span class="link1label"><?php echo get_theme_mod('link_1_label'); ?></span></li></a>
-				
+
 				<a class="link2" href="<?php echo get_theme_mod('link_2'); ?>"><li><span class="link2label"><?php echo get_theme_mod('link_2_label'); ?></span></li></a>
-				
+
 				<a class="link3" href="<?php echo get_theme_mod('link_3'); ?>"><li><span class="link3label"><?php echo get_theme_mod('link_3_label'); ?></span></li></a>
-				
+
 				<a class="link4" href="<?php echo get_theme_mod('link_4'); ?>"><li><span class="link4label"><?php echo get_theme_mod('link_4_label'); ?></span></li></a>
-				
+
 				<a class="link5" href="<?php echo get_theme_mod('link_5'); ?>"><li><span class="link5label"><?php echo get_theme_mod('link_5_label'); ?></span></li></a>
-				
+
 				</ul>
-				
+
 				<h2 class="mt-1618">HOURS</h2>
-				
+
 				<ul class="mt-05">
 				<span class="hoursfield">
 					<?php echo get_theme_mod('hours_field'); ?>
 				</span>
 				</ul>
-				
+
 		</div>
   <div class="col-md-4">
     <!-- ==== FACEBOOK FEED === -->
-    <h2 class="mt-1618"></h2>
-    
+    <h2 class="mt-1618">PUBLICATIONS</h2>
+      <div class="vert-scroller"><?php echo do_shortcode('[my-vertical-scroller]'); ?></div>
+
  </div>
- 
+
 </div> <!-- /row -->
 </div> <!-- /Container Fluid -->
 
