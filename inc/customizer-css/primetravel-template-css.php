@@ -19,4 +19,6 @@
 		';
 			return $css_prime;
 		}
+		
+		return '';
 	}

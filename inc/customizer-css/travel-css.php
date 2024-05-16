@@ -73,4 +73,6 @@ function load_travel_css() {
 		';
 	return $css_travel;
 	}
+	
+	return '';
 }

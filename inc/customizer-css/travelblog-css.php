@@ -56,4 +56,6 @@ function load_travelblog_css() {
 		';
 	return $css_travelblog;
 	}
+	
+	return '';
 }

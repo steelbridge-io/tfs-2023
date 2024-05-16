@@ -319,8 +319,6 @@ add_action( 'widgets_init', 'the_fly_shop_widgets_init' );
  * Enqueue scripts and styles.
  */
 
-//include 'enqueue/inline-styles-customizer.php';
-
 add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
 function load_dashicons_front_end() {
     wp_enqueue_style( 'dashicons' );
@@ -504,7 +502,7 @@ function the_fly_shop_scripts() {
 
     wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', array(), '', true);
 
-    if ( is_page_template() == 'signature-events-template.php' ) {
+   if ( is_page_template() == 'signature-events-template.php' ) {
         wp_enqueue_script( 'modal-next-prvious', get_template_directory_uri() . '/js/modal-next-prvious.js', array(), '20180615', true );
     }
 
@@ -514,7 +512,7 @@ function the_fly_shop_scripts() {
 
     if (!is_admin()) {
         wp_deregister_script('jquery');
-        wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", true, null);
+        wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", true, '2.2.4');
         wp_enqueue_script('jquery');
     }
 

@@ -117,5 +117,6 @@ function load_guideservice_css() {
 		';
 	return $css_3;
 	}
+	return '';
 }
 

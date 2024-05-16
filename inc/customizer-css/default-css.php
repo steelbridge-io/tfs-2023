@@ -39,4 +39,6 @@ function load_default_css() {
 		';
         return $css_default;
     }
+	
+	return '';
 }

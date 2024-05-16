@@ -276,14 +276,72 @@ get_header(); ?>
     
     <div id="fp-well" class="well well-sm text-center no-margin-bottom">
       
+      <div class="row">
+        <div class="col-md-3">
+          <h3 class="widget-title"><a href="<?php echo $flippage1_title_link; ?>" target="_blank" title="The Fly Shop Featured Content"><?php echo $flippage1_title; ?></a></h3>
+          <a href="<?php echo $flippage1_title_link; ?>" class="thumbnail" target="_blank">
+            <img src="<?php echo $flippage1_image; ?>" alt="<?php echo $flippage1_image_alt ?>" title="Flip Page Catalog #1">
+          </a>
+          <section class="widget">
+            <div class="caption">
+              <h3 class="widget-title"><?php echo $flippage1_sub_title;?></h3>
+              <p class="text-justify"><?php echo $flippage1_caption;?></p>
+            </div>
+          </section>
+        </div>
         
-      
-        <?php echo do_shortcode('[my-horizontal-scroller]'); ?>
-      
+        <?php if(get_post_meta(get_the_ID(), 'flip-page-2-checkbox', true) == 'yes'): ?>
+          
+          <div class="col-md-3">
+            <h3 class="widget-title"><a href="<?php echo $flippage2_title_link; ?>" target="_blank" title="The Fly Shop Flip Page Catalog Title"><?php echo $flippage2_title; ?></a></h3>
+            <a href="<?php echo $flippage2_title_link;?>" class="thumbnail" target="_blank" title="Flip Page Catalog #2">
+              <img src="<?php echo $flippage2_image;?>" alt="<?php echo $flippage2_image_alt ?>">
+            </a>
+            <section class="widget">
+              <div class="caption">
+                <h3 class="widget-title"><?php echo $flippage2_sub_title;?></h3>
+                <p class="text-justify"><?php echo $flippage2_caption;?></p>
+              </div>
+            </section>
+          </div>
         
+        <?php endif; ?>
+        
+        <?php if(get_post_meta(get_the_ID(), 'flip-page-3-checkbox', true) == 'yes'): ?>
+          
+          <div class="col-md-3">
+            <h3 class="widget-title"><a href="<?php echo $flippage3_title_link; ?>" target="_blank" title="The Fly Shop Featured Content"><?php echo $flippage3_title; ?></a></h3>
+            <a href="<?php echo $flippage3_title_link;?>" class="thumbnail" target="_blank" title="Flip Page Catalog #3">
+              <img src="<?php echo $flippage3_image;?>" alt="<?php echo $flippage3_image_alt ?>">
+            </a>
+            <section class="widget">
+              <div class="caption">
+                <h3 class="widget-title"><?php echo $flippage3_sub_title;?></h3>
+                <p class="text-justify"><?php echo $flippage3_caption;?></p>
+              </div>
+            </section>
+          </div>
+        
+        <?php endif; ?>
+        
+        <?php if(get_post_meta(get_the_ID(), 'flip-page-4-checkbox', true) == 'yes'): ?>
+          
+          <div class="col-md-3">
+            <h3 class="widget-title"><a href="<?php echo $flippage4_title_link; ?>" target="_blank" title="The Fly Shop Featured Content"><?php echo $flippage4_title; ?></a></h3>
+            <a href="<?php echo $flippage4_title_link;?>" class="thumbnail" target="_blank" title="Flip Page Catalog #4">
+              <img src="<?php echo $flippage4_image;?>" alt="<?php echo $flippage4_image_alt ?>">
+            </a>
+            <section class="widget">
+              <div class="caption">
+                <h3 class="widget-title"><?php echo $flippage4_sub_title;?></h3>
+                <p class="text-justify"><?php echo $flippage4_caption;?></p>
+              </div>
+            </section>
+          </div>
+        
+        <?php endif; ?>
       
-      
-      
+      </div>
     </div>
   </article>
   

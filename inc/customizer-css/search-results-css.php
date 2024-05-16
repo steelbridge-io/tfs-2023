@@ -18,4 +18,6 @@
 		';
 			return $css_search;
 		}
+		
+		return '';
 	}

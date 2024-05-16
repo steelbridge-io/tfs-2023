@@ -28,4 +28,6 @@ function load_staff_css() {
 		';
 	return $css_8;
 	}
+	
+	return '';
 }

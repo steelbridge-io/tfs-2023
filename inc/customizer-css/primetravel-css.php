@@ -42,4 +42,6 @@ function load_primetravel_css() {
 		';
 		return $css_prime;
 	}
+	
+	return '';
 }

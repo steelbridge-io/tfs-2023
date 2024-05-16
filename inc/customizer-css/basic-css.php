@@ -28,4 +28,6 @@ function load_basic_css() {
 		';
 	return $css_basic;
 	}
+	
+	return '';
 }

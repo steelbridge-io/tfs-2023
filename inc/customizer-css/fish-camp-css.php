@@ -110,4 +110,6 @@ function load_fish_camp_css() {
 		';
 	return $css_5;
 	}
+	
+	return '';
 }

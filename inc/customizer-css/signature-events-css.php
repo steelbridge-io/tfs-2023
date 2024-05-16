@@ -42,4 +42,6 @@ function load_signature_events_css() {
 		';
 	return $css_signature_events;
 	}
+	
+	return '';
 }

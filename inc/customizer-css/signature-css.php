@@ -29,4 +29,6 @@ function load_signature_css() {
 		';
 	return $css_signature;
 	}
+	
+	return '';
 }

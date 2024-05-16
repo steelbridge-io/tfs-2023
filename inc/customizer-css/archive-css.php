@@ -36,4 +36,6 @@ function load_archive_css() {
 		';
 	return $css_archive;
 	}
+	
+	return '';
 }

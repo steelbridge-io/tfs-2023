@@ -117,4 +117,6 @@ function load_private_css() {
 		';
 	return $css_2;
 	}
+	
+	return '';
 }

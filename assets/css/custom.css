@@ -1374,10 +1374,6 @@ input#exampleInputEmail2.form-control.removeglow {
   display: none;
 }
 
-.well.well-sm.text-center.no-margin-bottom {
-  padding: 1em 1.618em 1.618em;
-}
-
 input.search-submit {
   color: #2e3842;
   background-color: brown;

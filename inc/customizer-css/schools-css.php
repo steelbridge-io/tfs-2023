@@ -116,4 +116,5 @@ function load_schools_css() {
 		';
 	return $css_4;
 	}
+	return '';
 }
