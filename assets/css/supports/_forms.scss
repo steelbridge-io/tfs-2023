@@ -1,5 +1,39 @@
 /* SCSS Forms
 ------------------------- */
+#gform_confirmation_message_15 {
+  border: .5px #fff solid;
+  padding: 1em 0;
+  margin: 3.5em auto;
+  h2 {
+    color: #f5f5f5;
+    font-size: 1.3em;
+    margin: 0;
+  }
+}
+#fp-well {
+  h2.ctct-form-header {
+    color: #f5f5f5;
+  }
+  .esb-signup-cta {
+    padding: 3em 0 0 0;
+  }
+  #esb-report-email-sign-up {
+    margin-bottom: 4em;
+    .ctct-form-container.ctct-form-embed.form_1 {
+      width: 100%;
+
+      .ctct-form-defaults {
+        border: .5px #fff solid;
+        width: 53%;
+
+        #ctct_form_1 {
+          display: initial;
+          min-width: 100%;
+        }
+      }
+    }
+  }
+}
 
 #pop-over-fp {
   margin-top: 15px;
@@ -44,7 +78,7 @@ div.ctct-form-embed form.ctct-form-custom button.ctct-form-button {
 }
 
 div.ctct-form-embed div.ctct-form-defaults {
-  padding: 0 !important;
+  padding: 0;
 }
 
 div.ctct-form-embed form.ctct-form-custom label.ctct-form-label {
