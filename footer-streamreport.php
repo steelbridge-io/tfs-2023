@@ -190,9 +190,9 @@
 
       </div>
       <div class="col-md-4">
-        <!-- ==== FACEBOOK FEED === -->
-        <h2 class="mt-1618"></h2>
-
+          <!-- ==== FACEBOOK FEED === -->
+          <h2 class="mt-1618">PUBLICATIONS</h2>
+          <div class="vert-scroller"><?php echo do_shortcode('[my-vertical-scroller]'); ?></div>
       </div> <!-- /col-md-4 -->
     </div> <!-- /row -->
   </div> <!-- /Container Fluid -->

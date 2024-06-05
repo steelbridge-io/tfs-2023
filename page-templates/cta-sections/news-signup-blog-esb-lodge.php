@@ -2,21 +2,24 @@
 <?php if(is_single(1760)) { ?>
 	
 	<div id="fp-well" class="well well-sm text-center no-margin-bottom">
-		
-		<form class="form-inline" method="post" action="https://oi.vresp.com?fid=976c4b8f87" target="vr_optin_popup"  onsubmit="window.open( 'https://www.verticalresponse.com', 'vr_optin_popup', 'scrollbars=yes,width=600,height=450' ); return true">
-			
-			<div id="pop-over-fp" class="form-group link-color-tfs-red">
-				<div>
-					<label for="exampleInputEmail2"><h3>Get Fishing Reports From Espiritu Santo Bay Lodge</h3></label>
-				</div>
-				<input name="email_address" type="email" class="form-control removeglow" id="exampleInputEmail2" placeholder="Add Your Email Here"><span class="mt-1618-mobile">
 
-      <button class="btn-md btn background-color-tfs-red font-color-white opacity-7"  type="submit" value="Sign Up!">Click Here To Have Reports Emailed To You</button>
 
-      <a tabindex="0" role="button" aria-hidden="true" data-trigger="hover" data-toggle="popover" data-placement="top" title="Safe Subscribe" data-content="We respect your privacy and do not tolerate spam and will never sell, rent, lease or give away your email address to any third party. Nor will we send you unsolicited email. You will have the option to safely unsubscribe upon receiving fishing reports related to Espiritu Santo Bay Lodge. We just want to deleiver great photos, fantastic fly fishing ideas, reports and motivation!"><span class="glyphicon glyphicon-question-sign gi-2x"></span></a></span>
-			</div>
-		</form>
-		
+        <div id="pop-over-fp" class="form-group link-color-tfs-red">
+            <div>
+                <label for="exampleInputEmail2"><h3>Get Fishing Reports From Espirito Santo Bay Lodge</h3></label>
+            </div>
+            <div id="constant-contact-container" class="constant-contact-sign-up-container">
+                <div class="row">
+                    <div class="col-md-11">
+						<?php echo do_shortcode('[gravityform id="15" title="false" ajax="true"]') ?>
+                    </div>
+                    <div class="help-hover d-flex align-items-center">
+                        <a tabindex="0" role="button" aria-hidden="true" data-trigger="hover" data-toggle="popover" data-placement="top" title="Safe Subscribe!" data-content="We respect your privacy and do not tolerate spam and will never sell, rent, lease or give away your email address to any third party. Nor will we send you unsolicited email. You will have the option to safely unsubscribe upon receiving fishing reports related to Lava Creek Lodge. We just want to deleiver great photos, fantastic fly fishing ideas, reports and motivation!"><span class="glyphicon glyphicon-question-sign gi-2x"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 		<!-- Beginning -->
 		<?php
 			global $post;
