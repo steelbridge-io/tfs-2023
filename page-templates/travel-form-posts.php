@@ -103,7 +103,17 @@ echo '<a href="'. $base_url .'" class="btn btn-danger" title="Clear results">Cle
 echo '</form>';
 echo '</div>';
 
+/**
+ * This script is setting up some search criteria
+ * Initially, it's setting up that only the 'active' status is wanted in the search criteria
+ */
+
 $search_criteria['status'] = 'active';
+
+/** Checks if the $arrival_date variable is set and not an empty string
+  * If yes, it adds a search filter to the $search_criteria
+  * This filter is to check if a certain field (represented by the key '22') has a value equal to $arrival_date
+  */
 
 if (isset($arrival_date) && $arrival_date != '') {
 	$search_criteria['field_filters'][] = array('key' => '22', 'value' => $arrival_date); // check arrival date
