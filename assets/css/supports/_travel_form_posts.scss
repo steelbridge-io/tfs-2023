@@ -1,0 +1,54 @@
+/** Travel Form Posts */
+
+#filter-cont {
+  &.filter-wrap {
+    form {
+      label {
+        margin: 0;
+      }
+      input {
+        margin-bottom: 1em;
+      }
+      .btn {
+        border-radius: 0;
+        border: none;
+        margin-left: 1em;
+      }
+    }
+  }
+}
+
+#travel-form-posts {
+  margin-top: 8em !important;
+  .destination-form {
+    background-color: #eee;
+    margin-top: 3.618em;
+    margin-bottom: 3.618em;
+    padding: 1.618em;
+  }
+  .form-entry {
+    margin: .5em auto;
+    b {
+      margin-right: .618em;
+    }
+    .name-g {
+      margin-right: .618em;
+    }
+  }
+}
+
+#question-items {
+  &.display-items-inline {
+    margin-bottom: 1.618em;
+
+    label {
+      height: 24px;
+      line-height: 20px;
+    }
+
+    input.no-margin {
+      margin: 0 1em 0 0;
+      height: 20px;
+    }
+  }
+}

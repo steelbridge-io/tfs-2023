@@ -4,6 +4,13 @@ body {
   overflow: hidden;
 }
 
+.display-items-inline {
+  display: flex;
+  align-items: center;
+  align-content: center;
+
+}
+
 .max-width-lg {
   max-width: 1700px;
 }
