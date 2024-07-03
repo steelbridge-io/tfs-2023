@@ -340,7 +340,7 @@ function the_fly_shop_scripts() {
 
    }
 
-		wp_enqueue_style( 'the-fly-shop-custom-style', get_template_directory_uri() . '/assets/css/custom.css', array(), '20161116', 'all' );
+   wp_enqueue_style( 'the-fly-shop-custom-style', get_template_directory_uri() . '/assets/css/custom.css', array(), '20161116', 'all' );
 
 	if ( function_exists( 'load_private_waters_css' ) ) {
 		wp_add_inline_style( 'the-fly-shop-custom-style', load_private_waters_css() );
@@ -460,19 +460,23 @@ function the_fly_shop_scripts() {
     wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array(), '1.0', true);
 
     if(!is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-template/travel-signature-template.php', 'page-templates/blog-template-basic.php', 'page-templates/blog-template-travel.php', 'page-templates/blog-template-new.php', 'page-templates/blog-template-outfitters.php'))) {
-    wp_register_script('the-fly-shop-btstrpjs', 'https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js', array(), '3.3.7', true );
-    wp_enqueue_script('the-fly-shop-btstrpjs');
+	    wp_register_script( 'the-fly-shop-btstrpjs',
+		    'https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js',
+		    array(),
+		    '3.3.7',
+		    TRUE );
+	    wp_enqueue_script( 'the-fly-shop-btstrpjs' );
     }
-
+	
    if (is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-templates/travel-signature-template.php', 'page-templates/blog-template-basic.php', 'page-templates/blog-template-travel.php', 'page-templates/blog-template-new.php', 'page-templates/blog-template-outfitters.php', 'page-templates/travel-form-posts.php'))) {
      // Hero Template jQuery
      wp_enqueue_script('hero-template-jquery', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), '', true);
 
      // Hero Template Bootstrap JS
      wp_enqueue_script('hero-template-bootstrapjs', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js', array(), '5.2.1', true);
-   }
-
-    wp_enqueue_script( 'the-fly-shop-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+    }
+   
+	wp_enqueue_script( 'the-fly-shop-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
     // Javascript - JQuery is loaded here. min.js scripts are registered before loading.
     wp_register_script( 'new-font-awesome', 'https://use.fontawesome.com/releases/v5.0.9/js/all.js', array(), '2018', true );

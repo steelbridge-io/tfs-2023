@@ -14,7 +14,7 @@ $wp_customize -> add_section(
 );
 
 // Creates custom Hero Video field for Front Page
-	$wp_customize -> add_setting ( 'front-page-hero-video', array(
+/*	$wp_customize -> add_setting ( 'front-page-hero-video', array(
 		'default'           => '',
 		'type'              => 'theme_mod',
 		'transport'         => 'refresh',
@@ -35,7 +35,7 @@ $wp_customize -> add_section(
 			
 			)
 		)
-	);
+	); */
 	
 // Creates custom Hero Image field for Front Page
     $wp_customize -> add_setting ( 'front-page-hero-image', array(

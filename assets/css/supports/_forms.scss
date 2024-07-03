@@ -36,7 +36,6 @@
 }
 
 #pop-over-fp {
-  margin-top: 15px;
   .glyphicon.glyphicon-question-sign.gi-2x {
     color: $tfsred
   }
@@ -44,6 +43,12 @@
 
 .row.front-page-email-signup {
   align-items: center;
+  .ctct-form-defaults {
+    width: 100%;
+    form.ctct-form-custom {
+      width: 100%;
+    }
+  }
 }
 
 .ctct-gdpr-text {

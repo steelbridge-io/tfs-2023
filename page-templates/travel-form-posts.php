@@ -84,6 +84,14 @@ echo '<label for="filter_other_travelers">Other Travelers:</label>';
 echo '<input class="no-margin" type="checkbox" id="filter_other_travelers" name="filter_other_travelers" value="Yes"'
      . (isset($other_travelers) && $other_travelers == 'Yes' ? ' checked' : '') . '>';
 
+/** @var  $needs_equip */
+
+$needs_equip = filter_input(INPUT_GET, 'filter_needs_equip', FILTER_SANITIZE_STRING);
+
+echo '<label for="filter_needs_equip">Needs Rods:</label>';
+echo '<input class="no-margin" type="checkbox" id="filter_needs_equip" name="filter_needs_equip" value="Yes"'
+     . (isset($needs_equip) && $needs_equip == 'Yes' ? ' checked' : '') . '>';
+
 /** @var  $dietary_allergies */
 
 $dietary_allergies = filter_input(INPUT_GET, 'filter_dietary_allergies', FILTER_SANITIZE_STRING);
@@ -131,6 +139,10 @@ if (isset($shuttle_service)) {
 	$search_criteria['field_filters'][] = array('key' => '34', 'value' => 'Yes');
 }
 
+if (isset($needs_equip)) {
+    $search_criteria['field_filters'][] = array('key' => '36', 'value' => 'Yes');
+}
+
 if ($other_travelers == 'Yes') {
 	$search_criteria['field_filters'][] = array('key' => '21', 'operator' => 'isnot', 'value' => '');
 }
@@ -144,15 +156,48 @@ if ($tel_number == 'Yes') {
 }
 
 echo '<div class="container form-list-wrap">';
-
+/**
+ * The form_id variable is used to store the unique identifier of a form.
+ *
+ * @var string $form_id The unique identifier of the form.
+ */
 $form_id                   = '16'; // Your form ID
 $search_criteria['status'] = 'active';
 $sorting                   = array(
 	'key'        => '1.6',
 	'direction'  => 'ASC',
 	'is_numeric' => FALSE,
-); // 1.3 is the field id for last name
+); // 1.6 is the field id for last name
 
+/**
+ * This variable contains the entries for some specific data.
+ *
+ * The entries are stored as an array, where each element represents an entry.
+ * Each entry is an associative array with the following structure:
+ * - 'id': (integer) The unique identifier of the entry.
+ * - 'name': (string) The name of the entry.
+ * - 'description': (string) The description of the entry.
+ * - 'created_at': (string) The timestamp when the entry was created.
+ *
+ * Example usage:
+ * $entries = [
+ *     [
+ *         'id' => 1,
+ *         'name' => 'Entry 1',
+ *         'description' => 'Lorem ipsum dolor sit amet.',
+ *         'created_at' => '2022-01-01 10:00:00',
+ *     ],
+ *     [
+ *         'id' => 2,
+ *         'name' => 'Entry 2',
+ *         'description' => 'Consectetur adipiscing elit.',
+ *         'created_at' => '2022-01-02 12:30:00',
+ *     ],
+ *     ...
+ * ];
+ *
+ * @var array $entries The array of entries.
+ */
 $entries = GFAPI::get_entries( $form_id, $search_criteria, $sorting );
 
 $counter = 1;
@@ -185,12 +230,16 @@ foreach ( $entries as $entry ) {
 	}
 	
 	if (isset($shuttle_service) && $shuttle_service == 'Yes') {
-	//if (isset($shuttle_service)) {
 		echo '<div class="col-12 form-entry"><b>Do you need Shuttle service?</b><br>'
 		     . rgar( $entry, '34' ) . '</div>';
 		
 		echo '<div class="col-12 form-entry"><b>If you are in need of a shuttle, please let us know location of pick up either Jackson or Idaho Falls and put your arrival/departure flight numbers and arrival/departure times below. This service is extra and not included in the price of the trip:</b><br>'
 		     . rgar( $entry, '35' ) . '</div>';
+	}
+	
+	if (isset($needs_equip) && $needs_equip == 'Yes') {
+		echo '<div class="col-12 form-entry"><b>Needs Rods?</b><br>'
+		     . rgar( $entry, '36' ) . '</div>';
 	}
 	
 	if (isset($dietary_allergies) && $dietary_allergies == 'Yes') {
@@ -208,7 +257,7 @@ foreach ( $entries as $entry ) {
 
     <div class="row">
     <div class="col">
-<div class="collapse multi-collapse" id="revealButton<?= $counter ?>">
+    <div class="collapse multi-collapse" id="revealButton<?= $counter ?>">
 	
 	<?php
 	

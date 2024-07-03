@@ -1,15 +1,54 @@
 /* Front Page SCSS
 ----------------------------------------------------- */
 
+#collapseFrontpage {
+  background-color: $black;
+  margin: 0 auto;
+  padding: 0;
+  width: 50%;
+  .well {
+    background-color: $black;
+    border: none;
+    padding: 0;
+    p {
+      color: $white;
+      font-size: 1rem;
+    }
+  }
+}
+
 .nc-fly-fishing-news {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 992px) {
+  .col-6.mobile-position {
+    height: 132px;
+    margin: 0 auto;
+    width: 95%;
+  }
+  .ctct-form-defaults {
+    form.ctct-form-custom {
+      justify-content: center;
+    }
+  }
 }
 
 @media (max-width: 767.98px) {
   #banner {
     .inner {
       padding: 5em 1em 3em;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  #news-cta {
+    #front-page-blog-cta {
+      h2 {
+        font-size: 1.3rem;
+      }
     }
   }
 }

@@ -14,6 +14,8 @@ AOS.init({
 
 var $ = jQuery.noConflict(); // Add this to resolve $ undefined issue.
 
+
+ document.addEventListener('DOMContentLoaded', function () {
 function isSafariOrIOS() {
     var ua = window.navigator.userAgent;
     var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
@@ -25,24 +27,33 @@ function isSafariOrIOS() {
 
 if (isSafariOrIOS()) {
     // Show the button if the user is on iOS
-    document.getElementById('customControls').style.display = 'block';
+    /*document.getElementById('customControls').style.display = 'block';*/
+
+    var customControls = document.getElementById('customControls');
+    if (customControls) {
+        customControls.style.display = 'block';
+    }
 
     var video = document.getElementById('sections-travel-background-video');
     var playButton = document.getElementById('playButton');
 
-    playButton.addEventListener('click', function () {
-        if (video.paused == true) {
-            // Play the video
-            video.play();
-            // Update the button to 'Pause'
-            playButton.innerHTML = "Pause";
-        } else {
-            // Pause the video
-            video.pause();
-            // Update the button to 'Play'
-            playButton.innerHTML = "Play";
-        }
-    });
+    if (video && playButton) {
+        video.muted = true;
+
+        playButton.addEventListener('click', function () {
+            if (video.paused == true) {
+                // Play the video
+                video.play();
+                // Update the button to 'Pause'
+                playButton.innerHTML = "Pause";
+            } else {
+                // Pause the video
+                video.pause();
+                // Update the button to 'Play'
+                playButton.innerHTML = "Play";
+            }
+        });
+    }
 }
 
 window.onload = function () {
@@ -56,6 +67,7 @@ window.onload = function () {
         }
     }
 };
+});
 /*window.onload = function() {
     document.body.addEventListener('click', function () {
         const video = document.getElementById('sections-travel-background-video');
@@ -326,3 +338,62 @@ if (addtoIcal4 !== null) {
     addtoIcal4.appendChild(addText4);
 
 }
+/**
+ * Video play for Safari
+ */
+
+ jQuery(document).ready(function($) {
+    // User-agent string check for Safari
+    var isSafari = /constructor/i.test(window.HTMLElement) || ((p) => {
+        return p.toString() === '[object SafariRemoteNotification]';
+    })(!window.safari || typeof safari !== 'undefined' && safari.pushNotification);
+
+    // Only proceed if the browser is Safari
+    if (isSafari) {
+        var video = document.getElementById('vid');
+        var $playButton = $('#playButton'); // jQuery style selection
+
+
+        if (video && playButton) {
+            // Ensure the video is muted
+            video.muted = true;
+
+            // Function to attempt to play the video
+            function attemptPlay() {
+                video.play().then(() => {
+                    // Autoplay started successfully
+                    console.log('Autoplay started successfully');
+                    $playButton.hide(); // Hide the play button
+                }).catch((error) => {
+                    // Autoplay was prevented
+                    console.log('Autoplay was prevented:', error);
+                });
+            }
+
+            // Play video on user interaction
+            $playButton.click(function () {
+                video.muted = true;
+                attemptPlay();
+            });
+
+            // Try to play the video immediately
+            $playButton.trigger('click');
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    var isSafari = /constructor/i.test(window.HTMLElement) ||
+        (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })
+        (!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
+    if (isSafari) {
+        // Display Safari-specific video and hide others
+        document.getElementById('safari_video_section').style.display = 'block';
+        document.getElementById('non_safari_video_section').style.display = 'none';
+    } else {
+        // Hide Safari-specific video and display others
+        document.getElementById('safari_video_section').style.display = 'none';
+        document.getElementById('non_safari_video_section').style.display = 'block';
+    }
+});

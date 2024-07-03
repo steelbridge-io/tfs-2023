@@ -9,7 +9,7 @@ function load_front_page_css() {
 	$default = '';
     $css_1 = '';
     $front_page_hero_image      = get_theme_mod ('front-page-hero-image');
-	$front_page_hero_video      = get_theme_mod ('front-page-hero-video');
+	//$front_page_hero_video      = get_theme_mod ('front-page-hero-video');
     $tel_color				    = get_theme_mod ('tel_color');
     $description_color		    = get_theme_mod ('description_color');
     $description_border		    = get_theme_mod ('description_border');
@@ -21,6 +21,8 @@ function load_front_page_css() {
     $frontp_email_bg			= get_theme_mod ('frontp_email_bg');
     $frontp_text_color		    = get_theme_mod ('frontp_text_color');
     $flip_page_title_color      = get_theme_mod ('flip_page_title_color');
+	
+	$front_page_hero_video      = get_post_meta( get_the_ID(),'front-page-hero-video',TRUE );
     
     // Modified menu color css
 	if ( $front_page_hero_image !== $default ) {

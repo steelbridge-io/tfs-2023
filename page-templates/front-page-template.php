@@ -25,14 +25,18 @@ get_header(); ?>
 <?php
  
  $default = '';
- $front_page_hero_video      = get_theme_mod ('front-page-hero-video');
+ $front_page_hero_video      = get_post_meta( get_the_ID(),'front-page-hero-video',TRUE );
  
- if (is_front_page() && get_theme_mod('front-page-hero-video') !== $default ) : ?>
-  
+ if (is_front_page() && $front_page_hero_video !== $default ) : ?>
+	 
+ <?php
+    
+    $front_page_hero_poster     = get_post_meta( get_the_ID(), 'front-page-video-poster', TRUE ); ?>
+
+    <div id="safari_video_section" style="display: none;">
     <div class="video">
      <div class="overlay"></div>
-     <video id="vid" autoplay playsInline loop muted controls preload="auto">
-      <!-- <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4"> -->
+     <video id="vid" loop muted poster="<?php echo $front_page_hero_poster ?>" >
 	     <source src="<?php echo $front_page_hero_video ?>" type="video/mp4" />
      </video>
      <div class="container h-100">
@@ -42,25 +46,58 @@ get_header(); ?>
         <img src="<?php echo $front_page_logo;	?>" class="img-responsive center-block" align="center" alt="The Fly Shop">
         <h2 class="site-description"><?php bloginfo('description'); ?></h2>
         <h3><?php echo get_theme_mod('telephone_number'); ?></h3>
+
+           <div id="playButton" class="play-button-overlay">
+               <span class="glyphicon glyphicon-play-circle gi-2x"></span>
+           </div>
+           <h1 style="text-align: center; color: #fff;">This is the Safari video</h1>
         <a href="#main" class="more scrolly">Learn More</a>
         
        </div>
       </div>
      </div>
     </div>
-  
+    </div>
+
+
+    <div id="non_safari_video_section" style="display: none;">
+    <div class="video">
+     <div class="overlay"></div>
+     <video autoplay playsinline loop muted id="vid">
+         <source src="<?php echo $front_page_hero_video ?>" type="video/mp4" />
+     </video>
+     <div class="container h-100">
+         <div class="d-flex h-100 text-center align-items-center">
+             <div class="w-100 text-white">
+    
+                 <img src="<?php echo $front_page_logo;	?>" class="img-responsive center-block" align="center" alt="The Fly Shop">
+                 <h2 class="site-description"><?php bloginfo('description'); ?></h2>
+                 <h3><?php echo get_theme_mod('telephone_number'); ?></h3>
+    
+                 <a href="#main" class="more scrolly">Learn More</a>
+    
+             </div>
+         </div>
+     </div>
+    </div>
+    </div>
+	 
+ 
+ 
   <?php else : ?>
  
-  <div class="inner">
-   <img src="<?php echo $front_page_logo;	?>" class="img-responsive center-block" align="center" alt="The Fly Shop">
-   <h2 class="site-description"><?php bloginfo('description'); ?></h2>
-   <h3><?php echo get_theme_mod('telephone_number'); ?></h3>
-  </div>
-  <a href="#main" class="more scrolly">Learn More</a>
+    <div class="inner">
+        <img src="<?php echo $front_page_logo;	?>" class="img-responsive center-block" align="center" alt="The Fly Shop">
+        <h2 class="site-description"><?php bloginfo('description'); ?></h2>
+        <h3><?php echo get_theme_mod('telephone_number'); ?></h3>
+    </div>
+ 
+    <a href="#main" class="more scrolly">Learn More</a>
   
   <?php endif; ?>
   
   </section>
+
   <article id="main">
     <!-- === JOIN NEWS LETTER === -->
     <div id="fp-well" class="well well-sm text-center no-margin-bottom">
@@ -71,18 +108,23 @@ get_header(); ?>
           <label for="exampleInputEmail2"><h3>Sign Up For Our Newsletter</h3></label>
         </div>
         <div class="row front-page-email-signup">
-          <div class="col-4">
-        <div class="ctct-inline-form form-inline" data-form-id="0ad001fb-1027-4de2-9265-5dede2414e0d"></div>
+          <div class="col-6 mobile-position">
+            <div class="ctct-inline-form form-inline" data-form-id="0ad001fb-1027-4de2-9265-5dede2414e0d"></div>
           </div>
           <div id="pop-over-fp" class="col-4">
-        <a tabindex="0" role="button" aria-hidden="true" data-trigger="hover" data-toggle="popover" data-placement="top" title="Safe Subscribe" data-content="We respect your privacy and do not tolerate spam and will never sell, rent, lease or give away your email address to any third party. Nor will we send you unsolicited email. You will have the option to safely unsubscribe upon receiving our newsletters. We just want to deleiver great photos, fantastic fly fishing ideas and motivation!"><span class="glyphicon glyphicon-question-sign gi-2x"></span></a></span>
+           <a role="button" data-toggle="collapse" href="#collapseFrontpage" aria-expanded="false" aria-controls="collapseFrontpage"><span class="glyphicon glyphicon-question-sign gi-2x"></span></a>
           </div>
         </div>
+          <div class="collapse" id="collapseFrontpage">
+              <div class="well">
+                  <p>"We respect your privacy and do not tolerate spam and will never sell, rent, lease or give away your email address to any third party. Nor will we send you unsolicited email. You will have the option to safely unsubscribe upon receiving our newsletters. We just want to deleiver great photos, fantastic fly fishing ideas and motivation!</p>
+              </div>
+          </div>
         <!-- End Constant Contact Inline Form Code -->
   
         <!-- Begin Constant Contact Active Forms -->
         <script> var _ctct_m = "0a0f5b541f83f517b80813b9cfbdb8d9"; </script>
-        <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+        <!-- <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script> -->
         <!-- End Constant Contact Active Forms -->
         
       </div>
@@ -90,7 +132,7 @@ get_header(); ?>
         <div class="row">
           <div class="newscta" id="news-cta">
             <div data-aos-duration="1000" data-aos="fade-up" class="news-section">
-              <div>
+              <div id="front-page-blog-cta">
                 <h2>Latest News - The Fly Shop</h2>
                 <?php
                 $args = array( 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 2 );
