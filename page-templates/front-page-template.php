@@ -25,66 +25,68 @@ get_header(); ?>
 <?php
  
  $default = '';
- $front_page_hero_video      = get_post_meta( get_the_ID(),'front-page-hero-video',TRUE );
+ $front_page_hero_video = get_post_meta( get_the_ID(),'front-page-hero-video',TRUE );
  
  if (is_front_page() && $front_page_hero_video !== $default ) : ?>
 	 
  <?php
     
-    $front_page_hero_poster     = get_post_meta( get_the_ID(), 'front-page-video-poster', TRUE ); ?>
+    $front_page_hero_poster = get_post_meta( get_the_ID(), 'front-page-video-poster', TRUE ); ?>
 
     <div id="safari_video_section" style="display: none;">
-    <div class="video">
-     <div class="overlay"></div>
-     <video id="vid" loop muted poster="<?php echo $front_page_hero_poster ?>" >
-	     <source src="<?php echo $front_page_hero_video ?>" type="video/mp4" />
-     </video>
-     <div class="container h-100">
-      <div class="d-flex h-100 text-center align-items-center">
-       <div class="w-100 text-white">
- 
-        <img src="<?php echo $front_page_logo;	?>" class="img-responsive center-block" align="center" alt="The Fly Shop">
-        <h2 class="site-description"><?php bloginfo('description'); ?></h2>
-        <h3><?php echo get_theme_mod('telephone_number'); ?></h3>
-
-           <div id="playButton" class="play-button-overlay">
-               <span class="glyphicon glyphicon-play-circle gi-2x"></span>
-           </div>
-           <h1 style="text-align: center; color: #fff;">This is the Safari video</h1>
-        <a href="#main" class="more scrolly">Learn More</a>
+        <div class="video">
+        <div class="overlay"></div>
         
-       </div>
-      </div>
-     </div>
+        <video id="vid" loop muted poster="<?php echo $front_page_hero_poster ?>" >
+        <source src="<?php echo $front_page_hero_video ?>" type="video/mp4" />
+        </video>
+        
+            <div class="container h-100">
+                <div class="d-flex h-100 text-center align-items-center">
+                    <div class="w-100 text-white">
+                    
+                    <img src="<?php echo $front_page_logo;	?>" class="img-responsive center-block" align="center" alt="The Fly Shop">
+                    <h2 class="site-description"><?php bloginfo('description'); ?></h2>
+                    <h3><?php echo get_theme_mod('telephone_number'); ?></h3>
+                    
+                    <div id="playButton" class="play-button-overlay">
+                    <span class="glyphicon glyphicon-play-circle gi-2x"></span>
+                        <p>( Click To Play Intro Video! )</p>
+                    </div>
+                    
+                    <a href="#main" class="more scrolly">Learn More</a>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-
-
+ 
     <div id="non_safari_video_section" style="display: none;">
-    <div class="video">
-     <div class="overlay"></div>
-     <video autoplay playsinline loop muted id="vid">
-         <source src="<?php echo $front_page_hero_video ?>" type="video/mp4" />
-     </video>
-     <div class="container h-100">
-         <div class="d-flex h-100 text-center align-items-center">
-             <div class="w-100 text-white">
-    
-                 <img src="<?php echo $front_page_logo;	?>" class="img-responsive center-block" align="center" alt="The Fly Shop">
-                 <h2 class="site-description"><?php bloginfo('description'); ?></h2>
-                 <h3><?php echo get_theme_mod('telephone_number'); ?></h3>
-    
-                 <a href="#main" class="more scrolly">Learn More</a>
-    
+        <div class="video">
+         <div class="overlay"></div>
+         
+         <video autoplay playsinline loop muted id="vid">
+             <source src="<?php echo $front_page_hero_video ?>" type="video/mp4" />
+         </video>
+            
+             <div class="container h-100">
+                 <div class="d-flex h-100 text-center align-items-center">
+                     <div class="w-100 text-white">
+            
+                         <img src="<?php echo $front_page_logo;	?>" class="img-responsive center-block" align="center" alt="The Fly Shop">
+                         <h2 class="site-description"><?php bloginfo('description'); ?></h2>
+                         <h3><?php echo get_theme_mod('telephone_number'); ?></h3>
+            
+                         <a href="#main" class="more scrolly">Learn More</a>
+            
+                     </div>
+                 </div>
              </div>
-         </div>
-     </div>
+        </div>
     </div>
-    </div>
-	 
  
- 
-  <?php else : ?>
+    <?php else : ?>
  
     <div class="inner">
         <img src="<?php echo $front_page_logo;	?>" class="img-responsive center-block" align="center" alt="The Fly Shop">
