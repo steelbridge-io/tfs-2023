@@ -1,6 +1,9 @@
 #non_safari_video_section {
   height: 100%;
 }
+#safari_video_section {
+  height: 100%;
+}
 .image {
   .video-poster {
     position: relative;
@@ -136,6 +139,14 @@
       }
     }
   }
+  #safari_video_section {
+    .video {
+      .container {
+        height: 100%;
+        margin-top: 2em;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 915px) and (orientation: portrait) {
@@ -149,6 +160,13 @@
 @media screen and (max-width: 915px) and (orientation: landscape) {
 
   #non_safari_video_section {
+    .video {
+      .container {
+        height: 100%;
+      }
+    }
+  }
+  #safari_video_section {
     .video {
       .container {
         height: 100%;
@@ -197,6 +215,14 @@
 
 @media screen and (max-width: 667px) and (orientation: landscape) {
   #non_safari_video_section {
+    .video {
+      .container {
+        margin-top: 2.4em;
+      }
+    }
+  }
+
+  #safari_video_section {
     .video {
       .container {
         margin-top: 2.4em;
