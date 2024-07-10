@@ -341,7 +341,8 @@ if (addtoIcal4 !== null) {
 /**
  * Video play for Safari
  */
-jQuery(document).ready(function($) {
+
+ jQuery(document).ready(function($) {
     // User-agent string check for Safari
     var isSafari = /constructor/i.test(window.HTMLElement) || ((p) => {
         return p.toString() === '[object SafariRemoteNotification]';
