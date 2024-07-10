@@ -37,7 +37,7 @@ get_header(); ?>
         <div class="video">
         <div class="overlay"></div>
         
-        <video id="vid" loop muted poster="<?php echo $front_page_hero_poster ?>" >
+        <video id="vid" autoplay loop muted poster="<?php echo $front_page_hero_poster ?>" >
         <source src="<?php echo $front_page_hero_video ?>" type="video/mp4" />
         </video>
         
