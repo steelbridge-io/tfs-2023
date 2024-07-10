@@ -1,22 +1,47 @@
-/**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
-.wp-block-cgb-block-call-to-action {
-  background: #e6e6e6;
-  color: #000;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem; }
+/*
+ Theme Name:   Lava Creek Child Theme
+ Theme URI:    http://steelbridge.io/lava-creek
+ Description:  A child theme of Parent Theme @ TFS NetWork
+ Author:       Chris Parsons
+ Author URI:   http://steelbridge.io
+ Template:     tfs-parent-theme
+ Version:      1.0.5
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  lava-creek-child
+    - Footer
+    - Widgets
+*/
+/* Footer
+--------------------- ****/
+#footer p,
+#footer h1,
+#footer h2,
+#footer h3,
+#footer h4,
+#footer h5 {
+  color: #fff;
+}
+#footer .footer-container.container-flex {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+#footer section.widget.widget_search {
+  align-self: center;
+}
 
-.wp-block-cgb-block-call-to-action.alignwide {
-  max-width: 100%; }
-
-#content-page.entry-content {
-  margin-bottom: 0 !important; }
-
-.edit-link {
-  position: absolute; }
+/* Widgets
+--------------------- ****/
+.image-overlay-content h1,
+.image-overlay-content h2,
+.image-overlay-content h3,
+.image-overlay-content h4,
+.image-overlay-content h5,
+.image-overlay-content p,
+.image-overlay-content strong {
+  color: #f5f5f5;
+}
 
 /*# sourceMappingURL=style.css.map */
