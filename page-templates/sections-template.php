@@ -55,7 +55,7 @@
   <div class="template-header">
     <!-- Featured Imgae -->
     <img src="<?php echo $sections_featured_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
-    <div class="center-content-flex template-header-content">
+    <div id="sections-content-center" class="center-content-flex template-header-content">
       <div id="sections-temp-hero-content" class="basicpagelogo
       signature-header template-class
            text-center">
@@ -71,7 +71,7 @@
           </dl>
         </div>
         <div class="scrollto animated animatedFadeInUp fadeInUp">
-          <a href="#scrollto" class="template more">Learn More</a>
+          <a href="#scrollto" class="template more scrolly">Learn More</a>
         </div>
       </div>
     </div>
@@ -1103,6 +1103,24 @@
       </div>
     </div>
 	<?php endif; ?>
+
+    <!-- Modal -->
+    <div class="modal fade" id="primeTravelTempmodal" tabindex="-1" aria-labelledby="primeTravelTempmodalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" id="primeTravelTempmodalLabel"><img src="<?php echo get_theme_mod('pt_mdl_logo');  ?>" alt="The Fly Shop"></div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><!--<i class="lni lni-close"></i>--></button>
+                </div>
+                <div class="modal-body">
+					<?php echo do_shortcode('[gravityform id="6" title="true" description="true"]'); ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <?php
 	get_footer();
