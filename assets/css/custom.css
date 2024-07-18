@@ -2147,6 +2147,10 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
   }
 }
 /** Sections Template CSS */
+#sections-content-center.center-content-flex {
+  margin-top: 1em;
+}
+
 #sections-temp-hero-content.signature-header .scrollto {
   position: initial;
 }
@@ -3504,6 +3508,10 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   margin: 0 auto;
   padding: 2.618em 1em;
 }
+body.default-template #primary #main article.travel-blog {
+  padding-top: 8em;
+  padding-bottom: 8em;
+}
 
 .default-template .default-single .site-main #default-blog-hero-image #outfitters-jumbotron:after {
   content: "";
@@ -3514,6 +3522,14 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   width: 100%;
   top: 0;
   bottom: 0;
+}
+
+.entry-content p {
+  margin: 1.618em 0 0 0;
+}
+.entry-content img {
+  margin-top: 1.618em;
+  margin-bottom: 1.618em;
 }
 
 /** SCSS Travel Template
