@@ -29,8 +29,8 @@ body.default-template {
           }
         }
         &.travel-blog {
-          padding-top: 8em;
-          padding-bottom: 8em;
+          padding-top: 1em;
+          padding-bottom: 1em;
         }
       }
     }
@@ -40,7 +40,6 @@ body.default-template {
 .default-template {
   .default-single {
     .site-main {
-
       #default-blog-hero-image {
         #outfitters-jumbotron:after {
           content: "";
@@ -52,19 +51,41 @@ body.default-template {
           top: 0;
           bottom: 0;
         }
-
-
       }
     }
   }
 }
 
-.entry-content {
+/*.entry-content {
   p {
     margin: 1.618em 0 0 0;
   }
   img {
     margin-top: 1.618em;
     margin-bottom: 1.618em;
+  }
+}*/
+
+body.default-template {
+  .outer {
+    .wrap {
+      .container {
+        #primary {
+          #main {
+            article {
+              &.travel-blog {
+                padding-top: 0;
+                padding-bottom: 0;
+              }
+              .entry-content {
+                p:nth-child(n+2) {
+                  margin-top: 1.618em !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

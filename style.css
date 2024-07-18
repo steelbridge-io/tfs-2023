@@ -66,36 +66,6 @@ Tags: The Fly Shop
 }
 
 /*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-	max-width: 100%;
-	/*height: auto;*/
-}
-
-
-
-.alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-	max-width: 100%;
-	/*height: auto;*/
-}
-
-.aligncenter {
-	clear: both;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 100%;
-	/*height: auto;*/
-}
-
-/*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
 .clear:before,
