@@ -28,6 +28,10 @@ body.default-template {
             }
           }
         }
+        &.travel-blog {
+          padding-top: 8em;
+          padding-bottom: 8em;
+        }
       }
     }
   }
@@ -52,5 +56,15 @@ body.default-template {
 
       }
     }
+  }
+}
+
+.entry-content {
+  p {
+    margin: 1.618em 0 0 0;
+  }
+  img {
+    margin-top: 1.618em;
+    margin-bottom: 1.618em;
   }
 }
