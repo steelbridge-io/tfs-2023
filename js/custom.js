@@ -382,7 +382,7 @@ if (addtoIcal4 !== null) {
     }
 });
 
-document.addEventListener('DOMContentLoaded', (event) => {
+/*document.addEventListener('DOMContentLoaded', (event) => {
     var isSafari = /constructor/i.test(window.HTMLElement) ||
         (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })
         (!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
@@ -395,5 +395,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Hide Safari-specific video and display others
         document.getElementById('safari_video_section').style.display = 'none';
         document.getElementById('non_safari_video_section').style.display = 'block';
+    }
+});*/
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    var isSafari = /constructor/i.test(window.HTMLElement) ||
+        (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })
+        (!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+
+    var safariSection = document.getElementById('safari_video_section');
+    var nonSafariSection = document.getElementById('non_safari_video_section');
+
+    if (isSafari) {
+        // Display Safari-specific video and hide others
+        if(safariSection) {
+            safariSection.style.display = 'block';
+        }
+        if(nonSafariSection) {
+            nonSafariSection.style.display = 'none';
+        }
+    } else {
+        // Hide Safari-specific video and display others
+        if(safariSection) {
+            safariSection.style.display = 'none';
+        }
+        if(nonSafariSection) {
+            nonSafariSection.style.display = 'block';
+        }
     }
 });
