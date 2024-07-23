@@ -1,5 +1,10 @@
 /** SCSS Global Properties
 =========================== */
+
+a {
+  text-decoration: none !important;
+}
+
 body {
   overflow: hidden;
 }
