@@ -4250,11 +4250,11 @@ a.badge:hover, a.badge:focus {
     position: relative !important;
     z-index: 1 !important;
     padding: 0 !important;
-    width: 100% !important; }
+    width: auto; }
   #outfitters-jumbotron.outfitters.jumbotron .container {
     position: absolute !important;
     z-index: 2 !important;
-    top: 30% !important;
+    top: 33% !important;
     left: 10% !important;
     right: 10% !important;
     transition: 0.5s !important; }
