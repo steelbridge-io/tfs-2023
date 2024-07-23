@@ -49,6 +49,8 @@ Custom styles for The Fly Shop Theme
 
 */
 
+
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 @charset "UTF-8";
 @import 'dep/var';
@@ -2050,6 +2052,7 @@ nav.navigation.post-navigation {
   }
 
 }
+
 @import "supports/sections-template";
 @import 'supports/variables';
 @import 'supports/travel-blog';
@@ -2085,5 +2088,7 @@ nav.navigation.post-navigation {
 @import "supports/wordpress-helpers";
 @import "supports/travel_form_posts";
 @import "supports/travel-questionnaire";
+
+
 /*@import "supports/side-nav";*/
 

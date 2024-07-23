@@ -2147,6 +2147,11 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
   }
 }
 /** Sections Template CSS */
+#sections-hero-image.template-header {
+  height: 700px;
+  margin-top: 2.3em;
+}
+
 #sections-content-center.center-content-flex {
   margin-top: 1em;
 }
@@ -2173,7 +2178,10 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
 @media (max-width: 768px) {
   #sections-background-video[poster] {
     object-fit: cover;
-    max-height: 400px;
+    min-height: 450px;
+  }
+  #sections-hero-image.template-header {
+    min-height: 450px;
   }
 }
 /* SCSS Variables
@@ -3152,6 +3160,10 @@ div.ctct-form-embed form.ctct-form-custom label.ctct-form-label {
 
 /** SCSS Global Properties
 =========================== */
+a {
+  text-decoration: none !important;
+}
+
 body {
   overflow: hidden;
 }
@@ -3509,7 +3521,7 @@ body.default-template #primary #main article.page .container-fluid .entry-conten
   padding: 2.618em 1em;
 }
 body.default-template #primary #main article.travel-blog {
-  padding-top: 1em;
+  padding-top: 3.618em;
   padding-bottom: 1em;
 }
 
@@ -3533,6 +3545,21 @@ body.default-template #primary #main article.travel-blog {
     margin-bottom: 1.618em;
   }
 }*/
+.outfitters.default-template.jumbotron img {
+  object-fit: cover;
+  height: 100%;
+  width: auto;
+  max-width: fit-content;
+}
+
+.travel-blog #content-template-part-content p:nth-child(n+2) {
+  margin-top: 1.618em;
+}
+.travel-blog #content-template-part-content img {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 body.default-template .outer .wrap .container #primary #main article.travel-blog {
   padding-top: 0;
   padding-bottom: 0;
@@ -3541,6 +3568,12 @@ body.default-template .outer .wrap .container #primary #main article .entry-cont
   margin-top: 1.618em !important;
 }
 
+@media screen and (max-width: 767.99px) {
+  .travel-blog {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
 /** SCSS Travel Template
 ============================ */
 /*#banner {
@@ -4629,13 +4662,13 @@ section {
 @media (max-width: 767.99px) {
   .alignright {
     float: none;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    display: block;
+    margin: 1.5em auto !important;
   }
   .alignleft {
     float: none;
-    display: inherit;
-    margin: 1em auto;
+    display: block;
+    margin: 1.5em auto !important;
   }
 }
 /** Travel Form Posts */
