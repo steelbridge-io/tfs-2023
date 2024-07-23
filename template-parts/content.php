@@ -42,14 +42,14 @@
   
   <div class="article-content row">
 
-	<div id="content-template-part-content" class="container">
+	<div id="content-template-part-content" class="container narf">
 
 		<div id="default-entry-styles" class="entry-content content-part">
           
-          <a href="<?php echo get_the_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>">
-            <h2 class="content-title"><?php echo get_the_title(); ?></h2>
-          </a>
-          <p><b>Published:&nbsp;<?php echo get_the_date( 'F j, Y' ); ?></b></p>
+          <!--<a href="<?php //echo get_the_permalink($post->ID); ?>" title="<?php echo get_the_title($post->ID); ?>">
+            <h2 class="content-title"><?php //echo get_the_title(); ?></h2>
+          </a> -->
+          <!-- <p><b>Published:&nbsp;<?php //echo get_the_date( 'F j, Y' ); ?></b></p> -->
 			<?php
 				the_content();
 
