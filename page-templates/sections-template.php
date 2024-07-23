@@ -52,7 +52,7 @@
   <!-- === Featured Image For Header === -->
 <?php if ( has_post_thumbnail() && ( empty( $sections_hero_image ) ) && ( empty( $sections_video ) ) ) : ?>
   
-  <div class="template-header">
+  <div id="sections-hero-image" class="template-header">
     <!-- Featured Imgae -->
     <img src="<?php echo $sections_featured_img['0']; ?>" class="paralaxed img-responsive-width-100 center-block">
     <div id="sections-content-center" class="center-content-flex template-header-content">
