@@ -49,10 +49,10 @@ get_header(); ?>
                     <h2 class="site-description"><?php bloginfo('description'); ?></h2>
                     <h3><?php echo get_theme_mod('telephone_number'); ?></h3>
                     
-                    <div id="playButton" class="play-button-overlay">
+                    <!-- <div id="playButton" class="play-button-overlay">
                     <span class="glyphicon glyphicon-play-circle gi-2x"></span>
                         <p>( Click To Play Intro Video! )</p>
-                    </div>
+                    </div> -->
                     
                     <a href="#main" class="more scrolly">Learn More</a>
                     
