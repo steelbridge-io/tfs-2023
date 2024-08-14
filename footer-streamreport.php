@@ -202,8 +202,8 @@
   <ul class="icons">
     <li><a href="<?php echo get_theme_mod('twitter_link_footer'); ?>" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
     <li><a href="<?php echo get_theme_mod('facebook_link_footer'); ?>" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-    <li><a href="<a href="<?php echo get_theme_mod('instagram_link_footer'); ?>" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-    <li><a href="<a href="<?php echo get_theme_mod('youtube_link_footer'); ?>" class="icon fa-youtube"><span class="label">YouTube</span></a></li>
+    <li><a href="<?php echo get_theme_mod('instagram_link_footer'); ?>" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+    <li><a href="<?php echo get_theme_mod('youtube_link_footer'); ?>" target="_blank" class="icon fa-youtube"><span class="label">YouTube</span></a></li>
     <li><a href="mailto:<?php echo get_theme_mod('email_link_footer'); ?>" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
   </ul>
   <ul class="copyright">
