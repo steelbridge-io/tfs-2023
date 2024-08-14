@@ -1,5 +1,26 @@
 /* Outfitter Blog SCSS
 ---------------------------------------------- */
+
+#outfitters-jumbotron.outfitters.jumbotron {
+  padding: 0 !important; }
+#outfitters-jumbotron.outfitters.jumbotron img.outfitters {
+  position: relative !important;
+  z-index: 1 !important;
+  padding: 0 !important;
+  width: 100%; }
+#outfitters-jumbotron.outfitters.jumbotron .container {
+  position: absolute !important;
+  z-index: 2 !important;
+  top: 33% !important;
+  left: 10% !important;
+  right: 10% !important;
+  transition: 0.5s !important; }
+#outfitters-jumbotron.outfitters.jumbotron .container .landing-hd .dd-2 .logo-tel {
+  font-size: calc(16px + (24 - 16) * (100vw - 400px)/(800 - 400)) !important; }
+#outfitters-jumbotron.outfitters.jumbotron .container .landing-hd .dd-4 .logo-tel {
+  font-size: calc(16px + (18 - 16) * (100vw - 300px)/(800 - 400)) !important; }
+
+
 .wrapper-blog {
   margin-top: 3.618em;
 }
