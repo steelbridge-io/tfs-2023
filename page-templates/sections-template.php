@@ -1105,21 +1105,21 @@
 	<?php endif; ?>
 
     <!-- Modal -->
-    <div class="modal fade" id="primeTravelTempmodal" tabindex="-1" aria-labelledby="primeTravelTempmodalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="modal-title" id="primeTravelTempmodalLabel"><img src="<?php echo get_theme_mod('pt_mdl_logo');  ?>" alt="The Fly Shop"></div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><!--<i class="lni lni-close"></i>--></button>
-                </div>
-                <div class="modal-body">
-					<?php echo do_shortcode('[gravityform id="6" title="true" description="true"]'); ?>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="primeTravelTempmodalLabel">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="primeTravelTempmodalLabel"><img src="<?php echo get_theme_mod('pt_mdl_logo');  ?>" alt="The Fly Shop"></div>
+            </div>
+            <div class="modal-body">
+                <?php echo do_shortcode('[gravityform id="6" title="true" description="true"]'); ?>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
+    </div>
     </div>
 
 <?php
