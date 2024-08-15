@@ -13,7 +13,7 @@
 
 <!-- Begin Constant Contact Active Forms -->
 <script> var _ctct_m = "0a0f5b541f83f517b80813b9cfbdb8d9"; </script>
-<script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+<script id="signupScript" src="https://static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
 <!-- End Constant Contact Active Forms -->
 	<!-- Footer -->
 <footer id="footer">
@@ -25,7 +25,7 @@
   <div class="col-md-4">
     <h2 class="mt-1618">PAGES</h2>
           <ul class="mt-05">
-    
+
             <a class="page1" href="<?php echo get_theme_mod('page_1'); ?>" target="_self" title="TFS page"><li><span class="page1label"><?php echo get_theme_mod('page_1_label'); ?></span></li></a>
 
             <a class="page2" href="<?php echo get_theme_mod('page_2'); ?>" target="_self" title="TFS page"><li><span class="page2label"><?php echo get_theme_mod('page_2_label'); ?></span></li></a>
@@ -37,7 +37,7 @@
             <a class="page5" href="<?php echo get_theme_mod('page_5'); ?>" target="_self" title="TFS page"><li><span class="page5label"><?php echo get_theme_mod('page_5_label'); ?></span></li></a>
 
             <a class="page6" href="<?php echo get_theme_mod('page_6'); ?>" target="_self" title="TFS page"><li><span class="page6label"><?php echo get_theme_mod('page_6_label'); ?></span></li></a>
-    
+
           </ul>
 
           <h2 class="mt-1618">CONTACT US</h2>
@@ -46,7 +46,7 @@
               <a class="tfs-tel" href="tel:18006693474" title="Telephone Number">(800) 669-3474</a>
             </li>
           </ul>
-    
+
           <ul class="mt-05">
             <li class="addressfield">
             <address>
@@ -92,7 +92,7 @@
         <!-- ==== FACEBOOK FEED === -->
         <h2 class="mt-1618">PUBLICATIONS</h2>
           <div class="vert-scroller"><?php echo do_shortcode('[my-vertical-scroller]'); ?></div>
-    
+
         </div>
      </div> <!-- /row -->
 </div> <!-- /Container Fluid -->
