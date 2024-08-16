@@ -109,8 +109,27 @@ echo '<label for="filter_dietary_allergies">Allergies &amp; Dietary:</label>';
 echo '<input class="no-margin" type="checkbox" id="filter_dietary_allergies" name="filter_dietary_allergies" value="Yes"'
     . (isset($dietary_allergies) && $dietary_allergies == 'Yes' ? ' checked' : '') . '>';
 
-echo '</div>';
 
+
+/** @var  $trip_type */
+
+$trip_type = filter_input(INPUT_GET, 'filter_trip_type', FILTER_SANITIZE_SPECIAL_CHARS);
+
+echo '<label for="filter_trip_type">Trip Type:</label>';
+
+echo '<input type="radio" id="filter_trip_type_lodge" name="filter_trip_type" value="Lodge"'
+    . (isset($trip_type) && $trip_type == 'Lodge' ? ' checked' : '') . '>';
+echo '<label for="filter_trip_type_lodge">Lodge</label>';
+
+echo '<input type="radio" id="filter_trip_type_wilderness" name="filter_trip_type" value="Wilderness Float"'
+    . (isset($trip_type) && $trip_type == 'Wilderness Float' ? ' checked' : '') . '>';
+echo '<label for="filter_trip_type_wilderness">Wilderness Float</label>';
+
+echo '<input type="radio" id="filter_trip_type_both" name="filter_trip_type" value="Both"'
+    . (isset($trip_type) && $trip_type == 'Both' ? ' checked' : '') . '>';
+echo '<label for="filter_trip_type_both">Both</label>';
+
+echo '</div>';
 
 $base_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $base_url = strtok($base_url, '?');
@@ -137,11 +156,11 @@ if (isset($reservation_id) && $reservation_id != '') {
 }
 
 if (isset($arrival_date) && $arrival_date != '') {
-    $search_criteria['field_filters'][] = array('key' => '22', 'value' => $arrival_date); // check arrival date
+    $search_criteria['field_filters'][] = array('key' => '46', 'value' => $arrival_date); // check arrival date
 }
 
 if (isset($departure_date) && $departure_date != '') {
-    $search_criteria['field_filters'][] = array('key' => '23', 'value' => $departure_date); // check arrival date
+    $search_criteria['field_filters'][] = array('key' => '47', 'value' => $departure_date); // check departure date
 }
 
 if (isset($_GET['filter_name']) && $_GET['filter_name'] != '') {
@@ -166,6 +185,10 @@ if ($dietary_allergies == 'Yes') {
 
 if ($tel_number == 'Yes') {
     $search_criteria['field_filters'][] = array('key' => '26', 'operator' => 'isnot', 'value' => '');
+}
+
+if (isset($trip_type) && $trip_type != '') {
+    $search_criteria['field_filters'][] = array('key' => '180', 'value' => $trip_type);
 }
 
 echo '<div class="container form-list-wrap">';
@@ -220,7 +243,12 @@ foreach ( $entries as $entry ) {
     echo '<div class="container destination-form">';
     echo '<div class="row">';
 
-    echo '<div class="col-12 form-entry"><b>Reservation &#35;</b>'
+    if (isset($trip_type)) {
+        echo '<div class="col-12 form-entry"><b>Trip Type:</b>'
+            . rgar( $entry, '180' ) . '</div>';
+    }
+
+    echo '<div class="col-12 form-entry"><b>Reservation - &#35;</b>'
         . rgar( $entry, '44' ) . '</div>';
 
     echo '<div class="col-12 name-fml form-entry"><b>Last Name:</b><span class="name-g">'
@@ -233,7 +261,7 @@ foreach ( $entries as $entry ) {
         . rgar( $entry, '46' ) . '</div>'; // was 22
 
     echo '<div class="col-12 form-entry"><b>Date of departure:</b> '
-        . rgar( $entry, '23' ) . '</div>';
+        . rgar( $entry, '47' ) . '</div>';
 
     if (isset($tel_number) && $tel_number == 'Yes') {
         echo '<div class="col-12 form-entry"><b>Tel:</b>'
@@ -276,6 +304,9 @@ foreach ( $entries as $entry ) {
 <div class="collapse multi-collapse" id="revealButton<?= $counter ?>">
 
     <?php
+
+    echo '<div class="col-12 form-entry"><b>Trip Type</b><i>(Lodge/Wilderness Float/Both)</i>: ' . rgar( $entry,
+            '180' ) . '</div>';
 
     echo '<div class="col-12 form-entry"><b>Date of birth:</b>' . rgar( $entry,
             '24' ) . '</div>';
