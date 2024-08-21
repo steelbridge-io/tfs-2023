@@ -21,9 +21,9 @@ function load_front_page_css() {
     $frontp_email_bg			= get_theme_mod ('frontp_email_bg');
     $frontp_text_color		    = get_theme_mod ('frontp_text_color');
     $flip_page_title_color      = get_theme_mod ('flip_page_title_color');
-	
+
 	$front_page_hero_video      = get_post_meta( get_the_ID(),'front-page-hero-video',TRUE );
-    
+
     // Modified menu color css
 	if ( $front_page_hero_image !== $default ) {
 		$css_1 .= '
@@ -32,7 +32,7 @@ function load_front_page_css() {
         }
 		';
 	}
-	
+
 	if ( $front_page_hero_video !== $default ) {
 		$css_1 .= '
 		#banner {
@@ -51,9 +51,9 @@ function load_front_page_css() {
 			.inner h3 {
 				color: ' . $tel_color . ';
 			}
-			h2.site-description {
+			/*h2.site-description {
 				color: ' . $description_color . ';
-			}
+			} Removed due to throwing validation error */
 			#banner h2:before, #banner h2:after {
 				background-color: ' . $description_border . ';
 			}
