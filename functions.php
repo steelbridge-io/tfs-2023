@@ -467,7 +467,7 @@ function the_fly_shop_scripts() {
 		    TRUE );
 	    wp_enqueue_script( 'the-fly-shop-btstrpjs' );
     }
-	
+
    if (is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-templates/travel-signature-template.php', 'page-templates/blog-template-basic.php', 'page-templates/blog-template-travel.php', 'page-templates/blog-template-new.php', 'page-templates/blog-template-outfitters.php', 'page-templates/travel-form-posts.php', /*'page-templates/sections-template.php'*/))) {
      // Hero Template jQuery
      wp_enqueue_script('hero-template-jquery', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array(), '', true);
@@ -475,7 +475,7 @@ function the_fly_shop_scripts() {
      // Hero Template Bootstrap JS
      wp_enqueue_script('hero-template-bootstrapjs', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js', array(), '5.2.1', true);
     }
-   
+
 	wp_enqueue_script( 'the-fly-shop-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
     // Javascript - JQuery is loaded here. min.js scripts are registered before loading.
@@ -900,11 +900,23 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
         }
 
         echo '<style>';
-        echo '#outfitters-jumbotron .overlay { opacity: ' . esc_attr($custom_range_value) . '; }';
+        /*echo '#outfitters-jumbotron .overlay { opacity: ' . esc_attr($custom_range_value) . '; }';*/
         echo '#basic-template-hero-image .overlay { opacity: ' . esc_attr($basic_page_range_value) . '; }';
         echo '#blog-template-basic-hero-image .overlay { opacity: ' . esc_attr($blog_basic_page_range_value) . '; }';
         echo '.inner .overlay { opacity: ' . esc_attr($blog_temp_travel_range_value) . '}';
         echo '</style>';
     }
     add_action('wp_head', 'custom_css');
+
+
+    // Remove WordPress default title tag support
+    remove_action('wp_head', '_wp_render_title_tag', 1);
+
+    // Add custom title tag function
+    function custom_title_tag() {
+        ?>
+        <title><?php wp_title(''); ?></title>
+        <?php
+    }
+    add_action('wp_head', 'custom_title_tag');
 
