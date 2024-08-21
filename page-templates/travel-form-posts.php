@@ -58,6 +58,77 @@ echo '<input type="date" id="filter_departure_date" name="filter_departure_date"
     . (isset($departure_date) ? $departure_date : '')
     . '">';
 
+/** @var  $trip_type */
+
+$trip_type = filter_input(INPUT_GET, 'filter_trip_type', FILTER_SANITIZE_SPECIAL_CHARS);
+
+echo '<label for="filter_trip_type">Trip Type:</label>';
+
+echo '<input type="radio" id="filter_trip_type_lodge" name="filter_trip_type" value="Lodge"'
+    . (isset($trip_type) && $trip_type == 'Lodge' ? ' checked' : '') . '>';
+echo '<label for="filter_trip_type_lodge">Lodge</label>';
+
+echo '<input type="radio" id="filter_trip_type_wilderness" name="filter_trip_type" value="Wilderness Float"'
+    . (isset($trip_type) && $trip_type == 'Wilderness Float' ? ' checked' : '') . '>';
+echo '<label for="filter_trip_type_wilderness">Wilderness Float</label>';
+
+echo '<input type="radio" id="filter_trip_type_both" name="filter_trip_type" value="Both"'
+    . (isset($trip_type) && $trip_type == 'Both' ? ' checked' : '') . '>';
+echo '<label for="filter_trip_type_both">Both</label>';
+
+
+/** @var array $trip_destinations */
+
+$trip_destinations = filter_input(INPUT_GET, 'filter_trip_destination',
+    FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+
+echo '<label for="filter_trip_destination">What Destination(s) are you fishing at &#x3f;:</label><br>';
+
+$destinations = [
+    'Limay River Lodge' => 'Limay River Lodge',
+    'Estancia Arroyo Verde' => 'Estancia Arroyo Verde',
+    'Estancia Pilolil' => 'Estancia Pilolil',
+    'Collon Cura Lodge' => 'Collon Cura Lodge',
+    'Estancia Tipiliuke' => 'Estancia Tipiliuke',
+    'Estancia San Huberto' => 'Estancia San Huberto',
+    'Estancia Quemquemtreu' => 'Estancia Quemquemtreu',
+    'Tres Rios Lodge' => 'Tres Rios Lodge'
+];
+
+foreach ($destinations as $value => $label) {
+    $checked = isset($trip_destinations) && in_array($value, $trip_destinations) ? ' checked' : '';
+    echo '<input type="radio" id="filter_trip_destination_' . strtolower(str_replace(' ', '_', $label)) . '" name="filter_trip_destination[]" value="' . $value . '"' . $checked . '>';
+    echo '<label for="filter_trip_destination_' . strtolower(str_replace(' ', '_', $label)) . '">' . $label . '</label><br>';
+}
+
+
+/** @var array $trip_rivers_floating_alaska */
+
+$trip_rivers_floating_alaska = filter_input(INPUT_GET, 'filter_rivers_floating_alaska',
+    FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+
+echo '<label for="filter_trip_destination">Rivers in Alaska you are floating:</label><br>';
+
+$float_destinations = [
+    'Kanektok River Float' => 'Kanektok River Float',
+    'Goodnews River Float' => 'Goodnews River Float',
+    'Kisarolik River Float' => 'Kisarolik River Float',
+    'Arolik River' => 'Arolik River',
+    'Moraine River' => 'Moraine River',
+    'Alagnak River' => 'Alagnak River',
+    'Other' => 'Other'
+];
+
+foreach ($float_destinations as $value => $label) {
+    $checked = isset($trip_rivers_floating_alaska) && in_array($value, $trip_rivers_floating_alaska) ? ' checked' : '';
+    echo '<input type="radio" id="filter_rivers_floating_alaska' . strtolower(str_replace(' ', '_', $label)) . '" name="filter_rivers_floating_alaska[]" value="' . $value . '"' . $checked . '>';
+    echo '<label for="filter_rivers_floating_alaska' . strtolower(str_replace(' ', '_', $label)) . '">' . $label . '</label><br>';
+}
+
+
+
+
+
 /** @var  $name */
 
 $name = filter_input(INPUT_GET, 'filter_name', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -109,26 +180,6 @@ echo '<label for="filter_dietary_allergies">Allergies &amp; Dietary:</label>';
 echo '<input class="no-margin" type="checkbox" id="filter_dietary_allergies" name="filter_dietary_allergies" value="Yes"'
     . (isset($dietary_allergies) && $dietary_allergies == 'Yes' ? ' checked' : '') . '>';
 
-
-
-/** @var  $trip_type */
-
-$trip_type = filter_input(INPUT_GET, 'filter_trip_type', FILTER_SANITIZE_SPECIAL_CHARS);
-
-echo '<label for="filter_trip_type">Trip Type:</label>';
-
-echo '<input type="radio" id="filter_trip_type_lodge" name="filter_trip_type" value="Lodge"'
-    . (isset($trip_type) && $trip_type == 'Lodge' ? ' checked' : '') . '>';
-echo '<label for="filter_trip_type_lodge">Lodge</label>';
-
-echo '<input type="radio" id="filter_trip_type_wilderness" name="filter_trip_type" value="Wilderness Float"'
-    . (isset($trip_type) && $trip_type == 'Wilderness Float' ? ' checked' : '') . '>';
-echo '<label for="filter_trip_type_wilderness">Wilderness Float</label>';
-
-echo '<input type="radio" id="filter_trip_type_both" name="filter_trip_type" value="Both"'
-    . (isset($trip_type) && $trip_type == 'Both' ? ' checked' : '') . '>';
-echo '<label for="filter_trip_type_both">Both</label>';
-
 echo '</div>';
 
 $base_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -146,11 +197,6 @@ echo '</div>';
 
 $search_criteria['status'] = 'active';
 
-/** Checks if the $arrival_date variable is set and not an empty string
- * If yes, it adds a search filter to the $search_criteria
- * This filter is to check if a certain field (represented by the key '22') has a value equal to $arrival_date
- */
-
 if (isset($reservation_id) && $reservation_id != '') {
     $search_criteria['field_filters'][] = array('key' => '44', 'value' => $reservation_id); // check reservation id
 }
@@ -161,6 +207,22 @@ if (isset($arrival_date) && $arrival_date != '') {
 
 if (isset($departure_date) && $departure_date != '') {
     $search_criteria['field_filters'][] = array('key' => '47', 'value' => $departure_date); // check departure date
+}
+
+if (isset($trip_type) && $trip_type != '') {
+    $search_criteria['field_filters'][] = array('key' => '180', 'value' => $trip_type);
+}
+
+if (isset($trip_destinations) && !empty($trip_destinations)) {
+    foreach ($trip_destinations as $destination) {
+        $search_criteria['field_filters'][] = array('key' => '223', 'value' => $destination);
+    }
+}
+
+if (isset($trip_rivers_floating_alaska) && !empty($trip_rivers_floating_alaska)) {
+    foreach ($trip_rivers_floating_alaska as $float_destination) {
+        $search_criteria['field_filters'][] = array('key' => '212', 'value' => $float_destination);
+    }
 }
 
 if (isset($_GET['filter_name']) && $_GET['filter_name'] != '') {
@@ -187,17 +249,13 @@ if ($tel_number == 'Yes') {
     $search_criteria['field_filters'][] = array('key' => '26', 'operator' => 'isnot', 'value' => '');
 }
 
-if (isset($trip_type) && $trip_type != '') {
-    $search_criteria['field_filters'][] = array('key' => '180', 'value' => $trip_type);
-}
-
 echo '<div class="container form-list-wrap">';
 /**
  * The form_id variable is used to store the unique identifier of a form.
  *
- * @var string $form_id The unique identifier of the form.
+ * @var string $form_id The unique identifier of the Gravity Form.
  */
-$form_id                   = '41'; // Your form ID
+$form_id                   = '41'; // Your Gravity Form ID
 $search_criteria['status'] = 'active';
 $sorting                   = array(
     'key'        => '1.6',
@@ -234,6 +292,11 @@ $sorting                   = array(
  *
  * @var array $entries The array of entries.
  */
+
+echo '<pre>';
+print_r($search_criteria);
+echo '</pre>';
+
 $entries = GFAPI::get_entries( $form_id, $search_criteria, $sorting );
 
 $counter = 1;
@@ -243,25 +306,61 @@ foreach ( $entries as $entry ) {
     echo '<div class="container destination-form">';
     echo '<div class="row">';
 
-    if (isset($trip_type)) {
-        echo '<div class="col-12 form-entry"><b>Trip Type:</b>'
-            . rgar( $entry, '180' ) . '</div>';
+
+    if (rgar($entry, '44') != '') {
+        echo '<div class="col-12 form-entry"><b>Reservation - &#35;</b>'
+            . rgar($entry, '44') . '</div>';
     }
 
-    echo '<div class="col-12 form-entry"><b>Reservation - &#35;</b>'
-        . rgar( $entry, '44' ) . '</div>';
+    if (rgar($entry, '1.6') != '') {
+        echo '<div class="col-12 name-fml form-entry"><b>Last Name:</b><span class="name-g">' . rgar($entry, '1.6') . '</span><b>First Name:</b><span class="name-g">' . rgar($entry, '1.3') . '</span><b>Middle Name:</b><span class="name-g">' . rgar($entry, '1.4') . '</span></div>';
+    }
 
-    echo '<div class="col-12 name-fml form-entry"><b>Last Name:</b><span class="name-g">'
-        . rgar( $entry, '1.6' ) . '</span><b>First Name:</b><span class="name-g">'
-        . rgar( $entry, '1.3' )
-        . '</span><b>Middle Name:</b><span class="name-g">' . rgar( $entry,
-            '1.4' ) . '</span></div>';
+    if (rgar($entry, '46') != '') {
+        echo '<div class="col-12 form-entry"><b>Date of arrival:</b> '
+            . rgar($entry, '46') . '</div>';
+    }
 
-    echo '<div class="col-12 form-entry"><b>Date of arrival:</b> '
-        . rgar( $entry, '46' ) . '</div>'; // was 22
+    if (rgar($entry, '47') != '') {
+        echo '<div class="col-12 form-entry"><b>Date of departure:</b> '
+            . rgar($entry, '47') . '</div>';
+    }
 
-    echo '<div class="col-12 form-entry"><b>Date of departure:</b> '
-        . rgar( $entry, '47' ) . '</div>';
+    if (rgar($entry, '180') != '') {
+        if (isset($trip_type)) {
+            echo '<div class="col-12 form-entry"><b>Trip Type:</b>'
+                . rgar($entry, '180') . '</div>';
+        }
+    }
+
+    // Extract trip destinations
+    $trip_destinations = [];
+    foreach ($entry as $key => $value) {
+        if (strpos($key, '223.') === 0 && !empty($value)) {
+            $trip_destinations[] = $value;
+        }
+    }
+
+    if (!empty($trip_destinations)) {
+    echo '<div class="col-12 form-entry"><b>What Destination(s) are you fishing at &#x3f; :</b> ';
+    echo esc_html(implode(', ', $trip_destinations));
+    echo '</div>';
+    }
+
+    // Extract Alaska float destinations
+    $trip_rivers_floating_alaska = [];
+    foreach ($entry as $key => $value) {
+        if (strpos($key, '212.') === 0 && !empty($value)) {
+            $trip_rivers_floating_alaska[] = $value;
+        }
+    }
+
+    if (!empty($trip_rivers_floating_alaska)) {
+        echo '<div class="col-12 form-entry"><b>Rivers in Alaska you are floating:</b> ';
+        echo esc_html(implode(', ', $trip_rivers_floating_alaska));
+        echo '</div>';
+    }
+
 
     if (isset($tel_number) && $tel_number == 'Yes') {
         echo '<div class="col-12 form-entry"><b>Tel:</b>'
@@ -277,7 +376,7 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Do you need Shuttle service?</b><br>'
             . rgar( $entry, '34' ) . '</div>';
 
-        echo '<div class="col-12 form-entry"><b>If you are in need of a shuttle, please let us know location of pick up either Jackson or Idaho Falls and put your arrival/departure flight numbers and arrival/departure times below. This service is extra and not included in the price of the trip:</b><br>'
+        echo '<div class="col-12 form-entry"><b>If you are in need of a shuttle, please let us know location of pick-up either Jackson or Idaho Falls and put your arrival/departure flight numbers and arrival/departure times below. This service is extra and not included in the price of the trip:</b><br>'
             . rgar( $entry, '35' ) . '</div>';
     }
 
