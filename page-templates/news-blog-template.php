@@ -24,7 +24,7 @@
 
   $default = '';
 
- get_header(); ?>
+  get_header(); ?>
 
   <div id="news-blog-hero-image" class="inner">
 		<?php
@@ -606,7 +606,7 @@
                '<div class="caption">' .
                '<a href="'. $fishreport_permalink .'" title="'. $fishreport_title .'"><h4>' . $fishreport_title . '</h4></a>';
           echo '<p class="author-date"><span class="the-author">by: ' . get_the_author() .'</span> <span class="the-date">'. get_the_date() .'</span></p>';
-
+          
           the_excerpt(__('(more…)'));
 
           echo  '</div>' .
