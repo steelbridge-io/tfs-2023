@@ -51,6 +51,17 @@ echo '<input type="text" id="filter_name" name="filter_name" value="'
     . '">';
 echo '</div>';
 
+
+/** @var  $email */
+
+$email = filter_input(INPUT_GET, 'filter_email', FILTER_SANITIZE_SPECIAL_CHARS);
+echo '<div class="well">';
+echo '<label for="filter_email">Email:</label>';
+echo '<input type="text" id="filter_email" name="filter_email" value="'
+     . (isset($email) ? $email : '')
+     . '">';
+echo '</div>';
+
 /** @var  $arrival_date */
 
 $arrival_date = filter_input(INPUT_GET, 'filter_arrival_date', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -213,6 +224,14 @@ if (isset($reservation_id) && $reservation_id != '') {
     $search_criteria['field_filters'][] = array('key' => '44', 'value' => $reservation_id); // check reservation id
 }
 
+if (isset($_GET['filter_name']) && $_GET['filter_name'] != '') {
+	$search_criteria['field_filters'][] = array('key' => '1.6', 'value' => $_GET['filter_name']); // check last name
+}
+
+if (isset($_GET['filter_email']) && $_GET['filter_email'] != '') {
+	$search_criteria['field_filters'][] = array('key' => '261', 'value' => $_GET['filter_email']); // check email
+}
+
 if (isset($arrival_date) && $arrival_date != '') {
     $search_criteria['field_filters'][] = array('key' => '46', 'value' => $arrival_date); // check arrival date
 }
@@ -235,10 +254,6 @@ if (isset($trip_rivers_floating_alaska) && !empty($trip_rivers_floating_alaska))
     foreach ($trip_rivers_floating_alaska as $float_destination) {
         $search_criteria['field_filters'][] = array('key' => '212', 'value' => $float_destination);
     }
-}
-
-if (isset($_GET['filter_name']) && $_GET['filter_name'] != '') {
-    $search_criteria['field_filters'][] = array('key' => '1.6', 'value' => $_GET['filter_name']); // check name
 }
 
 if (isset($shuttle_service)) {
@@ -329,6 +344,10 @@ foreach ( $entries as $entry ) {
     if (rgar($entry, '1.6') != '') {
         echo '<div class="col-12 name-fml form-entry"><b>Last Name:</b><span class="name-g">' . rgar($entry, '1.6') . '</span><b>First Name:</b><span class="name-g">' . rgar($entry, '1.3') . '</span><b>Middle Name:</b><span class="name-g">' . rgar($entry, '1.4') . '</span></div>';
     }
+	
+	if (rgar($entry, '261') != '') {
+		echo '<div class="col-12 name-fml form-entry"><b>Email:</b><span class="name-g">' . rgar($entry, '261') . '</div>';
+	}
 
     if (rgar($entry, '46') != '') {
         echo '<div class="col-12 form-entry"><b>Date of arrival:</b> '
