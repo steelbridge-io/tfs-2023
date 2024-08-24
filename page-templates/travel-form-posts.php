@@ -13,7 +13,7 @@ get_header();
 
 echo '<div id="travel-form-posts" class="container-fluid">';
 
-echo '<div class="container well"><h1>' . get_the_title() . '</h1></div>';
+echo '<div class="container"><h1>' . get_the_title() . '</h1></div>';
 
 if ( have_posts() ) :
     while ( have_posts() ) :
@@ -34,54 +34,73 @@ echo '<form method="GET">';
 /** @var  $reservation_id */
 
 $reservation_id = filter_input(INPUT_GET, 'filter_reservation_id', FILTER_SANITIZE_SPECIAL_CHARS);
-
+echo '<div class="well">';
 echo '<label for="filter_reservation_id">Reservation &#35;:</label>';
 echo '<input type="text" id="filter_reservation_id" name="filter_reservation_id" value="'
     . (isset($reservation_id) ? $reservation_id : '')
     . '">';
+echo '</div>';
+
+/** @var  $name */
+
+$name = filter_input(INPUT_GET, 'filter_name', FILTER_SANITIZE_SPECIAL_CHARS);
+echo '<div class="well">';
+echo '<label for="filter_name">Last Name:</label>';
+echo '<input type="text" id="filter_name" name="filter_name" value="'
+    . (isset($name) ? $name : '')
+    . '">';
+echo '</div>';
 
 /** @var  $arrival_date */
 
 $arrival_date = filter_input(INPUT_GET, 'filter_arrival_date', FILTER_SANITIZE_SPECIAL_CHARS);
-
+echo '<div class="well">';
 echo '<label for="filter_arrival_date">Arrival Date:</label>';
 echo '<input type="date" id="filter_arrival_date" name="filter_arrival_date" value="'
     . (isset($arrival_date) ? $arrival_date : '')
     . '">';
+echo '</div>';
 
 /** @var  $departure_date */
 
 $departure_date = filter_input(INPUT_GET, 'filter_departure_date', FILTER_SANITIZE_SPECIAL_CHARS);
-
+echo '<div class="well">';
 echo '<label for="filter_departure_date">Departure Date:</label>';
 echo '<input type="date" id="filter_departure_date" name="filter_departure_date" value="'
     . (isset($departure_date) ? $departure_date : '')
     . '">';
+echo '</div>';
 
 /** @var  $trip_type */
 
 $trip_type = filter_input(INPUT_GET, 'filter_trip_type', FILTER_SANITIZE_SPECIAL_CHARS);
+echo '<div class="well">';
+echo '<label class="form-check-label" for="filter_trip_type">Trip Type:</label>';
 
-echo '<label for="filter_trip_type">Trip Type:</label>';
-
-echo '<input type="radio" id="filter_trip_type_lodge" name="filter_trip_type" value="Lodge"'
+echo '<div class="form-check form-check-inline">';
+echo '<input class="form-check-input" type="radio" id="filter_trip_type_lodge" name="filter_trip_type" value="Lodge"'
     . (isset($trip_type) && $trip_type == 'Lodge' ? ' checked' : '') . '>';
-echo '<label for="filter_trip_type_lodge">Lodge</label>';
+echo '<label class="form-check-label" for="filter_trip_type_lodge">Lodge</label>';
+echo '</div>';
 
-echo '<input type="radio" id="filter_trip_type_wilderness" name="filter_trip_type" value="Wilderness Float"'
-    . (isset($trip_type) && $trip_type == 'Wilderness Float' ? ' checked' : '') . '>';
-echo '<label for="filter_trip_type_wilderness">Wilderness Float</label>';
+echo '<div class="form-check form-check-inline">';
+echo '<input class="form-check-input" type="radio" id="filter_trip_type_wilderness" name="filter_trip_type" value="Wilderness Float"' . (isset($trip_type) && $trip_type == 'Wilderness Float' ? ' checked' : '') . '>';
+echo '<label class="form-check-label" for="filter_trip_type_wilderness">Wilderness Float</label>';
+echo '</div>';
 
-echo '<input type="radio" id="filter_trip_type_both" name="filter_trip_type" value="Both"'
+echo '<div class="form-check form-check-inline">';
+echo '<input class="form-check-input" type="radio" id="filter_trip_type_both" name="filter_trip_type" value="Both"'
     . (isset($trip_type) && $trip_type == 'Both' ? ' checked' : '') . '>';
-echo '<label for="filter_trip_type_both">Both</label>';
+echo '<label class="form-check-label" for="filter_trip_type_both">Both</label>';
+echo '</div>';
 
+echo '</div>';
 
 /** @var array $trip_destinations */
 
 $trip_destinations = filter_input(INPUT_GET, 'filter_trip_destination',
     FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
-
+echo '<div class="well">';
 echo '<label for="filter_trip_destination">What Destination(s) are you fishing at &#x3f;:</label><br>';
 
 $destinations = [
@@ -97,16 +116,19 @@ $destinations = [
 
 foreach ($destinations as $value => $label) {
     $checked = isset($trip_destinations) && in_array($value, $trip_destinations) ? ' checked' : '';
-    echo '<input type="radio" id="filter_trip_destination_' . strtolower(str_replace(' ', '_', $label)) . '" name="filter_trip_destination[]" value="' . $value . '"' . $checked . '>';
-    echo '<label for="filter_trip_destination_' . strtolower(str_replace(' ', '_', $label)) . '">' . $label . '</label><br>';
+    echo '<div class="form-check form-check-inline">';
+    echo '<input type="radio" class="form-check-input" id="filter_trip_destination_' . strtolower(str_replace(' ', '_', $label)) . '" name="filter_trip_destination[]" value="' . $value . '"' . $checked . '>';
+    echo '<label class="form-check-label" for="filter_trip_destination_' . strtolower(str_replace(' ', '_', $label)) . '">' . $label . '</label><br>';
+    echo '</div>';
 }
+echo '</div>';
 
 
 /** @var array $trip_rivers_floating_alaska */
 
 $trip_rivers_floating_alaska = filter_input(INPUT_GET, 'filter_rivers_floating_alaska',
     FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
-
+echo '<div class="well">';
 echo '<label for="filter_trip_destination">Rivers in Alaska you are floating:</label><br>';
 
 $float_destinations = [
@@ -121,24 +143,14 @@ $float_destinations = [
 
 foreach ($float_destinations as $value => $label) {
     $checked = isset($trip_rivers_floating_alaska) && in_array($value, $trip_rivers_floating_alaska) ? ' checked' : '';
-    echo '<input type="radio" id="filter_rivers_floating_alaska' . strtolower(str_replace(' ', '_', $label)) . '" name="filter_rivers_floating_alaska[]" value="' . $value . '"' . $checked . '>';
-    echo '<label for="filter_rivers_floating_alaska' . strtolower(str_replace(' ', '_', $label)) . '">' . $label . '</label><br>';
+    echo '<div class="form-check form-check-inline">';
+    echo '<input class="form-check-input" type="radio" id="filter_rivers_floating_alaska' . strtolower(str_replace(' ', '_', $label)) . '" name="filter_rivers_floating_alaska[]" value="' . $value . '"' . $checked . '>';
+    echo '<label class="form-check-label" for="filter_rivers_floating_alaska' . strtolower(str_replace(' ', '_', $label)) . '">' . $label . '</label><br>';
+    echo '</div>';
 }
+echo '</div>';
 
-
-
-
-
-/** @var  $name */
-
-$name = filter_input(INPUT_GET, 'filter_name', FILTER_SANITIZE_SPECIAL_CHARS);
-
-echo '<label for="filter_name">Last Name:</label>';
-echo '<input type="text" id="filter_name" name="filter_name" value="'
-    . (isset($name) ? $name : '')
-    . '">';
-
-echo '<div id="question-items" class="display-items-inline">';
+echo '<div id="question-items" class="display-items-inline well">';
 
 /** @var  $tel_number */
 
@@ -186,7 +198,7 @@ $base_url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $base_url = strtok($base_url, '?');
 
 echo '<input class="filter-btn" type="submit" value="Filter">';
-echo '<a href="'. $base_url .'" class="btn btn-danger" title="Clear results">Clear Results</a>';
+echo '<a href="'. $base_url .'" class="btn btn-danger clear-results" title="Clear results">Clear Results</a>';
 echo '</form>';
 echo '</div>';
 
@@ -293,9 +305,11 @@ $sorting                   = array(
  * @var array $entries The array of entries.
  */
 
+/*
 echo '<pre>';
 print_r($search_criteria);
 echo '</pre>';
+ */
 
 $entries = GFAPI::get_entries( $form_id, $search_criteria, $sorting );
 
