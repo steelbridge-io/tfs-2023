@@ -62,6 +62,16 @@ echo '<input type="text" id="filter_email" name="filter_email" value="'
      . '">';
 echo '</div>';
 
+/** @var  $cell_phone */
+
+$cell_phone = filter_input(INPUT_GET, 'filter_cell_phone', FILTER_SANITIZE_SPECIAL_CHARS);
+echo '<div class="well">';
+echo '<label for="filter_cell_phone">Cell Phone:</label>';
+echo '<input type="tel" id="filter_cell_phone" name="filter_cell_phone" value="'
+    . (isset($cell_phone) ? $cell_phone : '')
+    . '">';
+echo '</div>';
+
 /** @var  $arrival_date */
 
 $arrival_date = filter_input(INPUT_GET, 'filter_arrival_date', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -232,6 +242,10 @@ if (isset($_GET['filter_email']) && $_GET['filter_email'] != '') {
 	$search_criteria['field_filters'][] = array('key' => '261', 'value' => $_GET['filter_email']); // check email
 }
 
+if (isset($_GET['filter_cell_phone']) && $_GET['filter_cell_phone'] != '') {
+    $search_criteria['field_filters'][] = array('key' => '101', 'value' => $_GET['filter_cell_phone']); // check cell phone
+}
+
 if (isset($arrival_date) && $arrival_date != '') {
     $search_criteria['field_filters'][] = array('key' => '46', 'value' => $arrival_date); // check arrival date
 }
@@ -335,35 +349,37 @@ foreach ( $entries as $entry ) {
     echo '<div class="container destination-form">';
     echo '<div class="row">';
 
-
+    // Reservation #
     if (rgar($entry, '44') != '') {
         echo '<div class="col-12 form-entry"><b>Reservation - &#35;</b>'
             . rgar($entry, '44') . '</div>';
     }
 
-    if (rgar($entry, '1.6') != '') {
-        echo '<div class="col-12 name-fml form-entry"><b>Last Name:</b><span class="name-g">' . rgar($entry, '1.6') . '</span><b>First Name:</b><span class="name-g">' . rgar($entry, '1.3') . '</span><b>Middle Name:</b><span class="name-g">' . rgar($entry, '1.4') . '</span></div>';
-    }
-	
-	if (rgar($entry, '261') != '') {
-		echo '<div class="col-12 name-fml form-entry"><b>Email:</b><span class="name-g">' . rgar($entry, '261') . '</div>';
-	}
-
+    // Date of arrival
     if (rgar($entry, '46') != '') {
         echo '<div class="col-12 form-entry"><b>Date of arrival:</b> '
             . rgar($entry, '46') . '</div>';
     }
 
+    // Date of departure
     if (rgar($entry, '47') != '') {
         echo '<div class="col-12 form-entry"><b>Date of departure:</b> '
             . rgar($entry, '47') . '</div>';
     }
 
-    if (rgar($entry, '180') != '') {
-        if (isset($trip_type)) {
-            echo '<div class="col-12 form-entry"><b>Trip Type:</b>'
-                . rgar($entry, '180') . '</div>';
-        }
+    // Name
+    if (rgar($entry, '1.6') != '') {
+        echo '<div class="col-12 name-fml form-entry"><b>Last Name:</b><span class="name-g">' . rgar($entry, '1.6') . '</span><b>First Name:</b><span class="name-g">' . rgar($entry, '1.3') . '</span><b>Middle Name:</b><span class="name-g">' . rgar($entry, '1.4') . '</span></div>';
+    }
+
+    // Email
+	if (rgar($entry, '261') != '') {
+		echo '<div class="col-12 name-fml form-entry"><b>Email:</b><span class="name-g">' . rgar($entry, '261') . '</div>';
+	}
+
+    // Cell Phone - Text/SMS
+    if (rgar($entry, '101') != '') {
+        echo '<div class="col-12 name-fml form-entry"><b>Cell Phone:</b><span class="name-g">' . rgar($entry, '101') . '</div>';
     }
 
     // Extract trip destinations
@@ -433,18 +449,23 @@ foreach ( $entries as $entry ) {
 
     <div class="row">
     <div class="col">
-<div class="collapse multi-collapse" id="revealButton<?= $counter ?>">
+    <div class="collapse multi-collapse" id="revealButton<?= $counter ?>">
 
     <?php
 
-    echo '<div class="col-12 form-entry"><b>Trip Type</b><i>(Lodge/Wilderness Float/Both)</i>: ' . rgar( $entry,
-            '180' ) . '</div>';
+    // Trip Type
+    if (rgar($entry, '180') != '') {
+        echo '<div class="col-12 form-entry"><b>Trip Type</b><i>(Lodge/Wilderness Float/Both)</i>: ' . rgar($entry, '180') . '</div>';
+    }
+
+    // Cell Phone
+    if (rgar($entry, '101') != '') {
+        echo '<div class="col-12 form-entry"><b>Cell Phone:</b>'
+            . rgar($entry, '101') . '</div>';
+    }
 
     echo '<div class="col-12 form-entry"><b>Date of birth:</b>' . rgar( $entry,
             '24' ) . '</div>';
-
-    echo '<div class="col-12 form-entry"><b>Contact tel:</b>'
-        . rgar( $entry, '26' ) . '</div>';
 
     echo '<div class="col-12 form-entry"><b>Names of others traveling with guest:</b><br>'
         . rgar( $entry, '21' ) . '</div>';
