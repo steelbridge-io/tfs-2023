@@ -463,9 +463,35 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Cell Phone:</b>'
             . rgar($entry, '101') . '</div>';
     }
-
-    echo '<div class="col-12 form-entry"><b>Date of birth:</b>' . rgar( $entry,
-            '24' ) . '</div>';
+	
+    // Birth Date Formating to m-d-Y
+	$dateOfBirth = rgar($entry, '24');
+	$dateTime = DateTime::createFromFormat('Y-m-d', $dateOfBirth);
+	
+	if ($dateTime) {
+		$formattedDateOfBirth = $dateTime->format('m-d-Y');
+	} else {
+		// Handle the case where the date format is incorrect
+		$formattedDateOfBirth = 'Invalid date format';
+	}
+	
+    // Birth Date
+    if (rgar($entry, '24') != '') {
+	    echo '<div class="col-12 form-entry"><b>Date of birth:</b>'
+	         . $formattedDateOfBirth . '</div>';
+    }
+	
+	// Body Weight
+	if (rgar($entry, '284') != '') {
+		echo '<div class="col-12 form-entry"><b>Body weight:</b>'
+		     . rgar( $entry, '284' ) . '</div>';
+	}
+	
+	// Height
+	if (rgar($entry, '52') != '') {
+		echo '<div class="col-12 form-entry"><b>Height:</b>'
+		     . rgar( $entry, '52' ) . '</div>';
+	}
 
     echo '<div class="col-12 form-entry"><b>Names of others traveling with guest:</b><br>'
         . rgar( $entry, '21' ) . '</div>';
