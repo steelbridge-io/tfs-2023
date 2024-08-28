@@ -94,7 +94,7 @@ echo '</div>';
 
 /** @var  $trip_type */
 
-$trip_type = filter_input(INPUT_GET, 'filter_trip_type', FILTER_SANITIZE_SPECIAL_CHARS);
+/*$trip_type = filter_input(INPUT_GET, 'filter_trip_type', FILTER_SANITIZE_SPECIAL_CHARS);
 echo '<div class="well">';
 echo '<label class="form-check-label" for="filter_trip_type">Trip Type:</label>';
 
@@ -115,11 +115,11 @@ echo '<input class="form-check-input" type="radio" id="filter_trip_type_both" na
 echo '<label class="form-check-label" for="filter_trip_type_both">Both</label>';
 echo '</div>';
 
-echo '</div>';
+echo '</div>';*/
 
 /** @var array $trip_destinations */
 
-$trip_destinations = filter_input(INPUT_GET, 'filter_trip_destination',
+/*$trip_destinations = filter_input(INPUT_GET, 'filter_trip_destination',
     FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
 echo '<div class="well">';
 echo '<label for="filter_trip_destination">What Destination(s) are you fishing at &#x3f;:</label><br>';
@@ -142,12 +142,12 @@ foreach ($destinations as $value => $label) {
     echo '<label class="form-check-label" for="filter_trip_destination_' . strtolower(str_replace(' ', '_', $label)) . '">' . $label . '</label><br>';
     echo '</div>';
 }
-echo '</div>';
+echo '</div>';*/
 
 
 /** @var array $trip_rivers_floating_alaska */
 
-$trip_rivers_floating_alaska = filter_input(INPUT_GET, 'filter_rivers_floating_alaska',
+/*$trip_rivers_floating_alaska = filter_input(INPUT_GET, 'filter_rivers_floating_alaska',
     FILTER_SANITIZE_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
 echo '<div class="well">';
 echo '<label for="filter_trip_destination">Rivers in Alaska you are floating:</label><br>';
@@ -169,7 +169,7 @@ foreach ($float_destinations as $value => $label) {
     echo '<label class="form-check-label" for="filter_rivers_floating_alaska' . strtolower(str_replace(' ', '_', $label)) . '">' . $label . '</label><br>';
     echo '</div>';
 }
-echo '</div>';
+echo '</div>';*/
 
 echo '<div id="question-items" class="display-items-inline well">';
 
@@ -382,54 +382,23 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 name-fml form-entry"><b>Cell Phone:</b><span class="name-g">' . rgar($entry, '101') . '</div>';
     }
 
-    // Extract trip destinations
-    $trip_destinations = [];
-    foreach ($entry as $key => $value) {
-        if (strpos($key, '223.') === 0 && !empty($value)) {
-            $trip_destinations[] = $value;
-        }
-    }
-
-    if (!empty($trip_destinations)) {
-    echo '<div class="col-12 form-entry"><b>What Destination(s) are you fishing at &#x3f; :</b> ';
-    echo esc_html(implode(', ', $trip_destinations));
-    echo '</div>';
-    }
-
-    // Extract Alaska float destinations
-    $trip_rivers_floating_alaska = [];
-    foreach ($entry as $key => $value) {
-        if (strpos($key, '212.') === 0 && !empty($value)) {
-            $trip_rivers_floating_alaska[] = $value;
-        }
-    }
-
-    if (!empty($trip_rivers_floating_alaska)) {
-        echo '<div class="col-12 form-entry"><b>Rivers in Alaska you are floating:</b> ';
-        echo esc_html(implode(', ', $trip_rivers_floating_alaska));
-        echo '</div>';
-    }
-
-
     if (isset($tel_number) && $tel_number == 'Yes') {
         echo '<div class="col-12 form-entry"><b>Tel:</b>'
             . rgar( $entry, '26' ) . '</div>';
     }
 
-    if (isset($other_travelers) && $other_travelers == 'Yes') {
-        echo '<div class="col-12 form-entry"><b>Names of others traveling with guest:</b><br>'
-            . rgar( $entry, '21' ) . '</div>';
-    }
+
+
 
     if (isset($shuttle_service) && $shuttle_service == 'Yes') {
         echo '<div class="col-12 form-entry"><b>Do you need Shuttle service?</b><br>'
             . rgar( $entry, '34' ) . '</div>';
 
-        echo '<div class="col-12 form-entry"><b>If you are in need of a shuttle, please let us know location of pick-up either Jackson or Idaho Falls and put your arrival/departure flight numbers and arrival/departure times below. This service is extra and not included in the price of the trip:</b><br>'
-            . rgar( $entry, '35' ) . '</div>';
+       /* echo '<div class="col-12 form-entry"><b>If you are in need of a shuttle, please let us know location of pick-up either Jackson or Idaho Falls and put your arrival/departure flight numbers and arrival/departure times below. This service is extra and not included in the price of the trip:</b><br>'
+            . rgar( $entry, '35' ) . '</div>'; */
     }
 
-    if (isset($needs_equip) && $needs_equip == 'Yes') {
+    /*if (isset($needs_equip) && $needs_equip == 'Yes') {
         echo '<div class="col-12 form-entry"><b>Needs Rods?</b><br>'
             . rgar( $entry, '36' ) . '</div>';
     }
@@ -437,7 +406,7 @@ foreach ( $entries as $entry ) {
     if (isset($dietary_allergies) && $dietary_allergies == 'Yes') {
         echo '<div class="col-12 form-entry"><b>Please list any allergies and/or dietary restrictions here:</b><br>'
             . rgar( $entry, '37' ) . '</div>';
-    }
+    }*/
 
     ?>
 
@@ -453,9 +422,38 @@ foreach ( $entries as $entry ) {
 
     <?php
 
+
     // Trip Type
     if (rgar($entry, '180') != '') {
         echo '<div class="col-12 form-entry"><b>Trip Type</b><i>(Lodge/Wilderness Float/Both)</i>: ' . rgar($entry, '180') . '</div>';
+    }
+
+    // Extract trip destinations
+    $trip_destinations = [];
+    foreach ($entry as $key => $value) {
+        if (strpos($key, '223.') === 0 && !empty($value)) {
+            $trip_destinations[] = $value;
+        }
+    }
+
+    if (!empty($trip_destinations)) {
+        echo '<div class="col-12 form-entry"><b>What Destination(s) are you fishing at &#x3f; :</b> ';
+        echo esc_html(implode(', ', $trip_destinations));
+        echo '</div>';
+    }
+
+    // Extract Alaska float destinations
+    $trip_rivers_floating_alaska = [];
+    foreach ($entry as $key => $value) {
+        if (strpos($key, '212.') === 0 && !empty($value)) {
+            $trip_rivers_floating_alaska[] = $value;
+        }
+    }
+
+    if (!empty($trip_rivers_floating_alaska)) {
+        echo '<div class="col-12 form-entry"><b>Rivers in Alaska you are floating:</b> ';
+        echo esc_html(implode(', ', $trip_rivers_floating_alaska));
+        echo '</div>';
     }
 
     // Cell Phone
