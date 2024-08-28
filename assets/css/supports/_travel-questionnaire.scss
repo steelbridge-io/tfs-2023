@@ -8,3 +8,14 @@
     padding: 1.618em;
   }
 }
+
+.collapse .form-entry:nth-child(odd) {
+  background-color: rgba(169, 169, 169, 0.5) !important; /* Light gray with 50% transparency */
+  margin: .5em 0 !important;
+  padding: 1em !important;
+}
+
+.collapse .form-entry:nth-child(even) {
+  background-color: rgba(211, 211, 211, 0.5) !important; /* Lighter gray with 50% transparency */
+  padding: 1em !important;
+}
