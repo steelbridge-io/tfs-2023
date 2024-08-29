@@ -510,6 +510,10 @@ function the_fly_shop_scripts() {
         wp_enqueue_script( 'modal-next-prvious', get_template_directory_uri() . '/js/modal-next-prvious.js', array(), '20180615', true );
     }
 
+   if ( is_page_template() == 'travel-form-posts-v2.php') {
+       wp_enqueue_script( 'table-js', get_template_directory_uri() . '/js/form-table.js', array(), '1.0', true );
+   }
+
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
