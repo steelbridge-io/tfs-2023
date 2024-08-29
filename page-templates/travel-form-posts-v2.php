@@ -342,17 +342,15 @@ echo '</pre>';
 
 echo '</div>';
 
-include get_template_directory() . '/template-parts/inc/form-grid-data.php';
+//include get_template_directory() . '/template-parts/inc/form-grid-data.php';
 
-
-
-echo '<div class="table-wrapper">
+echo '<div id="question-grid" class="table-wrapper">
         <div class="table-scrollable">
             <table>
             <thead>
             <tr>
             <th class="fixed-column">Name</th>
-                <th>Column 1</th>
+                <th>Reservation &#35;</th>
                 <th>Column 2</th>
                 <th>Column 3</th>
                 <th>Column 4</th>
@@ -386,12 +384,15 @@ foreach ( $entries as $entry ) {
 
 
     echo  '<tr>';
+				
     echo  '<td class="fixed-column">';
     // Name
     if (rgar($entry, '1.6') != '') {
         echo '<b>' . rgar($entry, '1.6') . rgar($entry, '1.3') . rgar($entry, '1.4') . '</b';
     }
     echo  '</td>';
+				
+				
     echo  '</tr>';
 
 
