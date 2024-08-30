@@ -296,7 +296,7 @@ echo '<div class="container form-list-wrap">';
  *
  * @var string $form_id The unique identifier of the Gravity Form.
  */
-$form_id                   = '41'; // Your Gravity Form ID
+$form_id                   = '53'; // Your Gravity Form ID
 $search_criteria['status'] = 'active';
 $sorting                   = array(
     'key'        => '1.6',
@@ -351,12 +351,12 @@ echo '<div id="question-grid" class="table-wrapper">
             <tr>
             <th class="fixed-column">Name</th>
                 <th>Reservation &#35;</th>
-                <th>Column 2</th>
-                <th>Column 3</th>
-                <th>Column 4</th>
-                <th>Column 5</th>
-                <th>Column 6</th>
-                <th>Column 7</th>
+                <th>Arrival</th>
+                <th>Departure</th>
+                <th>Email</th>
+                <th>Tel</th>
+                <th>Shuttle?</th>
+                <th>Trip Type</th>
                 <th>Column 8</th>
                 <th>Column 9</th>
                 <th>Column 10</th>
@@ -384,15 +384,85 @@ foreach ( $entries as $entry ) {
 
 
     echo  '<tr>';
-				
+
     echo  '<td class="fixed-column">';
-    // Name
-    if (rgar($entry, '1.6') != '') {
-        echo '<b>' . rgar($entry, '1.6') . rgar($entry, '1.3') . rgar($entry, '1.4') . '</b';
-    }
+        // Name
+        if (rgar($entry, '1.6') != '') {
+            echo '<b>' . rgar($entry, '1.6') . '&comma;&nbsp;' . rgar($entry, '1.3') . /*. rgar($entry, '1.4') .*/ '</b>';
+        }
     echo  '</td>';
-				
-				
+
+    echo  '<td>';
+        // Reservation #
+        if (rgar($entry, '44') != '') {
+            echo '<b>' . rgar($entry, '44') . '</b>';
+        }
+    echo  '</td>';
+
+    echo  '<td>';
+        // Date of arrival formating to m-d-Y
+        $dateOfArrival = rgar($entry, '46');
+        $dateTime = DateTime::createFromFormat('Y-m-d', $dateOfArrival);
+
+        if ($dateTime) {
+            $formattedDateOfArrival = $dateTime->format('m-d-Y');
+        } else {
+            $formattedDateOfArrival = 'Invalid date format';
+        }
+
+        // Date of arrival
+        if (rgar($entry, '46') != '') {
+            echo '<b>' . $formattedDateOfArrival . '</b>';
+        }
+    echo   '</td>';
+
+    echo  '<td>';
+        // Date of departure formating to m-d-Y
+        $dateOfDeparture = rgar($entry, '47');
+        $departureDateTime = DateTime::createFromFormat('Y-m-d', $dateOfDeparture);
+
+        if ($departureDateTime) {
+            $formattedDateOfDeparture = $departureDateTime->format('m-d-Y');
+        } else {
+            $formattedDateOfDeparture = 'Invalid date format';
+        }
+
+        // Date of departure
+        if (rgar($entry, '47') != '') {
+            echo '<b>' . $formattedDateOfDeparture . '</b>';
+        }
+    echo  '</td>';
+
+
+    echo  '<td>';
+        // Email
+        if (rgar($entry, '261') != '') {
+            echo '<b>' . rgar($entry, '261') . '</b>';
+        }
+    echo  '</td>';
+
+    echo  '<td>';
+        // Cell Phone - Text/SMS
+        if (rgar($entry, '101') != '') {
+            echo '<b>' . rgar($entry, '101') . '</b>';
+        }
+    echo  '</td>';
+
+    echo  '<td>';
+        // Shuttle service?
+        if ( rgar($entry, '34') != '') {
+            echo '<b>' . rgar( $entry, '34' ) . '</b>';
+        }
+    echo  '</td>';
+
+    echo  '<td>';
+        // Trip Type
+        if (rgar($entry, '180') != '') {
+            echo '<b>' . rgar($entry, '180') . '</b>';
+        }
+    echo  '</td>';
+
+
     echo  '</tr>';
 
 
