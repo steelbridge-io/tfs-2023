@@ -454,10 +454,10 @@ foreach ( $entries as $entry ) {
     }
 
     // Cell Phone
-    if (rgar($entry, '101') != '') {
+   /* if (rgar($entry, '101') != '') {
         echo '<div class="col-12 form-entry"><b>Cell Phone:</b>'
             . rgar($entry, '101') . '</div>';
-    }
+    }*/
 
     // Birth Date Formating to m-d-Y
 	$dateOfBirth = rgar($entry, '24');
