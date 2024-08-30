@@ -923,4 +923,24 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
         <?php
     }
     add_action('wp_head', 'custom_title_tag');
+    
 
+    /*
+     * Automatically selects travel-form-questionnaire.php for post-type 'travel-questionnaire'.
+     * */
+    add_action('save_post', 'set_default_template_for_travel_questionnaire', 10, 3);
+    
+    function set_default_template_for_travel_questionnaire($post_id, $post, $update) {
+        // Check if it's not an update
+        if ($update) {
+            return;
+        }
+        
+        // Verify the post type is 'travel-questionnaire'
+        if ('travel-questionnaire' !== $post->post_type) {
+            return;
+        }
+        
+        // Set the post template meta to 'Travel Questionnaire'
+        update_post_meta($post_id, '_wp_page_template', 'page-templates/travel-form-questionnaire.php');
+    }
