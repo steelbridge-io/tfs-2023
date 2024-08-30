@@ -357,9 +357,9 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Tel</th>
                 <th>Shuttle?</th>
                 <th>Trip Type</th>
-                <th>Column 8</th>
-                <th>Column 9</th>
-                <th>Column 10</th>
+                <th>Trip Destinations</th>
+                <th>Alaska Destinations</th>
+                <th>Date of Birth</th>
                 <th>Column 11</th>
                 <th>Column 12</th>
                 <th>Column 13</th>
@@ -461,12 +461,59 @@ foreach ( $entries as $entry ) {
             echo '<b>' . rgar($entry, '180') . '</b>';
         }
     echo  '</td>';
+				
+				echo  '<td>';
+						// Extract trip destinations
+						$trip_destinations = [];
+						foreach ($entry as $key => $value) {
+							if (strpos($key, '223.') === 0 && !empty($value)) {
+								$trip_destinations[] = $value;
+							}
+						}
+						// Trip destinations
+						if (!empty($trip_destinations)) {
+							echo '<b>';
+							echo esc_html(implode(', ', $trip_destinations));
+							echo '</b>';
+						}
+				echo  '</td>';
+				
+				echo  '<td>';
+					// Extract Alaska float destinations
+					$trip_rivers_floating_alaska = [];
+					foreach ($entry as $key => $value) {
+						if (strpos($key, '212.') === 0 && !empty($value)) {
+							$trip_rivers_floating_alaska[] = $value;
+						}
+					}
+					// Alaska destinations
+					if (!empty($trip_rivers_floating_alaska)) {
+						echo '<b>';
+						echo esc_html( implode( ', ', $trip_rivers_floating_alaska ) );
+						echo '</b>';
+					}
+				echo  '</td>';
+				
+				echo  '<td>';
+						// Birth Date Formating to m-d-Y
+						$dateOfBirth = rgar($entry, '24');
+						$dateTime = DateTime::createFromFormat('Y-m-d', $dateOfBirth);
+						
+						if ($dateTime) {
+							$formattedDateOfBirth = $dateTime->format('m-d-Y');
+						} else {
+							$formattedDateOfBirth = 'Invalid date format';
+						}
+						
+						// Birth Date
+						if (rgar($entry, '24') != '') {
+							echo '<b>' . $formattedDateOfBirth . '</b>';
+						}
+				echo  '</td>';
 
 
     echo  '</tr>';
-
-
-
+				
     $counter++;
 }
 echo '</tbody>'; // end tbody
