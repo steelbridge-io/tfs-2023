@@ -944,3 +944,25 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
         // Set the post template meta to 'Travel Questionnaire'
         update_post_meta($post_id, '_wp_page_template', 'page-templates/travel-form-questionnaire.php');
     }
+    
+    /*
+     * Adds permalink to Publish section inside the editor for post-type "travel-questionnaire"
+     * */
+    add_action('post_submitbox_misc_actions', 'add_permalink_to_publish_box');
+    function add_permalink_to_publish_box() {
+        global $post, $pagenow;
+        
+        if ( $pagenow == 'post.php' && $post->post_type == 'travel-questionnaire' ) { // Replace 'your_custom_post_type' with the name of your custom post type
+            $post_id = $post->ID;
+            $permalink = get_permalink($post_id);
+            ?>
+         <div class="misc-pub-section misc-pub-permalink">
+             <strong><?php _e('Permalink:'); ?></strong>
+             <span id="sample-permalink">
+                    <a href="<?php echo esc_url($permalink); ?>" target="_blank"><?php echo esc_html($permalink); ?></a>
+                </span>
+         </div>
+            <?php
+        }
+    }
+    
