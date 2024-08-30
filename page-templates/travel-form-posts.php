@@ -716,6 +716,12 @@ foreach ( $entries as $entry ) {
             . rgar($entry, '236') . '</div>';
     }
 
+    // Do you need shuttle service from the airstrip?
+    if (rgar($entry, '287') != '') {
+        echo '<div class="col-12 form-entry"><b>Do you need shuttle service from the airstrip?:</b>'
+            . rgar($entry, '287') . '</div>';
+    }
+
     // Do you need shuttle service?
     if (rgar($entry, '34') != '') {
         echo '<div class="col-12 form-entry"><b>Do you need shuttle service?:</b>'
