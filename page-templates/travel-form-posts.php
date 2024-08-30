@@ -382,13 +382,10 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 name-fml form-entry"><b>Cell Phone:</b><span class="name-g">' . rgar($entry, '101') . '</div>';
     }
 
-    if (isset($tel_number) && $tel_number == 'Yes') {
+    /*if (isset($tel_number) && $tel_number == 'Yes') {
         echo '<div class="col-12 form-entry"><b>Tel:</b>'
             . rgar( $entry, '26' ) . '</div>';
-    }
-
-
-
+    }*/
 
     if (isset($shuttle_service) && $shuttle_service == 'Yes') {
         echo '<div class="col-12 form-entry"><b>Do you need Shuttle service?</b><br>'
