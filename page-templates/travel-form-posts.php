@@ -753,19 +753,19 @@ foreach ( $entries as $entry ) {
     }
 
     // Flight arrival date formating to m-d-Y
-    $dateOfArrival = rgar($entry, '169');
-    $arrivalDateTime = DateTime::createFromFormat('Y-m-d', $dateOfArrival);
+    $dateOfFlightArr = rgar($entry, '169');
+    $flightArrDateTime = DateTime::createFromFormat('Y-m-d', $dateOfFlightArr);
 
-    if ($arrivalDateTime) {
-        $formattedDateOfArrival = $arrivalDateTime->format('m-d-Y');
+    if ($flightArrDateTime) {
+        $formattedDateOfFlightArr = $flightArrDateTime->format('m-d-Y');
     } else {
-        $formattedDateOfArrival = 'Invalid date format';
+        $formattedDateOfFlightArr = 'Invalid date format';
     }
 
     // Flight arrival date
     if (rgar($entry, '169') != '') {
         echo '<div class="col-12 form-entry"><b>Flight Departure Date:</b>'
-            . $formattedDateOfArrival . '</div>';
+            . $formattedDateOfFlightArr . '</div>';
     }
 
     // Arrival airline flight number
