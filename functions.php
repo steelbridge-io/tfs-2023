@@ -923,46 +923,45 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
         <?php
     }
     add_action('wp_head', 'custom_title_tag');
-    
+
 
     /*
      * Automatically selects travel-form-questionnaire.php for post-type 'travel-questionnaire'.
      * */
     add_action('save_post', 'set_default_template_for_travel_questionnaire', 10, 3);
-    
+
     function set_default_template_for_travel_questionnaire($post_id, $post, $update) {
         // Check if it's not an update
         if ($update) {
             return;
         }
-        
+
         // Verify the post type is 'travel-questionnaire'
         if ('travel-questionnaire' !== $post->post_type) {
             return;
         }
-        
+
         // Set the post template meta to 'Travel Questionnaire'
         update_post_meta($post_id, '_wp_page_template', 'page-templates/travel-form-questionnaire.php');
     }
-    
+
     /*
      * Adds permalink to Publish section inside the editor for post-type "travel-questionnaire"
      * */
     add_action('post_submitbox_misc_actions', 'add_permalink_to_publish_box');
     function add_permalink_to_publish_box() {
         global $post, $pagenow;
-        
-        if ( $pagenow == 'post.php' && $post->post_type == 'travel-questionnaire' ) { // Replace 'your_custom_post_type' with the name of your custom post type
+
+        if ( $pagenow == 'post.php' && in_array($post->post_type, ['travel-questionnaire', 'travel-form']) ) {
             $post_id = $post->ID;
             $permalink = get_permalink($post_id);
             ?>
-         <div class="misc-pub-section misc-pub-permalink">
-             <strong><?php _e('Permalink:'); ?></strong>
-             <span id="sample-permalink">
+            <div class="misc-pub-section misc-pub-permalink">
+                <strong><?php _e('Permalink:'); ?></strong>
+                <span id="sample-permalink">
                     <a href="<?php echo esc_url($permalink); ?>" target="_blank"><?php echo esc_html($permalink); ?></a>
                 </span>
-         </div>
+            </div>
             <?php
         }
     }
- 
