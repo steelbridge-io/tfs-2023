@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Teton Valley Lodge Template
+ * Template Name: Teton Valley Lodge
  * Template Post Type: travel-form
  * Developed for The Fly Shop
  *
