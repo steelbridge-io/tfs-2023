@@ -360,10 +360,10 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Trip Destinations</th>
                 <th>Alaska Destinations</th>
                 <th>Date of Birth</th>
-                <th>Column 11</th>
-                <th>Column 12</th>
-                <th>Column 13</th>
-                <th>Column 14</th>
+                <th>Weight</th>
+                <th>Height</th>
+                <th>Gender</th>
+                <th>Passport &#35;</th>
                 <th>Column 15</th>
                 <th>Column 16</th>
                 <th>Column 17</th>
@@ -461,59 +461,87 @@ foreach ( $entries as $entry ) {
             echo '<b>' . rgar($entry, '180') . '</b>';
         }
     echo  '</td>';
-				
-				echo  '<td>';
-						// Extract trip destinations
-						$trip_destinations = [];
-						foreach ($entry as $key => $value) {
-							if (strpos($key, '223.') === 0 && !empty($value)) {
-								$trip_destinations[] = $value;
-							}
-						}
-						// Trip destinations
-						if (!empty($trip_destinations)) {
-							echo '<b>';
-							echo esc_html(implode(', ', $trip_destinations));
-							echo '</b>';
-						}
-				echo  '</td>';
-				
-				echo  '<td>';
-					// Extract Alaska float destinations
-					$trip_rivers_floating_alaska = [];
-					foreach ($entry as $key => $value) {
-						if (strpos($key, '212.') === 0 && !empty($value)) {
-							$trip_rivers_floating_alaska[] = $value;
-						}
-					}
-					// Alaska destinations
-					if (!empty($trip_rivers_floating_alaska)) {
-						echo '<b>';
-						echo esc_html( implode( ', ', $trip_rivers_floating_alaska ) );
-						echo '</b>';
-					}
-				echo  '</td>';
-				
-				echo  '<td>';
-						// Birth Date Formating to m-d-Y
-						$dateOfBirth = rgar($entry, '24');
-						$dateTime = DateTime::createFromFormat('Y-m-d', $dateOfBirth);
-						
-						if ($dateTime) {
-							$formattedDateOfBirth = $dateTime->format('m-d-Y');
-						} else {
-							$formattedDateOfBirth = 'Invalid date format';
-						}
-						
-						// Birth Date
-						if (rgar($entry, '24') != '') {
-							echo '<b>' . $formattedDateOfBirth . '</b>';
-						}
-				echo  '</td>';
+
+    echo  '<td>';
+        // Extract trip destinations
+        $trip_destinations = [];
+        foreach ($entry as $key => $value) {
+            if (strpos($key, '223.') === 0 && !empty($value)) {
+                $trip_destinations[] = $value;
+            }
+        }
+        // Trip destinations
+        if (!empty($trip_destinations)) {
+            echo '<b>';
+            echo esc_html(implode(', ', $trip_destinations));
+            echo '</b>';
+        }
+    echo  '</td>';
+
+    echo  '<td>';
+        // Extract Alaska float destinations
+        $trip_rivers_floating_alaska = [];
+        foreach ($entry as $key => $value) {
+            if (strpos($key, '212.') === 0 && !empty($value)) {
+                $trip_rivers_floating_alaska[] = $value;
+            }
+        }
+        // Alaska destinations
+        if (!empty($trip_rivers_floating_alaska)) {
+            echo '<b>';
+            echo esc_html( implode( ', ', $trip_rivers_floating_alaska ) );
+            echo '</b>';
+        }
+    echo  '</td>';
+
+    echo  '<td>';
+        // Birth Date Formating to m-d-Y
+        $dateOfBirth = rgar($entry, '24');
+        $dateTime = DateTime::createFromFormat('Y-m-d', $dateOfBirth);
+
+        if ($dateTime) {
+            $formattedDateOfBirth = $dateTime->format('m-d-Y');
+        } else {
+            $formattedDateOfBirth = 'Invalid date format';
+        }
+
+        // Birth Date
+        if (rgar($entry, '24') != '') {
+            echo '<b>' . $formattedDateOfBirth . '</b>';
+        }
+    echo  '</td>';
+
+    echo  '<td>';
+        // Body Weight
+        if (rgar($entry, '284') != '') {
+            echo '<b>' . rgar( $entry, '284' ) . '</b>';
+        }
+    echo  '</td>';
+
+    echo  '<td>';
+        // Height
+        if (rgar($entry, '52') != '') {
+            echo '<b>' . rgar( $entry, '52' ) . '</b>';
+        }
+    echo  '</td>';
+
+    echo  '<td>';
+        // Gender
+        if (rgar($entry, '267') != '') {
+            echo '<b>' . rgar( $entry, '267' ) . '</b>';
+        }
+    echo  '</td>';
+
+    echo  '<td>';
+    // Passport Number
+    if (rgar($entry, '64') != '') {
+        echo '<b>' . rgar( $entry, '64' ) . '</b>';
+    }
+    echo  '</td>';
 
 
     echo  '</tr>';
-				
+
     $counter++;
 }
 echo '</tbody>'; // end tbody
