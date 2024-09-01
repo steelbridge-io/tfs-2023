@@ -364,7 +364,7 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Height</th>
                 <th>Gender</th>
                 <th>Passport &#35;</th>
-                <th>Column 15</th>
+                <th>Passport exp</th>
                 <th>Column 16</th>
                 <th>Column 17</th>
                 <th>Column 18</th>
@@ -539,6 +539,23 @@ foreach ( $entries as $entry ) {
     }
     echo  '</td>';
 
+    echo  '<td>';
+        // Passport Expiration Date Formating to m-d-Y
+        $dateOfPassport = rgar($entry, '65');
+        $passPortdateTime = DateTime::createFromFormat('Y-m-d', $dateOfPassport);
+
+        if ($passPortdateTime) {
+            $formattedDateOfPassport = $passPortdateTime->format('m-d-Y');
+        } else {
+            $formattedDateOfPassport = 'Invalid date format';
+        }
+
+        // Passport Expiration Date
+        if (rgar($entry, '65') != '') {
+            echo '<b>' . $formattedDateOfPassport . '</b>';
+        }
+    echo  '</td>';
+
 
     echo  '</tr>';
 
@@ -550,5 +567,13 @@ echo '</div>'; // end table-scrollable
 echo '</div>'; // end table-wrapper
 
 echo '</div>'; // end travel-form-posts div
+
+?>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+<?php
 
 get_footer();
