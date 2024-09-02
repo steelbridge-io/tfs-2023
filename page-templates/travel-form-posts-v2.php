@@ -375,311 +375,44 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Travel insurance Co name?</th>
                 <th>Travel insurance policy &#35;</th>
                 <th>Passport photo copy</th>
-                <th>Column 20</th>
-                <th>Column 20</th>
-                <th>Column 20</th>
-                <th>Column 20</th>
-                <th>Column 20</th>
+                <th>Russian photo copy</th>
+                <th>Occupation</th>
+                <th>Arrival airline</th>
+                <th>Arrival airline (other)</th>
+                <th>Arrival date</th>
+                <th>Arrival airline flight number</th>
+                <th>Arrival time</th>
+                <th>Departure airline</th>
+                <th>Departure airline (other)</th>
+                <th>Departure date</th>
+                <th>Departure airline flight number</th>
+                <th>Depature time</th>
+                <th>How do you plan at arriving at the lodge?</th>
+                <th>Other option on arriving at the lodge</th>
+                <th>Arriving time at the airstrip</th>
+                <th>Needs shuttle service at airstrip</th>
+                <th>Needs airport shuttle service</th>
+                <th>Estimated time of arrival at lodge</th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>';
 
-
-
+/*
+ * Retrieves entries from a Gravity Form based on specified criteria and sorting order
+ * $form_id: ID of the form to retrieve entries from
+ * $search_criteria: Array to filter entries (e.g., status, date range, field values)
+ * $sorting: Array to define the sorting order of entries (e.g., by date created, direction)
+**/
 $entries = GFAPI::get_entries( $form_id, $search_criteria, $sorting );
 
-$counter = 1;
-foreach ( $entries as $entry ) {
-    $date_created = date( "m/d/Y", strtotime( $entry['date_created'] ) );
+require_once 'questionnaire-config/question-config.php';
+foreach ($entries as $entry ) {
+	formatEntryData($entry, $counter);
+}
 
-
-    echo  '<tr>';
-
-    echo  '<td class="fixed-column">';
-        // Name
-        if (rgar($entry, '1.6') != '') {
-            echo '<b>' . rgar($entry, '1.6') . '&comma;&nbsp;' . rgar($entry, '1.3') . /*. rgar($entry, '1.4') .*/ '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Reservation #
-        if (rgar($entry, '44') != '') {
-            echo '<b>' . rgar($entry, '44') . '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Date of arrival formating to m-d-Y
-        $dateOfArrival = rgar($entry, '46');
-        $dateTime = DateTime::createFromFormat('Y-m-d', $dateOfArrival);
-
-        if ($dateTime) {
-            $formattedDateOfArrival = $dateTime->format('m-d-Y');
-        } else {
-            $formattedDateOfArrival = 'Invalid date format';
-        }
-
-        // Date of arrival
-        if (rgar($entry, '46') != '') {
-            echo '<b>' . $formattedDateOfArrival . '</b>';
-        }
-    echo   '</td>';
-
-    echo  '<td>';
-        // Date of departure formating to m-d-Y
-        $dateOfDeparture = rgar($entry, '47');
-        $departureDateTime = DateTime::createFromFormat('Y-m-d', $dateOfDeparture);
-
-        if ($departureDateTime) {
-            $formattedDateOfDeparture = $departureDateTime->format('m-d-Y');
-        } else {
-            $formattedDateOfDeparture = 'Invalid date format';
-        }
-
-        // Date of departure
-        if (rgar($entry, '47') != '') {
-            echo '<b>' . $formattedDateOfDeparture . '</b>';
-        }
-    echo  '</td>';
-
-
-    echo  '<td>';
-        // Email
-        if (rgar($entry, '261') != '') {
-            echo '<b>' . rgar($entry, '261') . '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Cell Phone - Text/SMS
-        if (rgar($entry, '101') != '') {
-            echo '<b>' . rgar($entry, '101') . '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Shuttle service?
-        if ( rgar($entry, '34') != '') {
-            echo '<b>' . rgar( $entry, '34' ) . '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Trip Type
-        if (rgar($entry, '180') != '') {
-            echo '<b>' . rgar($entry, '180') . '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Extract trip destinations
-        $trip_destinations = [];
-        foreach ($entry as $key => $value) {
-            if (strpos($key, '223.') === 0 && !empty($value)) {
-                $trip_destinations[] = $value;
-            }
-        }
-        // Trip destinations
-        if (!empty($trip_destinations)) {
-            echo '<b>';
-            echo esc_html(implode(', ', $trip_destinations));
-            echo '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Extract Alaska float destinations
-        $trip_rivers_floating_alaska = [];
-        foreach ($entry as $key => $value) {
-            if (strpos($key, '212.') === 0 && !empty($value)) {
-                $trip_rivers_floating_alaska[] = $value;
-            }
-        }
-        // Alaska destinations
-        if (!empty($trip_rivers_floating_alaska)) {
-            echo '<b>';
-            echo esc_html( implode( ', ', $trip_rivers_floating_alaska ) );
-            echo '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Birth Date Formating to m-d-Y
-        $dateOfBirth = rgar($entry, '24');
-        $dateTime = DateTime::createFromFormat('Y-m-d', $dateOfBirth);
-
-        if ($dateTime) {
-            $formattedDateOfBirth = $dateTime->format('m-d-Y');
-        } else {
-            $formattedDateOfBirth = 'Invalid date format';
-        }
-
-        // Birth Date
-        if (rgar($entry, '24') != '') {
-            echo '<b>' . $formattedDateOfBirth . '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Body Weight
-        if (rgar($entry, '284') != '') {
-            echo '<b>' . rgar( $entry, '284' ) . '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Height
-        if (rgar($entry, '52') != '') {
-            echo '<b>' . rgar( $entry, '52' ) . '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Gender
-        if (rgar($entry, '267') != '') {
-            echo '<b>' . rgar( $entry, '267' ) . '</b>';
-        }
-    echo  '</td>';
-
-    echo  '<td>';
-    // Passport Number
-    if (rgar($entry, '64') != '') {
-        echo '<b>' . rgar( $entry, '64' ) . '</b>';
-    }
-    echo  '</td>';
-
-    echo  '<td>';
-        // Passport Expiration Date Formating to m-d-Y
-        $dateOfPassport = rgar($entry, '65');
-        $passPortdateTime = DateTime::createFromFormat('Y-m-d', $dateOfPassport);
-
-        if ($passPortdateTime) {
-            $formattedDateOfPassport = $passPortdateTime->format('m-d-Y');
-        } else {
-            $formattedDateOfPassport = 'Invalid date format';
-        }
-
-        // Passport Expiration Date
-        if (rgar($entry, '65') != '') {
-            echo '<b>' . $formattedDateOfPassport . '</b>';
-        }
-    echo  '</td>';
-    
-    echo  '<td>';
-        // Passport Issuing Country
-        if (rgar($entry, '281') != '') {
-            echo '<b>' . rgar( $entry, '281' ) . '</b>';
-        }
-    echo  '</td>';
-    
-    echo  '<td>';
-        // Other Country where your passport was issued
-        if (rgar($entry, '282') != '') {
-            echo '<b>' . rgar( $entry, '282' ) . '</b>';
-        }
-    echo  '</td>';
-    
-    echo  '<td>';
-        // Emergency Contact Person
-        if (rgar($entry, '28.3') != '') {
-            echo '<b>' . rgar($entry, '28.3') . '&nbsp;</b><b>' . rgar($entry, '28.6') . '</b>';
-        }
-	echo  '</td>';
-    
-    echo  '<td>';
-        // Relationship to Traveler
-        if (rgar($entry, '29') != '') {
-            echo '<b>' . rgar( $entry, '29' ) . '</b>';
-        }
-    echo  '</td>';
-    
-    echo  '<td>';
-        // Emergency Contact Person's Preferred Phone Number
-        if (rgar($entry, '30') != '') {
-            echo '<b>' . rgar( $entry, '30' ) . '</b>';
-        }
-    echo  '</td>';
-    
-    echo  '<td>';
-        // Mandatory Medical Evacuation Company/Policy Number
-        if (rgar($entry, '72') != '') {
-            echo '<b>' . rgar( $entry, '72' ) . '</b>';
-        }
-    echo  '</td>';
-    
-    echo  '<td>';
-        // Did you purchase Trip Cancellation Insurance?
-        if (rgar($entry, '210') != '') {
-            echo '<b>' . rgar( $entry, '210' ) . '</b>';
-        }
-    echo  '</td>';
-    
-    echo  '<td>';
-        // Name of Travel Insurance company
-        if (rgar($entry, '207') != '') {
-            echo '<b>' . rgar( $entry, '207' ) . '</b>';
-        }
-    echo  '</td>';
-    
-    echo  '<td>';
-        // Travel Insurance Policy Number
-        if (rgar($entry, '209') != '') {
-            echo '<b>' . rgar( $entry, '209' ) . '</b>';
-        }
-    echo  '</td>';
-    
-    echo  '<td>';
-	// Passport Photo Copy
-	if (rgar($entry, '111') != '') {
-		// Retrieve the relative URL from the entry.
-		$relative_url = rgar($entry, '111');
-		
-		// Remove any leading slash.
-		$relative_url = ltrim($relative_url, '/');
-		
-		// Define your custom base URL. Edit based on hosting environment.
-		$custom_base_url = 'http://www.theflyshop.local/wp-content/uploads';
-		
-		// Derive the relative part of the path after "uploads" directory.
-		$path_relative_to_uploads = strstr($relative_url, 'gravity_forms');
-		
-		// Construct the full URL using custom base URL.
-		$full_url = $custom_base_url . '/' . $path_relative_to_uploads;
-		
-		// Sanitize the constructed URL.
-		$file_url = esc_url($full_url);
-		
-		// Output the image.
-        echo <<<HTML
-        <button type="button" class="btn btn-passport-preview btn-popover" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<img src='{$file_url}' alt='Uploaded Photo' style='width: 600px; height: auto;'>">
-        <div class="overlay-container">
-            <img class='passport-copy-preview' src='{$file_url}' alt='Uploaded Photo'/>
-            <p class="overlay-text">Click to see image</p>
-        </button>
-        </div>
-        <style>
-            .popover {
-                max-width: none; /* Allow the popover to expand to the size of the content */
-            }
-            .popover-content img {
-                width: 600px; /* Adjust the width as needed */
-                height: auto; /* Maintain aspect ratio */
-            }
-        </style>
-        HTML;
-	}
-    echo  '</td>';
-    
-    
-    
-    
-    
-    
-    echo  '</tr>';
-
-    $counter++;
-    }
     echo '</tbody>'; // end tbody
     echo '</table>'; // end table
     echo '</div>'; // end table-scrollable
