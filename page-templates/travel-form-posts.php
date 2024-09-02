@@ -529,7 +529,9 @@ foreach ( $entries as $entry ) {
 
     // Emergency Contact Person
     if (rgar($entry, '28.3') != '') {
-        echo '<div class="col-12 name-fml form-entry"><b>Emergency Contact Person (Name):</b><br><b>First Name:</b><span class="name-g">' . rgar($entry, '28.3') . '</span><b>Last Name:</b><span class="name-g">' . rgar($entry, '28.6') . '</span></div>';
+        echo '<div class="col-12 name-fml form-entry"><b>Emergency Contact Person (Name):</b><br><b>First Name:</b><span class="name-g">'
+          . rgar($entry, '28.3') .
+          '</span><b>Last Name:</b><span class="name-g">' . rgar($entry, '28.6') . '</span></div>';
     }
 
     // Relationship to Traveler
@@ -665,8 +667,7 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Other Departure Airline:</b>'
             . rgar($entry, '57') . '</div>';
     }
-
-
+    
     // Flight Departure Date Formating to m-d-Y
     $dateOfDeparture = rgar($entry, '67');
     $departureDateTime = DateTime::createFromFormat('Y-m-d', $dateOfDeparture);
@@ -761,7 +762,7 @@ foreach ( $entries as $entry ) {
 
     // Flight arrival date
     if (rgar($entry, '169') != '') {
-        echo '<div class="col-12 form-entry"><b>Flight Departure Date:</b>'
+        echo '<div class="col-12 form-entry"><b>Flight arrival date:</b>'
             . $formattedDateOfFlightArr . '</div>';
     }
 
