@@ -1,5 +1,37 @@
 /** Travel Questionnaire */
 
+.btn-passport-preview {
+  position: relative;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.overlay-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+.btn-passport-preview {
+  padding: 0;
+  width: 100%;
+}
+.passport-copy-preview {
+  width: 100%;
+  object-fit: cover;
+  height: 50px;
+}
+
 #travel-form-questionnaire {
   margin-top: 8em;
   margin-bottom: 4em;
