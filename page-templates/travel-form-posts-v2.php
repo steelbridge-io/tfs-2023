@@ -365,10 +365,20 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Gender</th>
                 <th>Passport &#35;</th>
                 <th>Passport exp</th>
-                <th>Column 16</th>
-                <th>Column 17</th>
-                <th>Column 18</th>
-                <th>Column 19</th>
+                <th>Passport issuing country</th>
+                <th>Other passport issuing country</th>
+                <th>Emergency contact</th>
+                <th>Emergency contact relationship</th>
+                <th>Emergency contact tel</th>
+                <th>Evacuation policy &#35;</th>
+                <th>Cancellation insurance ?</th>
+                <th>Travel insurance Co name?</th>
+                <th>Travel insurance policy &#35;</th>
+                <th>Passport photo copy</th>
+                <th>Column 20</th>
+                <th>Column 20</th>
+                <th>Column 20</th>
+                <th>Column 20</th>
                 <th>Column 20</th>
             </tr>
             </thead>
@@ -555,25 +565,167 @@ foreach ( $entries as $entry ) {
             echo '<b>' . $formattedDateOfPassport . '</b>';
         }
     echo  '</td>';
-
-
+    
+    echo  '<td>';
+        // Passport Issuing Country
+        if (rgar($entry, '281') != '') {
+            echo '<b>' . rgar( $entry, '281' ) . '</b>';
+        }
+    echo  '</td>';
+    
+    echo  '<td>';
+        // Other Country where your passport was issued
+        if (rgar($entry, '282') != '') {
+            echo '<b>' . rgar( $entry, '282' ) . '</b>';
+        }
+    echo  '</td>';
+    
+    echo  '<td>';
+        // Emergency Contact Person
+        if (rgar($entry, '28.3') != '') {
+            echo '<b>' . rgar($entry, '28.3') . '&nbsp;</b><b>' . rgar($entry, '28.6') . '</b>';
+        }
+	echo  '</td>';
+    
+    echo  '<td>';
+        // Relationship to Traveler
+        if (rgar($entry, '29') != '') {
+            echo '<b>' . rgar( $entry, '29' ) . '</b>';
+        }
+    echo  '</td>';
+    
+    echo  '<td>';
+        // Emergency Contact Person's Preferred Phone Number
+        if (rgar($entry, '30') != '') {
+            echo '<b>' . rgar( $entry, '30' ) . '</b>';
+        }
+    echo  '</td>';
+    
+    echo  '<td>';
+        // Mandatory Medical Evacuation Company/Policy Number
+        if (rgar($entry, '72') != '') {
+            echo '<b>' . rgar( $entry, '72' ) . '</b>';
+        }
+    echo  '</td>';
+    
+    echo  '<td>';
+        // Did you purchase Trip Cancellation Insurance?
+        if (rgar($entry, '210') != '') {
+            echo '<b>' . rgar( $entry, '210' ) . '</b>';
+        }
+    echo  '</td>';
+    
+    echo  '<td>';
+        // Name of Travel Insurance company
+        if (rgar($entry, '207') != '') {
+            echo '<b>' . rgar( $entry, '207' ) . '</b>';
+        }
+    echo  '</td>';
+    
+    echo  '<td>';
+        // Travel Insurance Policy Number
+        if (rgar($entry, '209') != '') {
+            echo '<b>' . rgar( $entry, '209' ) . '</b>';
+        }
+    echo  '</td>';
+    
+    echo  '<td>';
+	// Passport Photo Copy
+	if (rgar($entry, '111') != '') {
+		// Retrieve the relative URL from the entry.
+		$relative_url = rgar($entry, '111');
+		
+		// Remove any leading slash.
+		$relative_url = ltrim($relative_url, '/');
+		
+		// Define your custom base URL. Edit based on hosting environment.
+		$custom_base_url = 'http://www.theflyshop.local/wp-content/uploads';
+		
+		// Derive the relative part of the path after "uploads" directory.
+		$path_relative_to_uploads = strstr($relative_url, 'gravity_forms');
+		
+		// Construct the full URL using custom base URL.
+		$full_url = $custom_base_url . '/' . $path_relative_to_uploads;
+		
+		// Sanitize the constructed URL.
+		$file_url = esc_url($full_url);
+		
+		// Output the image.
+        echo <<<HTML
+        <button type="button" class="btn btn-passport-preview btn-popover" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<img src='{$file_url}' alt='Uploaded Photo' style='width: 600px; height: auto;'>">
+        <div class="overlay-container">
+            <img class='passport-copy-preview' src='{$file_url}' alt='Uploaded Photo'/>
+            <p class="overlay-text">Click to see image</p>
+        </button>
+        </div>
+        <style>
+            .popover {
+                max-width: none; /* Allow the popover to expand to the size of the content */
+            }
+            .popover-content img {
+                width: 600px; /* Adjust the width as needed */
+                height: auto; /* Maintain aspect ratio */
+            }
+        </style>
+        HTML;
+	}
+    echo  '</td>';
+    
+    
+    
+    
+    
+    
     echo  '</tr>';
 
     $counter++;
-}
-echo '</tbody>'; // end tbody
-echo '</table>'; // end table
-echo '</div>'; // end table-scrollable
-echo '</div>'; // end table-wrapper
-
-echo '</div>'; // end travel-form-posts div
-
+    }
+    echo '</tbody>'; // end tbody
+    echo '</table>'; // end table
+    echo '</div>'; // end table-scrollable
+    echo '</div>'; // end table-wrapper
+    
+    echo '</div>'; // end travel-form-posts div
 ?>
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
+    <script>
+        jQuery(document).ready(function(){
+        // Initialize the popover
+            jQuery('.btn-popover').popover();
+            
+            // Toggle popover on button click
+            jQuery('.btn-popover').on('click', function (e) {
+            e.stopPropagation();
+            var $this = jQuery(this);
+            // Hide other popovers
+            jQuery('.btn-popover').not($this).popover('hide');
+            // Toggle the clicked popover
+            $this.popover('toggle');
+            // Update the popover position after toggle
+            setTimeout(function () {
+            $this.popover('update');
+            }, 1);
+        });
+        
+           // Close popover when clicking outside
+           jQuery(document).on('click', function (e) {
+           var target = jQuery(e.target);
+           if (!target.closest('.popover').length && !target.closest('.btn-popover').length) {
+           jQuery('.btn-popover').popover('hide');
+            }
+        });
+        });
+    
+    </script>
+
+
+
+
+
+
+
+
+
+
 <?php
 
 get_footer();
