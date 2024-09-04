@@ -296,7 +296,7 @@ echo '<div class="container form-list-wrap">';
  *
  * @var string $form_id The unique identifier of the Gravity Form.
  */
-$form_id                   = '56'; // Your Gravity Form ID
+$form_id                   = '59'; // Your Gravity Form ID
 $search_criteria['status'] = 'active';
 $sorting                   = array(
     'key'        => '1.6',
@@ -351,8 +351,8 @@ echo '<div id="question-grid" class="table-wrapper">
             <tr>
             <th class="fixed-column">Name</th>
                 <th>Reservation &#35;</th>
-                <th>Arrival</th>
-                <th>Departure</th>
+                <th>Arrival date</th>
+                <th>Departure date</th>
                 <th>Email</th>
                 <th>Tel</th>
                 <th>Shuttle?</th>
@@ -360,7 +360,7 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Trip Destinations</th>
                 <th>Alaska Destinations</th>
                 <th>Date of Birth</th>
-                <th>Weight</th>
+                <th>Body weight</th>
                 <th>Height</th>
                 <th>Gender</th>
                 <th>Passport &#35;</th>
@@ -377,11 +377,13 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Passport photo copy</th>
                 <th>Russian photo copy</th>
                 <th>Occupation</th>
+                <th>Arrival airport city/town</th>
                 <th>Arrival airline</th>
                 <th>Arrival airline (other)</th>
                 <th>Arrival date</th>
                 <th>Arrival airline flight number</th>
                 <th>Arrival time</th>
+                <th>Departure airport city/town</th>
                 <th>Departure airline</th>
                 <th>Departure airline (other)</th>
                 <th>Departure date</th>
@@ -393,6 +395,60 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Needs shuttle service at airstrip</th>
                 <th>Needs airport shuttle service</th>
                 <th>Estimated time of arrival at lodge</th>
+                <th>Arrival airport city/town</th>
+                <th>Arrival airline</th>
+                <th>Other airline</th>
+                <th>Arrival date</th>
+                <th>Arrival flight number</th>
+                <th>Scheduled arrival time</th>
+                <th>Departure city/town</th>
+                <th>Departure airline</th>
+                <th>Other departure airline</th>
+                <th>Flight departure date</th>
+                <th>Departure flight &#35;</th>
+                <th>Scheduled departure time</th>
+                <th>Name(s) of others traveling with</th>
+                <th>Upgrade hotel in Ulaanbaatar?</th>
+                <th>Need extra nights?</th>
+                <th>Dates for extra nights</th>
+                <th>Anchorage hotel</th>
+                <th>Other Anchorage hotel</th>
+                <th>Other Anchorage hotel address</th>
+                <th>Anchorage hotel info</th>
+                <th>Overnight in Manaus</th>
+                <th>Who to room with</th>
+                <th>Overnight on return?</th>
+                <th>Room type</th>
+                <th>Who room with</th>
+                <th>Rent rods/reels?</th>
+                <th>Rods/reels provided by lodge?</th>
+                <th>What hand reel with?</th>
+                <th>Needs to rent waders &amp; boots from lodge</th>
+                <th>Needs to use waders provided by lodge</th>
+                <th>Wader size</th>
+                <th>Wader size: Men</th>
+                <th>Wader size: Women</th>
+                <th>Need to use wading boots provided by lodge</th>
+                <th>Shoe size</th>
+                <th>Men&apos;s size</th>
+                <th>Women&apos;s size</th>
+                <th>Rent sleeping bag</th>
+                <th>Equipment to rent</th>
+                <th>Preferred style of fishing</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -407,6 +463,7 @@ echo '<div id="question-grid" class="table-wrapper">
  * $sorting: Array to define the sorting order of entries (e.g., by date created, direction)
 **/
 $entries = GFAPI::get_entries( $form_id, $search_criteria, $sorting );
+
 
 require_once 'questionnaire-config/question-config.php';
 foreach ($entries as $entry ) {
@@ -449,15 +506,6 @@ foreach ($entries as $entry ) {
         });
     
     </script>
-
-
-
-
-
-
-
-
-
 
 <?php
 
