@@ -296,7 +296,7 @@ echo '<div class="container form-list-wrap">';
  *
  * @var string $form_id The unique identifier of the Gravity Form.
  */
-$form_id                   = '59'; // Your Gravity Form ID
+$form_id                   = '57'; // Your Gravity Form ID
 $search_criteria['status'] = 'active';
 $sorting                   = array(
     'key'        => '1.6',
@@ -1027,7 +1027,7 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Is there a particular fish you wish to target?:</b>'
             . rgar($entry, '182') . '</div>';
     }
-
+    
     /**
      * Define the range of checkbox IDs based on your form configuration. For certain species of fish being targeting.
      */
