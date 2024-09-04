@@ -60,7 +60,6 @@ function formatEntryData(mixed $entry, int $counter): void
 	}
 	echo '</td>';
 	
-	
 	echo '<td>';
 	// Email
 	if (rgar($entry, '261') != '') {
@@ -338,6 +337,13 @@ function formatEntryData(mixed $entry, int $counter): void
 	}
 	echo '</td>';
 	
+	echo  '<td>';
+	// Arrival airport city/town
+	if (rgar($entry, '289') != '') {
+		echo '<b>' . rgar($entry, '289') . '</b>';
+	}
+	echo  '</td>';
+	
 	echo '<td>';
 	// Arrival Airline. Carrier being used.
 	if (rgar($entry, '48') != '') {
@@ -380,6 +386,13 @@ function formatEntryData(mixed $entry, int $counter): void
 	// Scheduled Arrival Time
 	if (rgar($entry, '60') != '') {
 		echo '<b>' . rgar($entry, '60') . '</b>';
+	}
+	echo '</td>';
+	
+	echo  '<td>';
+	// Departure airport city/town
+	if (rgar($entry, '290') != '') {
+		echo '<b>' . rgar($entry, '290') . '</b>';
 	}
 	echo '</td>';
 	
@@ -469,6 +482,334 @@ function formatEntryData(mixed $entry, int $counter): void
 		echo '<b>' . rgar($entry, '32') . '</b>';
 	}
 	echo  '</td>';
+	
+	echo  '<td>';
+	// Arrival airport city/town
+	if (rgar($entry, '178') != '') {
+		echo '<b>' . rgar($entry, '178') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Arrival airline
+	if (rgar($entry, '171') != '') {
+		echo '<b>' . rgar($entry, '171') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Other airline
+	if (rgar($entry, '173') != '') {
+		echo '<b>' . rgar($entry, '173') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Flight arrival date formating to m-d-Y
+	$dateOfFlightArr = rgar($entry, '169');
+	$flightArrDateTime = DateTime::createFromFormat('Y-m-d', $dateOfFlightArr);
+	
+	if ($flightArrDateTime) {
+		$formattedDateOfFlightArr = $flightArrDateTime->format('m-d-Y');
+	} else {
+		$formattedDateOfFlightArr = 'Invalid date format';
+	}
+	// Flight arrival date
+	if (rgar($entry, '169') != '') {
+		echo '<b>' . $formattedDateOfFlightArr . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Arrival airline flight number
+	if (rgar($entry, '170') != '') {
+		echo '<b>' . rgar($entry, '170') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo '<td>';
+	// Scheduled arrival time
+	if (rgar($entry, '174') != '') {
+		echo '<b>' . rgar($entry, '174') . '</b';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Depature airport city/town
+	if (rgar($entry, '288') != '') {
+		echo '<b>' . rgar($entry, '288') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Departure airline
+	if (rgar($entry, '224') != '') {
+		echo '<b>' . rgar($entry, '224') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Other departure airline
+	if (rgar($entry, '225') != '') {
+		echo '<b>' . rgar($entry, '225') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Flight depature date formating to m-d-Y
+	$dateOfDepature226 = rgar($entry, '226');
+	$departureDateTime226 = DateTime::createFromFormat('Y-m-d', $dateOfDepature226);
+	
+	if ($departureDateTime226) {
+		$formattedDateOfDeparture226 = $departureDateTime226->format('m-d-Y');
+	} else {
+		$formattedDateOfDeparture226 = 'Invalid date format';
+	}
+	
+	// Flight departure date
+	if (rgar($entry, '226') != '') {
+		echo '<b>' . $formattedDateOfDeparture226 . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Departure airline flight number
+	if (rgar($entry, '227') != '') {
+		echo '<b>' . rgar($entry, '227') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Scheduled departure time
+	if (rgar($entry, '228') != '') {
+		echo '<b>' . rgar($entry, '228') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Name(s) of others traveling with you
+	if (rgar($entry, '21') != '') {
+		echo '<b>' . rgar($entry, '21') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Would you like to upgrade your hotel in Ulaanbaatar?
+	if (rgar($entry, '179') != '') {
+		echo '<b>' . rgar($entry, '179') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Will you need extra nights arranged for you?
+	if (rgar($entry, '247') != '') {
+		echo '<b>' . rgar($entry, '247') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Please let us know the dates of the extra nights
+	if (rgar($entry, '251') != '') {
+		echo '<b>' . rgar($entry, '251') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Anchorage Alaska Hotel you will be staying in
+	if (rgar($entry, '205') != '') {
+		echo '<b>' . rgar($entry, '205') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Other Anchorage hotel
+	if (rgar($entry, '206') != '') {
+		echo '<b>' . rgar($entry, '206') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Other Hotel address
+	if (rgar($entry, '237.1') != '') {
+		echo '<b>' . rgar($entry, '237.1') . '&#44;</b>&nbsp;<b>' . rgar($entry, '237.3') . '&#44;</b>&nbsp;<b>' . rgar($entry,	'237.5') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Hotel Info - Include telephone number - special instructions
+	if (rgar($entry, '216') != '') {
+		echo '<b>' . rgar($entry, '216') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Overnight in Manaus
+	if (rgar($entry, '231') != '') {
+		echo '<b>' . rgar($entry, '231') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Who would you like to share a room with?
+	if (rgar($entry, '232') != '') {
+		echo '<b>' . rgar($entry, '232') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Overnight on return
+	if (rgar($entry, '233') != '') {
+		echo '<b>' . rgar($entry, '233') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Room type
+	if (rgar($entry, '234') != '') {
+		echo '<b>' . rgar($entry, '234') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Who would you like to share a room with?
+	if (rgar($entry, '235') != '') {
+		echo '<b>' . rgar($entry, '235') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Do you need to rent rods and reels from the lodge?
+	if (rgar($entry, '163') != '') {
+		echo '<b>' . rgar($entry, '163') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Do you need to use rods and reels provided by the lodge?
+	if (rgar($entry, '36') != '') {
+		echo '<b>' . rgar($entry, '36') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// What hand do you reel with?
+	$reel_with = [];
+	foreach ($entry as $key => $value) {
+		if (strpos($key, '75.') === 0 && !empty($value)) {
+			$reel_with[] = $value;
+		}
+	}
+	// Hand you reel with
+	if (!empty($reel_with)) {
+		echo '<b> ' . esc_html(implode(', ', $reel_with)) . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Do you need to rent waders and boots from the lodge?
+	if (rgar($entry, '164') != '') {
+		echo '<b>' . rgar($entry, '164') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Do you need to use waders provided by the lodge?
+	if (rgar($entry, '74') != '') {
+		echo '<b>' . rgar($entry, '74') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Wader size?
+	if (rgar($entry, '123') != '') {
+		echo '<b>' . rgar($entry, '123') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Wader size chart for men
+	if (rgar($entry, '126') != '') {
+		echo '<b>' . rgar($entry, '126') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Wader size chart for women
+	if (rgar($entry, '266') != '') {
+		echo '<b>' . rgar($entry, '266') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Do you need to use wading boots provided bt the lodge?
+	if (rgar($entry, '122') != '') {
+		echo '<b>' . rgar($entry, '122') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Shoe size?
+	if (rgar($entry, '121') != '') {
+		echo '<b>' . rgar($entry, '121') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Men's sizes
+	if (rgar($entry, '119') != '') {
+		echo '<b>' . rgar($entry, '119') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Womens's sizes
+	if (rgar($entry, '120') != '') {
+		echo '<b>' . rgar($entry, '120') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Do you need to rent a sleeping bag
+	if (rgar($entry, '221') != '') {
+		echo '<b>' . rgar($entry, '221') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Do you need any of the following equipment provided by the outfitter?
+	$rent_equip = [];
+	foreach ($entry as $key => $value) {
+		if (strpos($key, '136.') === 0 && !empty($value)) {
+			$rent_equip[] = $value;
+		}
+	}
+	// Equipment to rent
+	if (!empty($rent_equip)) {
+		echo '<b> ' . esc_html(implode(', ', $rent_equip)) . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Preferred style of fishing
+	if (rgar($entry, '118') != '') {
+		echo '<b>' . rgar($entry, '118') . '</b>';
+	}
+	echo  '</td>';
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	echo '</tr>';
