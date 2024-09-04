@@ -795,6 +795,13 @@ function formatEntryData(mixed $entry, int $counter): void
 		echo '<b>' . rgar($entry, '118') . '</b>';
 	}
 	echo  '</td>';
+  
+  echo  '<td>';
+  // Is there a particular fish you wish to target?
+  if (rgar($entry, '182') != '') {
+    echo '<b>' . rgar($entry, '182') . '</b>';
+  }
+  echo  '</td>';
 	
 	
 	
