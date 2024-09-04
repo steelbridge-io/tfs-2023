@@ -296,7 +296,7 @@ echo '<div class="container form-list-wrap">';
  *
  * @var string $form_id The unique identifier of the Gravity Form.
  */
-$form_id                   = '56'; // Your Gravity Form ID
+$form_id                   = '59'; // Your Gravity Form ID
 $search_criteria['status'] = 'active';
 $sorting                   = array(
     'key'        => '1.6',
@@ -625,6 +625,12 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Occupation:</b>'
             . rgar($entry, '277') . '</div>';
     }
+    
+    // Arrival airport city/town
+	if (rgar($entry, '289') != '') {
+		echo '<div class="col-12 form-entry"><b>Arrival airport city/town</b>'
+		     . rgar($entry, '289') . '</div>';
+	}
 
     // Arrival Airline. Carrier being used.
     if (rgar($entry, '48') != '') {
@@ -655,6 +661,12 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Scheduled Arrival Time:</b>'
             . rgar($entry, '60') . '</div>';
     }
+	
+	// Departure airport city/town
+	if (rgar($entry, '290') != '') {
+		echo '<div class="col-12 form-entry"><b>Departure airport city/town:</b>'
+		     . rgar($entry, '290') . '</div>';
+	}
 
     // Departure Airline
     if (rgar($entry, '56') != '') {
@@ -686,7 +698,7 @@ foreach ( $entries as $entry ) {
 
     // Departure Airline Flight Number
     if (rgar($entry, '58') != '') {
-        echo '<div class="col-12 form-entry"><b>Departure Airline Flight Number:</b>'
+        echo '<div class="col-12 form-entry"><b>Departure airline flight number:</b>'
             . rgar($entry, '58') . '</div>';
     }
 
@@ -777,8 +789,14 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Scheduled arrival time:</b>'
             . rgar($entry, '174') . '</div>';
     }
-
-    // Departure airlaine
+	
+	// Depature airport city/town
+	if (rgar($entry, '288') != '') {
+		echo '<div class="col-12 form-entry"><b>Depature airport city/town</b>'
+		     . rgar($entry, '288') . '</div>';
+	}
+    
+    // Departure airline
     if (rgar($entry, '224') != '') {
         echo '<div class="col-12 form-entry"><b>Departure airline:</b>'
             . rgar($entry, '224') . '</div>';
@@ -800,13 +818,13 @@ foreach ( $entries as $entry ) {
         $formattedDateOfDeparture226 = 'Invalid date format';
     }
 
-    // Flight arrival date
+    // Flight departure date
     if (rgar($entry, '226') != '') {
         echo '<div class="col-12 form-entry"><b>Flight Departure Date:</b>'
             . $formattedDateOfDeparture226 . '</div>';
     }
 
-    // Departure airlaine flight number
+    // Departure airline flight number
     if (rgar($entry, '227') != '') {
         echo '<div class="col-12 form-entry"><b>Departure airline flight number:</b>'
             . rgar($entry, '227') . '</div>';
@@ -822,6 +840,12 @@ foreach ( $entries as $entry ) {
     if (rgar($entry, '21') != '') {
         echo '<div class="col-12 form-entry"><b>Name(s) of others traveling with you:</b>'
             . rgar($entry, '21') . '</div>';
+    }
+    
+    // Would you like to upgrade your hotel in Ulaanbaatar?
+    if (rgar($entry, '179') != '') {
+	    echo '<div class="col-12 form-entry"><b>Would you like to upgrade your hotel in Ulaanbaatar? An upcharge rate (typically US$ 125-300/night):</b>'
+	         . rgar($entry, '179') . '</div>';
     }
 
     // Will you need extra nights arranged for you?
@@ -885,9 +909,9 @@ foreach ( $entries as $entry ) {
     }
 
     // Who would you like to share a room with?
-    if (rgar($entry, '234') != '') {
+    if (rgar($entry, '235') != '') {
         echo '<div class="col-12 form-entry"><b>Who would you like to share a room with?:</b>'
-            . rgar($entry, '234') . '</div>';
+            . rgar($entry, '235') . '</div>';
     }
 
     echo '<h3 class="gsection_title">Fishing Gear and Information</h3>';
@@ -903,13 +927,21 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Do you need to use rods and reels provided by the lodge?:</b>'
             . rgar($entry, '36') . '</div>';
     }
-
-    // What hand do you reel with?
-    if (rgar($entry, '75') != '') {
-        echo '<div class="col-12 form-entry"><b>What hand do you reel with?:</b>'
-            . rgar($entry, '75') . '</div>';
-    }
-
+	
+	// What hand do you reel with?
+	$reel_with = [];
+	foreach ($entry as $key => $value) {
+		if (strpos($key, '75.') === 0 && !empty($value)) {
+			$reel_with[] = $value;
+		}
+	}
+	
+	if (!empty($reel_with)) {
+		echo '<div class="col-12 form-entry"><b>What hand do you reel with?:</b> ';
+		echo esc_html(implode(', ', $reel_with));
+		echo '</div>';
+	}
+    
     // Do you need to rent waders and boots from the lodge?
     if (rgar($entry, '164') != '') {
         echo '<div class="col-12 form-entry"><b>Do you need to rent waders and boots from the lodge?:</b>'
@@ -969,13 +1001,21 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Do you need to rent a sleeping bag?:</b>'
             . rgar($entry, '221') . '</div>';
     }
-
-    // Do you need any of the following equipment provided by the outfitter?
-    if (rgar($entry, '136') != '') {
-        echo '<div class="col-12 form-entry"><b>Do you need any of the following equipment provided by the outfitter?:</b>'
-            . rgar($entry, '136') . '</div>';
-    }
-
+    
+	// Do you need any of the following equipment provided by the outfitter?
+	$rent_equip = [];
+	foreach ($entry as $key => $value) {
+		if (strpos($key, '136.') === 0 && !empty($value)) {
+			$rent_equip[] = $value;
+		}
+	}
+	// Equipment to rent
+	if (!empty($rent_equip)) {
+		echo '<div class="col-12 form-entry"><b>Do you need any of the following equipment provided by the outfitter?:</b> ';
+		echo esc_html(implode(', ', $rent_equip));
+		echo '</div>';
+	}
+    
     // Preferred style of fishing
     if (rgar($entry, '118') != '') {
         echo '<div class="col-12 form-entry"><b>Preferred style of fishing:</b>'
