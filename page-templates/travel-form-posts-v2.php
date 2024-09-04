@@ -296,7 +296,7 @@ echo '<div class="container form-list-wrap">';
  *
  * @var string $form_id The unique identifier of the Gravity Form.
  */
-$form_id                   = '59'; // Your Gravity Form ID
+$form_id                   = '57'; // Your Gravity Form ID
 $search_criteria['status'] = 'active';
 $sorting                   = array(
     'key'        => '1.6',
@@ -435,7 +435,7 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Rent sleeping bag</th>
                 <th>Equipment to rent</th>
                 <th>Preferred style of fishing</th>
-                <th></th>
+                <th>Fish to target</th>
                 <th></th>
                 <th></th>
                 <th></th>
