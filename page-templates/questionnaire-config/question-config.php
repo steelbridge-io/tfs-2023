@@ -803,8 +803,778 @@ function formatEntryData(mixed $entry, int $counter): void
   }
   echo  '</td>';
 	
+	echo  '<td>';
+	/**
+	 * Define the range of checkbox IDs based on your form configuration. For certain species of fish being targeting.
+	 */
+	$checkbox_ids = ['214.1', '214.2', '214.3', '214.4', '214.5', '214.6', '214.7', '214.8', '214.9']; // Add as many as needed, or determine dynamically based on your specific form setup.
+	
+	$selected_species = [];
+	
+	foreach ($checkbox_ids as $checkbox_id) {
+		$species_value = rgar($entry, $checkbox_id);
+		if (!empty($species_value)) {
+			$selected_species[] = $species_value;
+		}
+	}
+	
+	// Is there a certain species of fish you are targeting on this trip?
+	if (!empty($selected_species)) {
+		$speciesCount = count($selected_species);
+		foreach ($selected_species as $index => $species) {
+			echo '<b>' . esc_html($species) . '</b>';
+			if ($index !== $speciesCount - 1) {
+				echo '&#44;&nbsp;';
+			}
+		}
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Do you have interest in fishing the Kenai River to target Trout and/or Silver Salmon?
+	if (rgar($entry, '217') != '') {
+		echo '<b>' . rgar($entry, '217') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Type of fishing you prefer?
+	if (rgar($entry, '244') != '') {
+		echo '<b>' . rgar($entry, '244') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Are you fishing 1 or 2 to a boat/guide?
+	if (rgar($entry, '240') != '') {
+		echo '<b>' . rgar($entry, '240') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Name of fishing companion you would like to share the boat with
+	if (rgar($entry, '241') != '') {
+		echo '<b>' . rgar($entry, '241') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	/**
+	 * Define the range of checkbox IDs based on your form configuration. For what species have you fished for?
+	 */
+	$checkbox_ids_saltSpecies = ['242.1', '242.2', '242.3', '242.4', '242.5']; // Add as many as needed, or determine dynamically based on your specific form setup.
+	
+	$selected_saltSpecies = [];
+	
+	foreach ($checkbox_ids_saltSpecies as $checkbox_id_saltSpecie) {
+		$saltSpecies_value = rgar($entry, $checkbox_id_saltSpecie);
+		if (!empty($saltSpecies_value)) {
+			$selected_saltSpecies[] = $saltSpecies_value;
+		}
+	}
+	
+	// Have you fished in saltwater before? If so, where and for what species?
+	if (!empty($selected_saltSpecies)) {
+		$saltSpeciesCount = count($selected_saltSpecies);
+		foreach ($selected_saltSpecies as $index => $saltSpecies) {
+			echo '<b>' . esc_html($saltSpecies) . '</b>';
+			if ($index !== $saltSpeciesCount - 1) {
+				echo '&#44;&nbsp;';
+			}
+		}
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Other saltwater species
+	if (rgar($entry, '243') != '') {
+		echo '<b>' . rgar($entry, '243') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Which style of guiding sounds like the best fit for you?
+	if (rgar($entry, '246') != '') {
+		echo '<b>' . rgar($entry, '246') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// What type of fishing experience do you prefer?
+	if (rgar($entry, '125') != '') {
+		echo '<b>' . rgar($entry, '125') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// How would you rate your fishing skills?
+	if (rgar($entry, '114') != '') {
+		echo '<b>' . rgar($entry, '114') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// How would you rate boating/rafting experience?
+	if (rgar($entry, '222') != '') {
+		echo '<b>' . rgar($entry, '222') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Do you want to substitute Horseback Guided Fishing for one angling day?
+	if (rgar($entry, '254') != '') {
+		echo '<b>' . rgar($entry, '254') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Date to subsitute horseback guided fishing - formating to m-d-Y
+	$dateHorsebackFishing = rgar($entry, '255');
+	$horsebackDate = DateTime::createFromFormat('Y-m-d', $dateHorsebackFishing);
+	
+	if ($horsebackDate) {
+		$dateofHorsebackFishing = $horsebackDate->format('m-d-Y');
+	} else {
+		$dateofHorsebackFishing = 'Invalid date format';
+	}
+	
+	// Horseback guided fishing date
+	if (rgar($entry, '255') != '') {
+		echo '<b>' . $dateofHorsebackFishing . '</b>';
+	}
+	
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Horse riding experience
+	if (rgar($entry, '181') != '') {
+		echo '<b>' . rgar($entry, '181') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Characterize your wading ability
+	if (rgar($entry, '218') != '') {
+		echo '<b>' . rgar($entry, '218') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Interested in heli fishing at Poronoui Lodge?
+	if (rgar($entry, '265') != '') {
+		echo '<b>' . rgar($entry, '265') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Characterize your physical fitness level
+	if (rgar($entry, '280') != '') {
+		echo '<b>' . rgar($entry, '280') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	/**
+	 * Define the range of checkbox IDs based on your form configuration. For diet requirements.
+	 */
+	$checkbox_ids_diet = ['86.1', '86.2', '86.3', '86.4', '86.5', '86.6', '88.7', '88.8', '88.9', '88.10']; // Add as many as needed, or determine dynamically based on your specific form setup.
+	
+	$selected_diet = [];
+	
+	foreach ($checkbox_ids_diet as $checkbox_id_diet) {
+		$diet_value = rgar($entry, $checkbox_id_diet);
+		if (!empty($diet_value)) {
+			$selected_diet[] = $diet_value;
+		}
+	}
+	
+	// Diet requirements/special menu
+	if (!empty($selected_diet)) {
+		$dietCount = count( $selected_diet );
+		foreach ( $selected_diet as $index => $diet ) {
+			echo '<b>' . esc_html( $diet ) . '</b>';
+			if ( $index !== $dietCount - 1 ) {
+				echo '&#44;&nbsp;';
+			}
+		}
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Other special diet
+	if (rgar($entry, '87') != '') {
+		echo '<b>' . rgar($entry, '87') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	/**
+	 * Define the range of checkbox IDs based on your form configuration. For food and environmental allergies
+	 */
+	$checkbox_ids_allergy = ['88.1', '88.2', '88.3', '88.4', '88.5', '88.6', '88.7', '88.8']; // Add as many as needed, or determine dynamically based on your specific form setup.
+	
+	$selected_allergy = [];
+	
+	foreach ($checkbox_ids_allergy as $checkbox_id_allergy) {
+		$allergy_value = rgar($entry, $checkbox_id_allergy);
+		if (!empty($allergy_value)) {
+			$selected_allergy[] = $allergy_value;
+		}
+	}
+	
+	// Diet requirements/special menu
+	if (!empty($selected_allergy)) {
+		$allergyCount = count( $selected_allergy );
+		foreach ( $selected_allergy as $index => $allergy ) {
+			echo '<b>' . esc_html( $allergy ) . '</b>';
+			if ( $index !== $allergyCount - 1 ) {
+				echo '&#44;&nbsp;';
+			}
+		}
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Other allergies
+	if (rgar($entry, '89') != '') {
+		echo '<b>' . rgar($entry, '89') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	/**
+	 * Define the range of checkbox IDs based on your form configuration. For misc allergic reactions
+	 */
+	$checkbox_ids_allergyMisc = ['183.1', '183.2', '183.3', '183.4', '183.5']; // Add as many as needed, or determine dynamically based on your specific form setup.
+	
+	$selected_allergyMisc = [];
+	
+	foreach ($checkbox_ids_allergyMisc as $checkbox_id_allergyMisc) {
+		$allergyMisc_value = rgar($entry, $checkbox_id_allergyMisc);
+		if (!empty($allergyMisc_value)) {
+			$selected_allergyMisc[] = $allergyMisc_value;
+		}
+	}
+	
+	// Have you had allergic reactions to any of the following?
+	if (!empty($selected_allergyMisc)) {
+		$allergyMiscCount = count( $selected_allergyMisc );
+		foreach ( $selected_allergyMisc as $index => $allergyMisc ) {
+			echo '<b>' . esc_html( $allergyMisc ) . '</b>';
+			if ( $index !== $allergyMiscCount - 1 ) {
+				echo '&#44;&nbsp;';
+			}
+		}
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Other misc allergies
+	if (rgar($entry, '184') != '') {
+		echo '<b>' . rgar($entry, '184') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Will you be using any prescribed medicine?
+	if (rgar($entry, '274') != '') {
+		echo '<b>' . rgar($entry, '274') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Perscription details
+	if ( rgar( $entry, '275' ) != '' ) {
+		// Retrieve the paragraph content from the entry
+		$paragraph_content = rgar( $entry, '275' );
+		
+		// Extract the first 10 words from the paragraph content
+		$words_array = explode( ' ', $paragraph_content );
+		$excerpt     = implode( ' ', array_slice( $words_array, 0, 2 ) );
+		
+		// Escape content for safe JavaScript usage
+		$escaped_excerpt = htmlspecialchars( $excerpt, ENT_QUOTES, 'UTF-8' );
+		$escaped_content = htmlspecialchars( $paragraph_content, ENT_QUOTES, 'UTF-8' );
+		
+		// Construct the "Read more" link to display in the popover
+		$read_more_link = '<a href="#" class="read-more" onclick="showFullContent(this); return false;"></a>';
+		
+		// Combine the excerpt and "Read more" link for the popover content
+		$data_content = "{$escaped_content}";
+		
+		// Output perscription details button with popover
+		echo <<<HTML
+	    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom" data-html="true"
+	    data-content="{$data_content}"> <b>{$escaped_excerpt}...<span style="color:red;">&nbsp;Click to see
+	    more</span></b></button>
+	
+	    <style>
+	        .popover {
+	            max-width: none; /* Allow the popover to expand to the size of the content */
+	        }
+	    </style>
+	HTML;
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Blood type
+	if (rgar($entry, '276') != '') {
+		echo '<b>' . rgar($entry, '276') . '</b>';
+	}
+	echo  '</td>';
 	
 	
+	
+	echo  '<td>';
+	// If applicable, please provide further information for any of the allergies identified above. Including what provokes and treats the allergy. Especially if you have experienced an anaphylactic reaction to the allergen.
+	if ( rgar( $entry, '185' ) != '' ) {
+		// Retrieve the paragraph content from the entry
+		$allergy_paragraph_content = rgar( $entry, '185' );
+		
+		// Extract the first 10 words from the paragraph content
+		$allergy_words_array = explode( ' ', $allergy_paragraph_content );
+		$allergy_excerpt     = implode( ' ', array_slice( $allergy_words_array, 0, 2 ) );
+		
+		// Escape content for safe JavaScript usage
+		$allergy_escaped_excerpt = htmlspecialchars( $allergy_excerpt, ENT_QUOTES, 'UTF-8' );
+		$allergy_escaped_content = htmlspecialchars( $allergy_paragraph_content, ENT_QUOTES, 'UTF-8' );
+		
+		// Construct the "Read more" link to display in the popover
+		$read_more_link = '<a href="#" class="read-more" onclick="showFullContent(this); return false;"></a>';
+		
+		// Combine the excerpt and "Read more" link for the popover content
+		$allergy_data_content = "{$allergy_escaped_content}";
+		
+		// Output perscription details button with popover
+		echo <<<HTML
+	    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom" data-html="true"
+	    data-content="{$allergy_data_content}"> <b>{$allergy_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see
+	    more</span></b></button>
+	
+	    <style>
+	        .popover {
+	            max-width: none; /* Allow the popover to expand to the size of the content */
+	        }
+	    </style>
+	HTML;
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	/**
+	 * Define the range of checkbox IDs based on your form configuration. For misc allergic reactions
+	 */
+	$checkbox_ids_anyFollowing = ['186.1', '186.2', '186.3', '186.4', '186.5']; // Add as many as needed, or determine
+	// dynamically based on your specific form setup.
+	
+	$selected_anyFollowing = [];
+	
+	foreach ($checkbox_ids_anyFollowing as $checkbox_id_anyFollowing) {
+		$anyFollowing_value = rgar($entry, $checkbox_id_anyFollowing);
+		if (!empty($anyFollowing_value)) {
+			$selected_anyFollowing[] = $anyFollowing_value;
+		}
+	}
+	
+	// Have you had allergic reactions to any of the following?
+	if (!empty($selected_anyFollowing)) {
+		$anyFollowingCount = count( $selected_anyFollowing );
+		foreach ( $selected_anyFollowing as $index => $anyFollowing ) {
+			echo '<b>' . esc_html( $anyFollowing ) . '</b>';
+			if ( $index !== $anyFollowingCount - 1 ) {
+				echo '&#44;&nbsp;';
+			}
+		}
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Other reactions
+	if (rgar($entry, '187') != '') {
+		echo '<b>' . rgar($entry, '187') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// If you checked any of the conditions above, please explain as necessary. Please include any other health requirements.
+	if (rgar($entry, '188') != '') {
+		echo '<b>' . rgar($entry, '188') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Diet Aversions/Dislikes
+	if (rgar($entry, '100') != '') {
+		echo '<b>' . rgar($entry, '100') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Diet Aversions/Dislikes
+	if (rgar($entry, '100') != '') {
+		echo '<b>' . rgar($entry, '100') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Do you have any aversion to eating game meat?
+	if (rgar($entry, '272') != '') {
+		echo '<b>' . rgar($entry, '272') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Please list any Special Requests, Needs, Health Concerns, Physical Challenges.
+	if ( rgar( $entry, '39' ) != '' ) {
+		// Retrieve the paragraph content from the entry
+		$specialRequest_paragraph_content = rgar( $entry, '39' );
+		
+		// Extract the first 10 words from the paragraph content
+		$specialRequest_words_array = explode( ' ', $specialRequest_paragraph_content );
+		$specialRequest_excerpt     = implode( ' ', array_slice( $specialRequest_words_array, 0, 2 ) );
+		
+		// Escape content for safe JavaScript usage
+		$specialRequest_escaped_excerpt = htmlspecialchars( $specialRequest_excerpt, ENT_QUOTES, 'UTF-8' );
+		$specialRequest_escaped_content = htmlspecialchars( $specialRequest_paragraph_content, ENT_QUOTES, 'UTF-8' );
+		
+		// Construct the "Read more" link to display in the popover
+		$specialRequest_read_more_link = '<a href="#" class="read-more" onclick="showFullContent(this); return false;"></a>';
+		
+		// Combine the excerpt and "Read more" link for the popover content
+		$specialRequest_data_content = "{$specialRequest_escaped_content}";
+		
+		// Output perscription details button with popover
+		echo <<<HTML
+	    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom" data-html="true"
+	    data-content="{$specialRequest_data_content}"> <b>{$specialRequest_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see
+	    more</span></b></button>
+	
+	    <style>
+	        .popover {
+	            max-width: none; /* Allow the popover to expand to the size of the content */
+	        }
+	    </style>
+	HTML;
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Have you been Vaccinated for COVID-19?
+	if (rgar($entry, '257') != '') {
+		echo '<b>' . rgar($entry, '257') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Brand/type of Vaccination and dates recieved
+	if (rgar($entry, '262') != '') {
+		echo '<b>' . rgar($entry, '262') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Vaccination Photo Copy
+	if (rgar($entry, '264') != '') {
+		// Retrieve the relative URL from the entry.
+		$vaxCard_relative_url = rgar($entry, '264');
+		
+		// Remove any leading slash.
+		$vaxCard_relative_url = ltrim($vaxCard_relative_url, '/');
+		
+		// Define your custom base URL. Edit based on hosting environment.
+		$vaxCard_custom_base_url = 'http://www.theflyshop.local/wp-content/uploads';
+		
+		// Derive the relative part of the path after "uploads" directory.
+		$vaxCard_path_relative_to_uploads = strstr($vaxCard_relative_url, 'gravity_forms');
+		
+		// Construct the full URL using custom base URL.
+		$vaxCard_full_url = $vaxCard_custom_base_url . '/' . $vaxCard_path_relative_to_uploads;
+		
+		// Sanitize the constructed URL.
+		$vaxCard_file_url = esc_url($vaxCard_full_url);
+		
+		// Output the image.
+		echo <<<HTML
+        <button type="button" class="btn btn-passport-preview btn-popover" data-toggle="popover" data-placement="bottom" data-html="true" data-content="<img src='{$vaxCard_file_url}' alt='Uploaded Photo' style='width: 600px; height: auto;'>">
+        <div class="overlay-container">
+            <img class='passport-copy-preview' src='{$vaxCard_file_url}' alt='Uploaded Photo'/>
+            <p class="overlay-text">Click to see card</p>
+        </button>
+        </div>
+        <style>
+            .popover {
+                max-width: none; /* Allow the popover to expand to the size of the content */
+            }
+            .popover-content img {
+                width: 600px; /* Adjust the width as needed */
+                height: auto; /* Maintain aspect ratio */
+            }
+        </style>
+        HTML;
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Medical insurance including HTA CV19 related isolation, quarantine and clinical care?
+	if (rgar($entry, '263') != '') {
+		echo '<b>' . rgar($entry, '263') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+// Would you like to have an ice cooler filled with block ice:  $125.00. If not all drinks are cooled in the river.
+	if (rgar($entry, '291') != '') {
+		echo '<b>' . rgar($entry, '291') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+// Guests wishing to avoid carrying personal gear to the river on their back may prearrange to have their gear taken in for an additional fee. Would you like to have your personal gear packed to the River?
+	if (rgar($entry, '292') != '') {
+		echo '<b>' . rgar($entry, '292') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// If you are arriving early and or departing late, would you like to hire a guide for those days?
+	if (rgar($entry, '220') != '') {
+		echo '<b>' . rgar($entry, '220') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// What Beverage would you like with your Lunches?
+	if (rgar($entry, '213') != '') {
+		echo '<b>' . rgar($entry, '213') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Would you like the Lodge to purchase Beverages for you for the Float?
+	if (rgar($entry, '159') != '') {
+		echo '<b>' . rgar($entry, '159') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage Choice #1 (Soda, Coke, Sprite, etc) $7.50
+	if (rgar($entry, '146') != '') {
+		echo '<b>' . rgar($entry, '146') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage Choice #1 Amount
+	if (rgar($entry, '147') != '') {
+		echo '<b>' . rgar($entry, '147') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage Choice #2 (Gatorade, Iced Tea, etc) $9.50
+	if (rgar($entry, '148') != '') {
+		echo '<b>' . rgar($entry, '148') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage Choice #2 Amount
+	if (rgar($entry, '149') != '') {
+		echo '<b>' . rgar($entry, '149') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage choice #3 (domestic, Bud, Miller, etc) $9.50
+	if (rgar($entry, '151') != '') {
+		echo '<b>' . rgar($entry, '151') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage choice #3 amount
+	if (rgar($entry, '152') != '') {
+		echo '<b>' . rgar($entry, '152') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage Choice #4 (Import, Heineken, etc) $11.50
+	if (rgar($entry, '153') != '') {
+		echo '<b>' . rgar($entry, '153') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage choice #4 amount
+	if (rgar($entry, '154') != '') {
+		echo '<b>' . rgar($entry, '154') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage Choice #5 (Microbrews) $13.50
+	if (rgar($entry, '156') != '') {
+		echo '<b>' . rgar($entry, '156') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage choice #5 amount
+	if (rgar($entry, '155') != '') {
+		echo '<b>' . rgar($entry, '155') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage Choice #6 Box Wine @ Cost
+	if (rgar($entry, '157') != '') {
+		echo '<b>' . rgar($entry, '157') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Beverage choice #6 amount
+	if (rgar($entry, '158') != '') {
+		echo '<b>' . rgar($entry, '158') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Please let us know the level of housekeeping you prefer:
+	if (rgar($entry, '189') != '') {
+		echo '<b>' . rgar($entry, '189') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Would you like to place an alcohol order?
+	if (rgar($entry, '133') != '') {
+		echo '<b>'
+		     . rgar($entry, '133') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Preferred beverage to be purchased
+	if (rgar($entry, '134') != '') {
+		echo '<b>'
+		     . rgar($entry, '134') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Amount
+	if (rgar($entry, '135') != '') {
+		echo '<b>' . rgar($entry, '135') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Other amount to be purchased
+	if (rgar($entry, '238') != '') {
+		echo '<b>' . rgar($entry, '238') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	/**
+	 * Define the range of checkbox IDs based on your form configuration. For drink preference
+	 */
+	$checkbox_ids_drinkPref = ['229.1', '229.2', '229.3', '229.4', '229.5']; // Add as many as needed, or determine
+	// dynamically based on your specific form setup.
+	
+	$selected_drinkPref = [];
+	
+	foreach ($checkbox_ids_drinkPref as $checkbox_id_drinkPref) {
+		$drinkPref_value = rgar($entry, $checkbox_id_drinkPref);
+		if (!empty($drinkPref_value)) {
+			$selected_drinkPref[] = $drinkPref_value;
+		}
+	}
+	
+	// Drink preference
+	if (!empty($selected_drinkPref)) {
+		$drinkPrefCount = count( $selected_drinkPref );
+		foreach ( $selected_drinkPref as $index => $drinkPref ) {
+			echo '<b>' . esc_html( $drinkPref ) . '</b>';
+			if ( $index !== $drinkPrefCount - 1 ) {
+				echo '&#44;&nbsp;';
+			}
+		}
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Shirt size
+	if (rgar($entry, '253') != '') {
+		echo '<b>' . rgar($entry, '253') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Choice of bed
+	if (rgar($entry, '230') != '') {
+		echo '<b>' . rgar($entry, '230') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Preferred evening beverage
+	if (rgar($entry, '99') != '') {
+		echo '<b>' . rgar($entry, '99') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// If applicable, please note rooming/roommate requests
+	if (rgar($entry, '167') != '') {
+		echo '<b>' . rgar($entry, '167') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Will you be celebrating a special occasion while at the lodge?
+	if (rgar($entry, '41') != '') {
+		echo '<b>' . rgar($entry, '41') . '</b>';
+	}
+	echo  '</td>';
+	
+	echo  '<td>';
+	// Please tell us about your event or celebration
+	if ( rgar( $entry, '40' ) != '' ) {
+		// Retrieve the paragraph content from the entry
+		$specialOccasion_paragraph_content = rgar( $entry, '40' );
+		
+		// Extract the first 10 words from the paragraph content
+		$specialOccasion_words_array = explode( ' ', $specialOccasion_paragraph_content );
+		$specialOccasion_excerpt     = implode( ' ', array_slice( $specialOccasion_words_array, 0, 2 ) );
+		
+		// Escape content for safe JavaScript usage
+		$specialOccasion_escaped_excerpt = htmlspecialchars( $specialOccasion_excerpt, ENT_QUOTES, 'UTF-8' );
+		$specialOccasion_escaped_content = htmlspecialchars( $specialOccasion_paragraph_content, ENT_QUOTES, 'UTF-8' );
+		
+		// Construct the "Read more" link to display in the popover
+		$specialOccasion_read_more_link = '<a href="#" class="read-more" onclick="showFullContent(this); return false;"></a>';
+		
+		// Combine the excerpt and "Read more" link for the popover content
+		$specialOccasion_data_content = "{$specialOccasion_escaped_content}";
+		
+		// Please tell us about your event or celebration popover
+		echo <<<HTML
+	    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom" data-html="true"
+	    data-content="{$specialOccasion_data_content}"> <b>{$specialOccasion_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see
+	    more</span></b></button>
+	
+	    <style>
+	        .popover {
+	            max-width: none; /* Allow the popover to expand to the size of the content */
+	        }
+	    </style>
+	HTML;
+	}
+	echo  '</td>';
 	
 	
 	
