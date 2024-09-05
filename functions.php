@@ -965,3 +965,4 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
             <?php
         }
     }
+    
