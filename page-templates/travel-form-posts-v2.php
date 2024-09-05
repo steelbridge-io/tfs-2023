@@ -296,7 +296,7 @@ echo '<div class="container form-list-wrap">';
  *
  * @var string $form_id The unique identifier of the Gravity Form.
  */
-$form_id                   = '57'; // Your Gravity Form ID
+$form_id                   = '59'; // Your Gravity Form ID
 $search_criteria['status'] = 'active';
 $sorting                   = array(
     'key'        => '1.6',
@@ -436,6 +436,81 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Equipment to rent</th>
                 <th>Preferred style of fishing</th>
                 <th>Fish to target</th>
+                <th>Fish species to target</th>
+                <th>Interested in fishing the Kenai River?</th>
+                <th>Type of preferred fishing</th>
+                <th>Fishing 1 or 2 to a boat?</th>
+                <th>Name of companion to share boat with</th>
+                <th>What salt water species have they fished for?</th>
+                <th>Other species</th>
+                <th>Style of guiding</th>
+                <th>Type of preferred fishing experience</th>
+                <th>Rate fishing skills</th>
+                <th>Rate boat/rafting experience</th>
+                <th>Substitute horseback guided fishing?</th>
+                <th>Date to subsitute horseback guided fishing</th>
+                <th>Horseback riding experience</th>
+                <th>Characterize wading ability</th>
+                <th>Interested in heli-fishing at Poronoui Lodge?</th>
+                <th>Characterize your physical fitness level</th>
+                <th>Diet requirements/special menu</th>
+                <th>Other special diet</th>
+                <th>Allergies to food</th>
+                <th>Other allergies</th>
+                <th>Allergies include the following</th>
+                <th>Other misc allergies</th>
+                <th>Prescribed medicine</th>
+                <th>Prescribed medicine details</th>
+                <th>Blood type</th>
+                <th>Additional allergy info</th>
+                <th>Have or had any of the following</th>
+                <th>Other reaction(s)</th>
+                <th>Extended health condition info</th>
+                <th>Diet aversions/dislikes</th>
+                <th>Food preferences</th>
+                <th>Aversion to eating game meat</th>
+                <th>Special requests, needs, concerns</th>
+                <th>Vaccinated for COVID-19</th>
+                <th>Brand/type of vaccination &amp; date(s) received</th>
+                <th>Upload vaccination card here</th>
+                <th>Medical insurance including HTA CV19 related isolation, clinical care</th>
+                <th>Ice cooler filled with block ice</th>
+                <th>Would you to have personal gear packed to the River</th>
+                <th>If you are arriving early and or departing late, would you like to hire a guide for those days?</th>
+                <th>Lunch beverage</th>
+                <th>Lodge to purchase beverages for you for the float</th>
+                <th>Beverage choice &#35;1</th>
+                <th>Beverage choice &#35;1 amount</th>
+                <th>Beverage choice &#35;2</th>
+                <th>Beverage choice &#35;2 amount</th>
+                <th>Beverage choice &#35;3 </th>
+                <th>Beverage choice &#35;3 amount</th>
+                <th>Beverage Choice &#35;4</th>
+                <th>Beverage choice &#35;4 amount</th>
+                <th>Beverage Choice &#35;5</th>
+                <th>Beverage choice &#35;5 amount</th>
+                <th>Beverage Choice &#35;6 Box Wine @ Cost</th>
+                <th>Beverage choice #6 amount</th>
+                <th>Preferred house keeping</th>
+                <th>Place an alcohol order?</th>
+                <th>Preferred beverage to be purchased</th>
+                <th>Amount</th>
+                <th>Other amount to be purchased</th>
+                <th>Drink preference</th>
+                <th>Shirt size</th>
+                <th>Choice of bed</th>
+                <th>Preferred evening beverage</th>
+                <th>Rooming/roommate request(s)</th>
+                <th>Celebrating a special occasion?</th>
+                <th>Tell us about the celebration/occasion</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -503,6 +578,16 @@ foreach ($entries as $entry ) {
            jQuery('.btn-popover').popover('hide');
             }
         });
+
+            function showFullContent(link) {
+                var content = `{$escaped_content}`;
+                var popoverTrigger = $(link).closest('.popover').prev('.btn-popover');
+                popoverTrigger.popover('dispose'); // Dispose current popover
+                popoverTrigger.popover({
+                    content: content,
+                    html: true
+                }).popover('show'); // Show the updated popover with full content
+            }
         });
     
     </script>
