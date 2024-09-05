@@ -296,7 +296,7 @@ echo '<div class="container form-list-wrap">';
  *
  * @var string $form_id The unique identifier of the Gravity Form.
  */
-$form_id                   = '57'; // Your Gravity Form ID
+$form_id                   = '59'; // Your Gravity Form ID
 $search_criteria['status'] = 'active';
 $sorting                   = array(
     'key'        => '1.6',
@@ -1133,13 +1133,23 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Do you want to substitute horseback guided fishing for one angling day?:</b>'
             . rgar($entry, '254') . '</div>';
     }
-
-    // Date to substitute horseback guided fishing day
-    if (rgar($entry, '255') != '') {
-        echo '<div class="col-12 form-entry"><b>Do you want to substitute horseback guided fishing for one angling day?:</b>'
-            . rgar($entry, '255') . '</div>';
-    }
-
+    
+	// Date to substitute horseback guided fishing day - date formating to m-d-Y
+	$dateHorsebackFishing = rgar($entry, '255');
+	$horsebackDate = DateTime::createFromFormat('Y-m-d', $dateHorsebackFishing);
+	
+	if ($horsebackDate) {
+		$dateofHorsebackFishing = $horsebackDate->format('m-d-Y');
+	} else {
+		$dateofHorsebackFishing = 'Invalid date format';
+	}
+	
+	// Horseback guided fishing date
+	if (rgar($entry, '255') != '') {
+		echo '<div class="col-12 form-entry"><b>Date to substitute horseback guided fishing for one angling day:</b>'
+		     . $dateofHorsebackFishing . '</div>';
+	}
+    
     // Horse riding experience
     if (rgar($entry, '181') != '') {
         echo '<div class="col-12 form-entry"><b>Horse riding experience:</b>'
@@ -1335,7 +1345,7 @@ foreach ( $entries as $entry ) {
         echo '<div class="col-12 form-entry"><b>Please list any special requests, needs, health concerns, physical challenges:</b><br>'
             . rgar($entry, '39') . '</div>';
     }
-
+    
     // Have you been Vaccinated for COVID-19?
     if (rgar($entry, '257') != '') {
         echo '<div class="col-12 form-entry"><b>Have you been vaccinated for COVID-19?:</b><br>'
@@ -1380,6 +1390,18 @@ foreach ( $entries as $entry ) {
     }
 
     echo '<h3 class="gsection_title">Additional Information</h3>';
+	
+	// Would you like to have an ice cooler filled with block ice:  $125.00. If not all drinks are cooled in the river.
+	if (rgar($entry, '291') != '') {
+		echo '<div class="col-12 form-entry"><b>Would you like to have an ice cooler filled with block ice?:</b>'
+		     . rgar($entry, '291') . '</div>';
+	}
+	
+	// Guests wishing to avoid carrying personal gear to the river on their back may prearrange to have their gear taken in for an additional fee. Would you like to have your personal gear packed to the River?
+	if (rgar($entry, '292') != '') {
+		echo '<div class="col-12 form-entry"><b>Would you like to have your personal gear packed to the River?</b>'
+		     . rgar($entry, '292') . '</div>';
+	}
 
     // If you are arriving early and or departing late, would you like to hire a guide for those days?
     if (rgar($entry, '220') != '') {
