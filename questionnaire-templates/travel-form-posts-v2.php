@@ -296,7 +296,7 @@ echo '<div class="container form-list-wrap">';
  *
  * @var string $form_id The unique identifier of the Gravity Form.
  */
-$form_id                   = '58'; // Your Gravity Form ID
+$form_id                   = '59'; // Your Gravity Form ID
 $search_criteria['status'] = 'active';
 $sorting                   = array(
     'key'        => '1.6',
@@ -490,7 +490,7 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Beverage Choice &#35;5</th>
                 <th>Beverage choice &#35;5 amount</th>
                 <th>Beverage Choice &#35;6 Box Wine @ Cost</th>
-                <th>Beverage choice #6 amount</th>
+                <th>Beverage choice &#34;6 amount</th>
                 <th>Preferred house keeping</th>
                 <th>Place an alcohol order?</th>
                 <th>Preferred beverage to be purchased</th>
@@ -503,30 +503,15 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Rooming/roommate request(s)</th>
                 <th>Celebrating a special occasion?</th>
                 <th>Tell us about the celebration/occasion</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>Guided activities</th>
+                <th>Interested in massage</th>
+                <th>Massage date</th>
+                <th>Looking forward to most</th>
+                <th>Trip goals</th>
+                <th>Pre-book scuba diving</th>
+                <th>Scuba diving date</th>
+                <th>Leisure activities</th>
+                <th>East Coast Angling permission release</th>
             </tr>
             </thead>
             <tbody>';
@@ -540,7 +525,7 @@ echo '<div id="question-grid" class="table-wrapper">
 $entries = GFAPI::get_entries( $form_id, $search_criteria, $sorting );
 
 
-require_once 'questionnaire-config/question-config.php';
+require_once get_template_directory() . '/questionnaire-config/question-config.php';
 foreach ($entries as $entry ) {
 	formatEntryData($entry, $counter);
 }
