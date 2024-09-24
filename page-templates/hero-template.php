@@ -18,7 +18,7 @@
  </div>
   </div>
   <div class="fades fadeOut" id="narf">
-  <section id="heroheader">
+  <section id="heroheader" class="heroheader-nccffi">
     <div class="overlay"></div>
 	  <?php if ($hero_video_url !== $default) { ?>
     <video class="h-video" playsinline autoplay muted loop >
