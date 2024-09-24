@@ -22,7 +22,6 @@ $tfs_metatags    = get_post_meta(get_the_ID(), 'seotfs-meta-tags', true);
 <html <?php language_attributes(); ?>>
 
 <head>
-
   <title><?php echo $tfs_title; ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="<?php bloginfo( 'charset' ); ?>">
