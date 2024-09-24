@@ -145,7 +145,7 @@ if ( ! function_exists( 'the_fly_shop_setup' ) ) :
          * hard-coded <title> tag in the document head, and expect WordPress to
          * provide it for us.
          */
-        add_theme_support( 'title-tag' );
+        //add_theme_support( 'title-tag' );
 
         /*
          * Enable support for Post Thumbnails on posts and pages.
@@ -915,15 +915,6 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
 
     // Remove WordPress default title tag support
     remove_action('wp_head', '_wp_render_title_tag', 1);
-
-    // Add custom title tag function
-    function custom_title_tag() {
-        ?>
-        <title><?php wp_title(''); ?></title>
-        <?php
-    }
-    add_action('wp_head', 'custom_title_tag');
-
 
     /*
      * Automatically selects travel-form-questionnaire.php for post-type 'travel-questionnaire'.
