@@ -353,8 +353,9 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Reservation &#35;</th>
                 <th>Arrival date</th>
                 <th>Departure date</th>
+                <th>Home Address</th>
                 <th>Email</th>
-                <th>Tel</th>
+                <th>Cell Phone</th>
                 <th>Shuttle?</th>
                 <th>Trip Type</th>
                 <th>Trip Destinations</th>
