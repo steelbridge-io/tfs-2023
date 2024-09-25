@@ -68,6 +68,46 @@ function formatEntryData(mixed $entry, int $counter): void
 	echo '</td>';
 	
 	echo '<td>';
+	// #home-address
+	if ( rgar( $entry, '69.1' ) != '' ) {
+		// Retrieve address entries
+		$street_address = rgar( $entry, '69.1' );
+		$address_line_2 = rgar( $entry, '69.2' ) != '' ? rgar( $entry, '69.2' ) : '';
+		$city = rgar( $entry, '69.3' );
+		$state_province_region = rgar( $entry, '69.4' );
+		$zip_postal_code = rgar( $entry, '69.5' );
+		
+		// Escape content for safe JavaScript usage
+		$escaped_address = htmlspecialchars( $street_address, ENT_QUOTES, 'UTF-8' );
+		$escaped_address_line_2 = htmlspecialchars( $address_line_2, ENT_QUOTES, 'UTF-8' );
+		$escaped_city = htmlspecialchars( $city, ENT_QUOTES, 'UTF-8' );
+		$escaped_state_province = htmlspecialchars( $state_province_region, ENT_QUOTES, 'UTF-8' );
+		$escaped_zip_postal_code = htmlspecialchars( $zip_postal_code, ENT_QUOTES, 'UTF-8' );
+		
+		// Construct the popover content with proper line breaks
+		$address_data_content = "{$escaped_address}<br>";
+		if ($escaped_address_line_2) {
+			$address_data_content .= "{$escaped_address_line_2}<br>";
+		}
+		$address_data_content .= "{$escaped_city}<br>{$escaped_state_province}<br>{$escaped_zip_postal_code}";
+		
+		// Trip goals button
+		echo <<<HTML
+    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom" data-html="true"
+    data-content="{$address_data_content}">
+        <b>{$escaped_city}...<span style="color:red;">&nbsp;Click to see more</span></b>
+    </button>
+
+    <style>
+        .popover {
+            max-width: none; /* Allow the popover to expand to the size of the content */
+        }
+    </style>
+HTML;
+	}
+	echo '</td>';
+	
+	echo '<td>';
 	// Cell Phone - Text/SMS
 	if (rgar($entry, '101') != '') {
 		echo '<b>' . rgar($entry, '101') . '</b>';
@@ -977,7 +1017,8 @@ function formatEntryData(mixed $entry, int $counter): void
 	/**
 	 * Define the range of checkbox IDs based on your form configuration. For diet requirements.
 	 */
-	$checkbox_ids_diet = ['86.1', '86.2', '86.3', '86.4', '86.5', '86.6', '88.7', '88.8', '88.9', '88.10']; // Add as many as needed, or determine dynamically based on your specific form setup.
+	$checkbox_ids_diet = ['86.1', '86.2', '86.3', '86.4', '86.5', '86.6', '86.7', '86.8', '86.9', '86.10']; // Add as
+	// many as needed, or determine dynamically based on your specific form setup.
 	
 	$selected_diet = [];
 	
