@@ -956,4 +956,14 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
             <?php
         }
     }
+
+    // Stops enumerated requests to /authors pages
+    function disable_author_pages() {
+        if (is_author()) {
+            wp_redirect(home_url());
+            exit;
+        }
+    }
+    add_action('template_redirect', 'disable_author_pages');
+
     
