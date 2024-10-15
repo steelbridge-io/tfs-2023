@@ -21,9 +21,6 @@ get_header(); ?>
                poster="<?php echo $travel_temp_video_poster; ?>">
             <source src="<?php echo $travel_temp_video; ?>" type="video/mp4">
         </video>
-       <!-- <div id="customControls" style="display:none;">
-            <button id="playButton">Play</button>
-        </div> -->
         <div class="inner-background"></div>
         <div id="travel-temp-hero-video" class="inner">
 			<?php
@@ -78,6 +75,7 @@ include_once( 'cta-sections/news-signup-blog-esb-lodge.php' );
 include_once( 'cta-sections/news-signup-blog-lava-creek.php' );
 include_once( 'cta-sections/news-signup-blog-estancia-maria-behety-lodge.php' );
 include_once( 'cta-sections/news-signup-blog-la-villa-de-maria-behety.php' );
+include_once('cta-sections/news-signup-blog-rio-marie.php' );
 
 ?>
 
