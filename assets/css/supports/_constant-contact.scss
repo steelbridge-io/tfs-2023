@@ -1,0 +1,29 @@
+/** Constant Contact for Gravity Forms */
+
+#constant-contact-container {
+  .row {
+    .col-md-11 {
+      .gform_confirmation_wrapper {
+        .gform_confirmation_message {
+          h2 {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+#pop-over-fp {
+  &.form-group {
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 1681px) {
+  #pop-over-fp {
+    &.no-spam-signup {
+      margin-top: 8px;
+    }
+  }
+}
