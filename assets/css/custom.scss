@@ -1943,6 +1943,7 @@ nav.navigation.post-navigation {
   #fp-well .row {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 }
 
@@ -2062,6 +2063,7 @@ nav.navigation.post-navigation {
 @import 'supports/news-blog-template';
 @import 'supports/front-page';
 @import 'supports/taxonomy-archive';
+@import 'supports/constant-contact';
 @import 'supports/content';
 @import 'supports/margin-padding';
 @import 'supports/404';

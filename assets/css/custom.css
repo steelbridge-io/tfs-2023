@@ -2068,6 +2068,7 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
   #fp-well .row {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 }
 @media (min-width: 600px) and (max-width: 800px) {
@@ -2760,6 +2761,20 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
   .article-content.row {
     display: flex;
     align-items: center;
+  }
+}
+/** Constant Contact for Gravity Forms */
+#constant-contact-container .row .col-md-11 .gform_confirmation_wrapper .gform_confirmation_message h2 {
+  color: #fff;
+}
+
+#pop-over-fp.form-group {
+  margin-top: 20px;
+}
+
+@media (min-width: 1681px) {
+  #pop-over-fp.no-spam-signup {
+    margin-top: 8px;
   }
 }
 /* SCSS for content.php template part
@@ -3617,6 +3632,16 @@ body.default-template .outer .wrap .container #primary #main article .entry-cont
     }
   }
 }*/
+#collapseTraveltemplate {
+  background-color: #000;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+#collapseTraveltemplate .well {
+  background-color: #000 !important;
+}
+
 #customControls {
   position: absolute;
   top: 76%;
