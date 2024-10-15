@@ -12,6 +12,16 @@
   }
 }*/
 
+#collapseTraveltemplate {
+  background-color: #000;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  .well {
+    background-color: #000 !important;
+  }
+}
+
 #customControls {
   position: absolute;
   top: 76%;
