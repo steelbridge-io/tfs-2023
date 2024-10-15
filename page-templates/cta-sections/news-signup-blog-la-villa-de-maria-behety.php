@@ -12,10 +12,15 @@
 					<div class="col-md-11">
 						<?php echo do_shortcode('[gravityform id="11" title="false"]') ?>
 					</div>
-					<div class="help-hover d-flex align-items-center">
-						<a tabindex="0" role="button" aria-hidden="true" data-trigger="hover" data-toggle="popover" data-placement="top" title="Safe Subscribe" data-content="We respect your privacy and do not tolerate spam and will never sell, rent, lease or give away your email address to any third party. Nor will we send you unsolicited email. You will have the option to safely unsubscribe upon receiving fishing reports related to Lava Creek Lodge. We just want to deleiver great photos, fantastic fly fishing ideas, reports and motivation!"><span class="glyphicon glyphicon-question-sign gi-2x"></span></a>
-					</div>
+                    <div id="pop-over-fp" class="col-4 no-spam-signup">
+                        <a role="button" data-toggle="collapse" href="#collapseTraveltemplate" aria-expanded="false" aria-controls="collapseTraveltemplate"><span class="glyphicon glyphicon-question-sign gi-2x"></span></a>
+                    </div>
 				</div>
+                <div class="collapse" id="collapseTraveltemplate">
+                    <div class="well">
+                        <p>"We respect your privacy and do not tolerate spam and will never sell, rent, lease or give away your email address to any third party. Nor will we send you unsolicited email. You will have the option to safely unsubscribe upon receiving our newsletters. We just want to deleiver great photos, fantastic fly fishing ideas and motivation!</p>
+                    </div>
+                </div>
 			</div>
 		
 		</div>
