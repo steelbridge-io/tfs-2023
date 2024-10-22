@@ -56,7 +56,7 @@ get_header(); ?>
      <div class="center-content-flex template-header-content">
        <div class="basicpagelogo basic-signature-header template-class text-center">
          <div class="inner basic-template-inner">
-           <dl class="landing-hd">
+           <dl class="hero-logo-info landing-hd">
              <dd class="dd-1"><img src="<?php echo $basic_logo_upload; ?>" class="basic-template-logo" alt="The Fly Shop Logo" title="Basic Logo"></dd>
              <dd class="dd-2"><h2 class="logo-tel"><?php echo get_the_title(); ?></h2></dd>
              
