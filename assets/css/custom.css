@@ -1592,12 +1592,6 @@ p.template-description {
   position: fixed;
 }
 
-/* Sidebar
-------------------------------- */
-h2.widget-title {
-  color: #2e3842;
-}
-
 #survey-secondary.survey-widget-area {
   background-color: rgba(144, 144, 144, 0.25);
 }
@@ -2248,6 +2242,18 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
 #lower48-sidebar img {
   margin: 0 auto;
   display: block;
+}
+
+#secondary h2.widget-title {
+  color: #2e3842;
+  font-size: 1.5rem;
+}
+#secondary h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+#secondary h4.date {
+  font-size: 1rem;
 }
 
 /* Outfitter Blog SCSS
