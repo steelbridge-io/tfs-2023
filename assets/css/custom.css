@@ -2889,8 +2889,7 @@ body.default-template #primary #main article.travel-blog {
 .outfitters.default-template.jumbotron img {
   object-fit: cover;
   height: 100%;
-  width: auto;
-  max-width: fit-content; }
+  width: auto; }
 
 .travel-blog #content-template-part-content p:nth-child(n+2) {
   margin-top: 1.618em; }
