@@ -1,0 +1,31 @@
+// Optional JS for synchronized scrolling
+const tableWrapper = document.querySelector('.table-wrapper');
+const tableScrollable = document.querySelector('.table-scrollable');
+
+tableScrollable.addEventListener('scroll', () => {
+    tableWrapper.scrollTop = tableScrollable.scrollTop;
+});
+
+// JavaScript for table search functionality
+// JavaScript for table search functionality
+document.getElementById('searchInput').addEventListener('keyup', function() {
+    var input = this.value.toLowerCase();
+    var rows = document.querySelectorAll('#gda-table tbody tr');
+
+    rows.forEach(function(row) {
+        var cells = row.querySelectorAll('td');
+        var found = false;
+
+        cells.forEach(function(cell) {
+            if (cell.textContent.toLowerCase().includes(input)) {
+                found = true;
+            }
+        });
+
+        if (found) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+});
