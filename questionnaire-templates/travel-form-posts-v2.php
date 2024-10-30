@@ -77,7 +77,10 @@ $sorting                   = array(
 ); // 1.6 is the field id for last name
 
 if($form_id == 96) {
-	include_once get_template_directory() . '/questionnaire-config/search/alaska-rainbow-adventures-search.php';
+	require_once get_template_directory() . '/questionnaire-config/search/alaska-rainbow-adventures-search.php';
+}
+if ( $form_id == 95 ) {
+  require_once get_template_directory() . '/questionnaire-config/search/alaska-steelhead-co-search.php';
 }
 
 /**
@@ -134,6 +137,10 @@ if($form_id == 96) {
 	include_once( get_template_directory() . '/questionnaire-config/table-headings/alaska-rainbow-adventures-table.php' );
 }
 
+if ( $form_id == 95 ) {
+  require_once get_template_directory() . '/questionnaire-config/table-headings/alaska-steelhead-co-table.php';
+}
+
 /*
  * Retrieves entries from a Gravity Form based on specified criteria and sorting order
  * $form_id: ID of the form to retrieve entries from
@@ -142,11 +149,14 @@ if($form_id == 96) {
 **/
 $entries = GFAPI::get_entries( $form_id, $search_criteria, $sorting );
 
-if( $form_id == 59) {
+if( $form_id == 59 ) {
 require_once get_template_directory() . '/questionnaire-config/question-config.php';
 }
-if( $form_id == 96) {
+if( $form_id == 96 ) {
 require_once get_template_directory() . '/questionnaire-config/questionnaire/alaska-rainbow-adventures-ak-questionnaire.php';
+}
+if( $form_id == 95 ) {
+  require_once get_template_directory() . '/questionnaire-config/questionnaire/alaska-steelhead-co-questionnaire.php';
 }
 
 foreach ($entries as $entry ) {
