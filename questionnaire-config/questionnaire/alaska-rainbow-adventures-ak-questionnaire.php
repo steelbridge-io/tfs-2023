@@ -479,12 +479,9 @@ function formatEntryData(mixed $entry, int $counter): void
 		$specialOccasion_data_content = "{$specialOccasion_escaped_content}";
 		// Please tell us about your event or celebration popover
 		echo <<<HTML
-				    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom" data-html="true"    data-content="{$specialOccasion_data_content}"> <b>{$specialOccasion_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see
-				    more</span></b></button>
-			      <style>
-			        .popover { max-width: none; /* Allow the popover to expand to the size of the content */
-			        }
-		        </style>
+				    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom"
+				    data-html="true"    data-content="{$specialOccasion_data_content}"> <b>{$specialOccasion_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see more</span></b></button>
+			      <style>.popover { max-width: none; /* Allow the popover to expand to the size of the content */}</style>
 	HTML;
 	}
 	echo  '</td>';
@@ -508,10 +505,7 @@ function formatEntryData(mixed $entry, int $counter): void
 		echo <<<HTML
 				    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom" data-html="true"    data-content="{$tripGoals_data_content}"> <b>{$tripGoals_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see
 				    more</span></b></button>
-				    <style>
-				    	.popover {  max-width: none; /* Allow the popover to expand to the size of the content */
-				    	}
-				    	</style>
+				    <style>.popover {  max-width: none; }</style>
 	HTML;
 	}
 	echo  '</td>';
