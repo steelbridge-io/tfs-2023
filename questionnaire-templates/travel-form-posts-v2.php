@@ -82,6 +82,9 @@ if($form_id == 96) {
 if ( $form_id == 95 ) {
   require_once get_template_directory() . '/questionnaire-config/search/alaska-steelhead-co-search.php';
 }
+if ( $form_id == 85 ) {
+    require_once get_template_directory() . '/questionnaire-config/search/epic-alaska-search.php';
+}
 
 /**
  * Close reveal
@@ -128,17 +131,14 @@ echo '</pre>';
 
 echo '</div>';
 
-//include get_template_directory() . '/template-parts/inc/form-grid-data.php';
-if($form_id == 59) {
-	include_once(get_template_directory() . '/questionnaire-config/table-headings/master-questionnaire-table.php');
-}
-
 if($form_id == 96) {
 	include_once( get_template_directory() . '/questionnaire-config/table-headings/alaska-rainbow-adventures-table.php' );
 }
-
 if ( $form_id == 95 ) {
   require_once get_template_directory() . '/questionnaire-config/table-headings/alaska-steelhead-co-table.php';
+}
+if ( $form_id == 85 ) {
+    require_once get_template_directory() . '/questionnaire-config/table-headings/epic-alaska-table.php';
 }
 
 /*
@@ -157,6 +157,9 @@ require_once get_template_directory() . '/questionnaire-config/questionnaire/ala
 }
 if( $form_id == 95 ) {
   require_once get_template_directory() . '/questionnaire-config/questionnaire/alaska-steelhead-co-questionnaire.php';
+}
+if ( $form_id == 85 ) {
+    require_once get_template_directory() . '/questionnaire-config/questionnaire/epic-alaska-questionnaire.php';
 }
 
 foreach ($entries as $entry ) {
