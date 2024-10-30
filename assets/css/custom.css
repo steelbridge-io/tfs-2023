@@ -4866,6 +4866,23 @@ dl.hero-logo-info.landing-hd {
   padding: 1em !important;
 }
 
+/** Guest Data App */
+.display-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.gda-filter-wrapper {
+  margin: 1.618em auto;
+}
+
+.gda-search-wrapper {
+  margin: 1.618em auto;
+}
+
 /*@import "supports/side-nav";*/
 
 /*# sourceMappingURL=custom.css.map */
