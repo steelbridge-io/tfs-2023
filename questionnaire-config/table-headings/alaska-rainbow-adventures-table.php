@@ -2,7 +2,7 @@
 
 echo '<div id="question-grid" class="table-wrapper">
         <div class="table-scrollable">
-            <table>
+            <table id="gda-table">
             <thead>
             <tr>
             <th class="fixed-column">Name</th>
