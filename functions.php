@@ -984,5 +984,5 @@ function hide_plugins_menu_except_admins() {
 }
 
 // Hook into 'admin_menu' action
-add_action('admin_menu', 'hide_plugins_menu_except_admins');
+//add_action('admin_menu', 'hide_plugins_menu_except_admins');
 
