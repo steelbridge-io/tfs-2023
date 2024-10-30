@@ -976,4 +976,13 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
     }
     add_action('template_redirect', 'disable_author_pages');
 
-    
+// Function to hide Plugins menu from non-super admin and non-admin users
+function hide_plugins_menu_except_admins() {
+  if (current_user_can('administrator') && is_super_admin()) {
+    remove_menu_page('plugins.php');
+  }
+}
+
+// Hook into 'admin_menu' action
+add_action('admin_menu', 'hide_plugins_menu_except_admins');
+
