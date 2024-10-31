@@ -789,7 +789,7 @@ function prefix_conditional_body_class( $classes ) {
 }
 add_filter( 'body_class', 'prefix_conditional_body_class' );
 
- function add_og_image() {
+/* function add_og_image() {
   global $post;
   $default = '';
   $og_img_url = get_the_post_thumbnail_url($post->ID, 'full');
@@ -805,10 +805,29 @@ add_filter( 'body_class', 'prefix_conditional_body_class' );
 
   }
  }
- add_action( 'wp_head', 'add_og_image' );
+ add_action( 'wp_head', 'add_og_image' ); */
 
 
-	/**
+function add_og_image() {
+	global $post;
+	
+	if (isset($post) && isset($post->ID)) {
+		$default = '';
+		$og_img_url = get_the_post_thumbnail_url($post->ID, 'full');
+		
+		if ($og_img_url == $default) {
+			echo '<meta property="og:image" content="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2021/05/social_tfs_logo_og.png"/>';
+		} else {
+			echo '<meta property="og:image" content="' . esc_url($og_img_url) . '"/>'; // Ensure URL is properly escaped
+		}
+	} else {
+		// Fallback meta tag if $post or $post->ID is not set
+		echo '<meta property="og:image" content="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2021/05/social_tfs_logo_og.png"/>';
+	}
+}
+add_action('wp_head', 'add_og_image');
+
+/**
 	 * Post Navigation
 	 */
 
