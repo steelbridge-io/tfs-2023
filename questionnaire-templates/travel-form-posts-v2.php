@@ -65,25 +65,27 @@ echo '<div class="collapse" id="collapseExample">';
  * @var string $form_id The unique identifier of the Gravity Form.
  */
 //$form_id                   = '59'; // Your Gravity Form ID
-$guest_number = get_post_meta(get_the_ID(),'_gda_meta_key', true);
-if ($guest_number) {
-	$form_id = ($guest_number);
-}
-$search_criteria['status'] = 'active';
-$sorting                   = array(
-	'key'        => '1.6',
-	'direction'  => 'ASC',
-	'is_numeric' => FALSE,
-); // 1.6 is the field id for last name
 
-if($form_id == 96) {
-	require_once get_template_directory() . '/questionnaire-config/search/alaska-rainbow-adventures-search.php';
+$guest_number = get_post_meta(get_the_ID(), '_gda_meta_key', true);
+if ($guest_number) {
+  $form_id = ($guest_number);
 }
-if ( $form_id == 95 ) {
+
+$search_criteria['status'] = 'active';
+
+// Sorting based on "Arrival date" field with ID 46 in descending order
+$sorting = array('key' => '46', // Field ID for "Arrival date"
+  'direction' => 'ASC', // Sorting in descending order
+  'is_numeric' => FALSE,);
+
+if ($form_id == 96) {
+  require_once get_template_directory() . '/questionnaire-config/search/alaska-rainbow-adventures-search.php';
+}
+if ($form_id == 95) {
   require_once get_template_directory() . '/questionnaire-config/search/alaska-steelhead-co-search.php';
 }
-if ( $form_id == 85 ) {
-    require_once get_template_directory() . '/questionnaire-config/search/epic-alaska-search.php';
+if ($form_id == 85) {
+  require_once get_template_directory() . '/questionnaire-config/search/epic-alaska-search.php';
 }
 
 /**
@@ -93,52 +95,16 @@ echo '</div>';
 
 echo '<div class="container form-list-wrap">';
 
-/**
- * This variable contains the entries for some specific data.
- *
- * The entries are stored as an array, where each element represents an entry.
- * Each entry is an associative array with the following structure:
- * - 'id': (integer) The unique identifier of the entry.
- * - 'name': (string) The name of the entry.
- * - 'description': (string) The description of the entry.
- * - 'created_at': (string) The timestamp when the entry was created.
- *
- * Example usage:
- * $entries = [
- *     [
- *         'id' => 1,
- *         'name' => 'Entry 1',
- *         'description' => 'Lorem ipsum dolor sit amet.',
- *         'created_at' => '2022-01-01 10:00:00',
- *     ],
- *     [
- *         'id' => 2,
- *         'name' => 'Entry 2',
- *         'description' => 'Consectetur adipiscing elit.',
- *         'created_at' => '2022-01-02 12:30:00',
- *     ],
- *     ...
- * ];
- *
- * @var array $entries The array of entries.
- */
-
-/*
-echo '<pre>';
-print_r($search_criteria);
-echo '</pre>';
- */
-
 echo '</div>';
 
-if($form_id == 96) {
-	include_once( get_template_directory() . '/questionnaire-config/table-headings/alaska-rainbow-adventures-table.php' );
+if ($form_id == 96) {
+  include_once(get_template_directory() . '/questionnaire-config/table-headings/alaska-rainbow-adventures-table.php');
 }
-if ( $form_id == 95 ) {
+if ($form_id == 95) {
   require_once get_template_directory() . '/questionnaire-config/table-headings/alaska-steelhead-co-table.php';
 }
-if ( $form_id == 85 ) {
-    require_once get_template_directory() . '/questionnaire-config/table-headings/epic-alaska-table.php';
+if ($form_id == 85) {
+  require_once get_template_directory() . '/questionnaire-config/table-headings/epic-alaska-table.php';
 }
 
 /*
@@ -147,31 +113,31 @@ if ( $form_id == 85 ) {
  * $search_criteria: Array to filter entries (e.g., status, date range, field values)
  * $sorting: Array to define the sorting order of entries (e.g., by date created, direction)
 **/
-$entries = GFAPI::get_entries( $form_id, $search_criteria, $sorting );
+$entries = GFAPI::get_entries($form_id, $search_criteria, $sorting);
 
-if( $form_id == 59 ) {
-require_once get_template_directory() . '/questionnaire-config/question-config.php';
+if ($form_id == 59) {
+  require_once get_template_directory() . '/questionnaire-config/question-config.php';
 }
-if( $form_id == 96 ) {
-require_once get_template_directory() . '/questionnaire-config/questionnaire/alaska-rainbow-adventures-ak-questionnaire.php';
+if ($form_id == 96) {
+  require_once get_template_directory() . '/questionnaire-config/questionnaire/alaska-rainbow-adventures-ak-questionnaire.php';
 }
-if( $form_id == 95 ) {
+if ($form_id == 95) {
   require_once get_template_directory() . '/questionnaire-config/questionnaire/alaska-steelhead-co-questionnaire.php';
 }
-if ( $form_id == 85 ) {
-    require_once get_template_directory() . '/questionnaire-config/questionnaire/epic-alaska-questionnaire.php';
+if ($form_id == 85) {
+  require_once get_template_directory() . '/questionnaire-config/questionnaire/epic-alaska-questionnaire.php';
 }
 
-foreach ($entries as $entry ) {
-	formatEntryData($entry, $counter);
+foreach ($entries as $entry) {
+  formatEntryData($entry, $counter);
 }
 
-    echo '</tbody>'; // end tbody
-    echo '</table>'; // end table
-    echo '</div>'; // end table-scrollable
-    echo '</div>'; // end table-wrapper
-    
-    echo '</div>'; // end travel-form-posts div
+echo '</tbody>'; // end tbody
+echo '</table>'; // end table
+echo '</div>'; // end table-scrollable
+echo '</div>'; // end table-wrapper
+
+echo '</div>'; // end travel-form-posts div
 ?>
     <script>
         jQuery(document).ready(function(){
