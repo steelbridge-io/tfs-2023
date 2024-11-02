@@ -406,40 +406,40 @@ function formatEntryData(mixed $entry, int $counter): void
 	}
 	echo  '</td>';
 	
-	echo  '<td>';
-	// Please list any Special Requests, Needs, Health Concerns, Physical Challenges.
-	if ( rgar( $entry, '39' ) != '' ) {
+	
+	echo '<td>';
+// Please list any Special Requests, Needs, Health Concerns, Physical Challenges.
+	if (rgar($entry, '39') != '') {
 		// Retrieve the paragraph content from the entry
-		$specialRequest_paragraph_content = rgar( $entry, '39' );
+		$specialRequest_paragraph_content = rgar($entry, '39');
 		
-		// Extract the first 10 words from the paragraph content
-		$specialRequest_words_array = explode( ' ', $specialRequest_paragraph_content );
-		$specialRequest_excerpt     = implode( ' ', array_slice( $specialRequest_words_array, 0, 2 ) );
+		// Extract the first few words (e.g., 10 words) from the paragraph content
+		$specialRequest_words_array = explode(' ', $specialRequest_paragraph_content);
+		$specialRequest_excerpt     = implode(' ', array_slice($specialRequest_words_array, 0, 10));
 		
-		// Escape content for safe JavaScript usage
-		$specialRequest_escaped_excerpt = htmlspecialchars( $specialRequest_excerpt, ENT_QUOTES, 'UTF-8' );
-		$specialRequest_escaped_content = htmlspecialchars( $specialRequest_paragraph_content, ENT_QUOTES, 'UTF-8' );
-		
-		// Construct the "Read more" link to display in the popover
-		$specialRequest_read_more_link = '<a href="#" class="read-more" onclick="showFullContent(this); return false;"></a>';
+		// Escape content for safe JavaScript and HTML usage
+		$specialRequest_escaped_excerpt = htmlspecialchars($specialRequest_excerpt, ENT_QUOTES, 'UTF-8');
+		$specialRequest_escaped_content = htmlspecialchars($specialRequest_paragraph_content, ENT_QUOTES, 'UTF-8');
 		
 		// Combine the excerpt and "Read more" link for the popover content
 		$specialRequest_data_content = "{$specialRequest_escaped_content}";
 		
-		// Output perscription details button with popover
+		// Output prescription details button with popover
 		echo <<<HTML
-	    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom" data-html="true"
-	    data-content="{$specialRequest_data_content}"> <b>{$specialRequest_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see
-	    more</span></b></button>
-	
-	    <style>
-	        .popover {
-	            max-width: none; /* Allow the popover to expand to the size of the content */
-	        }
-	    </style>
-	HTML;
+    <button type="button" class="btn btn-popover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true"
+    data-bs-content="{$specialRequest_data_content}">
+        <b>{$specialRequest_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see more</span></b>
+    </button>
+
+    <style>
+        .popover {
+            max-width: none; /* Allow the popover to expand to the size of the content */
+        }
+    </style>
+HTML;
 	}
-	echo  '</td>';
+	echo '</td>';
+	
 	
 	echo  '<td>';
 	// Do you need a sleeping bag?
@@ -479,8 +479,8 @@ function formatEntryData(mixed $entry, int $counter): void
 		$specialOccasion_data_content = "{$specialOccasion_escaped_content}";
 		// Please tell us about your event or celebration popover
 		echo <<<HTML
-				    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom"
-				    data-html="true"    data-content="{$specialOccasion_data_content}"> <b>{$specialOccasion_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see more</span></b></button>
+				    <button type="button" class="btn btn-popover" data-bs-toggle="popover" data-bs-placement="bottom"
+				    data-bs-html="true"    data-bs-content="{$specialOccasion_data_content}"> <b>{$specialOccasion_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see more</span></b></button>
 			      <style>.popover { max-width: none; /* Allow the popover to expand to the size of the content */}</style>
 	HTML;
 	}
@@ -503,7 +503,7 @@ function formatEntryData(mixed $entry, int $counter): void
 		$tripGoals_data_content = "{$tripGoals_escaped_content}";
 		// Trip goals
 		echo <<<HTML
-				    <button type="button" class="btn btn-popover" data-toggle="popover" data-placement="bottom" data-html="true"    data-content="{$tripGoals_data_content}"> <b>{$tripGoals_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see
+				    <button type="button" class="btn btn-popover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true"    data-bs-content="{$tripGoals_data_content}"> <b>{$tripGoals_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see
 				    more</span></b></button>
 				    <style>.popover {  max-width: none; }</style>
 	HTML;
