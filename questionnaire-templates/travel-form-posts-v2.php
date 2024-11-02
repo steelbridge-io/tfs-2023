@@ -65,29 +65,32 @@ $sorting = array(
 );
 
 if ($form_id == 96) {
-	require_once get_template_directory() . '/questionnaire-config/search/alaska-rainbow-adventures-search.php';
+	require_once get_template_directory() . '/questionnaire-config/search/alaska/alaska-rainbow-adventures-search.php';
 }
 if ($form_id == 95) {
-	require_once get_template_directory() . '/questionnaire-config/search/alaska-steelhead-co-search.php';
+	require_once get_template_directory() . '/questionnaire-config/search/alaska/alaska-steelhead-co-search.php';
 }
 if ($form_id == 85) {
-	require_once get_template_directory() . '/questionnaire-config/search/epic-alaska-search.php';
+	require_once get_template_directory() . '/questionnaire-config/search/alaska/epic-alaska-search.php';
+}
+if ($form_id == 99) {
+	require_once get_template_directory() . '/questionnaire-config/search/iceland/fish-partners-iceland-search.php';
 }
 
-/**
- * Close reveal
- */
-echo '</div>';
+echo '</div>'; // close reveal container
 echo '<div class="container form-list-wrap"></div>';
 
 if ($form_id == 96) {
-	include_once(get_template_directory() . '/questionnaire-config/table-headings/alaska-rainbow-adventures-table.php');
+	include_once(get_template_directory() . '/questionnaire-config/table-headings/alaska/alaska-rainbow-adventures-table.php');
 }
 if ($form_id == 95) {
-	require_once get_template_directory() . '/questionnaire-config/table-headings/alaska-steelhead-co-table.php';
+	require_once get_template_directory() . '/questionnaire-config/table-headings/alaska/alaska-steelhead-co-table.php';
 }
 if ($form_id == 85) {
-	require_once get_template_directory() . '/questionnaire-config/table-headings/epic-alaska-table.php';
+	require_once get_template_directory() . '/questionnaire-config/table-headings/alaska/epic-alaska-table.php';
+}
+if ($form_id == 99) {
+	require_once get_template_directory() . '/questionnaire-config/table-headings/iceland/fish-partners-iceland-table.php';
 }
 
 /**
@@ -110,6 +113,9 @@ if ($form_id == 95) {
 if ($form_id == 85) {
 	require_once get_template_directory() . '/questionnaire-config/questionnaire/epic-alaska-questionnaire.php';
 }
+if ($form_id == 99) {
+	require_once get_template_directory() . '/questionnaire-config/questionnaire/iceland/fish-partners-iceland-questionnaire.php';
+}
 
 foreach ($entries as $entry) {
 	formatEntryData($entry, $counter);
@@ -121,9 +127,4 @@ echo '</div>'; // end table-scrollable
 echo '</div>'; // end table-wrapper
 echo '</div>'; // end travel-form-posts div
 
-?>
-
-
-
-<?php
 get_footer();
