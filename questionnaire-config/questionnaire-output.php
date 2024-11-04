@@ -36,14 +36,14 @@ function formatEntryData(mixed $entry, int $counter): void {
 	
 	echo '<td>';
 	
-	// Define default values
+	// Reservation #
 	$default_reservation_value = '44';
 	// Retrieve the meta values with a fallback to default values
 	$gda_reservation_value = get_post_meta($post->ID, '_gda_meta_key_reservation_id', true);
 	// Use default values if the meta values are empty
 	$gda_reservation_value = !empty($gda_reservation_value) ? $gda_reservation_value : $default_reservation_value;
 
-	// Reservation
+	// Reservation #
 	if (rgar($entry, $gda_reservation_value) != '') {
 		echo '<b>' . rgar($entry, $gda_reservation_value) . '</b>';
 	}
@@ -112,10 +112,16 @@ function formatEntryData(mixed $entry, int $counter): void {
 	echo '</td>';
 	
 	echo '<td>';
-	
-	
+
+  // Define default values
+  $default_date_of_birth_value = '24';
+  // Retrieve the meta values with a fallback to default values
+  $gda_date_of_birth_value = get_post_meta($post->ID, '_gda_meta_key_date_of_birth_id', true);
+  // Use default values if the meta values are empty
+  $gda_date_of_birth_value = !empty($gda_date_of_birth_value) ? $gda_date_of_birth_value : $default_date_of_birth_value;
+
 	// Birth Date Formating to m-d-Y
-	$dateOfBirth = rgar($entry, '24');
+	$dateOfBirth = rgar($entry, $gda_date_of_birth_value );
 	$dateTime = DateTime::createFromFormat('Y-m-d', $dateOfBirth);
 	
 	if ($dateTime) {
@@ -125,64 +131,93 @@ function formatEntryData(mixed $entry, int $counter): void {
 	}
 	
 	// Birth Date
-	if (rgar($entry, '24') != '') {
+	if (rgar($entry, $gda_date_of_birth_value ) != '') {
 		echo '<b>' . $formattedDateOfBirth . '</b>';
 	}
 	echo '</td>';
 	
 	echo '<td>';
-	// Body Weight
-	if (rgar($entry, '284') != '') {
-		echo '<b>' . rgar($entry, '284') . '</b>';
+  // Body Weight
+  $default_body_weight_value = '284';
+  $gda_body_weight_value = get_post_meta($post->ID, '_gda_meta_key_body_weight_id', true);
+  $gda_body_weight_value = !empty($gda_body_weight_value) ? $gda_body_weight_value : $default_body_weight_value;
+
+	if (rgar($entry, $gda_body_weight_value ) != '') {
+		echo '<b>' . rgar($entry, $gda_body_weight_value ) . '</b>';
 	}
 	echo '</td>';
 	
 	echo '<td>';
 	// Emergency Contact Person
-	if (rgar($entry, '28.3') != '') {
-		echo '<b>' . rgar($entry, '28.3') . '&nbsp;</b><b>' . rgar($entry, '28.6') . '</b>';
+  $default_ec_first_name_value = '28.3';
+  $default_ec_last_name_value = '28.6';
+  $gda_ec_first_name_value = get_post_meta($post->ID, '_gda_meta_key_ec_first_name_id', true);
+  $gda_ec_last_name_value = get_post_meta($post->ID, '_gda_meta_key_ec_last_name_id', true);
+  $gda_ec_first_name_value = !empty($gda_ec_first_name_value) ? $gda_ec_first_name_value : $default_ec_first_name_value;
+  $gda_ec_last_name_value = !empty($gda_ec_last_name_value) ? $gda_ec_last_name_value : $default_ec_last_name_value;
+
+	if (rgar($entry, $gda_ec_first_name_value ) && rgar($entry, $gda_ec_last_name_value ) != '') {
+		echo '<b>' . rgar($entry, $gda_ec_first_name_value ) . '&nbsp;</b><b>' . rgar($entry, $gda_ec_last_name_value) . '</b>';
 	}
 	echo '</td>';
-	
+
 	echo '<td>';
 	// Relationship to Traveler
-	if (rgar($entry, '29') != '') {
-		echo '<b>' . rgar($entry, '29') . '</b>';
+  $default_relationship_to_traveler_value = '29';
+  $gda_relationship_to_traveler_value = get_post_meta($post->ID, '_gda_meta_key_relationship_to_traveler_id', true);
+  $gda_relationship_to_traveler_value = !empty($gda_relationship_to_traveler_value) ? $gda_relationship_to_traveler_value : $default_relationship_to_traveler_value;
+	if (rgar($entry, $gda_relationship_to_traveler_value ) != '') {
+		echo '<b>' . rgar($entry, $gda_relationship_to_traveler_value ) . '</b>';
 	}
 	echo '</td>';
 	
 	echo '<td>';
 	// Emergency Contact Person's Preferred Phone Number
-	if (rgar($entry, '30') != '') {
-		echo '<b>' . rgar($entry, '30') . '</b>';
+  $default_ec_tel_number_value = '30';
+  $gda_ec_tel_number_value = get_post_meta($post->ID, '_gda_meta_key_ec_tel_number_id', true);
+  $gda_ec_tel_number_value = !empty($gda_ec_tel_number_value) ? $gda_ec_tel_number_value : $default_ec_tel_number_value;
+	if (rgar($entry, $gda_ec_tel_number_value ) != '') {
+		echo '<b>' . rgar($entry, $gda_ec_tel_number_value ) . '</b>';
 	}
 	echo '</td>';
 	
 	echo '<td>';
 	// Did you purchase Trip Cancellation Insurance?
-	if (rgar($entry, '210') != '') {
-		echo '<b>' . rgar($entry, '210') . '</b>';
+  $default_purchase_cancellation_ins_value = '210';
+  $gda_purchase_cancellation_ins_value = get_post_meta($post->ID, '_gda_meta_key_purchase_cancellation_ins_id', true);
+  $gda_purchase_cancellation_ins_value = !empty($gda_purchase_cancellation_ins_value) ? $gda_purchase_cancellation_ins_value : $default_purchase_cancellation_ins_value;
+	if (rgar($entry, $gda_purchase_cancellation_ins_value ) != '') {
+		echo '<b>' . rgar($entry, $gda_purchase_cancellation_ins_value ) . '</b>';
 	}
 	echo '</td>';
 	
 	echo '<td>';
 	// Name of Travel Insurance company
-	if (rgar($entry, '207') != '') {
-		echo '<b>' . rgar($entry, '207') . '</b>';
+  $default_ins_co_name_value = '207';
+  $gda_ins_co_name_value = get_post_meta($post->ID, '_gda_meta_key_ins_co_name_id', true);
+  $gda_ins_co_name_value = !empty($gda_ins_co_name_value) ? $gda_ins_co_name_value : $default_ins_co_name_value;
+	if (rgar($entry, $gda_ins_co_name_value ) != '') {
+		echo '<b>' . rgar($entry, $gda_ins_co_name_value ) . '</b>';
 	}
 	echo '</td>';
 	
 	echo '<td>';
 	// Travel Insurance Policy Number
-	if (rgar($entry, '209') != '') {
-		echo '<b>' . rgar($entry, '209') . '</b>';
+  $default_ins_co_policy_number_value = '209';
+  $gda_ins_co_policy_number_value = get_post_meta($post->ID, '_gda_meta_key_ins_co_policy_number_id', true);
+  $gda_ins_co_policy_number_value = !empty($gda_ins_co_policy_number_value) ? $gda_ins_co_policy_number_value : $default_ins_co_policy_number_value;
+	if (rgar($entry, $gda_ins_co_policy_number_value ) != '') {
+		echo '<b>' . rgar($entry, $gda_ins_co_policy_number_value ) . '</b>';
 	}
 	echo '</td>';
 	
 	echo '<td>';
-// What float are your doing?
-	if (rgar($entry, '288') != '') {
-		echo '<b>' . rgar($entry, '288') . '</b>';
+  // What float are your doing?
+  $default_what_float_doing_value = '288';
+  $gda_what_float_doing_value =  get_post_meta($post->ID, '_gda_meta_key_what_float_doing_id', true);
+  $gda_what_float_doing_value = !empty($gda_what_float_doing_value) ? $gda_what_float_doing_value : $default_what_float_doing_value;
+	if (rgar($entry, $gda_what_float_doing_value ) != '') {
+		echo '<b>' . rgar($entry, $gda_what_float_doing_value ) . '</b>';
 	}
 	echo '</td>';
 	
