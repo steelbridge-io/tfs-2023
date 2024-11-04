@@ -64,34 +64,12 @@ $sorting = array(
 	'is_numeric' => false,
 );
 
-if ($form_id == 96) {
 	require_once get_template_directory() . '/questionnaire-config/search/alaska/alaska-rainbow-adventures-search.php';
-}
-if ($form_id == 95) {
-	require_once get_template_directory() . '/questionnaire-config/search/alaska/alaska-steelhead-co-search.php';
-}
-if ($form_id == 85) {
-	require_once get_template_directory() . '/questionnaire-config/search/alaska/epic-alaska-search.php';
-}
-if ($form_id == 99) {
-	require_once get_template_directory() . '/questionnaire-config/search/iceland/fish-partners-iceland-search.php';
-}
 
 echo '</div>'; // close reveal container
 echo '<div class="container form-list-wrap"></div>';
 
-if ($form_id == 96) {
-	include_once(get_template_directory() . '/questionnaire-config/table-headings/alaska/alaska-rainbow-adventures-table.php');
-}
-if ($form_id == 95) {
-	require_once get_template_directory() . '/questionnaire-config/table-headings/alaska/alaska-steelhead-co-table.php';
-}
-if ($form_id == 85) {
-	require_once get_template_directory() . '/questionnaire-config/table-headings/alaska/epic-alaska-table.php';
-}
-if ($form_id == 99) {
-	require_once get_template_directory() . '/questionnaire-config/table-headings/iceland/fish-partners-iceland-table.php';
-}
+	include_once(get_template_directory() . '/questionnaire-config/questionnaire-table-headings.php');
 
 /**
  * Retrieves entries from a Gravity Form based on specified criteria and sorting order
@@ -101,21 +79,7 @@ if ($form_id == 99) {
  */
 $entries = GFAPI::get_entries($form_id, $search_criteria, $sorting);
 
-if ($form_id == 59) {
-	require_once get_template_directory() . '/questionnaire-config/question-config.php';
-}
-if ($form_id == 96) {
-	require_once get_template_directory() . '/questionnaire-config/questionnaire/alaska/alaska-rainbow-adventures-ak-questionnaire.php';
-}
-if ($form_id == 95) {
-	require_once get_template_directory() . '/questionnaire-config/questionnaire/alaska/alaska-steelhead-co-questionnaire.php';
-}
-if ($form_id == 85) {
-	require_once get_template_directory() . '/questionnaire-config/questionnaire/epic-alaska-questionnaire.php';
-}
-if ($form_id == 99) {
-	require_once get_template_directory() . '/questionnaire-config/questionnaire/iceland/fish-partners-iceland-questionnaire.php';
-}
+require_once get_template_directory() . '/questionnaire-config/questionnaire-output.php';
 
 foreach ($entries as $entry) {
 	formatEntryData($entry, $counter);
