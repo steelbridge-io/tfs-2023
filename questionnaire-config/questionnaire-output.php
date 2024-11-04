@@ -210,16 +210,22 @@ function formatEntryData(mixed $entry, int $counter): void {
 		echo '<b>' . rgar($entry, $gda_ins_co_policy_number_value ) . '</b>';
 	}
 	echo '</td>';
-	
-	echo '<td>';
-  // What float are your doing?
-  $default_what_float_doing_value = '288';
-  $gda_what_float_doing_value =  get_post_meta($post->ID, '_gda_meta_key_what_float_doing_id', true);
-  $gda_what_float_doing_value = !empty($gda_what_float_doing_value) ? $gda_what_float_doing_value : $default_what_float_doing_value;
-	if (rgar($entry, $gda_what_float_doing_value ) != '') {
-		echo '<b>' . rgar($entry, $gda_what_float_doing_value ) . '</b>';
-	}
-	echo '</td>';
+
+  // Check if the checkbox is checked
+  $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_fields', true);
+
+  if ($show_meta_fields) {
+    echo '<td>';
+    // What float are your doing?
+    $default_what_float_doing_value = '288';
+    $gda_what_float_doing_value = get_post_meta($post->ID, '_gda_meta_key_what_float_doing_id', true);
+    $gda_what_float_doing_value = !empty($gda_what_float_doing_value) ? $gda_what_float_doing_value : $default_what_float_doing_value;
+
+    if (rgar($entry, $gda_what_float_doing_value) != '') {
+      echo '<b>' . rgar($entry, $gda_what_float_doing_value) . '</b>';
+    }
+    echo '</td>';
+  }
 	
 	echo  '<td>';
 	// Arrival airport city/town

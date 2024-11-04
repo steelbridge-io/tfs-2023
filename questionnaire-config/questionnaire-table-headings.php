@@ -135,14 +135,19 @@ echo '<div id="question-grid" class="table-wrapper">
               echo '<th>' . $gda_header_title_ins_co_policy_number . '</th>';
             }
 
-            // Table header Travel insurance policy number
-            $default_what_float_doing_value = 'What float are you doing?';
-            $gda_header_title_what_float_doing = get_post_meta($post->ID, '_gda_meta_key_header_what_float_doing',true);
-            // Use default values if the meta values are empty
-            $gda_header_title_what_float_doing = !empty($gda_header_title_what_float_doing) ? $gda_header_title_what_float_doing : $default_what_float_doing_value;
-            // Travel insurance policy number
-            if (!empty($gda_header_title_what_float_doing)) {
-              echo '<th>' . $gda_header_title_what_float_doing . '</th>';
+            // Check if the checkbox is checked
+            $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_fields', true);
+
+            if ($show_meta_fields) {
+              // Table header Travel insurance policy number
+              $default_what_float_doing_value = 'What float are you doing?';
+              $gda_header_title_what_float_doing = get_post_meta($post->ID, '_gda_meta_key_header_what_float_doing', true);
+              // Use default values if the meta values are empty
+              $gda_header_title_what_float_doing = !empty($gda_header_title_what_float_doing) ? $gda_header_title_what_float_doing : $default_what_float_doing_value;
+              // Travel insurance policy number
+              if (!empty($gda_header_title_what_float_doing)) {
+                echo '<th>' . $gda_header_title_what_float_doing . '</th>';
+              }
             }
 						
 
