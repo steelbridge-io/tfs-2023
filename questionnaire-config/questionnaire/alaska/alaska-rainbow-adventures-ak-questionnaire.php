@@ -6,17 +6,32 @@ $counter = 1;
  * @param int $counter
  * @return void
  */
-function formatEntryData(mixed $entry, int $counter): void
-{
+function formatEntryData(mixed $entry, int $counter): void {
+	
+	global $post;
 	$date_created = date("m/d/Y", strtotime($entry['date_created']));
 	
 	echo '<tr>';
 	
 	echo '<td class="fixed-column">';
-	// Name
-	if (rgar($entry, '1.6') != '') {
-		echo '<b>' . rgar($entry, '1.6') . '&comma;&nbsp;' . rgar($entry, '1.3') . /*. rgar($entry, '1.4') .*/ '</b>';
+
+// Define default values
+	$default_first_name_value = '1.3';
+	$default_last_name_value = '1.6';
+
+// Retrieve the meta values with a fallback to default values
+	$gda_first_name_value = get_post_meta($post->ID, '_gda_meta_key_first_name_id', true);
+	$gda_last_name_value = get_post_meta($post->ID, '_gda_meta_key_last_name_id', true);
+
+// Use default values if the meta values are empty
+	$gda_first_name_value = !empty($gda_first_name_value) ? $gda_first_name_value : $default_first_name_value;
+	$gda_last_name_value = !empty($gda_last_name_value) ? $gda_last_name_value : $default_last_name_value;
+
+// Name
+	if (rgar($entry, $gda_last_name_value) != '') {
+		echo '<b>' . rgar($entry, $gda_last_name_value) . '&comma;&nbsp;' . rgar($entry, $gda_first_name_value) . '</b>';
 	}
+	
 	echo '</td>';
 	
 	echo '<td>';
