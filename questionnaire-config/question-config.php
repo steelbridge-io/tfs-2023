@@ -263,6 +263,13 @@ HTML;
 		echo '<b>' . rgar($entry, '72') . '</b>';
 	}
 	echo '</td>';
+
+  echo '<td>';
+  // What float are your doing?
+  if (rgar($entry, '288') != '') {
+    echo '<b>' . rgar($entry, '288') . '</b>';
+  }
+  echo '</td>';
 	
 	echo '<td>';
 	// Did you purchase Trip Cancellation Insurance?
