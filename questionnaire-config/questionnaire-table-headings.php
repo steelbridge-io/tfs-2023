@@ -1,19 +1,24 @@
 <?php
 
 echo '<div id="question-grid" class="table-wrapper">
+      
         <div class="table-scrollable">
             <table id="gda-table">
             <thead>
             <tr>';
-						// Table header Name
-						$default_name_value = 'Name';
-						$gda_meta_value_th = get_post_meta($post->ID, '_gda_meta_key_table_header_title', true);
-						// Use default values if the meta values are empty
-						$gda_meta_value_th = !empty($gda_meta_value_th) ? $gda_meta_value_th : $default_name_value;
-						// Table Name
-						if (!empty($gda_meta_value_th)) {
-							echo '<th class="fixed-column">' . $gda_meta_value_th . '</th>';
-						}
+              $gda_meta_value = get_post_meta($post->ID, '_gda_meta_key', true);
+
+              if (!empty($gda_meta_value)) {
+              // Table header Name
+              $default_name_value = 'Name';
+              $gda_meta_value_th = get_post_meta($post->ID, '_gda_meta_key_table_header_title', true);
+              // Use default values if the meta values are empty
+              $gda_meta_value_th = !empty($gda_meta_value_th) ? $gda_meta_value_th : $default_name_value;
+              // Table Name
+              if (!empty($gda_meta_value_th)) {
+                echo '<th class="fixed-column">' . $gda_meta_value_th . '</th>';
+              }
+
 
 						// Table header reservation
 						$default_reservation_value = 'Reservation';
@@ -149,26 +154,149 @@ echo '<div id="question-grid" class="table-wrapper">
                 echo '<th>' . $gda_header_title_what_float_doing . '</th>';
               }
             }
-						
 
+            // Check if the checkbox is checked
+            $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_field_arrival_airport', true);
+
+            if ($show_meta_fields) {
+              // Table header Travel insurance policy number
+              $default_arrival_airport_value = 'Arrival airport city/town';
+              $gda_header_title_arrival_airport = get_post_meta($post->ID, '_gda_meta_key_header_arrival_airport', true);
+              // Use default values if the meta values are empty
+              $gda_header_title_arrival_airport = !empty($gda_header_title_arrival_airport) ? $gda_header_title_arrival_airport : $default_arrival_airport_value;
+              // Travel insurance policy number
+              if (!empty($gda_header_title_arrival_airport)) {
+                echo '<th>' . $gda_header_title_arrival_airport . '</th>';
+              }
+            }
+
+            // Check if the checkbox is checked
+            $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_field_arrival_airline', true);
+
+            if ($show_meta_fields) {
+              // Table header Travel insurance policy number
+              $default_arrival_airline_value = 'Arrival airline';
+              $gda_header_title_arrival_airline = get_post_meta($post->ID, '_gda_meta_key_header_arrival_airline', true);
+              // Use default values if the meta values are empty
+              $gda_header_title_arrival_airline = !empty($gda_header_title_arrival_airline) ? $gda_header_title_arrival_airline : $default_arrival_airline_value;
+              // Travel insurance policy number
+              if (!empty($gda_header_title_arrival_airline)) {
+                echo '<th>' . $gda_header_title_arrival_airline . '</th>';
+              }
+            }
+
+            // Check if the checkbox is checked
+            $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_field_other_arrival_airline', true);
+
+            if ($show_meta_fields) {
+              // Table header Travel insurance policy number
+              $default_other_arrival_airline_value = 'Arrival airline (other)';
+              $gda_header_title_other_arrival_airline = get_post_meta($post->ID, '_gda_meta_key_header_other_arrival_airline', true);
+              // Use default values if the meta values are empty
+              $gda_header_title_other_arrival_airline = !empty($gda_header_title_other_arrival_airline) ? $gda_header_title_other_arrival_airline : $default_other_arrival_airline_value;
+              // Travel insurance policy number
+              if (!empty($gda_header_title_other_arrival_airline)) {
+                echo '<th>' . $gda_header_title_other_arrival_airline . '</th>';
+              }
+            }
+
+            // Check if the checkbox is checked
+            $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_field_flight_arrival_date', true);
+
+            if ($show_meta_fields) {
+              // Table header Travel insurance policy number
+              $default_flight_arrival_date_value = 'Flight arrival date';
+              $gda_header_title_flight_arrival_date = get_post_meta($post->ID, '_gda_meta_key_header_flight_arrival_date', true);
+              // Use default values if the meta values are empty
+              $gda_header_title_flight_arrival_date = !empty($gda_header_title_flight_arrival_date) ? $gda_header_title_flight_arrival_date : $default_flight_arrival_date_value;
+              // Travel insurance policy number
+              if (!empty($gda_header_title_flight_arrival_date)) {
+                echo '<th>' . $gda_header_title_flight_arrival_date . '</th>';
+              }
+            }
+
+            // Check if the checkbox is checked
+            $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_field_flight_arrival_number', true);
+
+            if ($show_meta_fields) {
+              // Table header Travel insurance policy number
+              $default_flight_arrival_number_value = 'Flight arrival number';
+              $gda_header_title_flight_arrival_number = get_post_meta($post->ID, '_gda_meta_key_header_flight_arrival_number', true);
+              // Use default values if the meta values are empty
+              $gda_header_title_flight_arrival_number = !empty($gda_header_title_flight_arrival_number) ? $gda_header_title_flight_arrival_number : $default_flight_arrival_number_value;
+              // Travel insurance policy number
+              if (!empty($gda_header_title_flight_arrival_number)) {
+                echo '<th>' . $gda_header_title_flight_arrival_number . '</th>';
+              }
+            }
+
+            // Check if the checkbox is checked
+            $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_field_flight_arrival_time', true);
+
+            if ($show_meta_fields) {
+              // Table header Travel insurance policy number
+              $default_flight_arrival_time_value = 'Flight arrival time';
+              $gda_header_title_flight_arrival_time = get_post_meta($post->ID, '_gda_meta_key_header_flight_arrival_time', true);
+              // Use default values if the meta values are empty
+              $gda_header_title_flight_arrival_time = !empty($gda_header_title_flight_arrival_time) ? $gda_header_title_flight_arrival_time : $default_flight_arrival_time_value;
+              // Travel insurance policy number
+              if (!empty($gda_header_title_flight_arrival_time)) {
+                echo '<th>' . $gda_header_title_flight_arrival_time . '</th>';
+              }
+            }
+
+            // Check if the checkbox is checked
+            $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_field_flight_departure_date', true);
+
+            if ($show_meta_fields) {
+              // Table header Travel insurance policy number
+              $default_flight_departure_date_value = 'Flight departure date';
+              $gda_header_title_flight_departure_date = get_post_meta($post->ID, '_gda_meta_key_header_flight_departure_date', true);
+              // Use default values if the meta values are empty
+              $gda_header_title_flight_departure_date = !empty($gda_header_title_flight_departure_date) ? $gda_header_title_flight_departure_date : $default_flight_departure_date_value;
+              // Travel insurance policy number
+              if (!empty($gda_header_title_flight_departure_date)) {
+                echo '<th>' . $gda_header_title_flight_departure_date . '</th>';
+              }
+            }
+
+            // Check if the checkbox is checked
+            $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_field_flight_departure_number', true);
+
+            if ($show_meta_fields) {
+              // Table header Travel insurance policy number
+              $default_flight_departure_number_value = 'Flight departure number';
+              $gda_header_title_flight_departure_number = get_post_meta($post->ID, '_gda_meta_key_header_flight_departure_number', true);
+              // Use default values if the meta values are empty
+              $gda_header_title_flight_departure_number = !empty($gda_header_title_flight_departure_number) ? $gda_header_title_flight_departure_number : $default_flight_departure_number_value;
+              // Travel insurance policy number
+              if (!empty($gda_header_title_flight_departure_number)) {
+                echo '<th>' . $gda_header_title_flight_departure_number . '</th>';
+              }
+            }
+
+            // Check if the checkbox is checked
+            $show_meta_fields = get_post_meta($post->ID, '_gda_show_meta_field_flight_departure_time', true);
+
+            if ($show_meta_fields) {
+              // Table header Travel insurance policy number
+              $default_flight_departure_time_value = 'Flight departure time';
+              $gda_header_title_flight_departure_time = get_post_meta($post->ID, '_gda_meta_key_header_flight_departure_time', true);
+              // Use default values if the meta values are empty
+              $gda_header_title_flight_departure_time = !empty($gda_header_title_flight_departure_time) ? $gda_header_title_flight_departure_time : $default_flight_departure_time_value;
+              // Travel insurance policy number
+              if (!empty($gda_header_title_flight_departure_time)) {
+                echo '<th>' . $gda_header_title_flight_departure_time . '</th>';
+              }
+            }
 						
 						
 						
 
 					echo   '
 					
-                <th>Arrival airport city/town</th>
-                <th>Arrival airline</th>
-                <th>Arrival airline (other)</th>
-                <th>Arrival date</th>
-                <th>Arrival airline flight number</th>
-                <th>Arrival time</th>
-                <th>Departure date</th>
-                <th>Departure airline flight number</th>
-                <th>Depature time</th>
                 <th>Departure airline</th>
                 <th>Other departure airline</th>
-                <th>Flight departure date</th>
                 <th>Departure flight &#35;</th>
                 <th>Scheduled departure time</th>
                 <th>Name(s) of others traveling with you</th>
@@ -190,8 +318,9 @@ echo '<div id="question-grid" class="table-wrapper">
                 <th>Rooming\roommate requests</th>
                 <th>Will you be celebrating a special occasion while on the float?</th>
                 <th>Please tell us about your event or celebration</th>
-                <th>What are you most looking forward to during your stay?</th>
-            </tr>
+                <th>What are you most looking forward to during your stay?</th>';
+                }
+            echo '</tr>
             </thead>
             <tbody>';
 
