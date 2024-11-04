@@ -4,9 +4,18 @@ echo '<div id="question-grid" class="table-wrapper">
         <div class="table-scrollable">
             <table id="gda-table">
             <thead>
-            <tr>
-            <th class="fixed-column">Name</th>
-                <th>Reservation &#35;</th>
+            <tr>';
+
+						$gda_meta_value_th = get_post_meta($post->ID, '_gda_meta_key_table_header_title', true);
+						// Name
+						if (!empty($gda_meta_value_th)) {
+							echo '<th class="fixed-column">' . $gda_meta_value_th . '</th>';
+						}
+
+
+      
+      
+     echo      '<th>Reservation &#35;</th>
                 <th>Arrival date</th>
                 <th>Departure date</th>
                 <th>Cell Phone</th>
