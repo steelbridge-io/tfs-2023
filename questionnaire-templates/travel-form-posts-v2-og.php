@@ -24,7 +24,9 @@ else :
 	echo '<p>' . __('Sorry, no posts matched your criteria.') . '</p>';
 endif;
 
-// Open Reveal
+/**
+ * Open Reveal
+ */
 echo '<div class="container gda-search-wrapper">
         <div class="row display-flex align-items-center">
             <div class="col-md-4">
@@ -50,7 +52,7 @@ echo '<div class="collapse" id="collapseExample">';
 // Retrieve form ID based on the guest number
 $guest_number = get_post_meta(get_the_ID(), '_gda_meta_key', true);
 if ($guest_number) {
-	$form_id = $guest_number;
+	$form_id = ($guest_number);
 }
 
 $search_criteria['status'] = 'active';
@@ -62,36 +64,31 @@ $sorting = array(
 	'is_numeric' => false,
 );
 
-require_once get_template_directory() . '/questionnaire-config/search/alaska/alaska-rainbow-adventures-search.php';
+	require_once get_template_directory() . '/questionnaire-config/search/alaska/alaska-rainbow-adventures-search.php';
 
 echo '</div>'; // close reveal container
 echo '<div class="container form-list-wrap"></div>';
 
-// Include table headings
-include_once(get_template_directory() . '/questionnaire-config/questionnaire-table-headings.php');
+	include_once(get_template_directory() . '/questionnaire-config/questionnaire-table-headings.php');
 
-// Retrieve entries
+/**
+ * Retrieves entries from a Gravity Form based on specified criteria and sorting order
+ * $form_id: ID of the form to retrieve entries from
+ * $search_criteria: Array to filter entries (e.g., status, date range, field values)
+ * $sorting: Array to define the sorting order of entries (e.g., by date created, direction)
+ */
 $entries = GFAPI::get_entries($form_id, $search_criteria, $sorting);
-if (is_wp_error($entries)) {
-	echo 'Error fetching entries: ' . $entries->get_error_message();
-} else {
-	// Include output for entries
-	require_once get_template_directory() . '/questionnaire-config/questionnaire-output.php';
-	
-	// Initialize counter
-	$counter = 1;
-	
-	// Render entries
-	foreach ($entries as $entry) {
-		formatEntryData($entry, $counter);
-		$counter++;
-	}
+
+require_once get_template_directory() . '/questionnaire-config/questionnaire-output.php';
+
+foreach ($entries as $entry) {
+	formatEntryData($entry, $counter);
 }
 
 echo '</tbody>'; // end tbody
 echo '</table>'; // end table
-echo '</div>'; // end form-list-wrap
+echo '</div>'; // end table-scrollable
+echo '</div>'; // end table-wrapper
 echo '</div>'; // end travel-form-posts div
 
 get_footer();
-?>
