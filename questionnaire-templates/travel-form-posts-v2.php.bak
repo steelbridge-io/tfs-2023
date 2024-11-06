@@ -55,12 +55,12 @@ echo '<div class="collapse" id="collapseExample">
 $arrival_date = filter_input(INPUT_GET, 'filter_arrival_date', FILTER_SANITIZE_SPECIAL_CHARS);
 echo '<div class="well col-md-4">
         <label for="filter_arrival_date">Arrival Date:</label>
-        <input type="date" id="filter_arrival_date" name="filter_arrival_date" value="' . esc_attr($arrival_date) . '">
+        <input type="date" id="filter_arrival_date" name="filter_arrival_date" value="' . (isset($arrival_date) ? $arrival_date : '') . '">
       </div>';
 
 echo '      </div>
               <input class="filter-btn" type="submit" value="Filter">
-              <a href="' . esc_url(strtok((isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], '?')) . '" class="btn btn-danger clear-results" title="Clear results">Clear Results</a>
+              <a href="' . strtok((isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], '?') . '" class="btn btn-danger clear-results" title="Clear results">Clear Results</a>
             </form>
         </div>
       </div>'; // Close collapse container
@@ -76,7 +76,7 @@ $search_criteria = [
 ];
 
 /* Filter logic */
-if (isset($_GET['filter_arrival_date']) && !empty($_GET['filter_arrival_date'])) {
+if (isset($_GET['filter_arrival_date']) && $_GET['filter_arrival_date'] != '') {
   try {
     $date = new DateTime($_GET['filter_arrival_date']);
     $arrival_date_formatted = $date->format('Y-m-d');
@@ -96,10 +96,10 @@ if ($form_id) {
     echo '<div class="container form-list-wrap"></div>';
 
     echo '<div id="question-grid" class="table-wrapper">
-          <div class="table-scrollable">
-          <table id="gda-table" class="table">
-          <thead>
-          <tr>';
+            <div class="table-scrollable">
+            <table id="gda-table">
+            <thead>
+            <tr>';
 
     $name_field = null;
     $allergies_field = null;
@@ -116,51 +116,52 @@ if ($form_id) {
       }
       $label = !empty($field->label) ? $field->label : 'Field ' . $field->id;
       $field_entry = ['label' => $label, 'id' => $field->id, 'type' => $field->type];
-      switch (strtolower($field->label)) {
-        case 'name':
-          $name_field = $field_entry;
-          break;
-        case 'allergies (food and environmental)':
-          $allergies_field = $field_entry;
-          break;
-        case 'other allergies':
-          $other_allergies_field = $field_entry;
-          break;
-        case 'please list any special requests, needs, dietary restrictions, health concerns, physical challenges':
-          $special_requests_field = $field_entry;
-          break;
-        case 'reservation number':
-          $reservation_number_field = $field_entry;
-          break;
-        default:
-          $other_fields[] = $field_entry;
-          break;
+      if (strtolower($field->label) === 'name') {
+        $name_field = $field_entry;
+      } elseif (strtolower($field->label) === 'allergies (food and environmental)') {
+        $allergies_field = $field_entry;
+      } elseif (strtolower($field->label) === 'other allergies') {
+        $other_allergies_field = $field_entry;
+      } elseif (strtolower($field->label) === 'please list any special requests, needs, dietary restrictions, health concerns, physical challenges') {
+        $special_requests_field = $field_entry;
+      } elseif (strtolower($field->label) === 'reservation number') {
+        $reservation_number_field = $field_entry;
+      } else {
+        $other_fields[] = $field_entry;
       }
     }
 
-    // Collect headers in an array to ensure consistent counts
-    $headers = [];
-    if ($name_field) $headers[] = $name_field['label'];
-    if ($allergies_field) $headers[] = $allergies_field['label'];
-    if ($other_allergies_field) $headers[] = $other_allergies_field['label'];
-    if ($special_requests_field) $headers[] = $special_requests_field['label'];
-    if ($arrival_date_field) $headers[] = $arrival_date_field['label'];
-
+    // Render the table headers in the correct order
+    if ($name_field) {
+      echo '<th class="fixed-column">' . esc_html($name_field['label']) . '</th>';
+    }
+    if ($allergies_field) {
+      echo '<th>' . esc_html($allergies_field['label']) . '</th>';
+    }
+    if ($other_allergies_field) {
+      echo '<th>' . esc_html($other_allergies_field['label']) . '</th>';
+    }
+    if ($special_requests_field) {
+      echo '<th>' . esc_html($special_requests_field['label']) . '</th>';
+    }
+    if ($arrival_date_field) {
+      echo '<th>' . esc_html($arrival_date_field['label']) . '</th>';
+    }
     foreach ($other_fields as $index => $field) {
-      if ($index == 2 && $reservation_number_field) {  // To insert at the 7th position, considering already rendered fields
-        $headers[] = $reservation_number_field['label'];
+      if ($index == 2) {  // To insert at the 7th position, considering already rendered fields
+        if ($reservation_number_field) {
+          echo '<th>' . esc_html($reservation_number_field['label']) . '</th>';
+        }
       }
-      $headers[] = $field['label'];
+      echo '<th>' . esc_html($field['label']) . '</th>';
     }
 
-    // Render headers
-    foreach ($headers as $header) {
-      echo '<th>' . esc_html($header) . '</th>';
-    }
-
-    echo '</tr></thead><tbody>';
+    echo '</tr>
+            </thead>
+            <tbody>';
 
     // Fetch entries from Gravity Forms
+    error_log('Search Criteria: ' . print_r($search_criteria, true));
     $entries = GFAPI::get_entries($form_id, $search_criteria);
 
     // Function to sort entries manually based on Arrival date
@@ -177,46 +178,50 @@ if ($form_id) {
     foreach ($entries as $entry) {
       echo '<tr>';
 
-      // Collect values in an array to ensure consistent counts
-      $row_values = [];
+      // Render the "Name" field first
       if ($name_field) {
         $field_id = $name_field['id'];
         $first_name = rgar($entry, "{$field_id}.3");
         $last_name = rgar($entry, "{$field_id}.6");
         $full_name = trim("$first_name $last_name");
         $name_value = !empty($full_name) ? esc_html($full_name) : '&nbsp;';
-        $row_values[] = $name_value;
+        echo '<td class="fixed-column">' . $name_value . '</td>';
       }
 
+      // Render the "Allergies" field second
       if ($allergies_field) {
         $field_id = $allergies_field['id'];
         $allergies_value = rgar($entry, $field_id);
         $allergies_value = !empty($allergies_value) ? esc_html($allergies_value) : '&nbsp;';
-        $row_values[] = $allergies_value;
+        echo '<td>' . $allergies_value . '</td>';
       }
 
+      // Render the "Other Allergies" field third
       if ($other_allergies_field) {
         $field_id = $other_allergies_field['id'];
         $other_allergies_value = rgar($entry, $field_id);
         $other_allergies_value = !empty($other_allergies_value) ? esc_html($other_allergies_value) : '&nbsp;';
-        $row_values[] = $other_allergies_value;
+        echo '<td>' . $other_allergies_value . '</td>';
       }
 
+      // Render the "Special Requests" field fourth with popover functionality
       if ($special_requests_field) {
         $field_id = $special_requests_field['id'];
         $special_requests_value = rgar($entry, $field_id);
         if (!empty($special_requests_value)) {
           $excerpt = (strlen($special_requests_value) > 50) ? substr($special_requests_value, 0, 50) . '...' : $special_requests_value;
-          $popover_link = '';
+          echo '<td>';
+          echo esc_html($excerpt);
           if (strlen($special_requests_value) > 50) {
-            $popover_link = ' <a tabindex="0" class="popover-dismiss" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content="' . esc_html($special_requests_value) . '">Read More</a>';
+            echo ' <a tabindex="0" class="popover-dismiss" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content="' . esc_html($special_requests_value) . '">Read More</a>';
           }
-          $row_values[] = esc_html($excerpt) . $popover_link;
+          echo '</td>';
         } else {
-          $row_values[] = '&nbsp;';
+          echo '<td>&nbsp;</td>';
         }
       }
 
+      // Render the "Arrival Date" field
       if ($arrival_date_field) {
         $field_id = $arrival_date_field['id'];
         $arrival_date_value = rgar($entry, $field_id);
@@ -224,60 +229,52 @@ if ($form_id) {
           $date = new DateTime($arrival_date_value);
           $arrival_date_value = $date->format('m/d/Y');
         }
-        $row_values[] = !empty($arrival_date_value) ? esc_html($arrival_date_value) : '&nbsp;';
+        $arrival_date_value = !empty($arrival_date_value) ? esc_html($arrival_date_value) : '&nbsp;';
+        echo '<td>' . $arrival_date_value . '</td>';
       }
 
+      // Render the rest of the fields
       foreach ($other_fields as $index => $field) {
-        if ($index == 2 && $reservation_number_field) {
-          $field_id = $reservation_number_field['id'];
-          $reservation_number_value = rgar($entry, $field_id);
-          $row_values[] = !empty($reservation_number_value) ? esc_html($reservation_number_value) : '&nbsp;';
+        if ($index == 2) { // To insert cell value at the 7th position, considering already rendered fields
+          if ($reservation_number_field) {
+            $field_id = $reservation_number_field['id'];
+            $reservation_number_value = rgar($entry, $field_id);
+            $reservation_number_value = !empty($reservation_number_value) ? esc_html($reservation_number_value) : '&nbsp;';
+            echo '<td>' . $reservation_number_value . '</td>';
+          }
         }
 
         $field_id = $field['id'];
         $cell_value = rgar($entry, $field_id);
 
-        // Handle specific field types
-        switch ($field['type']) {
-          case 'date':
-            try {
-              $date = new DateTime($cell_value);
-              $cell_value = $date->format('m/d/Y');
-            } catch (Exception $e) {
-              // Invalid date, retain original value
-              $cell_value = !empty($cell_value) ? esc_html($cell_value) : '&nbsp;';
-            }
-            break;
-          case 'multiselect':
-            $cell_value = !empty($cell_value) ? esc_html(implode(', ', $cell_value)) : '&nbsp;';
-            break;
-          case 'checkbox':
-            $checkbox_values = [];
-            foreach ($entry as $key => $value) {
-              if (strpos($key, "{$field_id}.") === 0 && !empty($value)) {
-                $checkbox_values[] = esc_html($value);
-              }
-            }
-            $cell_value = !empty($checkbox_values) ? implode(', ', $checkbox_values) : '&nbsp;';
-            break;
-          case 'textarea':
-            $excerpt = (strlen($cell_value) > 50) ? substr($cell_value, 0, 50) . '...' : $cell_value;
-            $popover_link = '';
-            if (strlen($cell_value) > 50) {
-              $popover_link = ' <a tabindex="0" class="popover-dismiss" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content="' . esc_html($cell_value) . '">Read More</a>';
-            }
-            $cell_value = esc_html($excerpt) . $popover_link;
-            break;
-          default:
+        // Handle date fields
+        if ($field['type'] === 'date') {
+          try {
+            $date = new DateTime($cell_value);
+            $cell_value = $date->format('m/d/Y');
+          } catch (Exception $e) {
+            // If the date is invalid, retain its original value
             $cell_value = !empty($cell_value) ? esc_html($cell_value) : '&nbsp;';
+          }
+        } elseif ($field['type'] === 'multiselect') {
+          // Handle multi-select fields
+          $cell_value = !empty($cell_value) ? esc_html(implode(', ', $cell_value)) : '&nbsp;';
+        } else {
+          $cell_value = !empty($cell_value) ? esc_html($cell_value) : '&nbsp;';
         }
 
-        $row_values[] = $cell_value;
-      }
-
-      // Render row values
-      foreach ($row_values as $value) {
-        echo '<td>' . $value . '</td>';
+        // Handle textarea fields for popover
+        if ($field['type'] === 'textarea') {
+          $excerpt = (strlen($cell_value) > 50) ? substr($cell_value, 0, 50) . '...' : $cell_value;
+          echo '<td>';
+          echo esc_html($excerpt);
+          if (strlen($cell_value) > 50) {
+            echo ' <a tabindex="0" class="popover-dismiss" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content="' . esc_html($cell_value) . '">Read More</a>';
+          }
+          echo '</td>';
+        } else {
+          echo '<td>' . $cell_value . '</td>';
+        }
       }
 
       echo '</tr>';

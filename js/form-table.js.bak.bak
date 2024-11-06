@@ -83,20 +83,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function reinitializePopovers() {
         // Dispose of existing popovers
-        document.querySelectorAll('[data-bs-toggle="popover"]').forEach(popoverTriggerEl => {
-            const instance = bootstrap.Popover.getInstance(popoverTriggerEl);
+        document.querySelectorAll('.btn-popover').forEach(popup => {
+            const instance = bootstrap.Popover.getInstance(popup);
             if (instance) {
                 instance.dispose();
             }
         });
 
         // Reinitialize popovers
-        const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        const popoverTriggerList = [].slice.call(document.querySelectorAll('.btn-popover'));
         popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl, {
-                trigger: 'focus',
-                html: true,
-            });
+            return new bootstrap.Popover(popoverTriggerEl);
         });
     }
 

@@ -5,6 +5,7 @@ $counter = 1;
  * @param int $counter
  * @return void
  */
+
 function formatEntryData(mixed $entry, int $counter): void {
 	
 	global $post;
@@ -223,165 +224,121 @@ function formatEntryData(mixed $entry, int $counter): void {
       echo '<b>' . rgar($entry, $gda_what_float_doing_value) . '</b>';
     }
     echo '</td>';
-    
 
-    // Check if the checkbox is checked
-    $show_meta_field = get_post_meta($post->ID, '_gda_show_meta_field_arrival_airport', true);
+    echo '<td>';
+    // What float are your doing?
+    $default_arrival_airport_value = '289';
+    $gda_arrival_airport_value = get_post_meta($post->ID, '_gda_meta_key_arrival_airport_id', true);
+    $gda_arrival_airport_value = !empty($gda_arrival_airport_value) ? $gda_arrival_airport_value : $default_arrival_airport_value;
+    // Arrival airport city/town
+    if (rgar($entry, $gda_arrival_airport_value) != '') {
+      echo '<b>' . rgar($entry, $gda_arrival_airport_value) . '</b>';
+    }
+    echo '</td>';
 
-    if ($show_meta_field) {
-      echo '<td>';
-      // What float are your doing?
-      $default_arrival_airport_value = '289';
-      $gda_arrival_airport_value = get_post_meta($post->ID, '_gda_meta_key_arrival_airport_id', true);
-      $gda_arrival_airport_value = !empty($gda_arrival_airport_value) ? $gda_arrival_airport_value : $default_arrival_airport_value;
-      // Arrival airport city/town
-      if (rgar($entry, $gda_arrival_airport_value) != '') {
-        echo '<b>' . rgar($entry, $gda_arrival_airport_value) . '</b>';
-      }
-      echo '</td>';
+    echo '<td>';
+    // Arrival Airline. Carrier being used.
+    $default_arrival_airline_value = '48';
+    $gda_arrival_airline_value = get_post_meta($post->ID, '_gda_meta_key_arrival_airline_id', true);
+    $gda_arrival_airline_value = !empty($gda_arrival_airline_value) ? $gda_arrival_airline_value : $default_arrival_airline_value;
+    if (rgar($entry, $gda_arrival_airline_value) != '') {
+      echo '<b>' . rgar($entry, $gda_arrival_airline_value) . '</b>';
+    }
+    echo '</td>';
+
+    echo '<td>';
+    // Arrival Airline. Other carrier being used.
+    $default_other_arrival_airline_value = '50';
+    $gda_other_arrival_airline_value = get_post_meta($post->ID, '_gda_meta_key_other_arrival_airline_id', true);
+    $gda_other_arrival_airline_value = !empty($gda_other_arrival_airline_value) ? $gda_other_arrival_airline_value : $default_other_arrival_airline_value;
+    if (rgar($entry, $gda_other_arrival_airline_value) != '') {
+      echo '<b>' . rgar($entry, $gda_other_arrival_airline_value) . '</b>';
+    }
+    echo '</td>';
+
+    echo '<td>';
+    //Flight arrival date formating to m-d-Y
+    $default_flight_arrival_date_value = '66';
+    $gda_flight_arrival_date_value = get_post_meta($post->ID, '_gda_meta_key_flight_arrival_date_id', true);
+    $gda_flight_arrival_date_value = !empty($gda_flight_arrival_date_value) ? $gda_flight_arrival_date_value : $default_flight_arrival_date_value;
+
+    $dateOfFlightArr66 = rgar($entry, $gda_flight_arrival_date_value);
+    $flightArrDateTime66 = DateTime::createFromFormat('Y-m-d', $dateOfFlightArr66);
+
+    if ($flightArrDateTime66) {
+      $formattedDateOfFlightArr66 = $flightArrDateTime66->format('m-d-Y');
+    } else {
+      $formattedDateOfFlightArr66 = 'Invalid date format';
     }
 
-    // Check if the checkbox is checked
-    $show_meta_field = get_post_meta($post->ID, '_gda_show_meta_field_arrival_airline', true);
+    // Flight arrival date
+    if (rgar($entry, $gda_flight_arrival_date_value) != '') {
+      echo '<b>' . $formattedDateOfFlightArr66 . '</b>';
+    }
+    echo '</td>';
 
-    if ($show_meta_field) {
-      echo '<td>';
-      // Arrival Airline. Carrier being used.
-      $default_arrival_airline_value = '48';
-      $gda_arrival_airline_value = get_post_meta($post->ID, '_gda_meta_key_arrival_airline_id', true);
-      $gda_arrival_airline_value = !empty($gda_arrival_airline_value) ? $gda_arrival_airline_value : $default_arrival_airline_value;
-      if (rgar($entry, $gda_arrival_airline_value) != '') {
-        echo '<b>' . rgar($entry, $gda_arrival_airline_value) . '</b>';
-      }
-      echo '</td>';
+    echo '<td>';
+    // Arrival Airline Flight Number
+    $default_flight_arrival_number_value = '172';
+    $gda_flight_arrival_number_value = get_post_meta($post->ID, '_gda_meta_key_flight_arrival_number_id', true);
+    $gda_flight_arrival_number_value = !empty($gda_flight_arrival_number_value) ? $gda_flight_arrival_number_value : $default_flight_arrival_number_value;
+
+    if (rgar($entry, $gda_flight_arrival_number_value) != '') {
+      echo '<b>' . rgar($entry, $gda_flight_arrival_number_value) . '</b>';
+    }
+    echo '</td>';
+
+    echo '<td>';
+    // Scheduled Arrival Time
+    $default_flight_arrival_time_value = '60';
+    $gda_flight_arrival_time_value = get_post_meta($post->ID, '_gda_meta_key_flight_arrival_time_id', true);
+    $gda_flight_arrival_time_value = !empty($gda_flight_arrival_time_value) ? $gda_flight_arrival_time_value : $default_flight_arrival_time_value;
+    if (rgar($entry, $gda_flight_arrival_time_value) != '') {
+      echo '<b>' . rgar($entry, $gda_flight_arrival_time_value) . '</b>';
+    }
+    echo '</td>';
+
+    echo '<td>';
+    // Flight Departure Date Formating to m-d-Y
+    $default_flight_departure_date_value = '67';
+    $gda_flight_departure_date_value = get_post_meta($post->ID, '_gda_meta_key_flight_departure_date_id', true);
+    $gda_flight_departure_date_value = !empty($gda_flight_departure_date_value) ? $gda_flight_departure_date_value : $default_flight_departure_date_value;
+
+    $dateOfDeparture = rgar($entry, $gda_flight_departure_date_value);
+    $departureDateTime = DateTime::createFromFormat('Y-m-d', $dateOfDeparture);
+
+    if ($departureDateTime) {
+      $formattedDateOfDeparture = $departureDateTime->format('m-d-Y');
+    } else {
+      $formattedDateOfDeparture = 'Invalid date format';
     }
 
-    // Check if the checkbox is checked
-    $show_meta_field = get_post_meta($post->ID, '_gda_show_meta_field_other_arrival_airline', true);
-
-    if ($show_meta_field) {
-      echo '<td>';
-      // Arrival Airline. Other carrier being used.
-      $default_other_arrival_airline_value = '50';
-      $gda_other_arrival_airline_value = get_post_meta($post->ID, '_gda_meta_key_other_arrival_airline_id', true);
-      $gda_other_arrival_airline_value = !empty($gda_other_arrival_airline_value) ? $gda_other_arrival_airline_value : $default_other_arrival_airline_value;
-      if (rgar($entry, $gda_other_arrival_airline_value) != '') {
-        echo '<b>' . rgar($entry, $gda_other_arrival_airline_value) . '</b>';
-      }
-      echo '</td>';
+    // Flight Departure Date
+    if (rgar($entry, $gda_flight_departure_date_value) != '') {
+      echo '<b>' . $formattedDateOfDeparture . '</b>';
     }
+    echo '</td>';
 
-    // Check if the checkbox is checked
-    $show_meta_field = get_post_meta($post->ID, '_gda_show_meta_field_flight_arrival_date', true);
-
-    if ($show_meta_field) {
-      echo '<td>';
-      //Flight arrival date formating to m-d-Y
-      $default_flight_arrival_date_value = '66';
-      $gda_flight_arrival_date_value = get_post_meta($post->ID, '_gda_meta_key_flight_arrival_date_id', true);
-      $gda_flight_arrival_date_value = !empty($gda_flight_arrival_date_value) ? $gda_flight_arrival_date_value : $default_flight_arrival_date_value;
-
-      $dateOfFlightArr66 = rgar($entry, $gda_flight_arrival_date_value);
-      $flightArrDateTime66 = DateTime::createFromFormat('Y-m-d', $dateOfFlightArr66);
-
-      if ($flightArrDateTime66) {
-        $formattedDateOfFlightArr66 = $flightArrDateTime66->format('m-d-Y');
-      } else {
-        $formattedDateOfFlightArr66 = 'Invalid date format';
-      }
-
-      // Flight arrival date
-      if (rgar($entry, $gda_flight_arrival_date_value) != '') {
-        echo '<b>' . $formattedDateOfFlightArr66 . '</b>';
-      }
-      echo '</td>';
+    echo '<td>';
+    // Departure Airline Flight Number
+    $default_flight_departure_number_value = '58';
+    $gda_flight_departure_number_value = get_post_meta($post->ID, '_gda_meta_key_flight_departure_number_id', true);
+    $gda_flight_departure_number_value = !empty($gda_flight_departure_number_value) ? $gda_flight_departure_number_value : $default_flight_departure_number_value;
+    if (rgar($entry, $gda_flight_departure_number_value ) != '') {
+      echo '<b>' . rgar($entry, $gda_flight_departure_number_value ) . '</b>';
     }
+    echo '</td>';
 
-    // Check if the checkbox is checked
-    $show_meta_field = get_post_meta($post->ID, '_gda_show_meta_field_flight_arrival_number', true);
-
-    if ($show_meta_field) {
-      echo '<td>';
-      // Arrival Airline Flight Number
-      $default_flight_arrival_number_value = '172';
-      $gda_flight_arrival_number_value = get_post_meta($post->ID, '_gda_meta_key_flight_arrival_number_id', true);
-      $gda_flight_arrival_number_value = !empty($gda_flight_arrival_number_value) ? $gda_flight_arrival_number_value : $default_flight_arrival_number_value;
-
-      if (rgar($entry, $gda_flight_arrival_number_value) != '') {
-        echo '<b>' . rgar($entry, $gda_flight_arrival_number_value) . '</b>';
-      }
-      echo '</td>';
+    echo '<td>';
+    // Scheduled Departure Time
+    $default_flight_departure_time_value = '61';
+    $gda_flight_departure_time_value = get_post_meta($post->ID, '_gda_meta_key_flight_departure_time_id', true);
+    $gda_flight_departure_time_value = !empty($gda_flight_departure_time_value) ? $gda_flight_departure_time_value : $default_flight_departure_time_value;
+    if (rgar($entry, $gda_flight_departure_time_value ) != '') {
+      echo '<b>' . rgar($entry, $gda_flight_departure_time_value ) . '</b>';
     }
+    echo '</td>';
 
-    // Check if the checkbox is checked
-    $show_meta_field = get_post_meta($post->ID, '_gda_show_meta_field_flight_arrival_time', true);
-
-    if ($show_meta_field) {
-      echo '<td>';
-      // Scheduled Arrival Time
-      $default_flight_arrival_time_value = '60';
-      $gda_flight_arrival_time_value = get_post_meta($post->ID, '_gda_meta_key_flight_arrival_time_id', true);
-      $gda_flight_arrival_time_value = !empty($gda_flight_arrival_time_value) ? $gda_flight_arrival_time_value : $default_flight_arrival_time_value;
-      if (rgar($entry, $gda_flight_arrival_time_value) != '') {
-        echo '<b>' . rgar($entry, $gda_flight_arrival_time_value) . '</b>';
-      }
-      echo '</td>';
-    }
-
-    // Check if the checkbox is checked
-    $show_meta_field = get_post_meta($post->ID, '_gda_show_meta_field_flight_departure_date', true);
-
-    if ($show_meta_field) {
-      echo '<td>';
-      // Flight Departure Date Formating to m-d-Y
-      $default_flight_departure_date_value = '67';
-      $gda_flight_departure_date_value = get_post_meta($post->ID, '_gda_meta_key_flight_departure_date_id', true);
-      $gda_flight_departure_date_value = !empty($gda_flight_departure_date_value) ? $gda_flight_departure_date_value : $default_flight_departure_date_value;
-
-      $dateOfDeparture = rgar($entry, $gda_flight_departure_date_value);
-      $departureDateTime = DateTime::createFromFormat('Y-m-d', $dateOfDeparture);
-
-      if ($departureDateTime) {
-        $formattedDateOfDeparture = $departureDateTime->format('m-d-Y');
-      } else {
-        $formattedDateOfDeparture = 'Invalid date format';
-      }
-
-      // Flight Departure Date
-      if (rgar($entry, $gda_flight_departure_date_value) != '') {
-        echo '<b>' . $formattedDateOfDeparture . '</b>';
-      }
-      echo '</td>';
-    }
-    // Check if the checkbox is checked
-    $show_meta_field = get_post_meta($post->ID, '_gda_show_meta_field_flight_departure_number', true);
-
-    if ($show_meta_field) {
-      echo '<td>';
-      // Departure Airline Flight Number
-      $default_flight_departure_number_value = '58';
-      $gda_flight_departure_number_value = get_post_meta($post->ID, '_gda_meta_key_flight_departure_number_id', true);
-      $gda_flight_departure_number_value = !empty($gda_flight_departure_number_value) ? $gda_flight_departure_number_value : $default_flight_departure_number_value;
-      if (rgar($entry, $gda_flight_departure_number_value ) != '') {
-        echo '<b>' . rgar($entry, $gda_flight_departure_number_value ) . '</b>';
-      }
-      echo '</td>';
-    }
-
-    // Check if the checkbox is checked
-    $show_meta_field = get_post_meta($post->ID, '_gda_show_meta_field_flight_departure_time', true);
-
-    if ($show_meta_field) {
-      echo '<td>';
-      // Scheduled Departure Time
-      $default_flight_departure_time_value = '61';
-      $gda_flight_departure_time_value = get_post_meta($post->ID, '_gda_meta_key_flight_departure_time_id', true);
-      $gda_flight_departure_time_value = !empty($gda_flight_departure_time_value) ? $gda_flight_departure_time_value : $default_flight_departure_time_value;
-      if (rgar($entry, $gda_flight_departure_time_value ) != '') {
-        echo '<b>' . rgar($entry, $gda_flight_departure_time_value ) . '</b>';
-      }
-      echo '</td>';
-    }
 
     echo '<td>';
     // Departure airline
@@ -471,9 +428,7 @@ function formatEntryData(mixed $entry, int $counter): void {
     echo '</td>';
 
     echo '<td>';
-    /**
-     * Define the range of checkbox IDs based on your form configuration. For certain species of fish being targeting.
-     */
+
     $checkbox_ids = ['214.1', '214.2', '214.3', '214.4', '214.5', '214.6']; // Add as many as needed, or determine dynamically based on your specific form setup.
 
     $selected_species = [];
@@ -526,9 +481,7 @@ function formatEntryData(mixed $entry, int $counter): void {
     echo '</td>';
 
     echo '<td>';
-    /**
-     * Define the range of checkbox IDs based on your form configuration. For food and environmental allergies
-     */
+
     $checkbox_ids_allergy = ['88.1', '88.2', '88.3', '88.4', '88.5']; // Add as many as needed, or determine dynamically based on your specific form setup.
 
     $selected_allergy = [];
@@ -593,7 +546,7 @@ function formatEntryData(mixed $entry, int $counter): void {
 
     <style>
         .popover {
-            max-width: none; /* Allow the popover to expand to the size of the content */
+            max-width: none;
         }
     </style>
 HTML;
@@ -641,7 +594,7 @@ HTML;
       echo <<<HTML
 				    <button type="button" class="btn btn-popover" data-bs-toggle="popover" data-bs-placement="bottom"
 				    data-bs-html="true"    data-bs-content="{$specialOccasion_data_content}"> <b>{$specialOccasion_escaped_excerpt}...<span style="color:red;">&nbsp;Click to see more</span></b></button>
-			      <style>.popover { max-width: none; /* Allow the popover to expand to the size of the content */}</style>
+			      <style>.popover { max-width: none; }</style>
 	HTML;
     }
     echo '</td>';
@@ -674,4 +627,3 @@ HTML;
 	
 	$counter++;
 }
-
