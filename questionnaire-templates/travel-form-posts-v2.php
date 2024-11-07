@@ -203,7 +203,7 @@ if ($form_id) {
         $row_values[$name_field['label']] = $name_value;
       }
 
-      if ($allergies_field && $allergies_field['type'] === 'checkbox') {
+     /* if ($allergies_field && $allergies_field['type'] === 'checkbox') {
         $field_id = $allergies_field['id'];
         $choices = $allergies_field['choices'];
         $checkbox_values = [];
@@ -226,7 +226,45 @@ if ($form_id) {
 
         $allergies_value = !empty($checkbox_values) ? implode(', ', $checkbox_values) : '&nbsp;';
         $row_values[$allergies_field['label']] = $allergies_value;
+      } */
+      if ($allergies_field && $allergies_field['type'] === 'checkbox') {
+        $field_id = $allergies_field['id'];
+        $checkbox_values = [];
+
+        if (isset($allergies_field['choices']) && is_array($allergies_field['choices'])) {
+          $choices = $allergies_field['choices'];
+
+          foreach ($choices as $choice) {
+            $choice_value = $choice['value'];
+            $subfield_key = "{$field_id}.{$choice_value}";
+            if (!empty(rgar($entry, $subfield_key))) {
+              $checkbox_values[] = esc_html($choice['text']);
+            }
+          }
+
+          if (empty($checkbox_values)) {
+            foreach ($entry as $key => $value) {
+              if (strpos($key, "{$field_id}.") === 0 && !empty($value)) {
+                $checkbox_values[] = esc_html($value);
+              }
+            }
+          }
+        } else {
+          // Handle the case where `choices` is not set or not an array
+          foreach ($entry as $key => $value) {
+            if (strpos($key, "{$field_id}.") === 0 && !empty($value)) {
+              $checkbox_values[] = esc_html($value);
+            }
+          }
+        }
+
+        // Render <td> even if there are no choices
+        $allergies_value = !empty($checkbox_values) ? implode(', ', $checkbox_values) : '&nbsp;';
+        $row_values[$allergies_field['label']] = $allergies_value;
       }
+
+      //////////
+
 
       if ($other_allergies_field) {
         $field_id = $other_allergies_field['id'];
@@ -297,7 +335,6 @@ if ($form_id) {
       }
 
       // Handle other fields
-// Handle other fields
       foreach ($other_fields as $field) {
         $field_id = $field['id'];
         $cell_value = rgar($entry, $field_id);
