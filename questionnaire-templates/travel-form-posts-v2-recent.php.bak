@@ -166,7 +166,7 @@ if ($form_id) {
     // Rendering the table headers
     foreach ($headers as $header) {
       if ($header === $name_field['label']) {
-        echo '<th class="fixed-column">' . esc_html($header) . '</th>';
+        echo '<th class="name-column">' . esc_html($header) . '</th>';
       } else {
         echo '<th>' . esc_html($header) . '</th>';
       }
@@ -289,15 +289,13 @@ if ($form_id) {
           $country = rgar($entry, "{$field_id}.6");
 
           // Concatenate address parts
-          $address_value_parts = array_filter([$street, $street2, $city, $state, $zip, $country]);
-          $address_value = implode(", ", $address_value_parts);
+          $address_value = trim("{$street}, {$street2}, {$city}, {$state}, {$zip}, {$country}", ', ');
           $address_value = !empty($address_value) ? esc_html($address_value) : '&nbsp;';
           $row_values[$field['label']] = $address_value;
         }
       }
 
       // Handle other fields
-// Handle other fields
       foreach ($other_fields as $field) {
         $field_id = $field['id'];
         $cell_value = rgar($entry, $field_id);
@@ -332,41 +330,22 @@ if ($form_id) {
             }
             $cell_value = esc_html($excerpt) . $popover_link;
             break;
-          case 'address':
-            // Handle address field specifically here if needed
-            // (This case might not be necessary if already covered in separate section)
-            $street = rgar($entry, "{$field_id}.1");
-            $street2 = rgar($entry, "{$field_id}.2");
-            $city = rgar($entry, "{$field_id}.3");
-            $state = rgar($entry, "{$field_id}.4");
-            $zip = rgar($entry, "{$field_id}.5");
-            $country = rgar($entry, "{$field_id}.6");
-
-            // Concatenate address parts
-            $address_value_parts = array_filter([$street, $street2, $city, $state, $zip, $country]);
-            $cell_value = implode(', ', $address_value_parts);
-            $cell_value = !empty($cell_value) ? esc_html($cell_value) : '&nbsp;';
-            break;
-          case 'name':
-            $first_name = rgar($entry, "{$field_id}.3");
-            $last_name = rgar($entry, "{$field_id}.6");
-            $full_name = trim("$first_name $last_name");
-            $cell_value = !empty($full_name) ? esc_html($full_name) : '&nbsp;';
-            break;
           default:
             $cell_value = !empty($cell_value) ? esc_html($cell_value) : '&nbsp;';
         }
 
         $row_values[$field['label']] = $cell_value;
       }
-// Rendering the row values based on the unique headers
+
+      // Rendering the row values based on the unique headers
       foreach ($headers as $header) {
         if ($header === $name_field['label']) {
-          echo '<td class="fixed-column">' . ($row_values[$header] ?? '&nbsp;') . '</td>';
+          echo '<td class="name-column">' . ($row_values[$header] ?? '&nbsp;') . '</td>';
         } else {
           echo '<td>' . ($row_values[$header] ?? '&nbsp;') . '</td>';
         }
       }
+
       echo '</tr>';
     }
 
