@@ -34,7 +34,7 @@ get_header(); ?>
     $front_page_hero_poster = get_post_meta( get_the_ID(), 'front-page-video-poster', TRUE ); ?>
 
     <div id="safari_video_section" style="display: none;">
-        <div class="video">
+        <div class="video video-control">
         <div class="overlay"></div>
 
         <video id="vid" autoplay loop muted poster="<?php echo $front_page_hero_poster ?>" >
@@ -63,7 +63,7 @@ get_header(); ?>
     </div>
 
     <div id="non_safari_video_section" style="display: none;">
-        <div class="video">
+        <div class="video video-control">
          <div class="overlay"></div>
 
          <video autoplay playsinline loop muted id="vid">
