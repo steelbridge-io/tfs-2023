@@ -23,7 +23,7 @@
 
 <?php if ( ! empty( $sections_hero_image ) || ( ! empty( $sections_video ) ) && ! has_post_thumbnail() ) : ?>
   <!-- Banner -->
-  <section id="banner">
+  <section id="banner" class="video-control">
     <video id="sections-background-video" autoplay loop muted poster="<?php echo $sections_video_poster; ?>">
       <source src="<?php echo $sections_video; ?>" type="video/mp4">
     </video>
