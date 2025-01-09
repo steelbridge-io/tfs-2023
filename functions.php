@@ -466,7 +466,7 @@ function the_fly_shop_scripts() {
 	/**
     * SCRIPTS
     */
-	
+
 	if (!is_admin()) {
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", true, '2.2.4');
@@ -535,13 +535,6 @@ function the_fly_shop_scripts() {
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
-
-   /*if (!is_admin()) {
-        wp_deregister_script('jquery');
-        wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js", true, '2.2.4');
-        wp_enqueue_script('jquery');
-	   wp_enqueue_script( 'the-fly-shop-btstrpjs' );
-    }*/
   
     wp_enqueue_script( 'the-fly-shop-mainjs', get_template_directory_uri() . '/assets/js/main.js', array(), '20161116', true );
 
@@ -550,6 +543,7 @@ function the_fly_shop_scripts() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'the_fly_shop_scripts' );
+
 
 // Loads custom style sheet on Admin
 function enqueue_custom_admin_style() {
