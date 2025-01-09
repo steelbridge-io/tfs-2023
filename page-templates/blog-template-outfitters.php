@@ -27,7 +27,7 @@ get_header();
     <div id="primary" class="content-area hero-video-wrap basic-template-wrap" style="position: relative;">
         <div id="main" role="main">
             <div class="fades fadeOut" id="narf">
-                <section id="heroheader">
+                <section id="heroheader" class="video-control">
                     <div class="overlay"></div>
                     <video class="h-video" muted playsinline autoplay loop >
                         <source src="<?php  echo $hero_video_url; ?>" type="video/mp4">

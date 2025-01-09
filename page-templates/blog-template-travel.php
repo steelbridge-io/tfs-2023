@@ -30,7 +30,7 @@ get_header();
     <div id="main" role="main">
 
     <div class="fades fadeOut" id="narf">
-        <section id="heroheader">
+        <section id="heroheader" class="video-control">
         <div class="overlay"></div>
 
             <video class="h-video" playsinline autoplay muted loop >

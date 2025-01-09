@@ -25,7 +25,7 @@ get_header(); ?>
    
     <?php if ($hero_video_url !== $default) : ?>
     <div class="fades fadeOut" id="narf">
-        <section id="heroheader">
+        <section id="heroheader" class="video-control">
          <div class="overlay"></div>
          <video class="h-video" playsinline autoplay muted loop >
           <source src="<?php  echo $hero_video_url; ?>" type="video/mp4">
