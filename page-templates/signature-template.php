@@ -11,7 +11,7 @@
   $the_post_img = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
   $the_post_default = get_bloginfo('template_directory') . '/images/default/default-page-header.png';
   $basic_logo_upload = get_theme_mod ('basic_page_logo');
-	 $hero_video_url = get_post_meta(get_the_ID(), 'hero-video-url', true );
+  $hero_video_url = get_post_meta(get_the_ID(), 'hero-video-url', true );
   
   include_once('post-meta/post-meta-signature.php');
   $default = '';
@@ -23,7 +23,7 @@
   <div id="main" role="main">
     <?php if ( $hero_video_url !== $default ) : ?>
     <section id="banner">
-      <div class="template-header">
+      <div class="template-header video-control">
       <div class="overlay"></div>
       <!-- Hero Video -->
       <video class="h-video" playsinline autoplay muted loop >
