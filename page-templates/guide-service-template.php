@@ -14,7 +14,7 @@ get_header(); ?>
 
 <?php if ( ! empty( $guidesvc_temp_video ) && ! empty( $guidesvc_temp_video_poster ) ) : ?>
 
-    <section id="banner" class="guidesvc-temp-hero-overlay">
+    <section id="banner" class="guidesvc-temp-hero-overlay video-control">
         <div class="overlay"></div>
         <video id="sections-guidesvc-background-video"
                class="guidesvc-temp-video"
