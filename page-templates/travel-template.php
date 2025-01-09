@@ -12,7 +12,7 @@ include_once( 'post-meta/post-meta-travel.php' ); // Includes all the custom met
 get_header(); ?>
 
 <?php if ( !empty( $travel_temp_video ) && !empty($travel_temp_video_poster) ) : ?>
-    <section id="banner" class="travel-temp-hero-overlay">
+    <section id="banner" class="travel-temp-hero-overlay video-control">
         <div class="overlay"></div>
         <video id="sections-travel-background-video" class="travel-temp-video"
                autoplay
