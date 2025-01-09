@@ -12,7 +12,7 @@ include_once('post-meta/post-meta-private.php');
 get_header(); ?>
 
 <?php if ( !empty( $private_temp_video ) && !empty($private_temp_video_poster) ) : ?>
-    <section id="banner" class="private-temp-hero-overlay">
+    <section id="banner" class="private-temp-hero-overlay video-control">
         <div class="overlay"></div>
         <video id="sections-private-background-video" class="private-temp-video"
                autoplay
