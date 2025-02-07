@@ -1,30 +1,48 @@
 /** Constant Contact for Gravity Forms */
 
 #digital-pulication-sign-up {
+  padding-top: 3em;
+
+  #email_address_label_1 {
+    color: #fff;
+  }
+  .ctct-form-button {
+    background-color: #A51113;
+  }
   .ctct-form-embed.form_1 .ctct-form-defaults {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(62, 140, 203, 0.9);
   }
   .ctct-form-custom {
     display: initial;
     h2 {
       font-size: 1rem;
+      color: #f5f5f5;
+    }
+    .ctct-form-text {
+      color: #f5f5f5;
     }
   }
   .col-sign-up-catalog {
     display: flex;
-    height: 400px;
     justify-content: center;
-    width: 80%;
-    margin: 3em auto;
+    img {
+      width: 25%;
+      opacity: 0; /* Not visible initially */
+      transform: translateY(10px); /* Slight downward offset for animation effect */
+      transition: opacity 1s ease, transform 1s ease; /* Smooth fade and slide */
+    }
   }
   .col-sign-up-form {
-    width: 400px;
-    margin-top: 4em;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    left: 20%;
-    right: 20%;
+    display: flex;
+    align-items: center;
+    opacity: 0; /* Fully hidden at the start */
+    transform: translateX(20px); /* Slight rightward offset for animation effect */
+    transition: opacity 1s ease, transform 1s ease; /* Smooth fade and slide */
+  }
+  .col-sign-up-form.move-to-grid {
+    position: static; /* Relocate to Bootstrap's grid (col-md-4 layout) */
+    transform: none; /* Reset any transform for normal alignment */
+    z-index: auto; /* Normal stacking context */
   }
 }
 

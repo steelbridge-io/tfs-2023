@@ -475,6 +475,10 @@ function the_fly_shop_scripts() {
 	}
     
     wp_enqueue_script( 'skrollr', get_template_directory_uri() . '/js/skrollr.min.js', array(), '1.0', true);
+
+    if(is_page_template('page-templates/basic-page-template.php')) {
+        wp_enqueue_script('load-animation', get_template_directory_uri() . '/js/catalog-sign-up.js', array(), '1.0', true);
+    }
     
     if(!is_page_template(array('page-templates/hero-template.php', 'page-templates/basic-page-template.php', 'page-template/travel-signature-template.php', 'page-templates/blog-template-basic.php', 'page-templates/blog-template-travel.php', 'page-templates/blog-template-new.php', 'page-templates/blog-template-outfitters.php', 'page-template/sections-template.php', 'questionnaire-templates/travel-form-posts-v2.php'))) {
 	    wp_register_script( 'the-fly-shop-btstrpjs',

@@ -96,17 +96,18 @@ get_header(); ?>
 <span id="scrollto"></span>
 <div class="container-fluid basic-page-template">
     <div id="digital-pulication-sign-up" class="row">
-        <div class="col-sign-up-form">
+        <div class="col-sign-up-catalog col-md-8">
+        <img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2024/01/y24CatalogCover.png" alt="The Fly Shop Catalog Cover">
+        <img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2023/01/y23CatalogCover.png" alt="The Fly Shop Catalog Cover">
+        <img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2022/01/Y22Catalog_Cover.png" alt="The Fly Shop Catalog Cover">
+        <img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2021/01/Y21Catalog_Cover.png" alt="The Fly Shop Catalog Cover">
+        </div>
+        <div class="col-sign-up-form col-md-4">
         <!-- Begin Constant Contact Inline Form Code -->
         <div class="ctct-inline-form" data-form-id="6b510a05-4022-4d51-ba94-31717a47ee74"></div>
         <!-- End Constant Contact Inline Form Code -->
         </div>
-        <div class="col-sign-up-catalog">
-            <img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2024/01/y24CatalogCover.png" alt="The Fly Shop Catalog Cover">
-            <img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2023/01/y23CatalogCover.png" alt="The Fly Shop Catalog Cover">
-            <img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2022/01/Y22Catalog_Cover.png" alt="The Fly Shop Catalog Cover">
-            <img src="https://tfs-spaces.sfo2.digitaloceanspaces.com/theflyshop/uploads/2021/01/Y21Catalog_Cover.png" alt="The Fly Shop Catalog Cover">
-        </div>
+
     </div>
   <div class="container">
     <div id="primary" class="content-area row">
