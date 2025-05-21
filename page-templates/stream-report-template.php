@@ -363,7 +363,7 @@ get_header();
                         <div class="row">
 
                           <div class="col-sm-6">
-                            <h4>Lower Sacramento&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
+                            <h4>Lower Sacramento River&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
                           </div>
 
                           <div class="col-sm-6">
@@ -997,7 +997,7 @@ get_header();
                     </div>
 
                     <!-- ====== KESWICK RESERVOIR ====== -->
-                    <div class="panel panel-default">
+                    <!-- <div class="panel panel-default">
                       <div class="panel-heading accordion-toggle collapsed" role="tab" id="headingEleven" data-toggle="collapse" data-parent="#accordion-lakes" href="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
                         <div class="row">
 
@@ -1007,19 +1007,17 @@ get_header();
 
                           <div class="col-sm-6">
 
+                            //if(get_post_meta(get_the_ID(), 'keswickres-closed-checkbox', true) == '-danger') :?>
+                              <span class="label label-default //echo $keswickres_closed_checkbox; ?>"> //echo $keswickres_closed_message; ?></span>
+                             //else: ?>
+                              <span class="label label-default //echo $keswickres_checkbox_poor; ?>">Poor</span>
+                              <span class="label label-default //echo $keswickres_checkbox_fair;  ?>">Fair</span>
+                              <span class="label label-default //echo $keswickres_checkbox_fairgood; ?>">Fair to Good</span>
+                              <span class="label label-default //echo $keswickres_checkbox_good; ?>">Good</span>
+                              <span class="label label-default //echo $keswickres_checkbox_great; ?>">Great</span>
+                             //endif; ?>
 
-                            <!-- === BEGIN EDIT SECTION: REPLACE 'label-default' with 'label-danger' to select any given rating === -->
-                            <?php if(get_post_meta(get_the_ID(), 'keswickres-closed-checkbox', true) == '-danger') :?>
-                              <span class="label label-default<?php echo $keswickres_closed_checkbox; ?>"><?php echo $keswickres_closed_message; ?></span>
-                            <?php else: ?>
-                              <span class="label label-default<?php echo $keswickres_checkbox_poor; ?>">Poor</span>
-                              <span class="label label-default<?php echo $keswickres_checkbox_fair;  ?>">Fair</span>
-                              <span class="label label-default<?php echo $keswickres_checkbox_fairgood; ?>">Fair to Good</span>
-                              <span class="label label-default<?php echo $keswickres_checkbox_good; ?>">Good</span>
-                              <span class="label label-default<?php echo $keswickres_checkbox_great; ?>">Great</span>
-                            <?php endif; ?>
 
-                            <!-- === END EDIT SECTION === -->
 
 
                           </div>
@@ -1041,11 +1039,11 @@ get_header();
                                   <h4><strong>Updated:&nbsp;</strong>
 
 
-                                    <!-- === BEGIN EDIT SECTION: DATE === -->
 
-                                    <?php echo $keswickres_updated; ?>
 
-                                    <!-- === END EDIT SECTION: DATE === -->
+                                     //echo $keswickres_updated; ?>
+
+
 
 
                                   </h4>
@@ -1056,11 +1054,11 @@ get_header();
                                   <p><strong>Report:</strong>
 
 
-                                    <!-- === BEGIN EDIT SECTION: REPORT === -->
 
-                                    <?php echo $keswickres_report; ?>
 
-                                    <!-- === END EDIT SECTION: REPORT === -->
+                                     //echo $keswickres_report; ?>
+
+
 
 
                                   </p>
@@ -1068,11 +1066,11 @@ get_header();
                                   <p><strong>Hot Flies:&nbsp;</strong>
 
 
-                                    <!-- === BEGIN EDIT SECTION: HOT FLIES === -->
 
-                                    <?php echo $keswickres_hot_flies; ?>
 
-                                    <!-- === END EDIT SECTION: HOT FLIES === -->
+                                     //echo $keswickres_hot_flies; ?>
+
+
 
 
                                   </p>
@@ -1083,15 +1081,15 @@ get_header();
                         </div>
                       </div>
 
-                    </div>
-                    <!-- ====== LAKE SHASTA ====== -->
+                    </div> -->
+                    <!-- ====== SHASTA LAKE ====== -->
                     <div class="panel panel-default">
 
                       <div class="panel-heading accordion-toggle collapsed" role="tab" id="headingTwelve" data-toggle="collapse" data-parent="#accordion-lakes" href="#collapseTwelve" aria-expanded="true" aria-controls="collapseTwelve">
                         <div class="row">
 
                           <div class="col-sm-6">
-                            <h4>Lake shasta&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
+                            <h4>Shasta Lake&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
                           </div>
 
                           <div class="col-sm-6">
@@ -1121,7 +1119,7 @@ get_header();
                               <div class="row">
 
                                 <div class="col-sm-6">
-                                  <h4>Lake Shasta Report</h4>
+                                  <h4>Shasta Lake Report</h4>
                                 </div>
 
                                 <div class="col-sm-6">
@@ -1532,14 +1530,14 @@ get_header();
                 <div class="panel-body">
                   <div class="panel-group" id="accordion-private" role="tablist" aria-multiselectable="true">
 
-                    <!-- ====== ANTELOPE CREEK LODGE ====== -->
+                    <!-- ====== Antelope Creek Ranch ====== -->
                     <div class="panel panel-default">
 
                       <div class="panel-heading accordion-toggle collapsed" role="tab" id="headingSixteen" data-toggle="collapse" data-parent="#accordion-private" href="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
                         <div class="row">
 
                           <div class="col-sm-6">
-                            <h4>Antelope Creek Lodge&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
+                            <h4>Antelope Creek Ranch&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
                           </div>
 
                           <div class="col-sm-6">
@@ -1569,7 +1567,7 @@ get_header();
                               <div class="row">
 
                                 <div class="col-sm-6">
-                                  <h4>Antelope Creek Lodge Report</h4>
+                                  <h4>Antelope Creek Ranch Report</h4>
                                 </div>
 
                                 <div class="col-sm-6">
@@ -1617,9 +1615,6 @@ get_header();
                       </div>
                     </div>
 
-                    <!-- ====== BAILEY CREEK LODGE ====== -->
-
-
                     <!-- ====== BATTLE CREEK RANCH ====== -->
                     <div class="panel panel-default">
 
@@ -1627,7 +1622,7 @@ get_header();
                         <div class="row">
 
                           <div class="col-sm-6">
-                            <h4>Battle Creek&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
+                            <h4>Battle Creek Ranch&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
                           </div>
 
                           <div class="col-sm-6">
@@ -1656,7 +1651,7 @@ get_header();
                             <div class="container-fluid">
                               <div class="row">
                                 <div class="col-sm-6">
-                                  <h4>Battle Creek Report</h4>
+                                  <h4>Battle Creek Ranch Report</h4>
                                 </div>
 
                                 <div class="col-sm-6">
@@ -1795,14 +1790,14 @@ get_header();
                       </div>
                     </div>
 
-                    <!-- ====== CIRCLE SEVEN GUEST RANCH ====== -->
+                    <!-- ====== Circle 7 Ranch ====== -->
                     <div class="panel panel-default">
 
                       <div class="panel-heading accordion-toggle collapsed" role="tab" id="headingTwentynine" data-toggle="collapse" data-parent="#accordion-rivers" href="#collapseTwentynine" aria-expanded="false" aria-controls="collapseTwentynine">
                         <div class="row">
 
                           <div class="col-sm-6">
-                            <h4>Circle Seven&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
+                            <h4>Circle 7 Ranch&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
                           </div>
 
                           <div class="col-sm-6">
@@ -1835,7 +1830,7 @@ get_header();
                               <div class="row">
 
                                 <div class="col-sm-6">
-                                  <h4>Circle Seven Guest Ranch Report</h4>
+                                  <h4>Circle 7 Ranch Report</h4>
                                 </div>
 
                                 <div class="col-sm-6">
@@ -2239,14 +2234,14 @@ get_header();
                       </div>
                     </div>
 
-                    <!-- ====== OASIS SPRINGS ====== -->
+                    <!-- ====== Oasis Springs Lodge ====== -->
                     <div class="panel panel-default">
 
                       <div class="panel-heading accordion-toggle collapsed" role="tab" id="headingTwentyseven" data-toggle="collapse" data-parent="#accordion-private" href="#collapseTwentyseven" aria-expanded="false" aria-controls="collapseTwentyseven">
                         <div class="row">
 
                           <div class="col-sm-6">
-                            <h4>Oasis Springs&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
+                            <h4>Oasis Springs Lodge&nbsp;<a name="lowersac"></a><span class="arrow-down">Expand</span></h4>
                           </div>
 
                           <div class="col-sm-6">
@@ -2275,7 +2270,7 @@ get_header();
                               <div class="row">
 
                                 <div class="col-sm-6">
-                                  <h4>Oasis Springs Report</h4>
+                                  <h4>Oasis Springs Lodge Report</h4>
                                 </div>
 
                                 <div class="col-sm-6">
@@ -2403,91 +2398,6 @@ get_header();
 
                                     <!-- === END EDIT SECTION: HOT FLIES === -->
 
-
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- ====== SPINNER FALL LODGE ====== -->
-
-                    <!-- ====== SUGAR CREEK RANCH ====== -->
-                    <div class="panel panel-default">
-
-                      <div class="panel-heading accordion-toggle collapsed" role="tab" id="headingThirtyone" data-toggle="collapse" data-parent="#accordion-private" href="#collapseThirtyone" aria-expanded="true" aria-controls="collapseThirtyone">
-                        <div class="row">
-
-                          <div class="col-sm-6">
-                            <h4>Sugar Creek&nbsp;<a name="sugarcreek"></a><span class="arrow-down">Expand</span></h4>
-                          </div>
-
-                          <div class="col-sm-6">
-
-                            <!-- === BEGIN EDIT SECTION: REPLACE 'label-default' with 'label-danger' to select any given rating === -->
-                            <?php if(get_post_meta(get_the_ID(), 'sugarcreek-closed-checkbox', true) == '-danger'):?>
-                              <span class="label label-default<?php echo $sugarcreek_closed_checkbox;?>"><?php echo $sugarcreek_closed_message;?></span>
-                            <?php else: ?>
-                              <span class="label label-default<?php echo $sugarcreek_checkbox_poor; ?>">Poor</span>
-                              <span class="label label-default<?php echo $sugarcreek_checkbox_fair; ?>">Fair</span>
-                              <span class="label label-default<?php echo $sugarcreek_checkbox_fairgood; ?>">Fair to Good</span>
-                              <span class="label label-default<?php echo $sugarcreek_checkbox_good; ?>">Good</span>
-                              <span class="label label-default<?php echo $sugarcreek_checkbox_great; ?>">Great</span>
-                            <?php endif; ?>
-
-                            <!-- === END EDIT SECTION === -->
-
-                          </div>
-                        </div>
-                      </div>
-
-                      <div id="collapseThirtyone" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThirtyone">
-                        <div class="report-panel">
-                          <div id="sugarcreekranchreport">
-                            <div class="container-fluid">
-                              <div class="row">
-
-                                <div class="col-sm-6">
-                                  <h4>Sugar Creek Ranch Report</h4>
-                                </div>
-
-                                <div class="col-sm-6">
-                                  <h4><strong>Updated:&nbsp;</strong>
-
-
-                                    <!-- === BEGIN EDIT SECTION: DATE === -->
-
-                                    <?php echo $sugarcreek_updated; ?>
-
-                                    <!-- === END EDIT SECTION: DATE === -->
-
-
-                                  </h4>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-sm-12">
-                                  <p><strong>Report:</strong>
-
-                                    <!-- === BEGIN EDIT SECTION: REPORT === -->
-
-                                    <?php echo $sugarcreek_report; ?>
-
-                                    <!-- === END EDIT SECTION: REPORT === -->
-
-                                  </p>
-
-                                  <p><strong>Hot Flies:&nbsp;</strong>
-
-
-                                    <!-- === BEGIN EDIT SECTION: HOT FLIES === -->
-
-                                    <?php echo $sugarcreek_hot_flies; ?>
-
-                                    <!-- === END EDIT SECTION: HOT FLIES === -->
 
                                   </p>
                                 </div>
