@@ -2015,6 +2015,7 @@ nav.navigation.post-navigation {
 
 }
 
+@import "supports/variables/colors";
 @import "supports/sections-template";
 @import 'supports/variables';
 @import 'supports/travel-blog';
@@ -2052,7 +2053,8 @@ nav.navigation.post-navigation {
 @import "supports/travel_form_posts";
 @import "supports/travel-questionnaire";
 @import "supports/guest-data-app";
-
+@import "supports/page";
+@import "supports/post";
 
 /*@import "supports/side-nav";*/
 

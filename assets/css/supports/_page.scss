@@ -1,0 +1,14 @@
+.page {
+  #primary {
+    .entry-content {
+      a {
+        color: $page-post-link-color;
+      }
+    }
+    aside {
+      a {
+        color: $page-post-link-color;
+      }
+    }
+  }
+}

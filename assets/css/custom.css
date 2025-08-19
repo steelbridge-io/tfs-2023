@@ -2109,6 +2109,8 @@ nav.navigation.post-navigation .polls.nav-previous .fa-chevron-left {
     min-height: 171px;
   }
 }
+/* COLORS ******/
+/* Links */
 /** Sections Template CSS */
 #sections-hero-image.template-header {
   height: 700px;
@@ -4926,6 +4928,20 @@ dl.hero-logo-info.landing-hd {
 
 .gda-search-wrapper {
   margin: 1.618em auto;
+}
+
+.page #primary .entry-content a {
+  color: #0000ff;
+}
+.page #primary aside a {
+  color: #0000ff;
+}
+
+.single #primary .entry-content a {
+  color: #0000ff;
+}
+.single #primary aside a {
+  color: #0000ff;
 }
 
 /*@import "supports/side-nav";*/
