@@ -3817,6 +3817,28 @@ body.default-template .outer .wrap .container #primary #main article .entry-cont
   z-index: 1;
 }
 
+#blog-template-basic-hero-image.template-header {
+  position: relative;
+  height: 600px;
+  margin-top: 3em;
+}
+
+@media (max-width: 767.98px) {
+  #blog-template-basic-hero-image.template-header {
+    position: relative;
+    height: 500px;
+  }
+  .basicpagelogo.signature-header.template-class.text-center {
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+  }
+}
+@media (min-width: 2000px) {
+  #blog-template-basic-hero-image.template-header {
+    position: relative;
+    height: 1200px;
+  }
+}
 /* Archive styles **/
 #archive-container .archive .col-md-9 .card:nth-of-type(odd) {
   background-color: #eee;
