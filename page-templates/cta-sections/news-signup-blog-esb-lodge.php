@@ -6,7 +6,7 @@
 
         <div id="pop-over-fp" class="form-group link-color-tfs-red">
             <div>
-                <label for="exampleInputEmail2"><h3>Get Fishing Reports From Espirito Santo Bay Lodge</h3></label>
+                <label for="exampleInputEmail2"><h3>Get the Latest News From Espirito Santo Bay Lodge</h3></label>
             </div>
             <div id="constant-contact-container" class="constant-contact-sign-up-container">
                 <div class="row">
