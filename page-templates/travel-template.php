@@ -508,7 +508,7 @@ include_once('cta-sections/news-signup-blog-rio-marie.php' );
 
                 <div class="row row-flex-sth-title">
                     <div id="setthehook-title" class="col-md-8 col-md-offset-2">
-                        <h2>What Makes This Destination Special and Unique?</h2>
+                        <h2>Why We Endorse This Destination:<br><?php the_title(); ?></h2>
                     </div>
                 </div>
 
